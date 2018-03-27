@@ -1,0 +1,94 @@
+.typeselect {
+  width: 100%;
+  background-color: #f7f6fb;
+}
+.typeselect .head {
+  background-color: #ffffff;
+  border-bottom: 0.01rem solid #dddddd;
+}
+.typeselect .head .headback {
+  width: 0.3rem;
+  height: 0.3rem;
+  margin-right: -0.3rem;
+  border-top: 0.05rem solid #1b81d2;
+  border-right: 0.05rem solid #1b81d2;
+  margin-top: 0.3rem;
+  transform: rotateZ(-135deg);
+}
+.typeselect .head span {
+  font-size: 0.32rem;
+  color: #1b81d2;
+  line-height: 0.88rem;
+  margin-left: 0.3rem;
+}
+.typeselect .head h3 {
+  font-size: 0.36rem;
+  line-height: 0.88rem;
+  color: #000000;
+  margin-left: 1.8rem;
+}
+.typeselect .callbackinfo {
+  background-color: #ffffff;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+}
+.typeselect .callbackinfo .imgbox {
+  margin-left: 0.3rem;
+  height: 1.6rem;
+}
+.typeselect .callbackinfo .imgbox img {
+  height: 100%;
+}
+.typeselect .callbackinfo .information {
+  margin-left: 0.3rem;
+}
+.typeselect .callbackinfo .information h5 {
+  line-height: 0.66rem;
+  font-size: 0.34rem;
+  color: #333333;
+}
+.typeselect .callbackinfo .information .recovery_price {
+  font-size: 0.28rem;
+}
+.typeselect .callbackinfo .information .recovery_price .young {
+  font-size: 0.28rem;
+  color: #f4333c;
+}
+.typeselect .callbackinfo .information .recovery_price .young span {
+  font-size: 0.36rem;
+  color: #f4333c;
+}
+.typeselect .classchange {
+  margin-top: 0.25rem;
+  padding-bottom: 0.8rem;
+  background-color: #ffffff;
+}
+.typeselect .classchange .titlename {
+  font-size: 0.34rem;
+  line-height: 0.94rem;
+  color: #333333;
+  margin-left: 0.3rem;
+}
+.typeselect .classchange .class_change_list {
+  width: 100%;
+}
+.typeselect .classchange .class_change_list li {
+  margin-left: 0.3rem;
+  width: 3.3rem;
+  height: 0.6rem;
+  margin-top: 0.3rem;
+}
+.typeselect .classchange .class_change_list li a {
+  display: block;
+  line-height: 0.6rem;
+  text-align: center;
+  color: #666666;
+  font-size: 0.3rem;
+  border: 0.01rem solid #666666;
+}
+.typeselect .classchange .class_change_list li .active {
+  background-color: #00a0e9;
+  color: #ffffff;
+  border: 0.01rem solid #00a0e9;
+}

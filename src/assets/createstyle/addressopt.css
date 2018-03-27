@@ -1,0 +1,151 @@
+html {
+  height: 100%;
+}
+body {
+  margin: 0;
+  height: 100%;
+  background-color: #f7f6fb;
+}
+.addressopt {
+  width: 100%;
+  background-color: #f5f5f9;
+}
+.addressopt .head {
+  background-color: #ffffff;
+  border-bottom: 0.01rem solid #dddddd;
+}
+.addressopt .head .headback {
+  width: 0.3rem;
+  height: 0.3rem;
+  margin-right: -0.3rem;
+  border-top: 0.05rem solid #1b81d2;
+  border-right: 0.05rem solid #1b81d2;
+  margin-top: 0.3rem;
+  transform: rotateZ(-135deg);
+}
+.addressopt .head span {
+  font-size: 0.32rem;
+  color: #1b81d2;
+  line-height: 0.88rem;
+  margin-left: 0.3rem;
+}
+.addressopt .head h3 {
+  font-size: 0.36rem;
+  line-height: 0.88rem;
+  color: #000000;
+  margin-left: 1.8rem;
+}
+.addressopt .step_call {
+  background-color: #ffffff;
+  padding-bottom: 0.5rem;
+}
+.addressopt .step_call h3 {
+  font-size: 0.34rem;
+  text-align: center;
+  line-height: 0.88rem;
+}
+.addressopt .step_call .reward {
+  color: #444444;
+  font-size: 0.34rem;
+  margin-top: 0.3rem;
+  font-family: Regular;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.addressopt .step_call .icon_smaell {
+  width: 0.64rem;
+  height: 0.64rem;
+  background: url('../icon_small.png') no-repeat;
+  background-size: 100%;
+  margin: 0 auto;
+  margin-top: 0.35rem;
+}
+.addressopt .step_call .step_list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.addressopt .step_call .step_list .item {
+  width: 1.58rem;
+  position: relative;
+}
+.addressopt .step_call .step_list .item .step_num {
+  margin: 0 auto;
+  width: 0.48rem;
+  height: 0.48rem;
+  background-color: #00a0e9;
+  line-height: 0.48rem;
+  text-align: center;
+  color: #ffffff;
+  font-size: 0.24rem;
+  border-radius: 50%;
+}
+.addressopt .step_call .step_list .item span {
+  color: #666666;
+  font-size: 0.3rem;
+  display: block;
+  margin-top: 0.2rem;
+}
+.addressopt .step_call .step_list .item .xuxian {
+  border-top: 1px dashed #888888;
+  width: 0.53rem;
+  position: absolute;
+  top: 0.3rem;
+  right: -0.25rem;
+}
+.addressopt .hsdiqu {
+  margin-top: 0.22rem;
+  background-color: #ffffff;
+}
+.addressopt .hsdiqu h5 {
+  font-size: 0.34rem;
+  line-height: 0.9rem;
+  margin-left: 0.45rem;
+}
+.addressopt .hsdiqu .text {
+  width: 5rem;
+  margin-left: 0.16rem;
+  font-size: 0.3rem;
+  line-height: 0.9rem;
+  color: #a4a9b0;
+}
+.addressopt .hsdiqu .text span {
+  width: 0.3rem;
+  height: 0.3rem;
+  border-top: 5px solid #a4a9b0;
+  border-right: 5px solid #a4a9b0;
+  margin-top: 0.3rem;
+  transform: rotateZ(45deg);
+}
+.addressopt .next .add_info {
+  display: inline-block;
+  color: #383838;
+  font-size: 0.26rem;
+  line-height: 0.65rem;
+}
+.addressopt .next .add_info:before {
+  content: '';
+  background: url('../addinfoicon.png') no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-top: 0.12rem;
+  vertical-align: top;
+  margin-left: 0.35rem;
+}
+.addressopt .next .nextbutton {
+  width: 6.9rem;
+  height: 0.84rem;
+  color: #ffffff;
+  font-size: 0.36rem;
+  line-height: 0.84rem;
+  text-align: center;
+  background-color: #00a0e9;
+  margin: 0.3rem auto 0;
+  border-radius: 0.1rem;
+}
+.addressopt .next .nextbutton a {
+  color: #ffffff;
+  display: block;
+}

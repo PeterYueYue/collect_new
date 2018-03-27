@@ -1,0 +1,131 @@
+body {
+  background: #f7f6fb;
+  color: #333;
+  padding-bottom: 1rem;
+}
+a {
+  color: #333;
+}
+.home_wrap {
+  width: 100%;
+}
+.home_wrap_banner {
+  width: 100%;
+  height: 2.8rem;
+}
+.home_wrap_item {
+  padding: 0.3rem;
+  background: #fff;
+  margin-top: 0.18rem;
+}
+.home_wrap_item .time {
+  font-size: 0.28rem;
+}
+/* 待接单 */
+.home_wrap_item .time span.waiting {
+  float: right;
+  font-size: 0.3rem;
+  color: #29aa90;
+}
+/* 已派单 */
+.home_wrap_item .time span.complete {
+  float: right;
+  font-size: 0.3rem;
+  color: #ffb414;
+}
+/* 已接单 */
+.home_wrap_item .time span.already {
+  float: right;
+  font-size: 0.3rem;
+  color: #00a0e9;
+}
+.home_wrap_item .content {
+  overflow: hidden;
+  padding-top: 0.3rem;
+  padding-left: 1.92rem;
+}
+.home_wrap_item .content .pic {
+  float: left;
+  width: 1.62rem;
+  height: 1.61rem;
+  margin-left: -1.92rem;
+}
+.home_wrap_item .content .name {
+  font-size: 0.34rem;
+}
+.home_wrap_item .content .price {
+  font-size: 0.28rem;
+  margin-top: 0.58rem;
+}
+.home_wrap_item .content .price span {
+  color: #f4333c;
+}
+.home_wrap_icon {
+  width: 1rem;
+  height: 1.3rem;
+  margin: 1.2rem auto 0;
+}
+.home_wrap_ordername {
+  font-size: 0.36rem;
+  margin-top: 54px;
+  text-align: center;
+}
+.home_wrap_btnname {
+  font-size: 0.28rem;
+  margin-top: 32px;
+  color: #888888;
+  text-align: center;
+}
+.home_wrap_footer {
+  width: 100%;
+  height: 1.02rem;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+}
+.home_wrap_footer_tbg {
+  position: fixed;
+  bottom: 1.02rem;
+  width: 100%;
+}
+.home_wrap_footer .footer_circle {
+  box-sizing: border-box;
+  width: 1.17rem;
+  height: 1.16rem;
+  border-radius: 100%;
+  background: #00a0e9;
+  position: absolute;
+  bottom: 0.11rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.3rem;
+  color: #fff;
+  text-align: center;
+  padding-top: 0.15rem;
+}
+.home_wrap_footer .footer_left {
+  float: left;
+  width: 3.16rem;
+  position: relative;
+}
+.home_wrap_footer .footer_right {
+  float: right;
+  width: 3.16rem;
+  position: relative;
+}
+.home_wrap_footer img {
+  width: 0.61rem;
+  height: 0.61rem;
+  position: absolute;
+  top: 0.05rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.home_wrap_footer span {
+  position: absolute;
+  top: 0.65rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.22rem;
+  color: #888;
+}

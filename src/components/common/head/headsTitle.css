@@ -1,0 +1,25 @@
+.head {
+  background-color: #ffffff;
+  border-bottom: 0.01rem solid #dddddd;
+}
+.head .headback {
+  width: 0.3rem;
+  height: 0.3rem;
+  margin-right: -0.3rem;
+  border-top: 0.05rem solid #1b81d2;
+  border-right: 0.05rem solid #1b81d2;
+  margin-top: 0.3rem;
+  transform: rotateZ(-135deg);
+}
+.head span {
+  font-size: 0.32rem;
+  color: #1b81d2;
+  line-height: 0.88rem;
+  margin-left: 0.3rem;
+}
+.head h3 {
+  font-size: 0.36rem;
+  line-height: 0.88rem;
+  color: #000000;
+  margin-left: 1.8rem;
+}

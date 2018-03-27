@@ -1,0 +1,121 @@
+.estimate {
+  width: 100%;
+  background-color: #f5f5f9;
+}
+.estimate .head {
+  background-color: #ffffff;
+  border-bottom: 0.01rem solid #dddddd;
+}
+.estimate .head .headback {
+  width: 0.3rem;
+  height: 0.3rem;
+  margin-right: -0.3rem;
+  border-top: 0.05rem solid #1b81d2;
+  border-right: 0.05rem solid #1b81d2;
+  margin-top: 0.3rem;
+  transform: rotateZ(-135deg);
+}
+.estimate .head span {
+  font-size: 0.32rem;
+  color: #1b81d2;
+  line-height: 0.88rem;
+  margin-left: 0.3rem;
+}
+.estimate .head h3 {
+  font-size: 0.36rem;
+  line-height: 0.88rem;
+  color: #000000;
+  margin-left: 1.8rem;
+}
+.estimate .callbackinfo {
+  background-color: #ffffff;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+}
+.estimate .callbackinfo img {
+  margin-left: 0.3rem;
+  height: 1.6rem;
+}
+.estimate .callbackinfo .information {
+  margin-left: 0.3rem;
+}
+.estimate .callbackinfo .information h5 {
+  line-height: 0.66rem;
+  font-size: 0.34rem;
+  color: #333333;
+}
+.estimate .callbackinfo .information .recovery_price {
+  font-size: 0.28rem;
+}
+.estimate .callbackinfo .information .recovery_price .young {
+  font-size: 0.28rem;
+  color: #f4333c;
+}
+.estimate .callbackinfo .information .recovery_price .young span {
+  font-size: 0.36rem;
+  color: #f4333c;
+}
+.estimate .reference_price {
+  width: 100%;
+  margin: 0.21rem 0;
+  background-color: #ffffff;
+}
+.estimate .reference_price span {
+  font-size: 0.34rem;
+  color: #333333;
+  line-height: 0.92rem;
+  margin-left: 0.32rem;
+}
+.estimate .reference_price .btna {
+  font-size: 0.3rem;
+  color: #00a0e9;
+  height: 0.34rem;
+  line-height: 0.34rem;
+  margin-top: 0.3rem;
+  margin-right: 0.32rem;
+}
+.estimate .authority {
+  padding-bottom: 0.31rem;
+  padding-top: 0.31rem;
+  background-color: #ffffff;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.estimate .authority .item {
+  width: 2.2rem;
+  text-align: center;
+  margin: 0 0.1rem;
+}
+.estimate .authority .item .imgbox {
+  margin: 0 auto;
+  width: 0.8rem;
+  height: 0.8rem;
+}
+.estimate .authority .item .imgbox img {
+  width: 100%;
+  height: 100%;
+}
+.estimate .authority .item span {
+  width: 100%;
+  display: block;
+  font-size: 0.3rem;
+  color: #333333;
+  line-height: 0.66rem;
+}
+.estimate .nextbutton {
+  width: 6.9rem;
+  height: 0.84rem;
+  color: #ffffff;
+  font-size: 0.36rem;
+  line-height: 0.84rem;
+  text-align: center;
+  background-color: #00a0e9;
+  margin: 0.5rem auto 0;
+  border-radius: 0.1rem;
+}
+.estimate .nextbutton a {
+  color: #ffffff;
+  display: block;
+}

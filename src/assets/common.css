@@ -1,0 +1,41 @@
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: pingfontweb, "PingFang-SC-Medium", Helvetica, Roboto, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Jhenghei", sans-serif;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:active, a:hover {
+  outline: 0;
+}
+
+img {
+  border: 0;
+  display: block;
+}
+
+ul, li {
+  list-style-type: none;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-weight: normal;
+  line-height: 0;
+}
+

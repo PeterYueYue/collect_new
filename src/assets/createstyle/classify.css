@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  height: 100%;
+  background-color: #f7f6fb;
+}
+.classify {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.classify .head {
+  background-color: #ffffff;
+  border-bottom: 0.01rem solid #dddddd;
+}
+.classify .head .headback {
+  width: 0.3rem;
+  height: 0.3rem;
+  margin-right: -0.3rem;
+  border-top: 0.05rem solid #1b81d2;
+  border-right: 0.05rem solid #1b81d2;
+  margin-top: 0.3rem;
+  transform: rotateZ(-135deg);
+}
+.classify .head span {
+  font-size: 0.32rem;
+  color: #1b81d2;
+  line-height: 0.88rem;
+  margin-left: 0.3rem;
+}
+.classify .head h3 {
+  font-size: 0.36rem;
+  line-height: 0.88rem;
+  color: #000000;
+  margin-left: 1.8rem;
+}
+.classify .content {
+  height: 100%;
+  flex-grow: 1;
+  display: flex;
+}
+.classify .content .commodity {
+  background-color: #ffffff;
+  border-right: 0.01rem solid #dddddd;
+}
+.classify .content .commodity .active {
+  background-color: #f7f6fb;
+  color: #00a0e9;
+}
+.classify .content .commodity .item {
+  border-bottom: 0.01rem solid #dddddd;
+  border-right: 0.01rem solid #dddddd;
+  font-size: 0.3rem;
+  line-height: 0.9rem;
+}
+.classify .content .pinlei {
+  width: 5.59rem;
+}
+.classify .content .pinlei .title {
+  background-color: #f7f6fb;
+}
+.classify .content .pinlei .title span {
+  width: 0.59rem;
+  height: 0.01rem;
+  margin-top: 0.5rem;
+  background-color: #333333;
+}
+.classify .content .pinlei .title .left_line {
+  margin-right: 0.1rem;
+  margin-left: 1.78rem;
+}
+.classify .content .pinlei .title .right_line {
+  margin-left: 0.1rem;
+}
+.classify .content .pinlei .title h5 {
+  font-size: 0.3rem;
+  color: #333333;
+  line-height: 1rem;
+  font-family: PingFang-SC-Regular;
+}
+.classify .content .linlei_list {
+  width: 5.59rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+.classify .content .linlei_list .item {
+  width: 1.6rem;
+  margin-left: 0.2rem;
+  margin-top: 0.4rem;
+}
+.classify .content .linlei_list .item img {
+  width: 100%;
+  height: 1.2rem;
+  vertical-align: top;
+}
+.classify .content .linlei_list .item span {
+  text-align: center;
+  font-size: 0.24rem;
+  display: block;
+  line-height: 0.4rem;
+}

@@ -1,0 +1,98 @@
+@rem:100rem;
+
+
+.selectBox{
+    width: 100%;
+    
+    .head{
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: #ffffff;
+        border-bottom: 1/@rem solid #dddddd;
+        .headback{
+            width: 30/@rem;
+            height: 30/@rem;
+            margin-right: -30/@rem;
+            border-top: 5/@rem solid #1b81d2;
+            border-right: 5/@rem solid #1b81d2;
+            margin-top: 30/@rem;
+            transform:rotateZ(-135deg);
+        }
+        span{
+            font-size: 32/@rem;
+            color: #1b81d2;
+            line-height: 88/@rem;
+            margin-left: 30/@rem;
+        }
+        h3{
+            font-size: 36/@rem;
+            line-height: 88/@rem;
+            color: #000000;
+            margin-left: 180/@rem;
+        }
+        
+    }
+    .selConentbox{
+        position: fixed;
+        width: 100%;
+        background-color: #ffffff;
+        top: 90/@rem;
+        left: 0;
+        .nowsel{
+            padding-left: 30/@rem;
+            line-height: 60/@rem;
+            font-size: 28/@rem;
+            background-color: #f5f5f9;
+        }
+        .selected{
+            display: flex;
+            padding: 20/@rem 0;
+            padding-left: 30/@rem;
+            border-bottom: 1/@rem  solid #f5f5f9;
+            span{
+                margin-right: 20/@rem;
+                line-height: 50/rem;
+                font-size: 28/@rem;
+            }    
+            .active{
+                color: red;
+            }
+        }
+        
+    }
+    .elelist{
+        margin-top: 230/@rem;
+        padding-bottom: 100/@rem;
+        width: 100%;
+        
+        li{ 
+            
+            // height: 80/@rem;
+            line-height: 80/@rem;
+            letter-spacing: 5/@rem;
+            width: 100%;
+            text-align: left; 
+            text-indent:30/@rem;  
+            font-size: 34/@rem;
+            color: black;
+            background-color: #ffffff;
+            border-bottom: 1/@rem  solid #f5f5f9; 
+            
+            
+            a{
+                display: block;
+                color: #000000;
+                text-indent: 0;
+                padding: 0 50/@rem;
+            }
+            
+        }
+        // li:nth-of-type(odd){
+        //     background-color: #f5f5f9;
+        // }
+    }
+
+
+}

@@ -1,0 +1,55 @@
+.promptbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.promptbox .textbox {
+  text-align: center;
+  width: 5.9rem;
+  height: 5.03rem;
+  background-color: #FFF;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 0.15rem;
+}
+.promptbox .textbox h3 {
+  font-size: 0.34rem;
+  height: 0.4rem;
+  color: #333333;
+  margin-top: 0.5rem;
+}
+.promptbox .textbox .info {
+  text-align: left;
+  margin: 0 0.25rem;
+  font-size: 0.3rem;
+  line-height: 0.48rem;
+  color: #333333;
+}
+.promptbox .textbox .info .community {
+  width: 100%;
+}
+.promptbox .textbox .info .community .communityItem {
+  width: 100%;
+  font-size: 0.3rem;
+  line-height: 0.48rem;
+  color: #333333;
+}
+.promptbox .textbox a {
+  display: block;
+  line-height: 0.82rem;
+  color: #00a0e9;
+  font-size: 0.34rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  border-top: 0.01rem solid #dddddd;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>ant-collect</title>
+     <!--忽略电话号码和email识别-->
+     <meta name="format-detection" content="telephone=no" />
+     <meta name="format-detection" content="email=no" />
+     <!--当网站添加到主屏幕快速启动方式，将网站添加到主屏幕快速启动方式-->
+     <meta name="apple-mobile-web-app-capable" content="yes" />
+     <!--隐藏ios上的浏览器地址栏-->
+     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+     <!-- UC默认竖屏 ，UC强制全屏-->
+     <meta name="full-screen" content="yes">
+     <meta name="browsermode" content="application">
+     <!-- QQ强制竖屏 QQ强制全屏-->
+     <meta name="x5-orientation" content="portrait">
+     <meta name="x5-fullscreen" content="true">
+     <meta name="x5-page-mode" content="app">
+     <!-- <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no,telephone=no,address=no"> -->
+
+     <!-- 支付宝文档需要用到的js -->
+     <script src="https://gw.alipayobjects.com/as/g/h5-lib/alipayjsapi/3.1.0/alipayjsapi.min.js"></script>
+     <script src="https://static.zhongan.com/website/life/kefu/dist/polyfill.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+  <script type="text/javascript">
+    var scale = 1 / devicePixelRatio;
+    document.querySelector('meta[name="viewport"]').setAttribute('content', 'initial-scale=' + scale +
+        ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+    document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+    //判断手机横竖屏状态：
+    function hengshuping() {
+        if (window.orientation == 180 || window.orientation == 0) {
+            document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+        }
+        if (window.orientation == 90 || window.orientation == -90) {
+            document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+        }
+    }
+    window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
+    window.onresize = function () {
+        var wid = document.body.clientWidth || document.documentElement.clientWidth;
+        var fz = wid / 7.5;
+        document.getElementsByTagName("html")[0].style.fontSize = fz + "px";
+    };
+
+</script>
+</html>
