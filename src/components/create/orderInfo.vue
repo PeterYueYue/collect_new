@@ -40,26 +40,11 @@
                 <a href="javaScript:;">  
                 </a>
             </div>
-
         </div>
-        
-        <!-- <yd-cell-group>
-            <yd-cell-item arrow>
-                <span slot="left">上门时间：</span>
-                <yd-datetime type="datetime" v-model="datetime5" slot="right"></yd-datetime>
-            </yd-cell-item>
-        </yd-cell-group> -->
-
-        
-        
-            
-       
-         
         <div class="estimatePrice clearfix">
             <strong class="fl">回收估计</strong>
             <span class="fr">￥{{futurePrice}}</span>
-        </div>
-        
+        </div>        
     </div>
     <div class="information">实际成交价格最终验机结果为准</div>
     <div class="nextbutton  ">
@@ -78,8 +63,8 @@
 
         <div class="btnBox">
             <h5>请选择上门具体时间段</h5>
-            <span>上午</span>
-            <span>下午</span>
+            <span   @click="setTimeInfoAm()"   >上午</span>
+            <span   @click="setTimeInfoPm()" >下午</span>
         </div>
     </div>
 
@@ -96,10 +81,10 @@ export default {
         return {
             nameValue:'',
             phoneNumber: '',
-            datetime5: '2018-01-11 06:06',
+            datetime5: '2018-01-11 上午',
             time :'请选择上门回收时间',
-            show:false
-            
+            show:false,
+           
         }
     },
     computed: mapGetters({
@@ -109,30 +94,33 @@ export default {
 
     }),
     methods:{
+        setTimeInfoAm(){
+            this.show = false;
+            alert("am")
+        },
+        setTimeInfoPm(){
+            this.show = false;
+            alert("pm")
+            
+        },
         backbtn(){
             this.$router.go(-1);
         },
         setTime(){
-
             var antThis = this;
-            
-                
             ap.datePicker({
-                formate: 'yyyy-MM-dd HH:mm:ss',
+                formate: 'yyyy-MM-dd HH:mm:',
                 currentDate: '2018-03-25 15:11:11',
                 startDate: '2018-03-01 11:11:11',
                 endDate: '2018-12-30 11:11:11'
             }, function(res) {
-
-                antThis.time = res.date;
-                alert(antThis.time);
-
+                
+                if(res.date){
+                    antThis.show = true;
+                    antThis.time = res.date;
+                }
             
-
             });
-
-            
-
 
         },
         isName(){
@@ -141,7 +129,6 @@ export default {
             reg=/^([\u4e00-\u9fa5]){2,7}$/;       //只能是中文，长度为2-7位
             if(!reg.test(str)){       
                     alert("对不起,您输入正确的名字格式!");//请将“字符串类型”要换成你要验证的那个属性名称！   
-                 
             }       
         },
         isPhoneNumber(){

@@ -31,11 +31,11 @@
   margin-left: 1.8rem;
 }
 .selectBox .selConentbox {
-  /* position: fixed; */
+  position: fixed;
   width: 100%;
   background-color: #ffffff;
-  /* top: 0.9rem; */
-  /* left: 0; */
+  top: 0;
+  left: 0;
 }
 .selectBox .selConentbox .nowsel {
   padding-left: 0.3rem;
@@ -58,7 +58,7 @@
   color: red;
 }
 .selectBox .elelist {
-  /* margin-top: 2.3rem; */
+  margin-top: 1.4rem;
   padding-bottom: 1rem;
   width: 100%;
 }
