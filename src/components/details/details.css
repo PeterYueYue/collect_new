@@ -342,12 +342,12 @@ label {
 .details_shadow_code .code_text {
   text-align: center;
   font-size: 0.34rem;
-  margin-top: 1.39rem;
+  margin-top: 1.2rem;
 }
 
 .details_shadow_code .pic_code {
   position: absolute;
-  top: 2.1rem;
+  top: 2rem;
   left: 50%;
   transform: translateX(-50%);
   width: 4.1rem;
