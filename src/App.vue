@@ -1,11 +1,11 @@
 <template>
-  <div style="height:100%;" id="app">
+  <div style="height:100%;display:flex;" id="app">
     <router-view/>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+  export default {
+    name: 'App'
+  }
 </script>

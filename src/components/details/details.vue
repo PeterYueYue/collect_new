@@ -194,13 +194,11 @@
         this.showShadow = true;
         this.showOrders = true;
         document.querySelector('.details_wrap').style.overflow = 'hidden';
-        document.querySelector('.details_wrap').style.height = '100%';
       },
       closeOrders() {
         this.showShadow = false;
         this.showOrders = false;
         document.querySelector('.details_wrap').style.overflow = 'auto';
-        document.querySelector('.details_wrap').style.height = 'auto';
       },
       openEvaluation() {
         this.showShadow = true;
