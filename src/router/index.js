@@ -32,6 +32,7 @@ import home from '@/components/details/home.vue'
 import details from '@/components/details/details.vue'
 import orders from '@/components/details/orders.vue'
 import records from '@/components/details/records.vue'
+import imgView from '@/components/details/imgView.vue'
 
 Vue.use(Router)
 
@@ -53,6 +54,11 @@ export default new Router({
       component: details
     },
     {
+      path: '/imgView',
+      name: 'imgView',
+      component: imgView
+    },
+    {
       path: '/records',
       name: 'records',
       component: records
@@ -65,13 +71,13 @@ export default new Router({
     // {
     //   path: '/addressoption',
     //   name: 'AddressOption',
-    //   component: AddressOption, 
-    //   children:[]  
+    //   component: AddressOption,
+    //   children:[]
     // },
     {
       path: '/addressel',
       name: 'addressel',
-      component: addressel,  
+      component: addressel,
       children:[
         {
           path: 'townSelect/:areaItem',
@@ -88,12 +94,12 @@ export default new Router({
           name: 'Cellseletion',
           component: Cellseletion,
         }
-      ] 
+      ]
     },
     {
       path: '/addressoption/:id',
       name: 'AddressOption',
-      component: AddressOption,   
+      component: AddressOption,
     },
     {
       path: '/typeSelect/:index',

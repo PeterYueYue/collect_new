@@ -14,12 +14,10 @@
       <div class="tab1" v-if="showTab">
         <div class="remind">信用累计可能会延迟,请耐心等待....</div>
         <div class="list">
-          <template v-for="item in recordsList"   >
-            <div class="list_item" v-if="item.type==='0'"  :key="item.type"    >
-              <div class="name">{{item.descrb}}<span>+{{item.point}}</span></div>
-              <div class="date">{{item.createDatePage}}</div>
-            </div>
-          </template>
+          <div class="list_item" v-for="item in recordsList" v-if="item.type==='0'" :key="item.id">
+            <div class="name">{{item.descrb}}<span>+{{item.point}}</span></div>
+            <div class="date">{{item.createDatePage}}</div>
+          </div>
         </div>
         <div class="loading">加载完成</div>
       </div>
@@ -27,12 +25,10 @@
       <div class="tab2" v-else>
         <div class="remind">截止昨天24:00前记录，仅限支付宝端兑换记录</div>
         <div class="list">
-          <template v-for="item in recordsList">
-            <div class="list_item" v-if="item.type==='1'" :key="item.type" >
-              <div class="name">{{item.descrb}}<span>-{{item.point}}</span></div>
-              <div class="date">{{item.createDatePage}}</div>
-            </div>
-          </template>
+          <div class="list_item" v-for="item in recordsList" v-if="item.type==='1'" :key="item.id">
+            <div class="name">{{item.descrb}}<span>-{{item.point}}</span></div>
+            <div class="date">{{item.createDatePage}}</div>
+          </div>
         </div>
         <div class="loading">加载完成</div>
       </div>
@@ -68,10 +64,12 @@
       openWindow() {
         this.showShadow = true;
         this.showBox = true;
+        document.querySelector('.records_wrap').style.overflow = 'hidden';
       },
       closeBox() {
         this.showShadow = false;
         this.showBox = false;
+        document.querySelector('.records_wrap').style.overflow = 'auto';
       },
       openTab(type) {
         this.showTab = type;
@@ -89,8 +87,8 @@
         console.log(res.data);
         this.documentNo = res.data[0];
         this.recordsList = res.data[1];
-      }).catch((erro) => {
-        console.log(erro)
+      }).catch((error) => {
+        console.log(error)
       })
     },
   }

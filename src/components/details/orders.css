@@ -1,71 +1,85 @@
 .orders_wrap {
   width: 100%;
 }
+
 .orders_wrap_item {
   padding: 0.3rem;
   background: #fff;
   margin-top: 0.18rem;
 }
+
 .orders_wrap_item .time {
   font-size: 0.28rem;
 }
+
 /* 已取消 */
 .orders_wrap_item .time span.cancel {
   float: right;
   font-size: 0.34rem;
   color: #f05a49;
 }
+
 /* 待接单 */
 .orders_wrap_item .time span.waiting {
   float: right;
   font-size: 0.34rem;
   color: #29aa90;
 }
+
 /* 已派单 */
 .orders_wrap_item .time span.complete {
   float: right;
   font-size: 0.34rem;
   color: #ffb414;
 }
+
 /* 已接单 */
 .orders_wrap_item .time span.already {
   float: right;
   font-size: 0.34rem;
   color: #00a0e9;
 }
+
 /* 已完成 */
 .orders_wrap_item .time span.succeed {
   float: right;
   font-size: 0.34rem;
   color: #00a0e9;
 }
+
 .orders_wrap_item .content {
   overflow: hidden;
   padding-top: 0.3rem;
   padding-left: 1.92rem;
 }
+
 .orders_wrap_item .content .pic {
   float: left;
   width: 1.62rem;
   height: 1.61rem;
   margin-left: -1.92rem;
 }
+
 .orders_wrap_item .content .name {
   font-size: 0.34rem;
 }
+
 .orders_wrap_item .content .price {
   font-size: 0.28rem;
   margin-top: 0.58rem;
 }
+
 .orders_wrap_item .content .price span {
   color: #f4333c;
 }
+
 .orders_wrap_text {
   width: 3.3rem;
-  margin: 0.5rem auto 0;
+  margin: 0.5rem auto;
   font-size: 0.28rem;
   color: #888;
 }
+
 .orders_wrap_text .line_lf {
   display: inline-block;
   width: 0.62rem;
@@ -75,6 +89,7 @@
   top: -0.1rem;
   right: 0.1rem;
 }
+
 .orders_wrap_text .line_rt {
   display: inline-block;
   width: 0.62rem;
