@@ -1,61 +1,77 @@
+.details_wrap {
+  margin-bottom: 1rem;
+}
+
 .details_wrap_item {
   padding: 0.3rem;
   background: #fff;
   border-bottom: 0.01rem #dddddd solid;
 }
+
 .details_wrap_item .time {
   font-size: 0.32rem;
 }
+
 /* 平台已取消，已取消 */
 .details_wrap_item .time span.cancel {
   float: right;
   font-size: 0.34rem;
   color: #f05a49;
 }
+
 /* 已完成，已接单 */
 .details_wrap_item .time span.succeed {
   float: right;
   font-size: 0.34rem;
   color: #00a0e9;
 }
+
 /* 待接单 */
 .details_wrap_item .time span.waiting {
   float: right;
   font-size: 0.34rem;
   color: #29ab91;
 }
+
 /* 已派单 */
 .details_wrap_item .time span.complete {
   float: right;
   font-size: 0.34rem;
   color: #ffb414;
 }
+
 .details_wrap_item .date {
   font-size: 0.24rem;
   color: #888;
   margin-top: 0.1rem;
 }
+
 .details_wrap_item .content {
   overflow: hidden;
   padding-top: 0.3rem;
   padding-left: 1.92rem;
 }
+
 .details_wrap_item .content .pic {
   float: left;
   width: 1.62rem;
   height: 1.61rem;
   margin-left: -1.92rem;
 }
+
 .details_wrap_item .content .name {
   font-size: 0.34rem;
 }
+
 .details_wrap_item .content .price {
   font-size: 0.28rem;
   margin-top: 0.58rem;
 }
+
 .details_wrap_item .content .price span {
   color: #f4333c;
 }
+
 .details_wrap_time {
   position: relative;
   height: 1.08rem;
@@ -64,6 +80,7 @@
   font-size: 0.3rem;
   padding: 0 0.3rem;
 }
+
 .details_wrap_time .btn_cancel {
   position: absolute;
   top: 50%;
@@ -79,16 +96,19 @@
   font-size: 0.3rem;
   color: #666;
 }
+
 .details_wrap_reason {
   overflow: hidden;
   padding: 0.3rem;
   background: #fff;
   margin-top: 0.2rem;
 }
+
 .details_wrap_reason .why {
   position: relative;
   font-size: 0.34rem;
 }
+
 .details_wrap_reason .why .btn_view {
   position: absolute;
   top: 50%;
@@ -104,6 +124,7 @@
   font-size: 0.3rem;
   color: #666;
 }
+
 .details_wrap_reason .answer {
   font-size: 0.28rem;
   line-height: normal;
@@ -112,11 +133,13 @@
   overflow: hidden;
   margin-top: 0.1rem;
 }
+
 .details_wrap_reason .tel {
   font-size: 0.3rem;
   padding-left: 0.1rem;
   margin-top: 0.1rem;
 }
+
 .details_wrap_reason .tel .icon_tel {
   display: inline-block;
   width: 0.42rem;
@@ -125,33 +148,40 @@
   top: 0.1rem;
   right: 0.1rem;
 }
+
 .details_wrap_info {
   padding: 0 0 0.3rem 0.3rem;
   background: #fff;
   margin-top: 0.2rem;
   overflow: hidden;
 }
+
 .details_wrap_info .title {
   font-size: 0.34rem;
   margin-top: 0.22rem;
 }
+
 .details_wrap_info .picture {
   overflow: hidden;
   margin-top: 0.3rem;
 }
+
 .details_wrap_info .picture img {
   float: left;
   margin-right: 0.2rem;
   width: 1.61rem;
   height: 1.61rem;
 }
+
 .details_wrap_info .description {
   font-size: 0.32rem;
   margin-top: 0.3rem;
 }
+
 .details_wrap_info .lable {
   overflow: hidden;
 }
+
 .details_wrap_info .lable span {
   float: left;
   display: block;
@@ -165,15 +195,18 @@
   margin-top: 0.28rem;
   margin-right: 0.5rem;
 }
+
 .details_wrap_belongs {
   font-size: 0.28rem;
   color: #888;
-  margin-top: 1rem;
+  margin: 1rem 0;
   text-align: center;
 }
+
 .details_wrap_belongs .text:last-child {
   margin-top: 0.1rem;
 }
+
 .details_wrap_footbtn {
   position: fixed;
   bottom: 0;
@@ -185,6 +218,7 @@
   font-size: 0.3rem;
   color: #fff;
 }
+
 .details_shadow {
   position: fixed;
   top: 0;
@@ -192,6 +226,7 @@
   height: 100%;
   background: rgba(51, 51, 51, 0.7);
 }
+
 .details_shadow_box {
   box-sizing: border-box;
   position: absolute;
@@ -203,23 +238,45 @@
   background: #fff;
   border-radius: 0.2rem;
 }
+
 .details_shadow_box .title {
   font-size: 0.34rem;
   text-align: center;
   margin-top: 0.5rem;
 }
+
+.details_cancelSucceed_box {
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  background: #fff;
+  border-radius: 0.2rem;
+  font-size: 0.34rem;
+}
+
 /* radio */
 .button_holder {
   padding-left: 0.6rem;
   font-size: 0.3rem;
 }
+
 label {
   display: inline;
 }
+
 .regular_radio {
   display: none;
 }
+
 .regular_radio + label {
+  width: 100%;
+  display: block;
+}
+
+.regular_radio + label i {
   background-color: #fff;
   border: 0.01rem #939393 solid;
   width: 0.36rem;
@@ -231,7 +288,8 @@ label {
   right: 0.1rem;
   margin-top: 0.25rem;
 }
-.regular_radio:checked + label:after {
+
+.regular_radio:checked + label i:after {
   content: ' ';
   width: 0.28rem;
   height: 0.28rem;
@@ -241,6 +299,7 @@ label {
   left: 0.03rem;
   background: #99a1a7;
 }
+
 .button_footer {
   overflow: hidden;
   font-size: 0.34rem;
@@ -249,6 +308,7 @@ label {
   text-align: center;
   width: 100%;
 }
+
 .btn_cancel {
   float: left;
   width: 50%;
@@ -256,6 +316,7 @@ label {
   line-height: 0.88rem;
   border-top: 0.01rem #888888 solid;
 }
+
 .btn_confirm {
   float: left;
   color: #fff;
@@ -265,6 +326,7 @@ label {
   background: #00a0e9;
   border-radius: 0 0 0.2rem 0;
 }
+
 .details_shadow_code {
   width: 100%;
   height: 6.7rem;
@@ -272,6 +334,7 @@ label {
   bottom: 0;
   background: #fff;
 }
+
 .details_shadow_code .icon_delete {
   position: absolute;
   top: 0.3rem;
@@ -279,11 +342,13 @@ label {
   width: 0.42rem;
   height: 0.42rem;
 }
+
 .details_shadow_code .code_text {
   text-align: center;
   font-size: 0.34rem;
   margin-top: 1.39rem;
 }
+
 .details_shadow_code .pic_code {
   position: absolute;
   top: 2.1rem;
@@ -292,6 +357,7 @@ label {
   width: 4.1rem;
   height: 4.1rem;
 }
+
 .details_shadow_evaluation {
   position: absolute;
   top: 50%;
@@ -302,11 +368,13 @@ label {
   background: #fff;
   border-radius: 0.2rem;
 }
+
 .details_shadow_evaluation .title {
   font-size: 0.34rem;
   text-align: center;
   margin-top: 0.6rem;
 }
+
 .details_shadow_evaluation .evaStar {
   width: 4.1rem;
   overflow: hidden;
@@ -315,10 +383,12 @@ label {
   left: 50%;
   transform: translateX(-50%);
 }
+
 .details_shadow_evaluation .evaStar .star {
   font-size: 0;
   width: 4.1rem;
 }
+
 .details_shadow_evaluation .evaStar .star .star-item {
   display: inline-block;
   background-repeat: no-repeat;
@@ -327,18 +397,23 @@ label {
   height: 0.56rem;
   background-size: 100%;
 }
+
 .details_shadow_evaluation .evaStar .star .star-item:first-child {
   margin-left: 0;
 }
+
 .details_shadow_evaluation .evaStar .star .star-item.star-item.on {
   background-image: url(../../assets/icon_star.png);
 }
+
 .details_shadow_evaluation .evaStar .star .star-item.star-item.half {
   background-image: url(../../assets/icon_star.png);
 }
+
 .details_shadow_evaluation .evaStar .star .star-item.star-item.off {
   background-image: url(../../assets/icon_star_hover.png);
 }
+
 .details_shadow_evaluation .text {
   box-sizing: border-box;
   width: 5.3rem;
@@ -354,6 +429,7 @@ label {
   text-align: justify;
   padding: 0.25rem;
 }
+
 .details_shadow_evaluation .footer_btn {
   width: 100%;
   position: absolute;
