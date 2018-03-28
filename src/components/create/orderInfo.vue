@@ -49,8 +49,11 @@
     <div class="information">实际成交价格最终验机结果为准</div>
     <div class="nextbutton  ">
         <!-- <a  v-if="!isEnter"   style="background-color:#bfc5c8;"   href="javascript:;">提交订单</a> -->
-        <router-link  to="/home" >提交订单</router-link>
+        <a @click="completeAnOrder"   href="javascript:;">提交订单</a>
+
     </div>
+    
+
     <div class="information">提交订单后将有售后人员与您电话沟通，请保持手机畅通</div>
     <div class="bottomInformation">
         <div>本服务有爱回收有限公司提供</div>
@@ -67,13 +70,12 @@
             <span   @click="setTimeInfoPm()" >下午</span>
         </div>
     </div>
-
-    
   </div>
 </template>
 <script>
 import '@/assets/createstyle/tool.css'
 import '@/assets/createstyle/orderInfo.css'
+import api from '@/api/api.js'
 import { mapGetters } from 'vuex';
 // import DataTime from '@/components/create/common/dataTime.vue'
 export default {
@@ -84,24 +86,107 @@ export default {
             datetime5: '2018-01-11 上午',
             time :'请选择上门回收时间',
             show:false,
+            infoTm:''
+            
            
         }
     },
     computed: mapGetters({
         futurePrice         :   'futurePrice',      //预估价格
         appointmentTime     :   'appointmentTime',  //上门预约时间
-        selectedInfo        :   'selectedInfo'      //用来存储 地址选择 已选择信息
-
+        selectedInfo        :   'selectedInfo',      //用来存储 地址选择 已选择信息
+        imgsAddress         :   'imgsAddress',      //用户上传图片信息
+        addRessId           :   'addRessId',         //一级分类信息
+        categoryAttrOppIds  :   'categoryAttrOppIds'  //分类属性信息
     }),
     methods:{
+        completeAnOrder(){  
+
+            api.completeOrder({   
+                "app_key": "app_id_1",
+                "data": {
+                    "address": this.selectedInfo.cellseletionItem.address,  //地址
+                    "linkMan": this.nameValue,
+                    "orderItemBean": {
+                    "categoryAttrId": 0,                     
+                    "orderId": 0,
+                    "categoryAttrOppId": 0,
+                    "categoryAttrOppIds": this.categoryAttrOppIds,
+                    "categoryId": 0
+                    },
+                    "level": "0",
+                    "orderPic": {
+                    "new": true,
+                    "picUrl": this.picUrlAll,
+                    "orderId": 0,
+                    "origPic": this.originalAll,
+                    "smallPic": this.thumbnailAll,
+                    "delFlag": "0"
+                    },
+                    "isEvaluated": "0",
+                    "recyclerId": 0,
+                    "companyId": 0,     //企业ID
+                    "unit": "",   // 默认为空
+                    "areaId": this.selectedInfo.cellseletionItem.areaId,      //区域id
+                    "price": this.futurePrice,   //预估价格
+                    "qty": 9999,        //数量  选填
+                    "tel": this.phoneNumber,
+                    "communityId": this.selectedInfo.cellseletionItem.id,   //小区ID
+                    "categoryId": this.addRessId.id,    //一级分类ID  例如：家电、 
+                    "memberId": 0,
+                    "arrivalPeriod": this.infoTm,
+                    "arrivalTime": this.time
+                }
+            }).then((res)=>{
+                
+                alert("下单完成")
+
+            }).catch((err)=>{
+                console.log(err)
+
+            })
+
+        },
+        picUrlAll(){
+
+            var b  = []
+
+          let bigPic =  this.imgsAddress.forEach((e)=> {
+
+              b.push(e.bigPicture)
+          })
+
+          return b;
+
+        },
+        originalAll(){
+             var b  = []
+
+          let bigPic =  this.imgsAddress.forEach((e)=> {
+
+              b.push(e.original)
+          })
+
+          return b;
+        },
+        thumbnailAll(){
+
+           var b  = []
+
+          let bigPic =  this.imgsAddress.forEach((e)=> {
+
+              b.push(e.thumbnail)
+          })
+
+          return b; 
+        },
         setTimeInfoAm(){
             this.show = false;
-            alert("am")
+            this.infoTm = "am"
         },
         setTimeInfoPm(){
             this.show = false;
-            alert("pm")
-            
+            this.infoTm = "pm"
         },
         backbtn(){
             this.$router.go(-1);

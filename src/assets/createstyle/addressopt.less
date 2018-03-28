@@ -114,20 +114,25 @@ body{
         }
         .text{
             
-            width: 500/@rem;    
+            width: 450/@rem;    
             margin-left: 16/@rem;
             font-size: 30/@rem;
             line-height: 90/@rem;
             color: #a4a9b0;
-            span{
-                width: 30/@rem;
-                height: 30/@rem;
-                border-top: 5px solid #a4a9b0;
-                border-right: 5px solid #a4a9b0;
-                margin-top: 30/@rem;
-                transform:rotateZ(45deg);
-                
-            }
+            overflow: hidden;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+            
+        }
+        span{
+            width: 30/@rem;
+            height: 30/@rem;
+            border-top: 4px solid #a4a9b0;
+            border-right: 4px solid #a4a9b0;
+            margin-top: 30/@rem;
+            transform:rotateZ(45deg);
+            margin-right: 30/@rem;
+            
         }
     }
     .next{

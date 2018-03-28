@@ -170,6 +170,17 @@ var configFturePrices ={   //请求预估价格
 
 }
 
+var configComplete = {  //下单提交信息
+  "name": "order.create",
+	"format": "json",
+	"sign": "823385CC5F251B3D1D3135F85F7D32F7",
+	"version": "1.0",
+	"nonce": "7e79e517-85fe-4431-ad1b-098b445bc4aa",
+	"timestamp": 1522215112803,
+	"token": "3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24UAJWCBI7NJ42KSYJ2KXG2OVQSA6ZMU4VMMCLQUKIRXAWTX2BD3K6MDOZDBJ4Q62CYGOB7DVAUP4CYQAHL3JSQRIG7P2UO77IZBN7W3E4RZK42VEEUWCHGAZLS7LGRB4EVIIYSQVYYSGAETEUZC4JUVVV2UDRKIOBGXURUGYCOGKTBVFLZYU2QFPF2G4I7DVNKBWCOFWBQDLZLJYEDSPIL6T46KLPZ4O2ZIFJROTQ"
+
+}
+
 //回收分类
 export default {
   getClassify(params){  //取得所有一级分类
@@ -210,6 +221,10 @@ export default {
     var config =  Object.assign(configUpLoader,params)
     return axios.post(`${base}/ali/api`,config).then(res => res.data);
 
+  },
+  completeOrder(params){
+    var config = Object.assign(configComplete,params)
+    return axios.post(`${base}/ali/api`,config).then(res => res.data)
   },
   futurePrices(params){   //请求商品的预估价格
     var config =  Object.assign(configFturePrices,params)

@@ -92,6 +92,9 @@ export default {
             }
         }).then((res)=>{
             this.dataList = res.data;
+
+
+
         }).catch((erro)=>{
             console.log(erro)
         })
@@ -108,7 +111,8 @@ export default {
 
                 this.isActive = itemInfo.i
                 this.$store.dispatch('changeStatisticsPrice',e)
-
+                // this.$store.dispatch('setAttrOppids',itemInfo)
+                
 
                 setTimeout(()=>{
                     this.isShow+=1;

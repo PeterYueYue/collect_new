@@ -20,6 +20,7 @@ export default new Vuex.Store({
         subdistyictItem       : '',
         cellseletionItem      : '',
       },  
+      categoryAttrOppIds      : '',  //商品属性信息
       statisticsPrice         :'' , //搜集商品属性里的价格指数 来计算预估价格
       futurePrice             :'',  //预估价格
       textareaValue           :'',  //图片上传时描述信息
@@ -54,7 +55,10 @@ export default new Vuex.Store({
         this.state.selectedInfo.subdistyictItem = data.area;
       },
       Change_StatisticsPrice(state, data){   // 搜集预估价格信息
+
         this.state.statisticsPrice = this.state.statisticsPrice.concat(data.price,',')
+        this.state.categoryAttrOppIds = this.state.categoryAttrOppIds.concat(data.id,',')
+
       },
       Change_Future_Price(state, data){    //改变预估价信息
         this.state.futurePrice = data;
@@ -79,6 +83,7 @@ export default new Vuex.Store({
         this.state.imgsAddress  = a;
         
       }
+      
     },
     plugins: [createPersistedState({storage: window.sessionStorage})]
   })

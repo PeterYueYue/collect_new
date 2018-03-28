@@ -36,9 +36,9 @@ export var changeTextareaValue       = ({commit}, data)   =>{   //图片描述�
 export var changeAppointmentTime     = ({commit}, data)   =>{   //设定或改变预约时间
     commit(types.Change_Appointment_Time, data)
 }
-export var addImgsUrl                 = ({commit}, data)   =>{   //从服务器请求来的上传的图片呢地址信息
+export var addImgsUrl                = ({commit}, data)   =>{   //从服务器请求来的上传的图片呢地址信息
     commit(types.add_Imgs_Url, data)
 }
-export var removeImg                   = ({commit}, data)   =>{   //删除上传图片
+export var removeImg                 = ({commit}, data)   =>{   //删除上传图片
     commit(types.remove_Img, data)
 }

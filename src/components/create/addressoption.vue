@@ -39,8 +39,9 @@
             <h5 class="fl">回收地区</h5>
             <router-link class="text fl" to="/addressel/areaelecte"  >
                 {{userAddressInfo}}
-                <span class="fr"></span>
             </router-link>
+            <span class="fr"></span>
+            
         </div>
         <div class="next">
             <span class="add_info">找不到回收的小区?</span>

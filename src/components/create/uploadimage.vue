@@ -27,7 +27,7 @@
             <!-- 上传图片呢后显示 -->
             <div class="showimge">
                 <div  v-for="(item,index) in imgsAddress"  :key="item.id"    class="imgBox"   >
-                  <img  :src="imgsAddress[index][0].thumbnail"   alt="">
+                  <img  :src="imgsAddress[index].thumbnail"   alt="">
                   <div class="zhezhao"></div>
                   <van-icon  @click="removeImg(index)"  class="closeImg" name="clear" />
                 </div>
@@ -138,7 +138,7 @@ export default {
 
 
       api.upLoader({
-        "app_key": "app_id_1",
+        // "app_key": "app_id_1",
           "data": {
                 "fileContentBase64": file.content,
                 "fileName": file.file.name
@@ -146,10 +146,13 @@ export default {
         
       }).then((res)=>{
 
+
         console.log(res)
 
+        this.$store.dispatch("addImgsUrl", res.data[0]);
+
       }).catch((err) =>{
-        console.log(err)
+        console.log(err,1111)
       })
 
 
