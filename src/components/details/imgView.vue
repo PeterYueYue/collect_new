@@ -88,8 +88,6 @@
     width: .15rem;
     height: .15rem;
     text-align: center;
-    line-height: 20px;
-    font-size: 12px;
     color: #000;
     opacity: 1;
     background: rgba(0, 0, 0, 0.2);
