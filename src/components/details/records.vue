@@ -14,23 +14,37 @@
       <div class="tab1" v-if="showTab">
         <div class="remind">信用累计可能会延迟,请耐心等待....</div>
         <div class="list">
-          <div class="list_item" v-for="item in recordsList" v-if="item.type==='0'" :key="item.id">
-            <div class="name">{{item.descrb}}<span>+{{item.point}}</span></div>
-            <div class="date">{{item.createDatePage}}</div>
-          </div>
+          <scroller
+            :on-infinite="getRecords"
+          >
+            <!-- content goes here -->
+            <div class="list_item" v-for="item in recordsList" v-if="item.type==='0'" :key="item.id">
+              <div class="name">{{item.descrb}}<span>+{{item.point}}</span></div>
+              <div class="date">{{item.createDatePage}}</div>
+            </div>
+            <img src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" class="records_wrap_loading"
+                 v-show="showLoading"/>
+            <div class="loading" v-show="noMore">加载完成</div>
+          </scroller>
         </div>
-        <div class="loading">加载完成</div>
       </div>
       <!-- tab切换 -->
       <div class="tab2" v-else>
         <div class="remind">截止昨天24:00前记录，仅限支付宝端兑换记录</div>
         <div class="list">
-          <div class="list_item" v-for="item in recordsList" v-if="item.type==='1'" :key="item.id">
-            <div class="name">{{item.descrb}}<span>-{{item.point}}</span></div>
-            <div class="date">{{item.createDatePage}}</div>
-          </div>
+          <scroller
+            :on-infinite="getRecords"
+          >
+            <!-- content goes here -->
+            <div class="list_item" v-for="item in recordsList" v-if="item.type==='1'" :key="item.id">
+              <div class="name">{{item.descrb}}<span>-{{item.point}}</span></div>
+              <div class="date">{{item.createDatePage}}</div>
+            </div>
+            <img src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" class="records_wrap_loading"
+                 v-show="showLoading"/>
+            <div class="loading" v-show="noMore">加载完成</div>
+          </scroller>
         </div>
-        <div class="loading">加载完成</div>
       </div>
     </div>
     <!-- 弹窗 -->
@@ -58,9 +72,41 @@
         showTab: true,
         recordsList: {},
         documentNo: '',
+        pageNumber: 1,
+        pageSize: 10,
+        noMore: false,
+        showLoading: false
       }
     },
+    mounted() {
+      this.getRecords()
+    },
     methods: {
+      //获取数据
+      getRecords(done){
+        const {pageNumber, pageSize} = this;
+        this.showLoading = true;
+        api.getRecords({
+          "app_key": "app_id_1",
+          "data": {pageNumber, pageSize},
+        }).then((res) => {
+          console.log(res.data);
+          this.documentNo = res.data[0];
+          setTimeout(() => {
+            this.showLoading = false;
+            this.recordsList = [...this.recordsList, ...res.data[1]];
+            if (res.data[1].length < this.pageSize) {
+              /* 所有数据加载完毕 */
+              this.noMore = true;
+              return;
+            }
+            this.pageNumber += 1;
+            if (done) done();
+          }, 2000)
+        }).catch((error) => {
+          console.log(error)
+        })
+      },
       openWindow() {
         this.showShadow = true;
         this.showBox = true;
@@ -74,22 +120,6 @@
       openTab(type) {
         this.showTab = type;
       },
-    },
-    mounted() {
-      //获取数据
-      api.getRecords({
-        "app_key": "app_id_1",
-        "data": {
-          "pageNumber": 1,
-          "pageSize": 20
-        },
-      }).then((res) => {
-        console.log(res.data);
-        this.documentNo = res.data[0];
-        this.recordsList = res.data[1];
-      }).catch((error) => {
-        console.log(error)
-      })
     },
   }
 </script>
