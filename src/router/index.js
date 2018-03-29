@@ -33,6 +33,7 @@ import details from '@/components/details/details.vue'
 import orders from '@/components/details/orders.vue'
 import records from '@/components/details/records.vue'
 import imgView from '@/components/details/imgView.vue'
+import qrCode from '@/components/details/qrCode.vue'
 
 Vue.use(Router)
 
@@ -52,6 +53,11 @@ export default new Router({
       path: '/details',
       name: 'details',
       component: details
+    },
+    {
+      path: '/qrCode',
+      name: 'qrCode',
+      component: qrCode
     },
     {
       path: '/imgView',

@@ -8,9 +8,6 @@
           <img :src="items.picUrl" alt="">
         </swiper-slide>
         <div class="swiper-pagination swiper-pagination-bullets" slot="pagination"></div>
-        <!-- Optional controls -->
-        <div class="swiper-button-prev" slot="button-prev"></div>
-        <div class="swiper-button-next" slot="button-next"></div>
       </swiper>
     </div>
   </div>
