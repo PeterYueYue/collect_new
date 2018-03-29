@@ -2,6 +2,24 @@
   width: 100%;
 }
 
+._v-content {
+  padding-bottom: .5rem
+}
+
+.loading-layer {
+  display: none !important;
+}
+
+._v-container {
+  position: static!important;
+}
+
+.records_wrap_loading {
+  display: block;
+  margin: 0.4rem auto;
+  width: 0.6rem;
+}
+
 .records_wrap_top {
   position: relative;
   width: 100%;
