@@ -52,6 +52,14 @@
         showList: true,
       }
     },
+
+    created(){
+
+      var urlToken =  location.search;
+
+      alert(urlToken)
+
+    },
     mounted() {
       //存储token到本地
       var token = this.$route.query.token;

@@ -117,7 +117,7 @@
         detailsPic: {},
         detailsDes: {},
         id: this.$route.query.id,
-        cancelReason: '不想买了',
+        cancelReason: '不想卖了',
         evaluateText: '',
         showImgView: false,
         picUrl: [],
