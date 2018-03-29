@@ -131,7 +131,7 @@
       this.getEvaluate();
     },
     components: {
-      imgView,qrCode
+      imgView, qrCode
     },
     computed: { //计算属性
       itemClasses() {
@@ -230,7 +230,9 @@
         document.querySelector('.details_wrap').style.overflow = 'auto';
       },
       stars(index) {
-        this.score = index + 1
+        if (this.detailsList.isEvaluated === '0') {
+          this.score = index + 1
+        }
       },
       timedMsg() {
         setTimeout(() => {
