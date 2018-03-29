@@ -50,7 +50,7 @@
       <div class="text">400-8288-999</div>
     </div>
     <!-- 已派单状态才有 -->
-    <div class="details_wrap_footbtn" @click="openCode" v-show="detailsList.status=='TOSEND'">确认交易</div>
+    <!--<div class="details_wrap_footbtn" @click="openCode" v-show="detailsList.status=='TOSEND'">确认交易</div>-->
     <div class="details_shadow" v-if="showShadow"></div>
     <!-- 取消理由弹窗 -->
     <div class="details_shadow_box" v-if="showOrders">
@@ -75,11 +75,11 @@
     <!-- 取消成功弹窗 -->
     <div class="details_cancelSucceed_box" v-if="showCancel">取消成功</div>
     <!-- 二维码弹窗 -->
-    <div class="details_shadow_code" v-if="showCode">
-      <img src="@/assets/icon_delete.png" alt="" class="icon_delete" @click="closeCode">
-      <div class="code_text">请将交易二维码出示给回收人员</div>
-      <qrCode :url="url"></qrCode>
-    </div>
+    <!--<div class="details_shadow_code" v-if="showCode">-->
+      <!--<img src="@/assets/icon_delete.png" alt="" class="icon_delete" @click="closeCode">-->
+      <!--<div class="code_text">请将交易二维码出示给回收人员</div>-->
+      <!--<qrCode :url="url"></qrCode>-->
+    <!--</div>-->
     <!-- 已完成状态弹窗 -->
     <div class="details_shadow_evaluation" v-if="showEvaluation">
       <div class="title">我们的服务您满意吗？</div>
@@ -121,7 +121,7 @@
         evaluateText: '',
         showImgView: false,
         picUrl: [],
-        url: 'http://baidu.com'
+        url: ''
       }
     },
     mounted() {
