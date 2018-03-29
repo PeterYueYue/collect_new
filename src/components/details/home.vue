@@ -27,7 +27,7 @@
     <!-- 底部footer -->
     <img src="@/assets/icon_footer.png" alt="" class="home_wrap_footer_tbg">
     <div class="home_wrap_footer">
-      <router-link to="/">
+      <router-link to="/classIfy">
         <div class="footer_circle">我要<br/>回收</div>
       </router-link>
       <router-link to="/records">

@@ -68,12 +68,11 @@ export default new Router({
       name: 'orders',
       component: orders
     },
-    // {
-    //   path: '/addressoption',
-    //   name: 'AddressOption',
-    //   component: AddressOption,
-    //   children:[]
-    // },
+    {
+      path: '/classIfy',
+      name: 'ClassIfy',
+      component: ClassIfy,
+    },
     {
       path: '/addressel',
       name: 'addressel',
