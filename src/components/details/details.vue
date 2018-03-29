@@ -56,8 +56,8 @@
     <div class="details_shadow_box" v-if="showOrders">
       <div class="title">请选择取消订单的理由</div>
       <div class="button_holder">
-        <input type="radio" id="radio-1" name="radio" class="regular_radio" value="不想买了" v-model="cancelReason"/><label
-        for="radio-1"><i></i>不想买了</label>
+        <input type="radio" id="radio-1" name="radio" class="regular_radio" value="不想卖了" v-model="cancelReason"/><label
+        for="radio-1"><i></i>不想卖了</label>
         <input type="radio" id="radio-2" name="radio" class="regular_radio" value="信息填写错误"
                v-model="cancelReason"/><label for="radio-2"><i></i>信息填写错误</label>
         <input type="radio" id="radio-3" name="radio" class="regular_radio" value="估价过低" v-model="cancelReason"/><label
