@@ -1,18 +1,26 @@
 <template>
   <div class="orders_wrap">
-    <div class="orders_wrap_item" v-for="item in ordersList" :key="item.id">
-      <router-link :to="{path: '/details/', query: { id: item.id }}">
-        <div class="time">{{item.statusDatePage}}<span :class="item.statusClass">{{item.statusPage}}</span></div>
-        <div class="content">
-          <img :src="item.category.icon" alt="" class="pic">
-          <div>
-            <div class="name">{{item.category.name}}</div>
-            <div class="price">预估价格：<span>￥{{item.price}}</span></div>
+    <scroller
+      :on-infinite="getList"
+    >
+      <!-- content goes here -->
+      <div class="orders_wrap_item" v-for="(item,key) in ordersList" :key="key">
+        <router-link :to="{path: '/details/', query: { id: item.id }}">
+          <div class="time">{{item.statusDatePage}}<span :class="item.statusClass">{{item.statusPage}}</span></div>
+          <div class="content">
+            <img :src="item.category.icon" alt="" class="pic">
+            <div>
+              <div class="name">{{item.category.name}}</div>
+              <div class="price">预估价格：<span>￥{{item.price}}</span></div>
+            </div>
           </div>
-        </div>
-      </router-link>
-    </div>
-    <div class="orders_wrap_text"><span class="line_lf"></span>没有更多订单了<span class="line_rt"></span></div>
+        </router-link>
+      </div>
+      <img src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" class="orders_wrap_loading"
+           v-show="showLoading"/>
+      <div class="orders_wrap_text" v-show="noMore"><span class="line_lf"></span>没有更多订单了<span class="line_rt"></span>
+      </div>
+    </scroller>
   </div>
 </template>
 
@@ -24,47 +32,64 @@
     data() {
       return {
         ordersList: {},
+        pageNumber: 1,
+        pageSize: 10,
+        noMore: false,
+        showLoading: false
       }
     },
     mounted() {
+      this.getList()
+    },
+    methods: {
       //获取数据
-      api.getOrders({
-        "app_key": "app_id_1",
-        "data": {
-          "pageNumber": 1,
-          "pageSize": 20
-        },
-      }).then((res) => {
-        console.log(res.data.listOrder);
-        this.ordersList = res.data.listOrder;
-        res.data.listOrder.map(items => {
-          var status = items.statusPage;
-          switch (status) {
-            case '已接单':
-              items.statusClass = 'already';
-              break;
-            case '已派单':
-              items.statusClass = 'complete';
-              break;
-            case '待接单':
-              items.statusClass = 'waiting';
-              break;
-            case '已取消':
-              items.statusClass = 'cancel';
-              break;
-            case '平台已取消':
-              items.statusClass = 'cancel';
-              break;
-            case '已完成':
-              items.statusClass = 'succeed';
-              break;
-            default:
-              break;
-          }
-        });
-      }).catch((error) => {
-        console.log(error)
-      })
+      getList(done){
+        const {pageNumber, pageSize} = this;
+        this.showLoading = true;
+        api.getOrders({
+          "app_key": "app_id_1",
+          "data": {pageNumber, pageSize},
+        }).then((res) => {
+          res.data.listOrder.map(items => {
+            var status = items.statusPage;
+            switch (status) {
+              case '已接单':
+                items.statusClass = 'already';
+                break;
+              case '已派单':
+                items.statusClass = 'complete';
+                break;
+              case '待接单':
+                items.statusClass = 'waiting';
+                break;
+              case '已取消':
+                items.statusClass = 'cancel';
+                break;
+              case '平台已取消':
+                items.statusClass = 'cancel';
+                break;
+              case '已完成':
+                items.statusClass = 'succeed';
+                break;
+              default:
+                break;
+            }
+          });
+          setTimeout(() => {
+            this.showLoading = false;
+            this.ordersList = [...this.ordersList, ...res.data.listOrder];
+            if (res.data.listOrder.length < this.pageSize) {
+              /* 所有数据加载完毕 */
+              this.noMore = true;
+              return;
+            }
+            this.pageNumber += 1;
+            if (done) done();
+          }, 2000)
+        }).catch((error) => {
+          console.log(error)
+        })
+      }
     }
   }
 </script>

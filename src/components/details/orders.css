@@ -2,6 +2,14 @@
   width: 100%;
 }
 
+._v-content {
+  padding-bottom: .8rem
+}
+
+.loading-layer {
+  display: none !important;
+}
+
 .orders_wrap_item {
   padding: 0.3rem;
   background: #fff;
@@ -78,6 +86,12 @@
   margin: 0.5rem auto;
   font-size: 0.28rem;
   color: #888;
+}
+
+.orders_wrap_loading {
+  display: block;
+  margin: 0.4rem auto;
+  width: 0.6rem;
 }
 
 .orders_wrap_text .line_lf {
