@@ -12,6 +12,7 @@ import {DateTime} from 'vue-ydui/dist/lib.rem/datetime';
 import 'vue-ydui/dist/ydui.rem.css';
 import 'vue-ydui/dist/ydui.base.css';
 // import 'iview/dist/styles/iview.css';
+import VueScroller from 'vue-scroller';
 
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
@@ -20,10 +21,11 @@ import Vant from 'vant';
 import 'vant/lib/vant-css/index.css';
 
 Vue.use(Vant);
-Vue.use(ElementUI)
+Vue.use(ElementUI);
 Vue.use(YDUI);
 Vue.use(iView);
-Vue.use(Vuex)
+Vue.use(Vuex);
+Vue.use(VueScroller);
 
 
 Vue.component(DateTime.name, DateTime);
@@ -34,6 +36,6 @@ new Vue({
   el: '#app',
   router,
   store,
-  components: { App },
+  components: {App},
   template: '<App/>'
 })

@@ -78,7 +78,7 @@
     <div class="details_shadow_code" v-if="showCode">
       <img src="@/assets/icon_delete.png" alt="" class="icon_delete" @click="closeCode">
       <div class="code_text">请将交易二维码出示给回收人员</div>
-      <img src="@/assets/code.png" alt="" class="pic_code">
+      <qrCode :url="url"></qrCode>
     </div>
     <!-- 已完成状态弹窗 -->
     <div class="details_shadow_evaluation" v-if="showEvaluation">
@@ -102,6 +102,7 @@
   import '@/components/details/details.css'
   import api from '@/api/api.js'
   import imgView from '@/components/details/imgView.vue'
+  import qrCode from '@/components/details/qrCode.vue'
 
   export default {
     data() {
@@ -119,7 +120,8 @@
         cancelReason: '不想买了',
         evaluateText: '',
         showImgView: false,
-        picUrl: []
+        picUrl: [],
+        url: 'http://baidu.com'
       }
     },
     mounted() {
@@ -129,7 +131,7 @@
       this.getEvaluate();
     },
     components: {
-      imgView
+      imgView, qrCode
     },
     computed: { //计算属性
       itemClasses() {
@@ -228,7 +230,9 @@
         document.querySelector('.details_wrap').style.overflow = 'auto';
       },
       stars(index) {
-        this.score = index + 1
+        if (this.detailsList.isEvaluated === '0') {
+          this.score = index + 1
+        }
       },
       timedMsg() {
         setTimeout(() => {
