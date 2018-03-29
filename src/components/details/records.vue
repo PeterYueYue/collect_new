@@ -18,7 +18,7 @@
             :on-infinite="getRecords"
           >
             <!-- content goes here -->
-            <div class="list_item" v-for="item in recordsList" v-if="item.type==='0'" :key="item.id">
+            <div class="list_item" v-for="(item,key) in recordsList" v-if="item.type==='0'" :key="key">
               <div class="name">{{item.descrb}}<span>+{{item.point}}</span></div>
               <div class="date">{{item.createDatePage}}</div>
             </div>
@@ -36,7 +36,7 @@
             :on-infinite="getRecords"
           >
             <!-- content goes here -->
-            <div class="list_item" v-for="item in recordsList" v-if="item.type==='1'" :key="item.id">
+            <div class="list_item" v-for="(item,key) in recordsList" v-if="item.type==='1'" :key="key">
               <div class="name">{{item.descrb}}<span>-{{item.point}}</span></div>
               <div class="date">{{item.createDatePage}}</div>
             </div>
