@@ -1,5 +1,11 @@
 @rem:100rem;
 
+
+#app{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
 .orderinfo{
     width: 100%;
     height: 100%;
@@ -77,6 +83,7 @@
         background-color: #ffffff;
         .userInfo{
             width: 100%;
+            
             .item{
                 width: 100%;
                 border-bottom: 1/@rem solid #dddddd;
@@ -86,7 +93,7 @@
                     width: 500/@rem;
                     line-height: 89/@rem;
                     font-size: 30/@rem;
-                    color: #888888;
+                    color: #000000;
                     outline: none;
                     border: none;
                 }
@@ -104,6 +111,11 @@
                     font-size: 34/@rem;
                     line-height: 90/@rem;
                     font-weight: normal;
+                }
+
+                .isNoColor{
+
+                    border-bottom: 1/@rem solid #f4333c;
                 }
                 
 
@@ -128,8 +140,8 @@
                 font-weight: normal;
             }
             time,span{
-                color: #333333;
-                font-size: 26/@rem;
+                color: #888888;
+                font-size: 34/@rem;
                 line-height: 90/@rem;
             }
             .dataBlock{

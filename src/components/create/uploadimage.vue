@@ -63,7 +63,7 @@
 
                 <a  v-if="imgsAddress.length<=0"    style="background-color:#bfc5c8;"   href="javascript:;">马上询价</a>
               
-                <router-link v-if="imgsAddress.length>=0"   to="/estimate" >马上询价</router-link>
+                <router-link v-if="imgsAddress.length>0"   to="/estimate" >马上询价</router-link>
             </div>
         </div>
 

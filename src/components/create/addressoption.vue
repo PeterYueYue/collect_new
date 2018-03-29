@@ -75,7 +75,7 @@ export default {
             userAddressInfo:'',
             areaList:'',
             id:'',
-            isEnter:true
+            isEnter:false
         }
     },
   created(){
@@ -97,10 +97,13 @@ export default {
         // 判断地址栏的默认信息以及修改后的显示逻辑
          if(this.useraddress.address){
              console.log("2222")
+                 this.isEnter = true;
+             
              this.userAddressInfo = this.useraddress.address + this.useraddress.name;
          }else{
              if(res.data.isExist){
                  console.log("111")
+                 this.isEnter = true;
                   this.userAddressInfo  = res.data.address + res.data.name
              }else{
                  this.isEnter = false;

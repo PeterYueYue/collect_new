@@ -11,11 +11,11 @@
         <ul class="userInfo">
             <li class="item ">
                 <strong >姓名</strong>
-                <input @blur="isName"  v-model="nameValue"   placeholder="请输入联系人姓名"  type="text" value="nameValue" >
+                <input @blur="isName"  v-model="nameValue"      placeholder="请输入联系人姓名 (必填)"  type="text" value="nameValue" >
             </li>
              <li class="item ">
                 <strong >电话</strong>
-                <input  type="text"  @blur="isPhoneNumber"  v-model="phoneNumber" placeholder="请输入手机号码" value="phoneNumber" >
+                <input  type="text"  @blur="isPhoneNumber"  v-model="phoneNumber" placeholder="请输入手机号码 (必填)" value="phoneNumber" >
            </li> 
             <li class="item ">
                 <strong >地址</strong>
@@ -35,7 +35,7 @@
     <div class="collectTimeAndPrice">
         <div class="pickUp ">
             <strong>上门时间：</strong>
-            <time>{{time}}</time>
+            <time>{{time}}{{infoTm}}</time>
             <div  @click="setTime" class="dataBlock">
                 <a href="javaScript:;">  
                 </a>
@@ -48,9 +48,10 @@
     </div>
     <div class="information">实际成交价格最终验机结果为准</div>
     <div class="nextbutton  ">
-        <!-- <a  v-if="!isEnter"   style="background-color:#bfc5c8;"   href="javascript:;">提交订单</a> -->
+        <a  v-if="isOk.nameisOk == false || isOk.phoneIsOk == false ||  isOk.timeIsOk == false"   style="background-color:#bfc5c8;"   href="javascript:;">提交订单</a>
 
-        <router-link @click="completeAnOrder" to="/home"    > 提交订单 </router-link>
+        <router-link    v-if="isOk.nameisOk == true && isOk.phoneIsOk == true &&  isOk.timeIsOk == true"   @click="completeAnOrder" to="/home"    > 提交订单 </router-link>
+
 
     </div>
     
@@ -85,9 +86,15 @@ export default {
             nameValue:'',
             phoneNumber: '',
             datetime5: '2018-01-11 上午',
-            time :'请选择上门回收时间',
+            time :'请选择上门回收时间 ',
             show:false,
             infoTm:'',
+            isOk:{
+                nameisOk:false,
+                phoneIsOk:false,
+                timeIsOk:false
+            },
+            
             
             
            
@@ -102,9 +109,14 @@ export default {
         categoryAttrOppIds  :   'categoryAttrOppIds',  //分类属性信息
         useraddress         :   'useraddress',
         orderPic            :    'orderPic'  ,   //图片信息分类
+        textareaValue       :   'textareaValue'  //图片物品描述
     }),
     methods:{
         completeAnOrder(){  
+
+            ap.showLoading({
+            content: '订单提交中...',
+            })
 
             api.completeOrder({   
                 "app_key": "app_id_1",
@@ -137,11 +149,20 @@ export default {
                     "qty": 9999,
                     "tel": this.phoneNumber,
                     "communityId":this.selectedInfo.cellseletionItem.id,
-                    "categoryId": this.addRessId.id
+                    "categoryId": this.addRessId.id,
+                    "remarks": this.textareaValue
                 }
             }).then((res)=>{
-
+               ap.hideLoading({
+                   content: '提交完成',
+                   delay: 1000
+               });     
                 console.log(res)
+
+
+            
+              this.$router.push({path: '/home'})  
+
 
             }).catch((err)=>{
                 console.log(err)
@@ -172,6 +193,7 @@ export default {
                 if(res.date){
                     antThis.show = true;
                     antThis.time = res.date;
+                    antThis.isOk.timeIsOk = !antThis.isOk.timeIsOk;
                 }
             
             });
@@ -182,16 +204,19 @@ export default {
             var str = this.nameValue;               
             reg=/^([\u4e00-\u9fa5]){2,7}$/;       //只能是中文，长度为2-7位
             if(!reg.test(str)){       
-                    alert("对不起,您输入正确的名字格式!");//请将“字符串类型”要换成你要验证的那个属性名称！   
+                    // alert("对不起,您输入正确的名字格式!");//请将“字符串类型”要换成你要验证的那个属性名称！   
+            } else{
+
+                this.isOk.nameisOk = !this.isOk.nameisOk;
             }       
         },
         isPhoneNumber(){
             var reg = RegExp();
             reg=/^[1][3,4,5,7,8][0-9]{9}$/;  
             if (!reg.test(this.phoneNumber)) {  
-                    alert("请输入正确的手机号")
+                    // alert("请输入正确的手机号")
                 } else {  
-                    
+                        this.isOk.phoneIsOk = !this.isOk.phoneIsOk;
                 }
 
             }
@@ -201,6 +226,5 @@ export default {
   
 }
 </script>
-
 
 
