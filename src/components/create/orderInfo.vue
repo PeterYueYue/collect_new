@@ -50,7 +50,7 @@
     <div class="nextbutton  ">
         <a  v-if="isOk.nameisOk == false || isOk.phoneIsOk == false ||  isOk.timeIsOk == false"   style="background-color:#bfc5c8;"   >提交订单</a>
 
-        <a href="javascript:;"   v-if="isOk.nameisOk == true && isOk.phoneIsOk == true &&  isOk.timeIsOk == true"   @click="completeAnOrder"    > 提交订单 </a>
+        <a href="javascript:;"   v-if="isOk.nameisOk == true && isOk.phoneIsOk == true &&  isOk.timeIsOk == true"   @click="completeAnOrder"      > 提交订单 </a>
 
     </div>
 
@@ -138,7 +138,7 @@ export default {
                         "delFlag": "0"
                     },
                     "isEvaluated": "0",
-                    "recyclerId": 0,
+                    // "recyclerId": 0,
                     "unit": "计量单位",
                     "areaId": this.selectedInfo.areaItem.id,
                     "arrivalTime": this.time,

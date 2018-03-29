@@ -1,7 +1,5 @@
 #app {
   width: 100%;
-  height: 100%;
-  overflow: hidden;
 }
 .orderinfo {
   width: 100%;
@@ -75,6 +73,7 @@
 }
 .orderinfo .userInfoBox .userInfo {
   width: 100%;
+  overflow: hidden;
 }
 .orderinfo .userInfoBox .userInfo .item {
   width: 100%;
