@@ -15,3 +15,4 @@ export var textareaValue              = state => state.textareaValue
 export var appointmentTime            = state => state.appointmentTime   
 export var imgsAddress                = state => state.imgsAddress   
 export var categoryAttrOppIds         = state => state.categoryAttrOppIds   
+export var orderPic                   = state => state.orderPic   

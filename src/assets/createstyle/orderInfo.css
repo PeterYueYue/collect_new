@@ -108,6 +108,7 @@
   display: flex;
   margin-left: 0.2rem;
   border-bottom: 0.01rem solid #dddddd;
+  position: relative;
 }
 .orderinfo .collectTimeAndPrice .pickUp strong {
   text-align: left;
@@ -126,7 +127,9 @@
 .orderinfo .collectTimeAndPrice .pickUp .dataBlock {
   width: 0.9rem;
   height: 0.9rem;
-  margin-left: 2.1rem;
+  position: absolute;
+  right: 0.2rem;
+  top: 0rem;
 }
 .orderinfo .collectTimeAndPrice .pickUp .dataBlock a {
   display: block;
@@ -186,7 +189,5 @@
   color: #888888;
   font-size: 0.28rem;
   line-height: 0.46rem;
-  position: absolute;
-  left: 0;
-  bottom: 0.7rem;
+  margin-top: 3rem;
 }

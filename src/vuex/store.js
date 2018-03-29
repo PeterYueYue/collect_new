@@ -25,7 +25,12 @@ export default new Vuex.Store({
       futurePrice             :'',  //预估价格
       textareaValue           :'',  //图片上传时描述信息
       appointmentTime         :'',  //上门预约时间
-      imgsAddress             : [],  //用户拍照上传存储的图片地址信息   
+      imgsAddress             : [],  //用户拍照上传存储的图片地址信息
+      orderPic                : {   //图片分类
+        picUrl    : '',
+        origPic   : '',
+        smallPic  : ''
+      },   
       commodityInformation:{        //这里存储商品的详细信息
       }
     },  
@@ -71,6 +76,27 @@ export default new Vuex.Store({
       },
       add_Imgs_Url(state, data){  // 把从服务器请求来的图片地址信息存到state状态里面
         this.state.imgsAddress.push(data)
+
+
+
+        var b  = []
+        var c  = []
+        var d  = []
+        this.state.imgsAddress.forEach((e)=> {
+            b.push(e.bigPicture)
+            c.push(e.original)
+            d.push(e.thumbnail)
+        })
+
+        this.state.orderPic.picUrl = b.toString()
+        this.state.orderPic.origPic = c.toString()
+        this.state.orderPic.smallPic = d.toString()
+
+
+        
+
+
+
 
       },
       remove_Img(state, data){  // 删除上传的图片

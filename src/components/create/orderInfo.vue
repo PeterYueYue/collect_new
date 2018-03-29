@@ -49,7 +49,8 @@
     <div class="information">实际成交价格最终验机结果为准</div>
     <div class="nextbutton  ">
         <!-- <a  v-if="!isEnter"   style="background-color:#bfc5c8;"   href="javascript:;">提交订单</a> -->
-        <a @click="completeAnOrder"   href="javascript:;">提交订单</a>
+
+        <router-link @click="completeAnOrder" to="/home"    > 提交订单 </router-link>
 
     </div>
     
@@ -86,7 +87,8 @@ export default {
             datetime5: '2018-01-11 上午',
             time :'请选择上门回收时间',
             show:false,
-            infoTm:''
+            infoTm:'',
+            
             
            
         }
@@ -97,7 +99,9 @@ export default {
         selectedInfo        :   'selectedInfo',      //用来存储 地址选择 已选择信息
         imgsAddress         :   'imgsAddress',      //用户上传图片信息
         addRessId           :   'addRessId',         //一级分类信息
-        categoryAttrOppIds  :   'categoryAttrOppIds'  //分类属性信息
+        categoryAttrOppIds  :   'categoryAttrOppIds',  //分类属性信息
+        useraddress         :   'useraddress',
+        orderPic            :    'orderPic'  ,   //图片信息分类
     }),
     methods:{
         completeAnOrder(){  
@@ -105,80 +109,45 @@ export default {
             api.completeOrder({   
                 "app_key": "app_id_1",
                 "data": {
-                    "address": this.selectedInfo.cellseletionItem.address,  //地址
+                    "address": this.selectedInfo.areaItem.areaName+this.selectedInfo.subdistyictItem.areaName+this.selectedInfo.cellseletionItem.address+this.selectedInfo.cellseletionItem.name,
+                    "arrivalPeriod": this.infoTm,
                     "linkMan": this.nameValue,
                     "orderItemBean": {
-                    "categoryAttrId": 0,                     
-                    "orderId": 0,
-                    "categoryAttrOppId": 0,
-                    "categoryAttrOppIds": this.categoryAttrOppIds,
-                    "categoryId": 0
+                        "categoryAttrId": 0,
+                        "orderId": 0,
+                        "categoryAttrOppId": 0,
+                        "categoryAttrOppIds": this.categoryAttrOppIds,
+                        "categoryId": 0
                     },
                     "level": "0",
                     "orderPic": {
-                    "new": true,
-                    "picUrl": this.picUrlAll,
-                    "orderId": 0,
-                    "origPic": this.originalAll,
-                    "smallPic": this.thumbnailAll,
-                    "delFlag": "0"
+                        "new": true,
+                        "picUrl":this.orderPic.picUrl,
+                        "orderId": 0,
+                        "origPic": this.orderPic.origPic,
+                        "smallPic": this.orderPic.smallPic,
+                        "delFlag": "0"
                     },
                     "isEvaluated": "0",
                     "recyclerId": 0,
-                    "companyId": 0,     //企业ID
-                    "unit": "",   // 默认为空
-                    "areaId": this.selectedInfo.cellseletionItem.areaId,      //区域id
-                    "price": this.futurePrice,   //预估价格
-                    "qty": 9999,        //数量  选填
+                    "unit": "计量单位",
+                    "areaId": this.selectedInfo.areaItem.id,
+                    "arrivalTime": this.time,
+                    "price": this.futurePrice,
+                    "qty": 9999,
                     "tel": this.phoneNumber,
-                    "communityId": this.selectedInfo.cellseletionItem.id,   //小区ID
-                    "categoryId": this.addRessId.id,    //一级分类ID  例如：家电、 
-                    "memberId": 0,
-                    "arrivalPeriod": this.infoTm,
-                    "arrivalTime": this.time
+                    "communityId":this.selectedInfo.cellseletionItem.id,
+                    "categoryId": this.addRessId.id
                 }
             }).then((res)=>{
-                
-                alert("下单完成")
+
+                console.log(res)
 
             }).catch((err)=>{
                 console.log(err)
 
             })
 
-        },
-        picUrlAll(){
-
-            var b  = []
-
-          let bigPic =  this.imgsAddress.forEach((e)=> {
-
-              b.push(e.bigPicture)
-          })
-
-          return b;
-
-        },
-        originalAll(){
-             var b  = []
-
-          let bigPic =  this.imgsAddress.forEach((e)=> {
-
-              b.push(e.original)
-          })
-
-          return b;
-        },
-        thumbnailAll(){
-
-           var b  = []
-
-          let bigPic =  this.imgsAddress.forEach((e)=> {
-
-              b.push(e.thumbnail)
-          })
-
-          return b; 
         },
         setTimeInfoAm(){
             this.show = false;

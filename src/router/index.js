@@ -40,8 +40,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'ClassIfy',
-      component: ClassIfy
+      name: 'home',
+      component: home
     },
     {
       path: '/home',
