@@ -103,6 +103,7 @@ a {
   background: #fff;
   position: fixed;
   bottom: 0;
+  z-index: 999;
 }
 
 .home_wrap_footer_tbg {
@@ -130,12 +131,14 @@ a {
 .home_wrap_footer .footer_left {
   float: left;
   width: 3.16rem;
+  height: 1.02rem;
   position: relative;
 }
 
 .home_wrap_footer .footer_right {
   float: right;
   width: 3.16rem;
+  height: 1.02rem;
   position: relative;
 }
 
