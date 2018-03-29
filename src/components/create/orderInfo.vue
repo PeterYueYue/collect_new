@@ -154,6 +154,8 @@ export default {
 
                 alert("恭喜您 下单成功")
 
+                this.$router.push({path:"/home"})
+
 
             }).catch((err)=>{
 
