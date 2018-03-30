@@ -28,7 +28,7 @@
     <img src="@/assets/icon_footer.png" alt="" class="home_wrap_footer_tbg">
     <div class="home_wrap_footer">
       <router-link to="/classIfy">
-        <div class="footer_circle">我bu<br/>回收</div>
+        <div class="footer_circle">我要<br/>回收</div>
       </router-link>
       <router-link to="/records">
         <div class="footer_left"><img src="@/assets/icon_foot.png" alt=""><span>收呗足迹</span></div>
@@ -56,15 +56,12 @@
     created(){
 
       var urlToken =  location.search;
-
-      var t = "?token=sadasljlaksjkldjaslkjdlaksjdkajldajskjd"
-
       var tk = urlToken.split("=");
 
-      var testToken = "3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24UAJWCBI7NJ42KSYJ2KXG2OVQSA6ZMU4VMMCLQUKIRXAWTX2BD3K6MDOZDBJ4Q62CYGOB7DVAUP4CYQAHL3JSQRIG7P2UO77IZBN7W3E4RZK42VEEUWCHGAZLS7LGRB4EVIIYSQVYYSGAETEUZC4JUVVV2UDRKIOBGXURUGYCOGKTBVFLZYU2QFPF2G4I7DVNKBWCOFWBQDLZLJYEDSPIL6T46KLPZ4O2ZIFJROTQ"
+      // var testToken = "3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24UAJWCBI7NJ42KSYJ2KXG2OVQSA6ZMU4VMMCLQUKIRXAWTX2BD3K6MDOZDBJ4Q62CYGOB7DVAUP4CYQAHL3JSQRIG7P2UO77IZBN7W3E4RZK42VEEUWCHGAZLS7LGRB4EVIIYSQVYYSGAETEUZC4JUVVV2UDRKIOBGXURUGYCOGKTBVFLZYU2QFPF2G4I7DVNKBWCOFWBQDLZLJYEDSPIL6T46KLPZ4O2ZIFJROTQ"
 
-
-      this.$store.dispatch('getToken',testToken)
+      alert(2)
+      this.$store.dispatch('getToken',tk[1])
       
 
     },

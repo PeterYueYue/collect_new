@@ -94,3 +94,21 @@
   color: #ffffff;
   border: 0.01rem solid #00a0e9;
 }
+.typeselect .classchange .class_change_list li:hover {
+  border: 0.01rem solid #00a0e9;
+}
+.ul_Box {
+  overflow: hidden;
+}
+.slide-fade-enter-active {
+  transition: all .5s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateX(5rem);
+  transition: 0s;
+  opacity: 0;
+}

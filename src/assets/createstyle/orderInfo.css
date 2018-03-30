@@ -93,6 +93,7 @@
 .orderinfo .userInfoBox .userInfo .item .nameBox span {
   display: block;
   color: red;
+  font-size: 0.3rem;
 }
 .orderinfo .userInfoBox .userInfo .item .nameBox input {
   height: 0.9rem;
@@ -127,6 +128,9 @@
   margin-left: 0.2rem;
   border-bottom: 0.01rem solid #dddddd;
   position: relative;
+}
+.orderinfo .collectTimeAndPrice .pickUp .textColor {
+  color: #000000;
 }
 .orderinfo .collectTimeAndPrice .pickUp strong {
   text-align: left;
@@ -199,6 +203,7 @@
 .orderinfo .nextbutton a {
   color: #ffffff;
   display: block;
+  border-radius: 0.1rem;
 }
 .orderinfo .bottomInformation {
   width: 100%;

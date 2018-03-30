@@ -46,7 +46,7 @@
     <div class="collectTimeAndPrice">
         <div class="pickUp ">
             <strong>上门时间：</strong>
-            <time>{{time}}{{infoTm}}</time>
+            <time  :class="{textColor:iscolor}"   >{{time}}{{infoTm}}</time>
             <div  @click="setTime" class="dataBlock">
                 <a href="javaScript:;">  
                 </a>
@@ -60,13 +60,8 @@
     <div class="information">实际成交价格最终验机结果为准</div>
     <div class="nextbutton  ">
         <a  v-if="isOk.nameisOk == false || isOk.phoneIsOk == false ||  isOk.timeIsOk == false"   style="background-color:#bfc5c8;"   >提交订单</a>
-
         <a href="javascript:;"   v-if="isOk.nameisOk == true && isOk.phoneIsOk == true &&  isOk.timeIsOk == true"   @click="completeAnOrder"      > 提交订单 </a>
-
     </div>
-
-    
-    
 
     <div class="information">提交订单后将有售后人员与您电话沟通，请保持手机畅通</div>
     <div class="bottomInformation">
@@ -108,10 +103,7 @@ export default {
                 phoneIsOk:false,
                 timeIsOk:false
             },
-            
-            
-            
-           
+            iscolor:false
         }
     },
     computed: mapGetters({
@@ -202,6 +194,7 @@ export default {
                     antThis.show = true;
                     antThis.time = res.date;
                     antThis.isOk.timeIsOk = !antThis.isOk.timeIsOk;
+                    this.iscolor = true;
                 }
             
             });
@@ -220,7 +213,7 @@ export default {
                         // alert("对不起,您输入正确的名字格式!");//请将“字符串类型”要换成你要验证的那个属性名称！   
                 } else{
 
-                    this.isOk.nameisOk = true;
+                    this.isOk.nameisOk = !antThis.isOk.timeIsOk;
                     this.tipNmae = false;
                 }
             }

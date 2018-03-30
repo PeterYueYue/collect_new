@@ -10,7 +10,7 @@
         <div class="imgbtnortext">
             <!-- 上传图片后隐藏 -->
             <div v-show="imgsAddress.length<1"  class="upimg">
-                <div style=" width:100% ; height:100%;"> 
+                <div class="bcphotoimg" style=" width:100% ; height:100%;"> 
                      <div class="show"> 
                          <div class="picture" :style="'backgroundImage:url('+headerImage+')'"></div> 
                      </div> 

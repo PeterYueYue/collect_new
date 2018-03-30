@@ -24,20 +24,21 @@
             </div>
         </div>
     </div>
-<transition name="slide-fade">
-    <div class="classchange"  v-for="(item,index) in dataList"  :key="item.id"   v-if="    isShow == index"        >
-        <h3 class="titlename">{{item.name}}</h3>
-        <ul class="class_change_list clearfix">
-            
-            <li class="fl "   v-for="(e,i) in item.categoryAttrOptionList "   :key="e.id"   >
-                <!-- <router-link :to="'/typeSelect/typestate/' + pointIndex" class="active">{{e.name}}</router-link> -->
-                <a :class="{active: isActive === i }"  @click="changeItem(e,{item,index,i})" href="javascript:;">{{e.name}}</a>
-            </li>
-            
-        </ul>
+    <div class="ul_Box">
+        <transition name="slide-fade">
+            <div class="classchange"  v-for="(item,index) in dataList"  :key="item.id"   v-if="    isShow == index"        >
+                <h3 class="titlename">{{item.name}}</h3>
+                <ul class="class_change_list clearfix">
+                    
+                    <li class="fl "   v-for="(e,i) in item.categoryAttrOptionList "   :key="e.id"   >
+                        <!-- <router-link :to="'/typeSelect/typestate/' + pointIndex" class="active">{{e.name}}</router-link> -->
+                        <a :class="{active: isActive === i }"  @click="changeItem(e,{item,index,i})" href="javascript:;">{{e.name}}</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </transition> 
     </div>
-
- </transition>   
     <ul class="schedule">
         <li v-for="(item,index) in dataList"  :key="item.id"  :class="{active :  index == isShow}"></li>
         <!-- <li></li>
@@ -55,23 +56,6 @@
 </template>
 
 
-<style>
-
-
-.slide-fade-enter-active {
-  transition: all .8s ease;
-  
-}
-.slide-fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active for below version 2.1.8 */ {
-  transform: translateX(10px);
-  transition: 0s;
-  opacity: 0;
-}
-</style>
 
 <script>
 import api from '@/api/api.js'

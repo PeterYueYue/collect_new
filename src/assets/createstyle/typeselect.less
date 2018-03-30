@@ -96,12 +96,32 @@
                   font-size: 30/@rem;
                   overflow: hidden;
               }
+              
               .active{
                   background-color: #00a0e9;
                   color: #ffffff;
                   border: 1/@rem solid #00a0e9;
               }
           }
+          li:hover{
+            border: 1/@rem solid #00a0e9;
+          }
       }
   }
 }
+
+.ul_Box{
+    overflow: hidden;
+}
+.slide-fade-enter-active {
+    transition: all .5s ease;
+  }
+  .slide-fade-leave-active {
+    transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .slide-fade-enter, .slide-fade-leave-to
+  /* .slide-fade-leave-active for below version 2.1.8 */ {
+    transform: translateX(500/@rem);
+    transition: 0s;
+    opacity: 0;
+  }

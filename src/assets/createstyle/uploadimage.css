@@ -36,9 +36,9 @@
   margin: 0 auto;
   width: 1.61rem;
   height: 1.61rem;
-  background: url('../../assets/photoimg.png') no-repeat;
+  background: url('../../assets/photoimg.png') no-repeat center center;
   background-color: #f5f5f9;
-  background-size: 100%;
+  background-size: 50%;
 }
 .uploadimage .imgbtnortext .showimge {
   display: flex;
@@ -120,6 +120,7 @@
   border: 0.01rem solid #dddddd;
   margin: 0 auto;
   outline: none;
+  text-indent: 0.1rem;
 }
 .uploadimage .recycle_description .textarea_box span {
   position: absolute;
@@ -142,4 +143,5 @@
 .uploadimage .recycle_description .nextbutton a {
   color: #ffffff;
   display: block;
+  border-radius: 0.1rem;
 }
