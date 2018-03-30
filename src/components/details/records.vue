@@ -107,7 +107,7 @@
             }
             this.pageNumber += 1;
             if (done) done();
-          }, 2000)
+          }, 100)
         }).catch((error) => {
           console.log(error)
         })
