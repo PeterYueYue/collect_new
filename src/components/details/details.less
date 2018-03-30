@@ -43,7 +43,7 @@
 }
 
 .details_wrap_item .date {
-  font-size: 24/@rem;
+  font-size: 26/@rem;
   color: #888;
   margin-top: 10/@rem;
 }
@@ -72,6 +72,10 @@
 
 .details_wrap_item .content .price span {
   color: #f4333c;
+}
+
+.details_wrap_item .content .price span.money {
+  font-size: 36/@rem;
 }
 
 .details_wrap_time {
@@ -200,7 +204,7 @@
 .details_wrap_belongs {
   font-size: 28/@rem;
   color: #888;
-  margin: 100/@rem 0;
+  margin: 40/@rem 0 100/@rem;
   text-align: center;
 }
 
@@ -262,6 +266,7 @@
 .button_holder {
   padding-left: 60/@rem;
   font-size: 30/@rem;
+  margin-top: 25/@rem;
 }
 
 label {
@@ -270,6 +275,7 @@ label {
 
 .regular_radio {
   display: none;
+  padding-left: 20/@rem;
 }
 
 .regular_radio + label {
@@ -280,25 +286,26 @@ label {
 .regular_radio + label i {
   background-color: #fff;
   border: 1/@rem #939393 solid;
-  width: 36/@rem;
-  height: 36/@rem;
+  width: 30/@rem;
+  height: 30@rem;
   border-radius: 100%;
   display: inline-block;
   position: relative;
-  top: 8/@rem;
-  right: 10/@rem;
+  top: 4/@rem;
+  right: 20/@rem;
   margin-top: 25/@rem;
 }
 
 .regular_radio:checked + label i:after {
   content: ' ';
-  width: 28/@rem;
-  height: 28/@rem;
+  width: 30/@rem;
+  height: 30/@rem;
   border-radius: 100%;
   position: absolute;
-  top: 3/@rem;
-  left: 3/@rem;
-  background: #99a1a7;
+  top: -1/@rem;
+  left: -1/@rem;
+  background-color: #fff;
+  border: 4rem #00a0e9 solid;
 }
 
 .button_footer {
@@ -404,15 +411,15 @@ label {
 }
 
 .details_shadow_evaluation .evaStar .star .star-item.star-item.on {
-  background-image: url(../../../../ant_collect/src/assets/icon_star.png);
+  background-image: url(../../assets/icon_star.png);
 }
 
 .details_shadow_evaluation .evaStar .star .star-item.star-item.half {
-  background-image: url(../../../../ant_collect/src/assets/icon_star.png);
-}
+   background-image: url(../../assets/icon_star.png);
+ }
 
 .details_shadow_evaluation .evaStar .star .star-item.star-item.off {
-  background-image: url(../../../../ant_collect/src/assets/icon_star_hover.png);
+  background-image: url(../../assets/icon_star_hover.png);
 }
 
 .details_shadow_evaluation .text {
@@ -429,6 +436,16 @@ label {
   color: #888;
   text-align: justify;
   padding: 25/@rem;
+}
+
+.details_shadow_evaluation .text:-moz-placeholder {
+  color: #333;
+}
+.details_shadow_evaluation .text::-moz-placeholder {
+  color: #333;
+}
+.details_shadow_evaluation .text:-ms-input-placeholder {
+  color: #333;
 }
 
 .details_shadow_evaluation .footer_btn {
