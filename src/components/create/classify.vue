@@ -81,6 +81,7 @@
 import api from '@/api/api.js'
 import '@/assets/createstyle/tool.css'
 import '@/assets/createstyle/classify.css'
+import { mapGetters } from 'vuex';
 export default {
 
     data(){
@@ -92,19 +93,26 @@ export default {
             
         }
     },
+    computed:mapGetters({
+
+        token: "token"
+
+    }),
     created:function(){
         api.getClassify({
             "app_key": "app_id_1",
             "data": {
             "level": "0"
-            }
+            },
+            token:this.token
         }).then((res)=>{this.menulist = res.data;  }).catch((erro)=>{console.log(erro)});
 
         api.getSubList({
                 "app_key": "app_id_1",
                 "data": {
                     "id": this.isId
-                }
+                },
+                token:this.token
             }).then((res)=>{ 
 
             this.subList = res.data;  
@@ -120,7 +128,8 @@ export default {
                 "app_key": "app_id_1",
                 "data": {
                     "id": this.isId
-                }
+                },
+                token:this.token
             }).then((res)=>{ 
             this.subList = res.data;    
             }).catch((erro)=>{console.log(erro)})
@@ -132,7 +141,8 @@ export default {
             "app_key": "app_id_1",
                 "data": {
                     "id":1
-                }
+                },
+                token:"token"
             }).then((res)=>{
                 this.$store.dispatch('changeAddress',res)
             }).catch((erro)=>{console.log(erro)})  

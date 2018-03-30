@@ -82,7 +82,8 @@ export default {
         useraddress     : 'useraddress',  //地址信息
         isShowMeassage  : 'isShowMeassage',  //控制选不到已服务的小区的提示框
         addRessId       : 'addRessId',    //进入地址组件关联的ID
-        isShowForState  : 'isShowForState' //
+        isShowForState  : 'isShowForState', //
+        token           : 'token'
     }),
     created(){
         var {index} = this.$route.params;
@@ -95,7 +96,8 @@ export default {
                 "pageNumber": 1,
                 "pageSize": 20
                 }
-            }
+            },
+            token:this.token
         }).then((res)=>{
             this.dataList = res.data;
 

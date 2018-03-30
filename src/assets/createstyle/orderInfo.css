@@ -96,6 +96,7 @@
   font-size: 0.3rem;
 }
 .orderinfo .userInfoBox .userInfo .item .nameBox input {
+  width: 100%;
   height: 0.9rem;
   line-height: 90 / rem;
 }

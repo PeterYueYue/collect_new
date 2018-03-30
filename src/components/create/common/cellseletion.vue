@@ -51,13 +51,20 @@ export default {
             cellList:[]
         }
     },
+    computed: mapGetters({
+        useraddress     :'useraddress',  //地址信息
+        isShowMeassage  :'isShowMeassage',  //控制选不到已服务的小区的提示框
+        addRessId       :'addRessId',
+        token           : 'token'
+    }),
     created(){
         // 根据区域id，取得该区域下所有小区 ，仅支持上一级，不支持跨层
         api.getCellSeleTion({
             "app_key": "app_id_1",
             "data": {
                 "id": this.$route.params.itemAreaId  
-            }
+            },
+            token:this.token
         }).then(res =>{
             if(res.data.length>=1){
                 console.log("有数据")
@@ -70,11 +77,7 @@ export default {
             console.log(erro)
         })
     },
-    computed: mapGetters({
-        useraddress     :'useraddress',  //地址信息
-        isShowMeassage  :'isShowMeassage',  //控制选不到已服务的小区的提示框
-        addRessId       :'addRessId'
-    }),
+    
      methods:{
         sendAddInfo(item){
             this.$store.dispatch('changeAddress',item)

@@ -59,6 +59,16 @@ import '@/assets/createstyle/estimate.css'
 import api from '@/api/api.js'
 import { mapGetters } from 'vuex';
 export default {
+
+
+
+
+    computed: mapGetters({
+        addRessId        :'addRessId',
+        statisticsPrice  :'statisticsPrice',
+        futurePrice      : 'futurePrice',
+        token            :  'token'
+    }),
     created(){
 
         api.futurePrices({
@@ -66,18 +76,14 @@ export default {
             "data": {
                 "categoryAttrOptionPrices": this.statisticsPrice,
                 "categoryId": this.addRessId.id
-            }
+            },
+            token:this.token
         }).then((res)=>{
 
             this.$store.dispatch('changeFuturePrice',res.data)
         })
 
     },
-    computed: mapGetters({
-        addRessId        :'addRessId',
-        statisticsPrice  :'statisticsPrice',
-        futurePrice      : 'futurePrice'
-    }),
     methods:{
         backbtn(){ //执行返回上一个路由；
           this.$router.go(-1);

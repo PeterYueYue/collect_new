@@ -78,6 +78,13 @@ export default {
             isEnter:false
         }
     },
+    computed: mapGetters({
+        useraddress : 'useraddress',
+        addRessId   : 'addRessId',
+        token       : 'token'
+
+        
+    }),
   created(){
 
     this.itemID = this.$store.state.msItemId;
@@ -92,7 +99,9 @@ export default {
             "pageNumber": 1,
             "pageSize": 20
             }
-  }
+        },
+        token:this.token
+    
     }).then((res)=>{
         // 判断地址栏的默认信息以及修改后的显示逻辑
          if(this.useraddress.address){
@@ -114,12 +123,7 @@ export default {
         console.log(erro)
     })
   },
-  computed: mapGetters({
-      useraddress : 'useraddress',
-      addRessId   : 'addRessId'
-
-      
-  }),
+  
   methods:{
     backbtn(){ //执行返回上一个路由；
         this.$router.go(-1);

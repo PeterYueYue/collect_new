@@ -115,13 +115,15 @@ export default {
         categoryAttrOppIds  :   'categoryAttrOppIds',  //分类属性信息
         useraddress         :   'useraddress',
         orderPic            :    'orderPic'  ,   //图片信息分类
-        textareaValue       :   'textareaValue'  //图片物品描述
+        textareaValue       :   'textareaValue',  //图片物品描述
+        token               :   'token'
     }),
     methods:{
         completeAnOrder(){  
 
             api.completeOrder({   
                 "app_key": "app_id_1",
+                token   : this.token,
                 "data": {
                     "address": this.selectedInfo.areaItem.areaName+this.selectedInfo.subdistyictItem.areaName+this.selectedInfo.cellseletionItem.address+this.selectedInfo.cellseletionItem.name,
                     "arrivalPeriod": this.infoTm,

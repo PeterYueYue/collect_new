@@ -18,6 +18,7 @@
 </template>
 <script>
 import api from '@/api/api.js'
+import { mapGetters } from 'vuex';
 
 export default {
   
@@ -27,6 +28,9 @@ export default {
           pointIndex:3
       }
   },
+  computed:mapGetters({
+      token:'token'
+  }),
   created(){
     var {index} = this.$route.params;
     //  根据分类 的属性取 分类属性选项
@@ -34,7 +38,8 @@ export default {
         "app_key": "app_id_1",
         "data": {
             "id": 1
-        }
+        },
+        token:this.token
         }).then((res)=>{
             this.dataList = res.data.reverse();
 

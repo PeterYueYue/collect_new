@@ -96,7 +96,8 @@ export default {
     };
   },
   computed: mapGetters({
-    imgsAddress: "imgsAddress"
+    imgsAddress: "imgsAddress",
+    token       : 'token'
   }),
   methods: {
     backbtn() {
@@ -180,7 +181,8 @@ export default {
           "data": {
                 "fileContentBase64": this.headerImage,
                 "fileName": ''
-              }
+              },
+            token:this.token
       }).then((res)=>{
         this.$store.dispatch("addImgsUrl", res.data[0]);
         ap.hideLoading()

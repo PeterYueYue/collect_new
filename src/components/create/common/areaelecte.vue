@@ -19,6 +19,9 @@ export default {
             areaList:[]
         }
     },
+    computed:mapGetters({
+        token:"token"
+    }),
     created(){
         // 获取所有的区
         api.getAreaList({
@@ -26,7 +29,8 @@ export default {
             "data": {
                 "id": 1,
                 "level": 0
-            }
+            },
+            token:this.token
         }).then((res)=>{
             this.areaList = res.data;
         }).catch((erro)=>{
