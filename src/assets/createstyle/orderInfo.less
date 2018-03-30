@@ -87,22 +87,35 @@
                 width: 100%;
                 border-bottom: 1/@rem solid #dddddd;
                 margin-left: 20/@rem;
-                display: flex;
+                // display: flex;
                 input{
-                    width: 500/@rem;
-                    // line-height: 89/@rem;
-                    // height: 89/@rem;
+                   
                     font-size: 30/@rem;
                     color: #000000;
                     outline: none;
                     border: none;
                 }
-                span{
-                    width: 500/@rem;
-                    line-height: 60/@rem;
-                    font-size: 30/@rem;
-                    color: #888888;
+                .nameBox{
+                    width: 75%;
                     text-align: left;
+                    span{
+                        display: block;
+                        color: red;
+                    }
+                    input{
+                        height: 90/@rem;
+                        line-height: 90/rem;
+                    }
+                    .addressSt{
+                        font-size: 30/@rem;
+                        color: #000000;
+                        height: 90/@rem;
+                        line-height: 90/@rem;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+
+                    }
                 }
                 strong{
                     text-align: left;

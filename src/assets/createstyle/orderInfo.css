@@ -79,21 +79,33 @@
   width: 100%;
   border-bottom: 0.01rem solid #dddddd;
   margin-left: 0.2rem;
-  display: flex;
 }
 .orderinfo .userInfoBox .userInfo .item input {
-  width: 5rem;
   font-size: 0.3rem;
   color: #000000;
   outline: none;
   border: none;
 }
-.orderinfo .userInfoBox .userInfo .item span {
-  width: 5rem;
-  line-height: 0.6rem;
-  font-size: 0.3rem;
-  color: #888888;
+.orderinfo .userInfoBox .userInfo .item .nameBox {
+  width: 75%;
   text-align: left;
+}
+.orderinfo .userInfoBox .userInfo .item .nameBox span {
+  display: block;
+  color: red;
+}
+.orderinfo .userInfoBox .userInfo .item .nameBox input {
+  height: 0.9rem;
+  line-height: 90 / rem;
+}
+.orderinfo .userInfoBox .userInfo .item .nameBox .addressSt {
+  font-size: 0.3rem;
+  color: #000000;
+  height: 0.9rem;
+  line-height: 0.9rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .orderinfo .userInfoBox .userInfo .item strong {
   text-align: left;

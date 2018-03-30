@@ -9,26 +9,37 @@
     </header> -->
     <div class="userInfoBox">
         <ul class="userInfo">
-            <li class="item ">
-                <strong >姓名</strong>
-                <input @blur="isName"  v-model="nameValue"      placeholder="请输入联系人姓名 (必填)"  type="text" value="nameValue" >
+            <li class="item  clearfix ">
+                <strong class="fl" >姓名</strong>
+                <div  class="nameBox  fl">
+                    <input @blur="isName"  v-on:input="listenInput"    v-model="nameValue"      placeholder="请输入联系人姓名 (必填)"  type="text" value="nameValue" >
+                    <span  v-if="tipNmae" >名字格式为中文，长度为2-7位</span>
+                </div>
+                
             </li>
-             <li class="item ">
-                <strong >电话</strong>
-                <input  type="text"  @blur="isPhoneNumber"  v-model="phoneNumber" placeholder="请输入手机号码 (必填)" value="phoneNumber" >
-           </li> 
-            <li class="item ">
-                <strong >地址</strong>
-                <!-- <input  type="text" value="浦东新区 北蔡镇 永安小区" > -->
-                <span>
-                    {{selectedInfo.areaItem.areaName+selectedInfo.subdistyictItem.areaName}}
-                    {{selectedInfo.cellseletionItem.address+selectedInfo.cellseletionItem.name}}
+            <li class="item  clearfix ">
+                <strong class="fl" >电话</strong>
+                <div  class="nameBox  fl">
+                    <input  type="text"   @blur="isPhoneNumber"   v-model="phoneNumber" placeholder="请输入手机号码 (必填)" value="phoneNumber" >
+                    <span v-if="tipPhone"  >电话号码格式不正确</span>
+                </div>
+                
+            </li>
 
-                </span>
+            <li class="item  clearfix ">
+                <strong class="fl" >地址</strong>
+                <div  class="nameBox  fl">
+                    <div class="addressSt">
+                        {{selectedInfo.areaItem.areaName+selectedInfo.subdistyictItem.areaName}}
+                        {{selectedInfo.cellseletionItem.address+selectedInfo.cellseletionItem.name}}
+                    </div>
+                </div>
             </li>
             <li class="item ">
-                <strong >门牌号</strong>
-                <input  type="text"   placeholder="例：5号楼203室"  value="" >
+               <strong class="fl" >门牌号</strong>
+                <div  class="nameBox  fl">
+                    <input  type="text"   placeholder="例：5号楼203室"  value="" >
+                </div>     
             </li>
         </ul>
     </div>
@@ -90,6 +101,8 @@ export default {
             time :'请选择上门回收时间 ',
             show:false,
             infoTm:'',
+            tipNmae:false,
+            tipPhone:false,
             isOk:{
                 nameisOk:false,
                 phoneIsOk:false,
@@ -194,24 +207,49 @@ export default {
             });
 
         },
-        isName(){
-            var reg = RegExp();
-            var str = this.nameValue;               
-            reg=/^([\u4e00-\u9fa5]){2,7}$/;       //只能是中文，长度为2-7位
-            if(!reg.test(str)){       
-                    // alert("对不起,您输入正确的名字格式!");//请将“字符串类型”要换成你要验证的那个属性名称！   
-            } else{
+        listenInput(){
 
-                this.isOk.nameisOk = !this.isOk.nameisOk;
-            }       
+
+            if(this.nameValue){
+                var reg = RegExp();
+                var str = this.nameValue;               
+                reg=/^([\u4e00-\u9fa5]){2,7}$/;       //只能是中文，长度为2-7位
+                if(!reg.test(str)){  
+                    this.isOk.nameisOk = false;
+                    this.tipNmae = true;
+                        // alert("对不起,您输入正确的名字格式!");//请将“字符串类型”要换成你要验证的那个属性名称！   
+                } else{
+
+                    this.isOk.nameisOk = true;
+                    this.tipNmae = false;
+                }
+            }
+
+
+        },
+        isName(){
+            // if(this.nameValue){
+            //     var reg = RegExp();
+            //     var str = this.nameValue;               
+            //     reg=/^([\u4e00-\u9fa5]){2,7}$/;       //只能是中文，长度为2-7位
+            //     if(!reg.test(str)){  
+            //         this.isOk.nameisOk = false;
+            //             // alert("对不起,您输入正确的名字格式!");//请将“字符串类型”要换成你要验证的那个属性名称！   
+            //     } else{
+
+            //         this.isOk.nameisOk = !this.isOk.nameisOk;
+            //     }
+            // }       
         },
         isPhoneNumber(){
             var reg = RegExp();
             reg=/^[1][3,4,5,7,8][0-9]{9}$/;  
             if (!reg.test(this.phoneNumber)) {  
-                    // alert("请输入正确的手机号")
+                        this.tipPhone = true;
+                       this.isOk.phoneIsOk = false;     
                 } else {  
                         this.isOk.phoneIsOk = !this.isOk.phoneIsOk;
+                        this.tipPhone = false;
                 }
 
             }

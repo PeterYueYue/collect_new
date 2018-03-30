@@ -87,6 +87,7 @@
   text-align: center;
   color: #666666;
   font-size: 0.3rem;
+  overflow: hidden;
 }
 .typeselect .classchange .class_change_list li .active {
   background-color: #00a0e9;
