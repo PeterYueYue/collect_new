@@ -348,13 +348,13 @@ label {
   margin-left: 0;
 }
 .details_shadow_evaluation .evaStar .star .star-item.star-item.on {
-  background-image: url(../../../../ant_collect/src/assets/icon_star.png);
+  background-image: url(../../assets/icon_star.png);
 }
 .details_shadow_evaluation .evaStar .star .star-item.star-item.half {
-  background-image: url(../../../../ant_collect/src/assets/icon_star.png);
+  background-image: url(../../assets/icon_star.png);
 }
 .details_shadow_evaluation .evaStar .star .star-item.star-item.off {
-  background-image: url(../../../../ant_collect/src/assets/icon_star_hover.png);
+  background-image: url(../../assets/icon_star_hover.png);
 }
 .details_shadow_evaluation .text {
   box-sizing: border-box;
