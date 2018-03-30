@@ -1,6 +1,12 @@
 import * as types from './mutation-types'
 // import store      from './../../static/store.js'
-export var changePointIndex = ({commit},data)             => {
+
+
+getToken
+export var getToken                 = ({commit},data)     => {   // 获取用户token
+    commit(types.Get_Token,data);
+}
+export var changePointIndex         = ({commit},data)     => {
     commit(types.SET_CHANGE_INDEX,data);
 }
 export var changeItem                = ({ commit }, data) => {

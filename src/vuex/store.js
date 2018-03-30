@@ -9,6 +9,8 @@ export default new Vuex.Store({
     actions,
     getters,
     state: {
+
+      token                   : '',
       count                   :   0,
       msItemId                :   '',
       useraddress             :   '8888',
@@ -108,6 +110,10 @@ export default new Vuex.Store({
         }) 
         this.state.imgsAddress  = a;
         
+      },
+      Get_Token(state, data){   // 获取token
+        this.state.token = data
+
       }
       
     },
