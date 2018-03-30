@@ -9,7 +9,7 @@
         <img :src="detailsList.category?detailsList.category.icon:''" alt="" class="pic">
         <div>
           <div class="name">{{detailsList.category ? detailsList.category.name : ''}}</div>
-          <div class="price">预估价格：<span>￥{{detailsList.price}}</span></div>
+          <div class="price">预估价格：<span>￥<span class="money">{{detailsList.price}}</span></span></div>
         </div>
       </div>
     </div>
@@ -82,7 +82,8 @@
     <!--</div>-->
     <!-- 已完成状态弹窗 -->
     <div class="details_shadow_evaluation" v-if="showEvaluation">
-      <div class="title">我们的服务您满意吗？</div>
+      <div class="title" v-show="detailsList.isEvaluated == '0'">我们的服务您满意吗？</div>
+      <div class="title" v-show="detailsList.isEvaluated == '1'">我的评价</div>
       <div class="evaStar">
         <ul class="star">
           <li v-for="(itemClass,index) in itemClasses" :key="itemClass.id" :class="itemClass" class="star-item"

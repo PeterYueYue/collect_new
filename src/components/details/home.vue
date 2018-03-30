@@ -53,7 +53,7 @@
       }
     },
 
-    created(){
+    created() {
 
       var urlToken =  location.search;
       var tk = urlToken.split("=");

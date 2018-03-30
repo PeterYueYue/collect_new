@@ -34,7 +34,7 @@
   color: #ffb414;
 }
 .details_wrap_item .date {
-  font-size: 0.24rem;
+  font-size: 0.26rem;
   color: #888;
   margin-top: 0.1rem;
 }
@@ -58,6 +58,9 @@
 }
 .details_wrap_item .content .price span {
   color: #f4333c;
+}
+.details_wrap_item .content .price span.money {
+  font-size: 0.36rem;
 }
 .details_wrap_time {
   position: relative;
@@ -170,7 +173,7 @@
 .details_wrap_belongs {
   font-size: 0.28rem;
   color: #888;
-  margin: 1rem 0;
+  margin: 0.4rem 0 1rem;
   text-align: center;
 }
 .details_wrap_belongs .text:last-child {
@@ -225,12 +228,14 @@
 .button_holder {
   padding-left: 0.6rem;
   font-size: 0.3rem;
+  margin-top: 0.25rem;
 }
 label {
   display: inline;
 }
 .regular_radio {
   display: none;
+  padding-left: 0.2rem;
 }
 .regular_radio + label {
   width: 100%;
@@ -239,24 +244,25 @@ label {
 .regular_radio + label i {
   background-color: #fff;
   border: 0.01rem #939393 solid;
-  width: 0.36rem;
-  height: 0.36rem;
+  width: 0.3rem;
+  height: 30 100rem;
   border-radius: 100%;
   display: inline-block;
   position: relative;
-  top: 0.08rem;
-  right: 0.1rem;
+  top: 0.04rem;
+  right: 0.2rem;
   margin-top: 0.25rem;
 }
 .regular_radio:checked + label i:after {
   content: ' ';
-  width: 0.28rem;
-  height: 0.28rem;
+  width: 0.3rem;
+  height: 0.3rem;
   border-radius: 100%;
   position: absolute;
-  top: 0.03rem;
-  left: 0.03rem;
-  background: #99a1a7;
+  top: -0.01rem;
+  left: -0.01rem;
+  background-color: #fff;
+  border: 4rem #00a0e9 solid;
 }
 .button_footer {
   overflow: hidden;
@@ -348,13 +354,13 @@ label {
   margin-left: 0;
 }
 .details_shadow_evaluation .evaStar .star .star-item.star-item.on {
-  background-image: url(../../../../ant_collect/src/assets/icon_star.png);
+  background-image: url(../../assets/icon_star.png);
 }
 .details_shadow_evaluation .evaStar .star .star-item.star-item.half {
-  background-image: url(../../../../ant_collect/src/assets/icon_star.png);
+  background-image: url(../../assets/icon_star.png);
 }
 .details_shadow_evaluation .evaStar .star .star-item.star-item.off {
-  background-image: url(../../../../ant_collect/src/assets/icon_star_hover.png);
+  background-image: url(../../assets/icon_star_hover.png);
 }
 .details_shadow_evaluation .text {
   box-sizing: border-box;
@@ -370,6 +376,15 @@ label {
   color: #888;
   text-align: justify;
   padding: 0.25rem;
+}
+.details_shadow_evaluation .text:-moz-placeholder {
+  color: #333;
+}
+.details_shadow_evaluation .text::-moz-placeholder {
+  color: #333;
+}
+.details_shadow_evaluation .text:-ms-input-placeholder {
+  color: #333;
 }
 .details_shadow_evaluation .footer_btn {
   width: 100%;
