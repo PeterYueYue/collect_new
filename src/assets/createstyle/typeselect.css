@@ -47,6 +47,7 @@
   line-height: 0.66rem;
   font-size: 0.34rem;
   color: #333333;
+  font-weight: normal;
 }
 .typeselect .callbackinfo .information .recovery_price {
   font-size: 0.28rem;
@@ -69,6 +70,7 @@
   line-height: 0.94rem;
   color: #333333;
   margin-left: 0.3rem;
+  font-weight: normal;
 }
 .typeselect .classchange .class_change_list {
   width: 100%;

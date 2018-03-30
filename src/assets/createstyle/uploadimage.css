@@ -46,6 +46,8 @@
 }
 .uploadimage .imgbtnortext .showimge .imgBox {
   position: relative;
+  width: 1.61rem;
+  height: 1.61rem;
 }
 .uploadimage .imgbtnortext .showimge .imgBox img {
   width: 1.61rem;

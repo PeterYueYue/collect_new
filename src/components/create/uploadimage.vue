@@ -188,9 +188,6 @@ export default {
         console.log(err)
       })
 
-
-    
-
     },
     rotateImg(img, direction, canvas) {
       //最小与最大旋转方向，图片旋转4次后回到原方向

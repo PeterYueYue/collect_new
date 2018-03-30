@@ -5,12 +5,10 @@ import axios from 'axios';
 
 let base ='http://101.132.165.211:8080';
 
-import state   from './../vuex/store.js'
+// import state   from './../vuex/store.js'
 // var uesrToken = state.getters.token;
 
-var uesrToken ="3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24UAJWCBI7NJ42KSYJ2KXG2OVQSA6ZMU4VMMCLQUKIRXAWTX2BD3K6MDOZDBJ4Q62CYGOB7DVAUP4CYQAHL3JSQRIG7P2UO77IZBN7W3E4RZK42VEEUWCHGAZLS7LGRB4EVIIYSQVYYSGAETEUZC4JUVVV2UDRKIOBGXURUGYCOGKTBVFLZYU2QFPF2G4I7DVNKBWCOFWBQDLZLJYEDSPIL6T46KLPZ4O2ZIFJROTQ"
-
-alert(1)
+// var uesrToken ="3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24UAJWCBI7NJ42KSYJ2KXG2OVQSA6ZMU4VMMCLQUKIRXAWTX2BD3K6MDOZDBJ4Q62CYGOB7DVAUP4CYQAHL3JSQRIG7P2UO77IZBN7W3E4RZK42VEEUWCHGAZLS7LGRB4EVIIYSQVYYSGAETEUZC4JUVVV2UDRKIOBGXURUGYCOGKTBVFLZYU2QFPF2G4I7DVNKBWCOFWBQDLZLJYEDSPIL6T46KLPZ4O2ZIFJROTQ"
 
 //首页home
 const configGetHome = {
@@ -20,7 +18,6 @@ const configGetHome = {
   "version": "1.0",
   "nonce": "3cfb4919-211e-4737-a284-566c9a6ad016",
   "timestamp": 1520922311285,
-  "token": uesrToken
 }
 //订单记录
 const configGetOrders = {
@@ -30,7 +27,6 @@ const configGetOrders = {
   "version": "1.0",
   "nonce": "a5d64ec0-fbcb-434d-8684-fd9b6ce7bba0",
   "timestamp": 1522132341898,
-  "token": uesrToken
 }
 //收呗记录
 const configGetRecords = {
@@ -40,7 +36,6 @@ const configGetRecords = {
   "version": "1.0",
   "nonce": "ffe42777-4692-4e76-be13-b8823c1bb5f3",
   "timestamp": 1520416397474,
-  "token": uesrToken
 }
 //订单详情
 const configGetDetails = {
@@ -50,7 +45,6 @@ const configGetDetails = {
   "version": "1.0",
   "nonce": "ed4fa93f-b19f-4f38-96c6-2e6647ccf254",
   "timestamp": 1521424523443,
-  "token": uesrToken
 }
 //取消订单
 const configCancelOrders = {
@@ -60,7 +54,6 @@ const configCancelOrders = {
   "version": "1.0",
   "nonce": "05eb3311-72e6-467c-860a-faf7dd4237a3",
   "timestamp": 1520924873517,
-  "token": uesrToken
 }
 //获取评价
 const configGetEvaluate = {
@@ -70,7 +63,6 @@ const configGetEvaluate = {
   "version": "1.0",
   "nonce": "45418cfc-5ad2-4f48-8fe7-09ded212d999",
   "timestamp": 1520579620270,
-  "token": uesrToken
 }
 //进行评价
 const configEvaluate = {
@@ -80,7 +72,6 @@ const configEvaluate = {
   "version": "1.0",
   "nonce": "8576168a-27e9-4043-8d56-140a79b81b13",
   "timestamp": 1522047122519,
-  "token": uesrToken
 }
 
 let configGetClassify = {  //回收分类
@@ -90,7 +81,6 @@ let configGetClassify = {  //回收分类
   "version": "1.0",
   "nonce": "518d8cb1-4e7a-49da-941f-72669ee547f6",
   "timestamp": 1521084409360,
-  "token": uesrToken
 }
 let configGetSubList = {   //根据一级分类id取得所有二级分类
   "name": "category.listchild",
@@ -99,7 +89,6 @@ let configGetSubList = {   //根据一级分类id取得所有二级分类
   "version": "1.0",
   "nonce": "7a3e111a-4c92-411d-8683-220eacfde115",
   "timestamp": 1521091926280,
-  "token": uesrToken
 }
 
 let configAddressList ={
@@ -109,7 +98,6 @@ let configAddressList ={
   "version": "1.0",
   "nonce": "16412db9-5f3b-4af2-90cd-bdc85a98ef17",
   "timestamp": 1520835093965,
-  "token": uesrToken
 
 }
 let configGetAreaList = {   //根据层级取得所有该层地区
@@ -119,7 +107,6 @@ let configGetAreaList = {   //根据层级取得所有该层地区
   "version": "1.0",
   "nonce": "fc1874cb-af8d-4feb-bed2-39914f6dc098",
   "timestamp": 1520403875676,
-  "token": uesrToken
 }
 
 let configAreaChildList = {  //根据父级取得所有子地区
@@ -130,7 +117,6 @@ let configAreaChildList = {  //根据父级取得所有子地区
   "version": "1.0",
   "nonce": "ebe3fcb8-4ab5-49a7-accc-4eade3ce7446",
   "timestamp": 1520404216901,
-  "token": uesrToken
 
 }
 
@@ -143,7 +129,6 @@ let cofigGetCellSeleTion = {  //根据区域id，取得该区域下所有小区 
   "version": "1.0",
   "nonce": "53832d71-cd35-48de-8784-d154edd924c7",
   "timestamp": 1520832048762,
-  "token": uesrToken
 }
 
 
@@ -154,7 +139,6 @@ let configCategoryAttrOption = {  //根据分类 的属性取 分类属性选项
   "version": "1.0",
   "nonce": "45418cfc-5ad2-4f48-8fe7-09ded212d999",
   "timestamp": 1520579620270,
-  "token": uesrToken
 }
 
 
@@ -166,7 +150,6 @@ let configGetAllattrOption = {
   "version": "1.0",
   "nonce": "83552b17-c9a4-4bfb-9ceb-ef31dc82faa9",
   "timestamp": 1520496356565,
-  "token": uesrToken
 
 
 
@@ -175,7 +158,6 @@ let configUpLoader    ={
   "name": "util.uploadImage",
   "format": "json",
   "version": "1.0",
-  "token": uesrToken
 
 }
 
@@ -186,7 +168,6 @@ let configFturePrices ={   //请求预估价格
   "version": "1.0",
   "nonce": "11fb0dbe-3816-467d-80a3-7c35558a94ef",
   "timestamp": 1521595483415,
-  "token": uesrToken
 
 
 }
@@ -198,7 +179,6 @@ var configComplete = {  //下单提交信息
 	"version": "1.0",
 	"nonce": "7e79e517-85fe-4431-ad1b-098b445bc4aa",
 	"timestamp": 1522215112803,
-	"token": uesrToken
 
 }
 

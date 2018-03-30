@@ -152,4 +152,5 @@ body {
 .addressopt .next .nextbutton a {
   color: #ffffff;
   display: block;
+  border-radius: 0.1rem;
 }
