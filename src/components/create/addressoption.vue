@@ -47,8 +47,8 @@
             <span class="add_info">找不到回收的小区?</span>
             <h1 id="demo"></h1>
             <div  class="nextbutton  ">
-                <a  v-if="!isEnter"   style="background-color:#bfc5c8;"   href="javascript:;">下一步</a>
-                <router-link v-if="isEnter"  :to="'/typeSelect/'+addRessId.id" >下一步</router-link>
+                <a  v-show="!isEnter"   class="dontEnter"     href="javascript:;">下一步</a>
+                <router-link v-show="isEnter"   class="yesEnter"  :to="'/typeSelect/'+addRessId.id" >下一步</router-link>
             </div>
 
 

@@ -28,11 +28,11 @@
         <transition name="slide-fade">
             <div class="classchange"  v-for="(item,index) in dataList"  :key="item.id"   v-if="    isShow == index"        >
                 <h3 class="titlename">{{item.name}}</h3>
-                <ul class="class_change_list clearfix">
+                <ul class="class_change_list ">
                     
-                    <li class="fl "   v-for="(e,i) in item.categoryAttrOptionList "   :key="e.id"   >
+                    <li class=" "   v-for="(e,i) in item.categoryAttrOptionList "   :key="e.id"   :class="{active: isActive === i }"  @click="changeItem(e,{item,index,i})"         >{{e.name}}
                         <!-- <router-link :to="'/typeSelect/typestate/' + pointIndex" class="active">{{e.name}}</router-link> -->
-                        <a :class="{active: isActive === i }"  @click="changeItem(e,{item,index,i})" href="javascript:;">{{e.name}}</a>
+                        <!-- <a :class="{active: isActive === i }"  @click="changeItem(e,{item,index,i})" href="javascript:;">{{e.name}}</a> -->
                     </li>
                     
                 </ul>

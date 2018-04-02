@@ -44,6 +44,7 @@
   line-height: 0.66rem;
   font-size: 0.34rem;
   color: #333333;
+  font-weight: normal;
 }
 .estimate .callbackinfo .information .recovery_price {
   font-size: 0.28rem;

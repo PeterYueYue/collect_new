@@ -197,11 +197,16 @@
   font-size: 0.36rem;
   line-height: 0.84rem;
   text-align: center;
-  background-color: #00a0e9;
   margin: 0.5rem auto 0;
   border-radius: 0.1rem;
 }
-.orderinfo .nextbutton a {
+.orderinfo .nextbutton .dontEnter {
+  background-color: #bfc5c8;
+  display: block;
+  border-radius: 0.1rem;
+}
+.orderinfo .nextbutton .yesEnter {
+  background-color: #00a0e9;
   color: #ffffff;
   display: block;
   border-radius: 0.1rem;
