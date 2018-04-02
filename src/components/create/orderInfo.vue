@@ -46,7 +46,7 @@
     <div class="collectTimeAndPrice">
         <div class="pickUp ">
             <strong>上门时间：</strong>
-            <time  :class="{textColor:iscolor}"   >{{time}}{{infoTm}}</time>
+            <time  :class="{textColor:infoTm}"   >{{time}}{{infoTm}}</time>
             <div  @click="setTime" class="dataBlock">
                 <a href="javaScript:;">  
                 </a>
@@ -60,7 +60,7 @@
     <div class="information">实际成交价格最终验机结果为准</div>
     <div class="nextbutton  ">
         <a  v-if="isOk.nameisOk == false || isOk.phoneIsOk == false ||  isOk.timeIsOk == false"  class="dontEnter"      >提交订单</a>
-        <a href="javascript:;"   v-if="isOk.nameisOk == true && isOk.phoneIsOk == true "   @click="completeAnOrder"   class="yesEnter"     > 提交订单 </a>
+        <a href="javascript:;"   v-if="isOk.nameisOk == true && isOk.phoneIsOk == true && isOk.timeIsOk == true "   @click="completeAnOrder"   class="yesEnter"     > 提交订单 </a>
     </div>
 
     <div class="information">提交订单后将有售后人员与您电话沟通，请保持手机畅通</div>
@@ -208,7 +208,7 @@ export default {
             if(this.nameValue){
                 var reg = RegExp();
                 var str = this.nameValue;               
-                reg=/^([\u4e00-\u9fa5]){2,7}$/;       //只能是中文，长度为2-7位
+                reg=/^[a-zA-Z0-9-\u4E00-\u9FA5]{2,16}$/;       //用户名不能使用特殊符号代替
                 if(!reg.test(str)){  
                     this.isOk.nameisOk = false;
                     this.tipNmae = true;
