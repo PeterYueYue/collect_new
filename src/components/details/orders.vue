@@ -27,6 +27,7 @@
 <script>
   import '@/components/details/orders.css'
   import api from '@/api/api.js'
+  import {mapGetters} from 'vuex';
 
   export default {
     data() {
@@ -38,18 +39,23 @@
         showLoading: false
       }
     },
+    computed: mapGetters({
+      token: "token"
+    }),
     mounted() {
       this.getList()
     },
     methods: {
       //获取数据
-      getList(done){
+      getList(done) {
         const {pageNumber, pageSize} = this;
         this.showLoading = true;
         api.getOrders({
           "app_key": "app_id_1",
           "data": {pageNumber, pageSize},
+          token: this.token,
         }).then((res) => {
+          console.log(res);
           res.data.listOrder.map(items => {
             var status = items.statusPage;
             switch (status) {
@@ -85,7 +91,7 @@
             }
             this.pageNumber += 1;
             if (done) done();
-          }, 2000)
+          }, 100)
         }).catch((error) => {
           console.log(error)
         })

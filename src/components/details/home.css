@@ -63,8 +63,9 @@ a {
   color: #f4333c;
 }
 .home_wrap_icon {
-  width: 1rem;
-  height: 1.3rem;
+  display: block;
+  width: 2.44rem;
+  height: 1.6rem;
   margin: 1.2rem auto 0;
 }
 .home_wrap_ordername {

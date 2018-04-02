@@ -48,11 +48,11 @@
   position: relative;
   width: 1.61rem;
   height: 1.61rem;
+  margin-right: 0.2rem;
 }
 .uploadimage .imgbtnortext .showimge .imgBox img {
   width: 1.61rem;
   height: 1.61rem;
-  margin-right: 0.2rem;
 }
 .uploadimage .imgbtnortext .showimge .imgBox .zhezhao {
   width: 100%;
@@ -64,8 +64,8 @@
 }
 .uploadimage .imgbtnortext .showimge .imgBox .closeImg {
   position: absolute;
-  right: 0.2rem;
-  top: 0;
+  right: -0.05rem;
+  top: -0.05rem;
   color: red;
   z-index: 3;
 }

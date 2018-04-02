@@ -86,7 +86,6 @@ export default {
         
     }),
   created(){
-
     this.itemID = this.$store.state.msItemId;
     var {id} = this.$route.params;   //商品ID
     this.id = id;
@@ -103,6 +102,8 @@ export default {
         token:this.token
     
     }).then((res)=>{
+
+        console.log(res)
         // 判断地址栏的默认信息以及修改后的显示逻辑
          if(this.useraddress.address){
              console.log("2222")

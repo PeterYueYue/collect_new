@@ -61,6 +61,7 @@
 <script>
   import '@/components/details/records.css'
   import api from '@/api/api.js'
+  import {mapGetters} from 'vuex';
 
   export default {
     name: "records",
@@ -78,6 +79,9 @@
         showLoading: false
       }
     },
+    computed: mapGetters({
+      token: "token"
+    }),
     mounted() {
       this.getRecords()
     },
@@ -89,6 +93,7 @@
         api.getRecords({
           "app_key": "app_id_1",
           "data": {pageNumber, pageSize},
+          token: this.token
         }).then((res) => {
           console.log(res.data);
           this.documentNo = res.data[0];
@@ -102,7 +107,7 @@
             }
             this.pageNumber += 1;
             if (done) done();
-          }, 2000)
+          }, 100)
         }).catch((error) => {
           console.log(error)
         })

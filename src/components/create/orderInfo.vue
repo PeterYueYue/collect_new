@@ -195,7 +195,7 @@ export default {
                 if(res.date){
                     antThis.show = true;
                     antThis.time = res.date;
-                    antThis.isOk.timeIsOk = !antThis.isOk.timeIsOk;
+                    antThis.isOk.timeIsOk = true;
                     this.iscolor = true;
                 }
             
@@ -215,7 +215,7 @@ export default {
                         // alert("对不起,您输入正确的名字格式!");//请将“字符串类型”要换成你要验证的那个属性名称！   
                 } else{
 
-                    this.isOk.nameisOk = !antThis.isOk.timeIsOk;
+                    this.isOk.nameisOk = true;
                     this.tipNmae = false;
                 }
             }
@@ -237,16 +237,18 @@ export default {
             // }       
         },
         isPhoneNumber(){
-            var reg = RegExp();
-            reg=/^[1][3,4,5,7,8][0-9]{9}$/;  
-            if (!reg.test(this.phoneNumber)) {  
-                        this.tipPhone = true;
-                       this.isOk.phoneIsOk = false;     
-                } else {  
-                        this.isOk.phoneIsOk = !this.isOk.phoneIsOk;
-                        this.tipPhone = false;
-                }
+            if(this.phoneNumber){
+                var reg = RegExp();
+                reg=/^[1][3,4,5,7,8][0-9]{9}$/;  
+                if (!reg.test(this.phoneNumber)) {  
+                            this.tipPhone = true;
+                        this.isOk.phoneIsOk = false;     
+                    } else {  
+                            this.isOk.phoneIsOk = true;
+                            this.tipPhone = false;
+                    }
 
+                }
             }
        
     }
