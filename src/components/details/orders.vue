@@ -25,7 +25,7 @@
 </template>
 
 <script>
-  import '@/components/details/orders.css'
+  import '@/assets/detailstyle/orders.css'
   import api from '@/api/api.js'
   import {mapGetters} from 'vuex';
 

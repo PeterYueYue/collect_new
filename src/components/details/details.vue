@@ -100,7 +100,7 @@
 </template>
 
 <script>
-  import '@/components/details/details.css'
+  import '@/assets/detailstyle/details.css'
   import api from '@/api/api.js'
   import imgView from '@/components/details/imgView.vue'
   import qrCode from '@/components/details/qrCode.vue'
