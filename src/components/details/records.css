@@ -144,7 +144,7 @@
 }
 .records_shadow_icon_close {
   position: absolute;
-  bottom: 3rem;
+  bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
   width: 0.6rem;
