@@ -25,16 +25,16 @@
     </div>
 
     <!-- 底部footer -->
-    <img src="@/assets/icon_footer.png" alt="" class="home_wrap_footer_tbg">
     <div class="home_wrap_footer">
+      <img src="@/assets/icon_footer.png" alt="" class="home_wrap_footer_tbg">
       <router-link to="/classIfy">
         <div class="footer_circle">我要<br/>回收</div>
       </router-link>
       <router-link to="/records">
-        <div class="footer_left"><img src="@/assets/icon_foot.png" alt=""><span>收呗足迹</span></div>
+        <div class="footer_left"><img src="@/assets/icon_foot.png" alt="" class="icon"><span>收呗足迹</span></div>
       </router-link>
       <router-link to="/orders">
-        <div class="footer_right"><img src="@/assets/icon_record.png" alt=""><span>订单记录</span></div>
+        <div class="footer_right"><img src="@/assets/icon_record.png" alt="" class="icon"><span>订单记录</span></div>
       </router-link>
     </div>
   </div>
@@ -58,9 +58,8 @@
       var urlToken = location.search;
       var tk = urlToken.split("=");
       var testToken = "3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24UAJWCBI7NJ42KSYJ2KXG2OVQSA6ZMU4VMMCLQUKIRXAWTX2BD3K6MDOZDBJ4Q62CYGOB7DVAUP4CYQAHL3JSQRIG7P2UO77IZBN7W3E4RZK42VEEUWCHGAZLS7LGRB4EVIIYSQVYYSGAETEUZC4JUVVV2UDRKIOBGXURUGYCOGKTBVFLZYU2QFPF2G4I7DVNKBWCOFWBQDLZLJYEDSPIL6T46KLPZ4O2ZIFJROTQ"
-      // this.$store.dispatch('getToken',tk[1])
       this.$store.dispatch('getToken',testToken)
-
+      // this.$store.dispatch('getToken',tk[1])
     },
     computed: mapGetters({
       token: "token"

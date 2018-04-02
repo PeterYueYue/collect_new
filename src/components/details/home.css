@@ -88,7 +88,7 @@ a {
   transform: translate3d(0, 0, 0);
 }
 .home_wrap_footer_tbg {
-  position: fixed;
+  position: absolute;
   bottom: 1.02rem;
   width: 100%;
 }
@@ -125,7 +125,7 @@ a {
   height: 1.02rem;
   position: relative;
 }
-.home_wrap_footer img {
+.home_wrap_footer .icon {
   width: 0.61rem;
   height: 0.61rem;
   position: absolute;
