@@ -76,9 +76,9 @@
     <div class="details_cancelSucceed_box" v-if="showCancel">取消成功</div>
     <!-- 二维码弹窗 -->
     <!--<div class="details_shadow_code" v-if="showCode">-->
-      <!--<img src="@/assets/icon_delete.png" alt="" class="icon_delete" @click="closeCode">-->
-      <!--<div class="code_text">请将交易二维码出示给回收人员</div>-->
-      <!--<qrCode :url="url"></qrCode>-->
+    <!--<img src="@/assets/icon_delete.png" alt="" class="icon_delete" @click="closeCode">-->
+    <!--<div class="code_text">请将交易二维码出示给回收人员</div>-->
+    <!--<qrCode :url="url"></qrCode>-->
     <!--</div>-->
     <!-- 已完成状态弹窗 -->
     <div class="details_shadow_evaluation" v-if="showEvaluation">
@@ -122,7 +122,7 @@
         evaluateText: '',
         showImgView: false,
         picUrl: [],
-        url: ''
+        url: '',
       }
     },
     mounted() {
@@ -134,7 +134,8 @@
     components: {
       imgView, qrCode
     },
-    computed: { //计算属性
+    computed: {
+      //计算属性
       itemClasses() {
         var result = []; // 返回的是一个数组,用来遍历输出星星
         var score = Math.floor(this.score * 2) / 2; // 计算所有星星的数量
@@ -161,6 +162,7 @@
             "isEvaluated": "0",
             "status": 0
           },
+          token: this.$store.state.token
         }).then((res) => {
           var status = res.data.order.statusPage;
           this.picUrl = res.data.orderPicList;
@@ -253,6 +255,7 @@
             "cancelReason": this.cancelReason,
             "isEvaluated": "0"
           },
+          token: this.$store.state.token
         }).then((res) => {
           console.log(res.data);
           this.showOrders = false;
@@ -268,6 +271,7 @@
           "data": {
             "id": this.id,
           },
+          token: this.$store.state.token
         }).then((res) => {
           console.log(res);
           if (res.data) {
@@ -289,6 +293,7 @@
             "content": this.evaluateText,
             "memberId": 0
           },
+          token: this.$store.state.token
         }).then((res) => {
           this.$router.push({
             path: '/orders'
