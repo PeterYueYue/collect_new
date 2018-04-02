@@ -82,32 +82,31 @@
       }
       .class_change_list{
           width: 100%;
+          display: flex;
+          flex-wrap:wrap;
           
           li{ 
             margin-left: 30/@rem;
             width: 330/@rem;
             height: 60/@rem;
             margin-top: 30/@rem;
+            line-height: 60/@rem;
+            text-align: center;
+            color: #666666;
+            font-size: 30/@rem;
             border: 1/@rem solid #666666;
-            overflow: hidden;
             
-              a{
-                  display: block;
-                  line-height: 60/@rem;
-                  text-align: center;
-                  color: #666666;
-                  font-size: 30/@rem;
-                  overflow: hidden;
-              }
               
-              .active{
-                  background-color: #00a0e9;
-                  color: #ffffff;
-                  border: 1/@rem solid #00a0e9;
-              }
+            .active{
+                background-color: #00a0e9;
+                color: #ffffff;
+                border: 1/@rem solid #00a0e9;
+            }
           }
           li:hover{
             border: 1/@rem solid #00a0e9;
+            background-color: #00a0e9;
+            color: #ffffff;
           }
       }
   }
