@@ -60,7 +60,7 @@
     <div class="information">实际成交价格最终验机结果为准</div>
     <div class="nextbutton  ">
         <a  v-if="isOk.nameisOk == false || isOk.phoneIsOk == false ||  isOk.timeIsOk == false"   style="background-color:#bfc5c8;"   >提交订单</a>
-        <a href="javascript:;"   v-if="isOk.nameisOk == true && isOk.phoneIsOk == true &&  isOk.timeIsOk == true"   @click="completeAnOrder"      > 提交订单 </a>
+        <a href="javascript:;"   v-if="isOk.nameisOk == true && isOk.phoneIsOk == true "   @click="completeAnOrder"      > 提交订单 </a>
     </div>
 
     <div class="information">提交订单后将有售后人员与您电话沟通，请保持手机畅通</div>
