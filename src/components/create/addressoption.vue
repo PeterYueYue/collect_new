@@ -41,7 +41,7 @@
                 {{userAddressInfo}}
             </router-link>
             <span class="fr"></span>
-            
+
         </div>
         <div class="next">
             <span class="add_info">找不到回收的小区?</span>
@@ -55,7 +55,7 @@
         </div>
         <!-- 如果选择的地址没有弹出此提示框 -->
         <!-- <prompt-box></prompt-box> -->
-        
+
     </div>
 </template>
 <script>
@@ -64,7 +64,7 @@ import '@/assets/createstyle/addressopt.css'
 import api from '@/api/api.js'
 import PromptBox from './common/promptbox.vue'
 
-import {mapGetters} from 'vuex'  
+import {mapGetters} from 'vuex'
 export default {
   components:{
       PromptBox
@@ -83,7 +83,7 @@ export default {
         addRessId   : 'addRessId',
         token       : 'token'
 
-        
+
     }),
   created(){
     this.itemID = this.$store.state.msItemId;
@@ -100,7 +100,7 @@ export default {
             }
         },
         token:this.token
-    
+
     }).then((res)=>{
 
         console.log(res)
@@ -108,7 +108,7 @@ export default {
          if(this.useraddress.address){
              console.log("2222")
                  this.isEnter = true;
-             
+
              this.userAddressInfo = this.useraddress.address + this.useraddress.name;
          }else{
              if(res.data.isExist){
@@ -117,14 +117,14 @@ export default {
                   this.userAddressInfo  = res.data.address + res.data.name
              }else{
                  this.isEnter = false;
-                 this.userAddressInfo = '请输入您的详细地址...'
+                 this.userAddressInfo = '请输入您的详细地址'
              }
          }
     }).catch((erro)=>{
         console.log(erro)
     })
   },
-  
+
   methods:{
     backbtn(){ //执行返回上一个路由；
         this.$router.go(-1);

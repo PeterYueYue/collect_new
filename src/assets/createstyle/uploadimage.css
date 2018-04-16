@@ -123,6 +123,7 @@
   margin: 0 auto;
   outline: none;
   text-indent: 0.1rem;
+  padding: 0.2rem;
 }
 .uploadimage .recycle_description .textarea_box span {
   position: absolute;
