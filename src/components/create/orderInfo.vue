@@ -12,8 +12,8 @@
             <li class="item  clearfix ">
                 <strong class="fl" >姓名</strong>
                 <div  class="nameBox  fl">
-                    <input @blur="isName"  v-on:input="listenInput"    v-model="nameValue"      placeholder="请输入联系人姓名 (必填)"  type="text" value="nameValue" >
-                    <span  v-if="tipNmae" >名字格式为中文，长度为2-7位</span>
+                    <input @blur="isName"     v-model="nameValue"      placeholder="请输入联系人姓名 (必填)"  type="text" value="nameValue" >
+                    <span  v-if="tipNmae" >名字格式可为中文和英文，长度为2-7位</span>
                 </div>
                 
             </li>
@@ -46,7 +46,7 @@
     <div class="collectTimeAndPrice">
         <div class="pickUp ">
             <strong>上门时间：</strong>
-            <time  :class="{textColor:infoTm}"   >{{time}}{{infoTm}}</time>
+            <time  :class="{textColor:infoTm}"   >{{time}}{{infotime}}</time>
             <div  @click="setTime" class="dataBlock">
                 <a href="javaScript:;">  
                 </a>
@@ -59,7 +59,7 @@
     </div>
     <div class="information">实际成交价格最终验机结果为准</div>
     <div class="nextbutton  ">
-        <a  v-if="isOk.nameisOk == false || isOk.phoneIsOk == false ||  isOk.timeIsOk == false"  class="dontEnter"      >提交订单</a>
+        <a v-if="isOk.nameisOk == false || isOk.phoneIsOk == false ||  isOk.timeIsOk == false"  class="dontEnter"      >提交订单</a>
         <a href="javascript:;"   v-if="isOk.nameisOk == true && isOk.phoneIsOk == true && isOk.timeIsOk == true "   @click="completeAnOrder"   class="yesEnter"     > 提交订单 </a>
     </div>
 
@@ -96,6 +96,7 @@ export default {
             time :'请选择上门回收时间 ',
             show:false,
             infoTm:'',
+            infotime:'',
             tipNmae:false,
             tipPhone:false,
             isOk:{
@@ -175,21 +176,45 @@ export default {
         setTimeInfoAm(){
             this.show = false;
             this.infoTm = "am"
+            this.infotime ="上午"
         },
         setTimeInfoPm(){
             this.show = false;
             this.infoTm = "pm"
+            this.infotime = "下午"
         },
         backbtn(){
             this.$router.go(-1);
         },
         setTime(){
             var antThis = this;
+
+            var time = new Date();
+            var year = time.getFullYear();
+            var month = time.getMonth()+1;
+            var noWdate = time.getDate();
+            var startDate = time.getDate()+1;
+            var endDate = time.getDate()+8;
+
+            if(startDate >31){
+                startDate =  Math.abs(31-startDate) 
+            }
+            if(endDate >31){
+                endDate =  Math.abs(31-endDate) 
+            }
+            
+            var nowTime =  year+'-'+month+'-'+noWdate ;
+            var startTime =  year+'-'+month+'-'+startDate;
+            var startTime =  year+'-'+month+'-'+endDate;
+
+            
+
+            
             ap.datePicker({
-                formate: 'yyyy-MM-dd HH:mm:',
-                currentDate: '2018-03-25 15:11:11',
-                startDate: '2018-03-01 11:11:11',
-                endDate: '2018-12-30 11:11:11'
+                formate: 'yyyy-MM-dd',
+                currentDate: startTime,
+                startDate: startTime,
+                endDate: startTime
             }, function(res) {
                 
                 if(res.date){
@@ -223,23 +248,25 @@ export default {
 
         },
         isName(){
-            // if(this.nameValue){
-            //     var reg = RegExp();
-            //     var str = this.nameValue;               
-            //     reg=/^([\u4e00-\u9fa5]){2,7}$/;       //只能是中文，长度为2-7位
-            //     if(!reg.test(str)){  
-            //         this.isOk.nameisOk = false;
-            //             // alert("对不起,您输入正确的名字格式!");//请将“字符串类型”要换成你要验证的那个属性名称！   
-            //     } else{
+            var reg = RegExp();
+            var str = this.nameValue;               
+            reg=/[\u4E00-\u9FA5A-Za-z0-9_]{2,16}/;       //只能是中文，长度为2-7位
+            if(reg.test(str)){  
+                this.isOk.nameisOk = false;
+                this.tipNmae = false;
+                    // alert("对不起,您输入正确的名字格式!");//请将“字符串类型”要换成你要验证的那个属性名称！   
+            } else{
 
-            //         this.isOk.nameisOk = !this.isOk.nameisOk;
-            //     }
-            // }       
+                this.isOk.nameisOk = true;
+                this.tipNmae = true;
+                
+            }
+                  
         },
         isPhoneNumber(){
             if(this.phoneNumber){
                 var reg = RegExp();
-                reg=/^[1][3,4,5,7,8][0-9]{9}$/;  
+                reg=/^[1][3,4,5,7,8][0-9]{9}$|^\d{6,8}$/;  
                 if (!reg.test(this.phoneNumber)) {  
                             this.tipPhone = true;
                         this.isOk.phoneIsOk = false;     
