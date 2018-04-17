@@ -12,7 +12,7 @@
             <li class="item  clearfix ">
                 <strong class="fl" >姓名</strong>
                 <div  class="nameBox  fl">
-                    <input @blur="isName"     v-model="nameValue"      placeholder="请输入联系人姓名 (必填)"  type="text" value="nameValue" >
+                    <input @blur="isName"    v-model="nameValue"      placeholder="请输入联系人姓名 (必填)"  type="text" value="nameValue" >
                     <span  v-if="tipNmae" >名字格式可为中文和英文，长度为2-7位</span>
                 </div>
                 
@@ -59,7 +59,7 @@
     </div>
     <div class="information">实际成交价格最终验机结果为准</div>
     <div class="nextbutton  ">
-        <a  @click="setTime" v-if="isOk.nameisOk == false || isOk.phoneIsOk == false ||  isOk.timeIsOk == false"  class="dontEnter"      >提交订单</a>
+        <a v-if="isOk.nameisOk == false || isOk.phoneIsOk == false ||  isOk.timeIsOk == false"  class="dontEnter"      >提交订单</a>
         <a href="javascript:;"   v-if="isOk.nameisOk == true && isOk.phoneIsOk == true && isOk.timeIsOk == true "   @click="completeAnOrder"   class="yesEnter"     > 提交订单 </a>
     </div>
 
@@ -122,15 +122,12 @@ export default {
     }),
 
     created(){
-        if(!this.addResstext){
-            this.addResstext  = this.selectedInfo.areaItem.areaName+this.selectedInfo.subdistyictItem.areaName+this.selectedInfo.cellseletionItem.address+this.selectedInfo.cellseletionItem.name
-
+        if(this.selectedInfo.areaItem.areaName){
+            this.$store.dispatch('changeAddressText',this.selectedInfo.areaItem.areaName+this.selectedInfo.subdistyictItem.areaName+this.selectedInfo.cellseletionItem.address+this.selectedInfo.cellseletionItem.name)
         }
-
     },
     methods:{
         completeAnOrder(){  
-
             api.completeOrder({   
                 "app_key": "app_id_1",
                 token   : this.token,
@@ -216,12 +213,11 @@ export default {
             var str = this.nameValue;               
             reg=/[\u4E00-\u9FA5A-Za-z0-9_]{2,16}/;       //只能是中文，长度为2-7位
             if(reg.test(str)){  
-                this.isOk.nameisOk = false;
-                this.tipNmae = false;
-                    // alert("对不起,您输入正确的名字格式!");//请将“字符串类型”要换成你要验证的那个属性名称！   
-            } else{
                 this.isOk.nameisOk = true;
-                this.tipNmae = true;               
+                this.tipNmae = false; 
+            } else{
+                this.isOk.nameisOk = false;
+                this.tipNmae = true;             
             }                 
         },
         isPhoneNumber(){

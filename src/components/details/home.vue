@@ -44,7 +44,6 @@
   import '@/assets/detailstyle/home.css'
   import api from '@/api/api.js'
   import {mapGetters} from 'vuex';
-
   export default {
     name: "home",
     data() {

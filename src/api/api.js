@@ -3,7 +3,7 @@ import axios from 'axios';
 // let base = 'http://192.168.1.148:8080';
 // let base = 'http://101.132.165.211:8080'
 
-let base ='http://101.132.165.211:8080';
+let base ='http://180.153.19.161:9000';
 
 // import state   from './../vuex/store.js'
 // var uesrToken = state.getters.token;
