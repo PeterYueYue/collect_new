@@ -30,8 +30,8 @@
                 <strong class="fl" >地址</strong>
                 <div  class="nameBox  fl">
                     <div class="addressSt">
-                        {{selectedInfo.areaItem.areaName+selectedInfo.subdistyictItem.areaName}}
-                        {{selectedInfo.cellseletionItem.address+selectedInfo.cellseletionItem.name}}
+                        {{addResstext}}
+                        
                     </div>
                 </div>
             </li>
@@ -59,7 +59,7 @@
     </div>
     <div class="information">实际成交价格最终验机结果为准</div>
     <div class="nextbutton  ">
-        <a v-if="isOk.nameisOk == false || isOk.phoneIsOk == false ||  isOk.timeIsOk == false"  class="dontEnter"      >提交订单</a>
+        <a  @click="setTime" v-if="isOk.nameisOk == false || isOk.phoneIsOk == false ||  isOk.timeIsOk == false"  class="dontEnter"      >提交订单</a>
         <a href="javascript:;"   v-if="isOk.nameisOk == true && isOk.phoneIsOk == true && isOk.timeIsOk == true "   @click="completeAnOrder"   class="yesEnter"     > 提交订单 </a>
     </div>
 
@@ -117,8 +117,17 @@ export default {
         useraddress         :   'useraddress',
         orderPic            :    'orderPic'  ,   //图片信息分类
         textareaValue       :   'textareaValue',  //图片物品描述
-        token               :   'token'
+        token               :   'token',
+        addResstext         :   'addResstext'    //用户默认地址
     }),
+
+    created(){
+        if(!this.addResstext){
+            this.addResstext  = this.selectedInfo.areaItem.areaName+this.selectedInfo.subdistyictItem.areaName+this.selectedInfo.cellseletionItem.address+this.selectedInfo.cellseletionItem.name
+
+        }
+
+    },
     methods:{
         completeAnOrder(){  
 
@@ -126,7 +135,7 @@ export default {
                 "app_key": "app_id_1",
                 token   : this.token,
                 "data": {
-                    "address": this.selectedInfo.areaItem.areaName+this.selectedInfo.subdistyictItem.areaName+this.selectedInfo.cellseletionItem.address+this.selectedInfo.cellseletionItem.name,
+                    "address":this.addResstext,
                     "arrivalPeriod": this.infoTm,
                     "linkMan": this.nameValue,
                     "orderItemBean": {
@@ -159,19 +168,11 @@ export default {
                 }
             }).then((res)=>{
                 console.log(res)
-
                 alert("恭喜您 下单成功")
-
                 this.$router.push({path:"/home"})
-
-
-            }).catch((err)=>{
-
-                
+            }).catch((err)=>{               
                 console.log(err)
-
             })
-
         },
         setTimeInfoAm(){
             this.show = false;
@@ -188,64 +189,27 @@ export default {
         },
         setTime(){
             var antThis = this;
-
-            var time = new Date();
-            var year = time.getFullYear();
-            var month = time.getMonth()+1;
-            var noWdate = time.getDate();
-            var startDate = time.getDate()+1;
-            var endDate = time.getDate()+8;
-
-            if(startDate >31){
-                startDate =  Math.abs(31-startDate) 
-            }
-            if(endDate >31){
-                endDate =  Math.abs(31-endDate) 
-            }
-            
-            var nowTime =  year+'-'+month+'-'+noWdate ;
-            var startTime =  year+'-'+month+'-'+startDate;
-            var startTime =  year+'-'+month+'-'+endDate;
-
-            
-
-            
+            var startTime1 = new Date();
+            var startTime2 = new Date(startTime1);
+            startTime2.setDate(startTime1.getDate() + 1);
+            var endTime1 = new Date();
+            var endTime2 = new Date(endTime1);
+            endTime2.setDate(endTime1.getDate() + 8);
+            var startTime = startTime2.getFullYear() + "-" + (startTime2.getMonth() + 1) + "-" + startTime2.getDate()
+            var endTime = endTime2.getFullYear() + "-" + (endTime2.getMonth() + 1) + "-" + endTime2.getDate()
             ap.datePicker({
                 formate: 'yyyy-MM-dd',
                 currentDate: startTime,
                 startDate: startTime,
-                endDate: startTime
-            }, function(res) {
-                
+                endDate: endTime
+            }, function(res) {   
                 if(res.date){
                     antThis.show = true;
                     antThis.time = res.date;
                     antThis.isOk.timeIsOk = true;
                     this.iscolor = true;
                 }
-            
             });
-
-        },
-        listenInput(){
-
-
-            if(this.nameValue){
-                var reg = RegExp();
-                var str = this.nameValue;               
-                reg=/^[a-zA-Z0-9-\u4E00-\u9FA5]{2,16}$/;       //用户名不能使用特殊符号代替
-                if(!reg.test(str)){  
-                    this.isOk.nameisOk = false;
-                    this.tipNmae = true;
-                        // alert("对不起,您输入正确的名字格式!");//请将“字符串类型”要换成你要验证的那个属性名称！   
-                } else{
-
-                    this.isOk.nameisOk = true;
-                    this.tipNmae = false;
-                }
-            }
-
-
         },
         isName(){
             var reg = RegExp();
@@ -256,12 +220,9 @@ export default {
                 this.tipNmae = false;
                     // alert("对不起,您输入正确的名字格式!");//请将“字符串类型”要换成你要验证的那个属性名称！   
             } else{
-
                 this.isOk.nameisOk = true;
-                this.tipNmae = true;
-                
-            }
-                  
+                this.tipNmae = true;               
+            }                 
         },
         isPhoneNumber(){
             if(this.phoneNumber){
@@ -274,13 +235,9 @@ export default {
                             this.isOk.phoneIsOk = true;
                             this.tipPhone = false;
                     }
-
                 }
-            }
-       
+            }     
     }
-   
-  
 }
 </script>
 

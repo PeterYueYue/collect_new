@@ -48,3 +48,6 @@ export var addImgsUrl                = ({commit}, data)   =>{   //从服务器�
 export var removeImg                 = ({commit}, data)   =>{   //删除上传图片
     commit(types.remove_Img, data)
 }
+export var changeAddressText                 = ({commit}, data)   =>{   //用户地址
+    commit(types.change_Address_Text, data)
+}

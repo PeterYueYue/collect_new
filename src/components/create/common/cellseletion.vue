@@ -58,11 +58,17 @@ export default {
         token           : 'token'
     }),
     created(){
+
+
+
+        console.log(this.addRessId)
+        console.log(this.$route.params.itemAreaId)
         // 根据区域id，取得该区域下所有小区 ，仅支持上一级，不支持跨层
         api.getCellSeleTion({
             "app_key": "app_id_1",
             "data": {
-                "id": this.$route.params.itemAreaId  
+                "areaId":this.$route.params.itemAreaId ,
+                "id": this.addRessId.id,
             },
             token:this.token
         }).then(res =>{
@@ -84,6 +90,7 @@ export default {
         },
         changeShow(){   //关闭弹出框
             this.$store.dispatch('changeShowOrHidden',this.$route.params.itemAreaId )
+            this.$router.go(-1);
         }
         
     },

@@ -110,11 +110,16 @@ export default {
                  this.isEnter = true;
 
              this.userAddressInfo = this.useraddress.address + this.useraddress.name;
+             
          }else{
              if(res.data.isExist){
                  console.log("111")
                  this.isEnter = true;
                   this.userAddressInfo  = res.data.address + res.data.name
+
+                  console.log(this.userAddressInfo)
+                this.$store.dispatch('changeAddressText',this.userAddressInfo)
+                  
              }else{
                  this.isEnter = false;
                  this.userAddressInfo = '请输入您的详细地址'

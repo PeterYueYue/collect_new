@@ -122,14 +122,25 @@ let configAreaChildList = {  //根据父级取得所有子地区
 
 
 
-let cofigGetCellSeleTion = {  //根据区域id，取得该区域下所有小区 ，仅支持上一级，不支持跨层
-  "name": "community.areaCommunity",
+// let cofigGetCellSeleTion = {  //根据区域id，取得该区域下所有小区 ，仅支持上一级，不支持跨层
+//   "name": "community.areaCommunity",
+//   "format": "json",
+//   "sign": "6313A5BCEC3EC1C9BA62B8904544782D",
+//   "version": "1.0",
+//   "nonce": "53832d71-cd35-48de-8784-d154edd924c7",
+//   "timestamp": 1520832048762,
+// }
+
+let cofigGetCellSeleTion = {  //根据一级分类id获取该分类服务的回收企业，并取出这些企业服务的小区，并且去除重复
+  "name": "community.listareaByCategory",
   "format": "json",
-  "sign": "6313A5BCEC3EC1C9BA62B8904544782D",
+  "sign": "A42E4270F0EC3DBA5BC972AED16E8DB0",
   "version": "1.0",
-  "nonce": "53832d71-cd35-48de-8784-d154edd924c7",
-  "timestamp": 1520832048762,
+  "nonce": "96a999c2-387b-4284-bd77-ec5105eb8d57",
+  "timestamp": 1521103227642,
 }
+
+
 
 
 let configCategoryAttrOption = {  //根据分类 的属性取 分类属性选项

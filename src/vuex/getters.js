@@ -17,3 +17,4 @@ export var imgsAddress                = state => state.imgsAddress
 export var categoryAttrOppIds         = state => state.categoryAttrOppIds   
 export var orderPic                   = state => state.orderPic   
 export var token                      = state => state.token   
+export var addResstext                = state => state.addResstext   

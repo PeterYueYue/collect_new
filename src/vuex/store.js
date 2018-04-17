@@ -34,7 +34,9 @@ export default new Vuex.Store({
         smallPic  : ''
       },   
       commodityInformation:{        //这里存储商品的详细信息
-      }
+      },
+      addResstext:''
+
     },  
     mutations: {
       getSubItemID(state,id){  //获取子集ID
@@ -113,6 +115,11 @@ export default new Vuex.Store({
       },
       Get_Token(state, data){   // 获取token
         this.state.token = data
+
+      },
+      change_Address_Text(state, data){
+
+        this.state.addResstext = data
 
       }
       
