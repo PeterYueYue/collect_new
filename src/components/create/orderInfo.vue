@@ -122,7 +122,6 @@ export default {
     }),
 
     created(){
-<<<<<<< HEAD
         if(this.selectedInfo.areaItem.areaName){
             this.$store.dispatch('changeAddressText',this.selectedInfo.areaItem.areaName+this.selectedInfo.subdistyictItem.areaName+this.selectedInfo.cellseletionItem.address+this.selectedInfo.cellseletionItem.name)
         }
@@ -130,17 +129,6 @@ export default {
     methods:{
         completeAnOrder(){  
             api.completeOrder({   
-=======
-        if(this.selectedInfo){
-            this.addResstext  = this.selectedInfo.areaItem.areaName+this.selectedInfo.subdistyictItem.areaName+this.selectedInfo.cellseletionItem.address+this.selectedInfo.cellseletionItem.name
-
-        }
-    },
-    methods:{
-        completeAnOrder(){
-
-            api.completeOrder({
->>>>>>> 72f4a5062624855858e3e12e2d0ff575b3cc088d
                 "app_key": "app_id_1",
                 token   : this.token,
                 "data": {
@@ -224,7 +212,6 @@ export default {
             var reg = RegExp();
             var str = this.nameValue;
             reg=/[\u4E00-\u9FA5A-Za-z0-9_]{2,16}/;       //只能是中文，长度为2-7位
-<<<<<<< HEAD
             if(reg.test(str)){  
                 this.isOk.nameisOk = true;
                 this.tipNmae = false; 
@@ -232,16 +219,6 @@ export default {
                 this.isOk.nameisOk = false;
                 this.tipNmae = true;             
             }                 
-=======
-            if(reg.test(str)){
-                this.isOk.nameisOk = false;
-                this.tipNmae = false;
-                    // alert("对不起,您输入正确的名字格式!");//请将“字符串类型”要换成你要验证的那个属性名称！
-            } else{
-                this.isOk.nameisOk = true;
-                this.tipNmae = true;
-            }
->>>>>>> 72f4a5062624855858e3e12e2d0ff575b3cc088d
         },
         isPhoneNumber(){
             if(this.phoneNumber){
