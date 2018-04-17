@@ -15,7 +15,7 @@
                     <input @blur="isName"     v-model="nameValue"      placeholder="请输入联系人姓名 (必填)"  type="text" value="nameValue" >
                     <span  v-if="tipNmae" >名字格式可为中文和英文，长度为2-7位</span>
                 </div>
-                
+
             </li>
             <li class="item  clearfix ">
                 <strong class="fl" >电话</strong>
@@ -23,7 +23,7 @@
                     <input  type="text"   @blur="isPhoneNumber"   v-model="phoneNumber" placeholder="请输入手机号码 (必填)" value="phoneNumber" >
                     <span v-if="tipPhone"  >电话号码格式不正确</span>
                 </div>
-                
+
             </li>
 
             <li class="item  clearfix ">
@@ -31,7 +31,7 @@
                 <div  class="nameBox  fl">
                     <div class="addressSt">
                         {{addResstext}}
-                        
+
                     </div>
                 </div>
             </li>
@@ -39,7 +39,7 @@
                <strong class="fl" >门牌号</strong>
                 <div  class="nameBox  fl">
                     <input  type="text"   placeholder="例：5号楼203室"  value="" >
-                </div>     
+                </div>
             </li>
         </ul>
     </div>
@@ -48,14 +48,14 @@
             <strong>上门时间：</strong>
             <time  :class="{textColor:infoTm}"   >{{time}}{{infotime}}</time>
             <div  @click="setTime" class="dataBlock">
-                <a href="javaScript:;">  
+                <a href="javaScript:;">
                 </a>
             </div>
         </div>
         <div class="estimatePrice clearfix">
             <strong class="fl">回收估计</strong>
             <span class="fr">￥{{futurePrice}}</span>
-        </div>        
+        </div>
     </div>
     <div class="information">实际成交价格最终验机结果为准</div>
     <div class="nextbutton  ">
@@ -70,7 +70,7 @@
     </div>
 
 
-    
+
     <div  v-show="show" class="changeTimeBox">
 
         <div class="btnBox">
@@ -122,16 +122,15 @@ export default {
     }),
 
     created(){
-        if(!this.addResstext){
+        if(this.selectedInfo){
             this.addResstext  = this.selectedInfo.areaItem.areaName+this.selectedInfo.subdistyictItem.areaName+this.selectedInfo.cellseletionItem.address+this.selectedInfo.cellseletionItem.name
 
         }
-
     },
     methods:{
-        completeAnOrder(){  
+        completeAnOrder(){
 
-            api.completeOrder({   
+            api.completeOrder({
                 "app_key": "app_id_1",
                 token   : this.token,
                 "data": {
@@ -170,7 +169,7 @@ export default {
                 console.log(res)
                 alert("恭喜您 下单成功")
                 this.$router.push({path:"/home"})
-            }).catch((err)=>{               
+            }).catch((err)=>{
                 console.log(err)
             })
         },
@@ -202,7 +201,7 @@ export default {
                 currentDate: startTime,
                 startDate: startTime,
                 endDate: endTime
-            }, function(res) {   
+            }, function(res) {
                 if(res.date){
                     antThis.show = true;
                     antThis.time = res.date;
@@ -213,30 +212,30 @@ export default {
         },
         isName(){
             var reg = RegExp();
-            var str = this.nameValue;               
+            var str = this.nameValue;
             reg=/[\u4E00-\u9FA5A-Za-z0-9_]{2,16}/;       //只能是中文，长度为2-7位
-            if(reg.test(str)){  
+            if(reg.test(str)){
                 this.isOk.nameisOk = false;
                 this.tipNmae = false;
-                    // alert("对不起,您输入正确的名字格式!");//请将“字符串类型”要换成你要验证的那个属性名称！   
+                    // alert("对不起,您输入正确的名字格式!");//请将“字符串类型”要换成你要验证的那个属性名称！
             } else{
                 this.isOk.nameisOk = true;
-                this.tipNmae = true;               
-            }                 
+                this.tipNmae = true;
+            }
         },
         isPhoneNumber(){
             if(this.phoneNumber){
                 var reg = RegExp();
-                reg=/^[1][3,4,5,7,8][0-9]{9}$|^\d{6,8}$/;  
-                if (!reg.test(this.phoneNumber)) {  
+                reg=/^[1][3,4,5,7,8][0-9]{9}$|^\d{6,8}$/;
+                if (!reg.test(this.phoneNumber)) {
                             this.tipPhone = true;
-                        this.isOk.phoneIsOk = false;     
-                    } else {  
+                        this.isOk.phoneIsOk = false;
+                    } else {
                             this.isOk.phoneIsOk = true;
                             this.tipPhone = false;
                     }
                 }
-            }     
+            }
     }
 }
 </script>
