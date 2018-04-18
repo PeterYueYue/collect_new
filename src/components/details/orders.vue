@@ -57,24 +57,24 @@
         }).then((res) => {
           console.log(res);
           res.data.listOrder.map(items => {
-            var status = items.statusPage;
+            var status = items.status4Page;
             switch (status) {
-              case '已接单':
-                items.statusClass = 'already';
-                break;
-              case '已派单':
+              case 'distribute':
                 items.statusClass = 'complete';
                 break;
-              case '待接单':
+              case 'ALREADY':
+                items.statusClass = 'complete';
+                break;
+              case 'INIT':
                 items.statusClass = 'waiting';
                 break;
-              case '已取消':
+              case 'CANCEL':
                 items.statusClass = 'cancel';
                 break;
-              case '平台已取消':
+              case 'REJECTED':
                 items.statusClass = 'cancel';
                 break;
-              case '已完成':
+              case 'COMPLETE':
                 items.statusClass = 'succeed';
                 break;
               default:

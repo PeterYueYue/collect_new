@@ -14,24 +14,24 @@
       </div>
     </div>
     <div class="details_wrap_time">{{detailsList.arrivalTimePage}}<span class="btn_cancel" @click="openOrders"
-                                                                        v-show="detailsList.status!=='COMPLETE'&&detailsList.status!=='CANCEL'&&detailsList.status!=='REJECTED'">取消订单</span>
+                                                                        v-show="detailsList.status4Page!=='COMPLETE'&&detailsList.status4Page!=='CANCEL'&&detailsList.status4Page!=='REJECTED'">取消订单</span>
     </div>
     <!-- 待接单状态无此div -->
     <!-- 已取消 -->
-    <div class="details_wrap_reason" v-show="detailsList.status=='CANCEL'||detailsList.status=='REJECTED'">
+    <div class="details_wrap_reason" v-show="detailsList.status4Page=='CANCEL'||detailsList.status4Page=='REJECTED'">
       <div class="why">取消原因</div>
       <div class="answer">{{detailsList.cancelReason}}</div>
     </div>
     <!-- 已完成，已派单 -->
-    <div class="details_wrap_reason" v-show="detailsList.status=='COMPLETE'||detailsList.status=='TOSEND'">
+    <div class="details_wrap_reason" v-show="detailsList.status4Page=='COMPLETE'||detailsList.status4Page=='ALREADY'">
       <div class="why">回收人员{{detailsList.recyclerId}}号<span class="btn_view" @click="openEvaluation"
-                                                            v-show="detailsList.status=='COMPLETE'">{{detailsList.isEvaluated == '1' ? '查看评价' : '评价'}}</span>
+                                                            v-show="detailsList.status4Page=='COMPLETE'">{{detailsList.isEvaluated == '1' ? '查看评价' : '评价'}}</span>
       </div>
       <a href="tel:13828172679" class="tel"><img src="@/assets/icon_tel.png" alt=""
                                                  class="icon_tel">联系电话：{{detailsList.tel}}</a>
     </div>
-    <!-- 已接单 -->
-    <div class="details_wrap_reason" v-show="detailsList.status=='ALREADY'">
+    <!--  已接单 -->
+    <div class="details_wrap_reason" v-show="detailsList.status4Page=='distribute'">
       <div class="why">派单详情</div>
       <div class="answer">本订单已由爱回收有限公司接单，工作人员将在1-3个工作日内与您联系，请保持电话畅通</div>
     </div>
@@ -50,7 +50,7 @@
       <div class="text">400-8288-999</div>
     </div>
     <!-- 已派单状态才有 -->
-    <!--<div class="details_wrap_footbtn" @click="openCode" v-show="detailsList.status=='TOSEND'">确认交易</div>-->
+    <div class="details_wrap_footbtn" @click="openCode" v-show="detailsList.status4Page=='ALREADY'">确认交易</div>
     <div class="details_shadow" v-if="showShadow"></div>
     <!-- 取消理由弹窗 -->
     <div class="details_shadow_box" v-if="showOrders">
@@ -75,11 +75,11 @@
     <!-- 取消成功弹窗 -->
     <div class="details_cancelSucceed_box" v-if="showCancel">取消成功</div>
     <!-- 二维码弹窗 -->
-    <!--<div class="details_shadow_code" v-if="showCode">-->
-    <!--<img src="@/assets/icon_delete.png" alt="" class="icon_delete" @click="closeCode">-->
-    <!--<div class="code_text">请将交易二维码出示给回收人员</div>-->
-    <!--<qrCode :url="url"></qrCode>-->
-    <!--</div>-->
+    <div class="details_shadow_code" v-if="showCode">
+    <img src="@/assets/icon_delete.png" alt="" class="icon_delete" @click="closeCode">
+    <div class="code_text">请将交易二维码出示给回收人员</div>
+    <qrCode :url="url"></qrCode>
+    </div>
     <!-- 已完成状态弹窗 -->
     <div class="details_shadow_evaluation" v-if="showEvaluation">
       <div class="title" v-show="detailsList.isEvaluated == '0'">我们的服务您满意吗？</div>
@@ -164,25 +164,31 @@
           },
           token: this.$store.state.token
         }).then((res) => {
-          var status = res.data.order.statusPage;
+          var status = res.data.order.status4Page;
           this.picUrl = res.data.orderPicList;
           switch (status) {
-            case '已接单':
-              res.data.order.statusClass = 'succeed';
-              break;
-            case '已派单':
+            //已接单
+            case 'distribute':
               res.data.order.statusClass = 'complete';
               break;
-            case '待接单':
+            //已派单
+            case 'ALREADY':
+              res.data.order.statusClass = 'complete';
+              break;
+            //待接单
+            case 'INIT':
               res.data.order.statusClass = 'waiting';
               break;
-            case '已取消':
+            //已取消
+            case 'CANCEL':
               res.data.order.statusClass = 'cancel';
               break;
-            case '平台已取消':
+            //平台已取消
+            case 'REJECTED':
               res.data.order.statusClass = 'cancel';
               break;
-            case '已完成':
+            //已完成
+            case 'COMPLETE':
               res.data.order.statusClass = 'succeed';
               break;
             default:
