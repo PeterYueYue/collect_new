@@ -13,8 +13,9 @@
         </div>
       </div>
     </div>
-    <div class="details_wrap_time">{{detailsList.arrivalTimePage}}<span class="btn_cancel" @click="openOrders"
-                                                                        v-show="detailsList.status4Page!=='COMPLETE'&&detailsList.status4Page!=='CANCEL'&&detailsList.status4Page!=='REJECTED'">取消订单</span>
+    <div class="details_wrap_time"><span v-show="detailsList.level=='0'">{{detailsList
+      .arrivalTimePage}}</span><span class="btn_cancel" @click="openOrders"
+                                     v-show="detailsList.status4Page!=='COMPLETE'&&detailsList.status4Page!=='CANCEL'&&detailsList.status4Page!=='REJECTED'">取消订单</span>
     </div>
     <!-- 待接单状态无此div -->
     <!-- 已取消 -->
@@ -46,11 +47,11 @@
       </div>
     </div>
     <div class="details_wrap_belongs">
-      <div class="text">本服务由爱回收有限公司提供</div>
+      <div class="text">本服务由{{detailsList.company?detailsList.company.name:''}}提供</div>
       <div class="text">400-8288-999</div>
     </div>
     <!-- 已派单状态才有 -->
-    <div class="details_wrap_footbtn" @click="openCode" v-show="detailsList.status4Page=='ALREADY'">确认交易</div>
+    <div class="details_wrap_footbtn" @click="openCode" v-show="detailsList.status4Page=='ALREADY'||detailsList.status4Page=='distribute'">确认交易</div>
     <div class="details_shadow" v-if="showShadow"></div>
     <!-- 取消理由弹窗 -->
     <div class="details_shadow_box" v-if="showOrders">
@@ -76,9 +77,9 @@
     <div class="details_cancelSucceed_box" v-if="showCancel">取消成功</div>
     <!-- 二维码弹窗 -->
     <div class="details_shadow_code" v-if="showCode">
-    <img src="@/assets/icon_delete.png" alt="" class="icon_delete" @click="closeCode">
-    <div class="code_text">请将交易二维码出示给回收人员</div>
-    <qrCode :url="url"></qrCode>
+      <img src="@/assets/icon_delete.png" alt="" class="icon_delete" @click="closeCode">
+      <div class="code_text">请将交易二维码出示给回收人员</div>
+      <qrCode :url="url"></qrCode>
     </div>
     <!-- 已完成状态弹窗 -->
     <div class="details_shadow_evaluation" v-if="showEvaluation">
@@ -122,7 +123,7 @@
         evaluateText: '',
         showImgView: false,
         picUrl: [],
-        url: '',
+        url: this.$route.query.id,
       }
     },
     mounted() {
