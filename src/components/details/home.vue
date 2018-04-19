@@ -77,15 +77,15 @@
           this.showList = false;
         } else {
           res.data.map(items => {
-            var status = items.statusPage;
+            var status = items.status4Page;
             switch (status) {
-              case '已接单':
-                items.statusClass = 'already';
-                break;
-              case '已派单':
+              case 'distribute':
                 items.statusClass = 'complete';
                 break;
-              case '待接单':
+              case 'ALREADY':
+                items.statusClass = 'complete';
+                break;
+              case 'INIT':
                 items.statusClass = 'waiting';
                 break;
               default:
