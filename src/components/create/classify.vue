@@ -89,7 +89,7 @@ export default {
             menulist:'',
             isId:'1',
             subList:'',
-            isActive:'1'
+            isActive:'0'
             
         }
     },

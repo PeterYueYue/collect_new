@@ -35,7 +35,10 @@ export default new Vuex.Store({
       },   
       commodityInformation:{        //这里存储商品的详细信息
       },
-      addResstext:''
+      addResstext:{
+        address:'',
+        areaId:''
+      }
 
     },  
     mutations: {
@@ -119,7 +122,10 @@ export default new Vuex.Store({
       },
       change_Address_Text(state, data){
 
+
+
         this.state.addResstext = data
+
 
       }
       

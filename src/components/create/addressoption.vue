@@ -38,7 +38,7 @@
         <div class="hsdiqu clearfix"   >
             <h5 class="fl">回收地区</h5>
             <router-link class="text fl" to="/addressel/areaelecte"  >
-                {{userAddressInfo}}
+                {{userAddressInfo.address}}
             </router-link>
             <span class="fr"></span>
 
@@ -72,7 +72,10 @@ export default {
     data(){
         return{
             itemID:'',
-            userAddressInfo:'',
+            userAddressInfo:{
+                areaId:'',
+                address:''
+            },
             areaList:'',
             id:'',
             isEnter:false
@@ -103,26 +106,26 @@ export default {
 
     }).then((res)=>{
 
-        console.log(res)
+        console.log(res,"saaaaa")
         // 判断地址栏的默认信息以及修改后的显示逻辑
          if(this.useraddress.address){
              console.log("2222")
                  this.isEnter = true;
 
-             this.userAddressInfo = this.useraddress.address + this.useraddress.name;
+             this.userAddressInfo.address = this.useraddress.address + this.useraddress.name;
              
          }else{
              if(res.data.isExist){
                  console.log("111")
                  this.isEnter = true;
-                  this.userAddressInfo  = res.data.address + res.data.name
+                  this.userAddressInfo.address  = res.data.address + res.data.name
+                  this.userAddressInfo.areaId  = res.data.areaId
 
-                  console.log(this.userAddressInfo)
                 this.$store.dispatch('changeAddressText',this.userAddressInfo)
                   
              }else{
                  this.isEnter = false;
-                 this.userAddressInfo = '请输入您的详细地址'
+                 this.userAddressInfo.address = '请输入您的详细地址'
              }
          }
     }).catch((erro)=>{

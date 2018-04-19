@@ -30,7 +30,7 @@
                 <strong class="fl" >地址</strong>
                 <div  class="nameBox  fl">
                     <div class="addressSt">
-                        {{addResstext}}
+                        {{addResstext.address}}
 
                     </div>
                 </div>
@@ -104,7 +104,11 @@ export default {
                 phoneIsOk:false,
                 timeIsOk:false
             },
-            iscolor:false
+            iscolor:false,
+            addressInfo:{
+                areaId:'',
+                address:''
+            }
         }
     },
     computed: mapGetters({
@@ -123,8 +127,15 @@ export default {
 
     created(){
         if(this.selectedInfo.areaItem.areaName && this.selectedInfo.subdistyictItem.areaName && this.selectedInfo.cellseletionItem.address && this.selectedInfo.cellseletionItem.name){
-            this.$store.dispatch('changeAddressText',this.selectedInfo.areaItem.areaName+this.selectedInfo.subdistyictItem.areaName+this.selectedInfo.cellseletionItem.address+this.selectedInfo.cellseletionItem.name)
+
+            
+            this.addressInfo.address =  this.selectedInfo.areaItem.areaName+this.selectedInfo.subdistyictItem.areaName+this.selectedInfo.cellseletionItem.address+this.selectedInfo.cellseletionItem.name
+            this.addressInfo.areaId  =  this.selectedInfo.areaItem.id
+            this.$store.dispatch('changeAddressText',this.addressInfo)
         }
+          
+
+
     },
     methods:{
         completeAnOrder(){
@@ -132,7 +143,7 @@ export default {
                 "app_key": "app_id_1",
                 token   : this.token,
                 "data": {
-                    "address":this.addResstext,
+                    "address":this.addResstext.address,
                     "arrivalPeriod": this.infoTm,
                     "linkMan": this.nameValue,
                     "orderItemBean": {
@@ -154,7 +165,7 @@ export default {
                     "isEvaluated": "0",
                     // "recyclerId": 0,
                     "unit": "计量单位",
-                    "areaId": this.selectedInfo.areaItem.id,
+                    "areaId": this.addressInfo.areaId,
                     "arrivalTime": this.time,
                     "price": this.futurePrice,
                     "qty": 9999,
