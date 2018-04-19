@@ -127,8 +127,8 @@ export default {
         }
     },
     methods:{
-        completeAnOrder(){  
-            api.completeOrder({   
+        completeAnOrder(){
+            api.completeOrder({
                 "app_key": "app_id_1",
                 token   : this.token,
                 "data": {
@@ -165,8 +165,13 @@ export default {
                 }
             }).then((res)=>{
                 console.log(res)
-                alert("恭喜您 下单成功")
-                this.$router.push({path:"/home"})
+                if(res.data.status == 'sucess'){
+                  alert("恭喜您 下单成功")
+                  this.$router.push({path:"/home"})
+                }else{
+                  alert("下单失败")
+                }
+
             }).catch((err)=>{
                 console.log(err)
             })
@@ -212,13 +217,13 @@ export default {
             var reg = RegExp();
             var str = this.nameValue;
             reg=/[\u4E00-\u9FA5A-Za-z0-9_]{2,16}/;       //只能是中文，长度为2-7位
-            if(reg.test(str)){  
+            if(reg.test(str)){
                 this.isOk.nameisOk = true;
-                this.tipNmae = false; 
+                this.tipNmae = false;
             } else{
                 this.isOk.nameisOk = false;
-                this.tipNmae = true;             
-            }                 
+                this.tipNmae = true;
+            }
         },
         isPhoneNumber(){
             if(this.phoneNumber){
