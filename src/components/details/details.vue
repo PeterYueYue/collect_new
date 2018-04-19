@@ -48,7 +48,7 @@
     </div>
     <div class="details_wrap_belongs">
       <div class="text">本服务由{{detailsList.company?detailsList.company.name:''}}提供</div>
-      <div class="text">400-8288-999</div>
+      <div class="text">{{detailsList.company?detailsList.company.tel:''}}</div>
     </div>
     <!-- 已派单状态才有 -->
     <div class="details_wrap_footbtn" @click="openCode" v-show="detailsList.status4Page=='ALREADY'||detailsList.status4Page=='distribute'">确认交易</div>
