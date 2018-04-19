@@ -122,7 +122,7 @@ export default {
     }),
 
     created(){
-        if(this.selectedInfo.areaItem.areaName){
+        if(this.selectedInfo.areaItem.areaName && this.selectedInfo.subdistyictItem.areaName && this.selectedInfo.cellseletionItem.address && this.selectedInfo.cellseletionItem.name){
             this.$store.dispatch('changeAddressText',this.selectedInfo.areaItem.areaName+this.selectedInfo.subdistyictItem.areaName+this.selectedInfo.cellseletionItem.address+this.selectedInfo.cellseletionItem.name)
         }
     },
