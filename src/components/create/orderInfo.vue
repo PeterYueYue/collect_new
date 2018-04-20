@@ -60,7 +60,7 @@
     <div class="information">实际成交价格最终验机结果为准</div>
     <div class="nextbutton  ">
         <a v-if="isOk.nameisOk == false || isOk.phoneIsOk == false ||  isOk.timeIsOk == false"  class="dontEnter"      >提交订单</a>
-        <a href="javascript:;"   v-if="isOk.nameisOk == true && isOk.phoneIsOk == true && isOk.timeIsOk == true "   @click="completeAnOrder"   class="yesEnter"     > 提交订单 </a>
+        <a href="javascript:;"   v-if="isOk.nameisOk == true && isOk.phoneIsOk == true && isOk.timeIsOk == true  "   @click="completeAnOrder"   class="yesEnter"     > 提交订单 </a>
     </div>
 
     <div class="information">提交订单后将有售后人员与您电话沟通，请保持手机畅通</div>
@@ -165,18 +165,22 @@ export default {
                     "isEvaluated": "0",
                     // "recyclerId": 0,
                     "unit": "计量单位",
-                    "areaId": this.addressInfo.areaId,
+                    "areaId": this.addResstext.areaId,
                     "arrivalTime": this.time,
                     "price": this.futurePrice,
                     "qty": 9999,
                     "tel": this.phoneNumber,
                     "communityId":this.selectedInfo.cellseletionItem.id,
+                    "communityId":1,
                     "categoryId": this.addRessId.id,
                     "remarks": this.textareaValue
                 }
+
+
+                
             }).then((res)=>{
                 console.log(res)
-                if(res.data.status == 'sucess'){
+                if(res.data == "SUCCESS"){
                   alert("恭喜您 下单成功")
                   this.$router.push({path:"/home"})
                 }else{
