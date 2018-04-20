@@ -4,7 +4,7 @@
     <div class="details_wrap_item">
       <div class="time">订单号：{{detailsList.orderNo}}<span
         :class="detailsList.statusClass">{{detailsList.statusPage}}</span></div>
-      <div class="date">时间：{{detailsList.createDatePage}}</div>
+      <div class="date">下单时间：{{detailsList.createDatePage}}</div>
       <div class="content">
         <img :src="detailsList.category?detailsList.category.icon:''" alt="" class="pic">
         <div>
@@ -41,7 +41,7 @@
       <div class="picture">
         <img :src="pic.picUrl" alt="" v-for="pic in detailsPic" :key="pic.id" @click="toggleImgView(true)">
       </div>
-      <div class="description">{{detailsList.cancelReason}}</div>
+      <div class="description">{{detailsList.remarks}}</div>
       <div class="lable">
         <span v-for="des in detailsDes" :key="des.id">{{des.categoryAttrOpptionName}}</span>
       </div>
