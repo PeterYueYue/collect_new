@@ -13,7 +13,7 @@
         </div>
       </div>
     </div>
-    <div class="details_wrap_time"><span v-show="detailsList.level=='0'">{{detailsList
+    <div class="details_wrap_time"><span v-show="detailsList.level=='0'">上门时间：{{detailsList
       .arrivalTimePage}}</span><span class="btn_cancel" @click="openOrders"
                                      v-show="detailsList.status4Page!=='COMPLETE'&&detailsList.status4Page!=='CANCEL'&&detailsList.status4Page!=='REJECTED'">取消订单</span>
     </div>
