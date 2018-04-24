@@ -38,7 +38,7 @@
             <li class="item ">
                <strong class="fl" >门牌号</strong>
                 <div  class="nameBox  fl">
-                    <input  type="text"   placeholder="例：5号楼203室"  value="" >
+                    <input  type="text" v-model="mpnumber"   placeholder="例：5号楼203室"  value="" >
                 </div>
             </li>
         </ul>
@@ -99,6 +99,7 @@ export default {
             infotime:'',
             tipNmae:false,
             tipPhone:false,
+            mpnumber:'',
             isOk:{
                 nameisOk:false,
                 phoneIsOk:false,
@@ -173,7 +174,8 @@ export default {
                     "communityId":this.selectedInfo.cellseletionItem.id,
                     "communityId":1,
                     "categoryId": this.addRessId.id,
-                    "remarks": this.textareaValue
+                    "remarks": this.textareaValue,
+                    "fullAddress": this.mpnumber
                 }
 
 

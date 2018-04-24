@@ -106,22 +106,22 @@ export default {
         }).catch((erro)=>{
             console.log(erro)
         })
+
+        this.$store.dispatch('clearPriceInfo')
     },
     methods:{
         backbtn(){ //执行返回上一个路由；
+          this.$store.dispatch('clearPriceInfo')
           this.$router.go(-1);
           this.isShow-=1; 
+
+          
         },
         changeItem(e,itemInfo){
             if(this.isShow <this.dataList.length-1 ){
-
-                console.log(itemInfo,'xinxi')
-
                 this.isActive = itemInfo.i
                 this.$store.dispatch('changeStatisticsPrice',e)
                 // this.$store.dispatch('setAttrOppids',itemInfo)
-                
-
                 setTimeout(()=>{
                     this.isShow+=1;
                     this.isActive = -1
@@ -131,7 +131,6 @@ export default {
                 setTimeout(()=>{
                     this.$store.dispatch('changeStatisticsPrice',e)  //再最后跳转前再执行一次；
                     this.$router.push({path:'/uploadimage'})
-                    console.log("可以重定向")
                     this.isActive = -1
                 },200)
                 
@@ -141,5 +140,8 @@ export default {
     }
      
     }
+
+
+    
 </script>
 

@@ -36,6 +36,11 @@ export var changeStatisticsPrice     = ({commit}, data)   =>{
 export var changeFuturePrice         = ({commit}, data)   =>{  // 预估价格
     commit(types.Change_Future_Price, data)
 }
+export var clearPriceInfo         = ({commit}, data)   =>{  // 清除预估价格判定条件
+    commit(types.clear_Price_Info, data)
+}
+
+
 export var changeTextareaValue       = ({commit}, data)   =>{   //图片描述信息
     commit(types.Change_Textarea_Value, data)
 }

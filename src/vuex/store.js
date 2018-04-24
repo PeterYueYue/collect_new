@@ -47,6 +47,7 @@ export default new Vuex.Store({
       },
       Set_Add_Ress_Id(state,data){
         this.state.addRessId = Object.assign(this.state.addRessId, data )
+
       },
       Change_Address(state,data){
         this.state.useraddress = data;
@@ -67,13 +68,14 @@ export default new Vuex.Store({
         this.state.selectedInfo.subdistyictItem = data.area;
       },
       Change_StatisticsPrice(state, data){   // 搜集预估价格信息
-
         this.state.statisticsPrice = this.state.statisticsPrice.concat(data.price,',')
         this.state.categoryAttrOppIds = this.state.categoryAttrOppIds.concat(data.id,',')
-
       },
       Change_Future_Price(state, data){    //改变预估价信息
         this.state.futurePrice = data;
+        },
+      clear_Price_Info(state, data){       //清除预估价格判定条件
+        this.state.categoryAttrOppIds = ''
       },
       Change_Textarea_Value(state, data){   //图片信息描述
         this.state.textareaValue = data;
