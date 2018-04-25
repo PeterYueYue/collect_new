@@ -2,7 +2,7 @@
   <div class="home_wrap">
     <img src="@/assets/banner.jpg" alt="" class="home_wrap_banner">
     <!-- 有订单时 -->
-    <div v-if="showList">
+    <div v-if="showList" style="padding-bottom: 1.7rem">
       <div class="home_wrap_item" v-for="item in homeList" :key="item.id">
         <router-link :to="{path: '/details/', query: { id: item.id }}">
           <div class="time">下单时间：{{item.createDatePage}}<span :class="item.statusClass">{{item.statusPage}}</span></div>
