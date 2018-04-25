@@ -85,8 +85,6 @@ export default {
         useraddress : 'useraddress',
         addRessId   : 'addRessId',
         token       : 'token'
-
-
     }),
   created(){
     this.itemID = this.$store.state.msItemId;
@@ -95,7 +93,7 @@ export default {
     api.getAddRessList({
         "app_key": "app_id_1",
         "data": {
-            "areaId": 3,
+            "areaId": 2,
             "id":id,
             "pageBean": {
             "pageNumber": 1,
@@ -103,26 +101,19 @@ export default {
             }
         },
         token:this.token
-
     }).then((res)=>{
-
-        console.log(res,"saaaaa")
         // 判断地址栏的默认信息以及修改后的显示逻辑
          if(this.useraddress.address){
-             console.log("2222")
-                 this.isEnter = true;
-
-             this.userAddressInfo.address = this.useraddress.address + this.useraddress.name;
+            this.isEnter = true;
+            this.userAddressInfo.address = this.useraddress.address + this.useraddress.name;
              
          }else{
              if(res.data.isExist){
-                 console.log("111")
-                 this.isEnter = true;
-                  this.userAddressInfo.address  = res.data.address + res.data.name
-                  this.userAddressInfo.areaId  = res.data.areaId
-
+                this.isEnter = true;
+                this.userAddressInfo.address  = res.data.address + res.data.name
+                this.userAddressInfo.areaId   = res.data.areaId
+                this.userAddressInfo.id   = res.data.id
                 this.$store.dispatch('changeAddressText',this.userAddressInfo)
-                  
              }else{
                  this.isEnter = false;
                  this.userAddressInfo.address = '请输入您的详细地址'
@@ -132,7 +123,6 @@ export default {
         console.log(erro)
     })
   },
-
   methods:{
     backbtn(){ //执行返回上一个路由；
         this.$router.go(-1);

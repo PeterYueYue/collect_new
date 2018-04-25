@@ -56,3 +56,6 @@ export var removeImg                 = ({commit}, data)   =>{   //删除上传�
 export var changeAddressText                 = ({commit}, data)   =>{   //用户地址
     commit(types.change_Address_Text, data)
 }
+export var clear                = ({commit}, data)   =>{   //清空内容
+    commit(types.Clear, data)
+}

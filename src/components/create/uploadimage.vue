@@ -110,26 +110,6 @@ export default {
     getTextareaValue() {
       this.$store.dispatch("changeTextareaValue", this.textareaValue); //文字描述信息
     },
-    onRead(file) {
-      // ap.showLoading({
-      //   content: '请稍后',
-      // });
-      // api.upLoader({
-      //   "app_key": "app_id_1",
-      //     "data": {
-      //           "fileContentBase64": file.content,
-      //           "fileName": file.file.name
-      //         }
-      // }).then((res)=>{
-      //   this.$store.dispatch("addImgsUrl", res.data[0]);
-      //   ap.hideLoading()
-      // }).catch((err) =>{
-      //   console.log(err)
-      // })
-    },
-
-    //
-
     upload(e) {
       let files = e.target.files || e.dataTransfer.files; 
       if (!files.length) return; 

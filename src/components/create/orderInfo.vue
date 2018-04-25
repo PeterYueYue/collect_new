@@ -127,16 +127,17 @@ export default {
     }),
 
     created(){
-        if(this.selectedInfo.areaItem.areaName && this.selectedInfo.subdistyictItem.areaName && this.selectedInfo.cellseletionItem.address && this.selectedInfo.cellseletionItem.name){
 
-            
+
+        if(this.imgsAddress.length<1){
+            this.$router.push({path:"/home"})
+        }
+        if(this.selectedInfo.areaItem.areaName && this.selectedInfo.subdistyictItem.areaName && this.selectedInfo.cellseletionItem.address && this.selectedInfo.cellseletionItem.name){
             this.addressInfo.address =  this.selectedInfo.areaItem.areaName+this.selectedInfo.subdistyictItem.areaName+this.selectedInfo.cellseletionItem.address+this.selectedInfo.cellseletionItem.name
             this.addressInfo.areaId  =  this.selectedInfo.areaItem.id
+            this.addressInfo.id      =  this.selectedInfo.cellseletionItem.id
             this.$store.dispatch('changeAddressText',this.addressInfo)
         }
-          
-
-
     },
     methods:{
         completeAnOrder(){
@@ -171,26 +172,21 @@ export default {
                     "price": this.futurePrice,
                     "qty": 9999,
                     "tel": this.phoneNumber,
-                    "communityId":this.selectedInfo.cellseletionItem.id,
-                    "communityId":1,
+                    "communityId":this.addResstext.id,
                     "categoryId": this.addRessId.id,
                     "remarks": this.textareaValue,
                     "fullAddress": this.mpnumber
                 }
-
-
-                
             }).then((res)=>{
-                console.log(res)
+                this.$store.dispatch('clear')
                 if(res.data == "SUCCESS"){
                   alert("恭喜您 下单成功")
                   this.$router.push({path:"/home"})
                 }else{
-                  alert("下单失败")
+                  alert(res.data)
                 }
-
             }).catch((err)=>{
-                console.log(err)
+                alert(err)
             })
         },
         setTimeInfoAm(){

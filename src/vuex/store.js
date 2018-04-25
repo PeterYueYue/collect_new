@@ -123,12 +123,10 @@ export default new Vuex.Store({
 
       },
       change_Address_Text(state, data){
-
-
-
-        this.state.addResstext = data
-
-
+        this.state.addResstext = data;
+      },
+      Clear(state){       //清除图片信息
+        this.state.imgsAddress = []
       }
       
     },

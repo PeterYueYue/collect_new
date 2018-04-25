@@ -5,7 +5,7 @@
       <swiper :options="swiperOption" ref="mySwiper">
         <!-- slides -->
         <swiper-slide v-for="items in picUrl" :key="items.id">
-          <img :src="items.picUrl" alt="">
+          <img  @click="close" :src="items.picUrl" alt="">
         </swiper-slide>
         <div class="swiper-pagination swiper-pagination-bullets" slot="pagination"></div>
       </swiper>
