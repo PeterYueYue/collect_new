@@ -25,11 +25,13 @@
     </div>
     <!-- 已完成，已派单 -->
     <div class="details_wrap_reason" v-show="detailsList.status4Page=='COMPLETE'||detailsList.status4Page=='ALREADY'">
-      <div class="why">回收人员{{detailsList.recyclerId}}号<span class="btn_view" @click="openEvaluation"
+      <div class="why">{{detailsList.recyclers?detailsList.recyclers.name:''}}<span class="btn_view"
+                                                                                  @click="openEvaluation"
                                                             v-show="detailsList.status4Page=='COMPLETE'">{{detailsList.isEvaluated == '1' ? '查看评价' : '评价'}}</span>
       </div>
       <a href="tel:13828172679" class="tel"><img src="@/assets/icon_tel.png" alt=""
-                                                 class="icon_tel">联系电话：{{detailsList.tel}}</a>
+                                                 class="icon_tel">联系电话：{{detailsList.recyclers?detailsList.recyclers
+        .tel:''}}</a>
     </div>
     <!--  已接单 -->
     <div class="details_wrap_reason" v-show="detailsList.status4Page=='distribute'">
@@ -165,6 +167,7 @@
           },
           token: this.$store.state.token
         }).then((res) => {
+          console.log(res);
           var status = res.data.order.status4Page;
           this.picUrl = res.data.orderPicList;
           switch (status) {
