@@ -16,8 +16,9 @@
     methods: {
       useQrcode(){
         let canvas = document.getElementById('canvas');
-        QRCode.toCanvas(canvas, this.url, function (error) {
-          if (error) console.error(error)
+        const url = this.url + '';
+        QRCode.toCanvas(canvas, url, function (error) {
+          if (error) console.log(error);
           console.log('success!');
         })
       }

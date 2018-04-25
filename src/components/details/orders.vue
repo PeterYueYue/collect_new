@@ -1,8 +1,6 @@
 <template>
   <div class="orders_wrap">
-    <scroller
-      :on-infinite="getList"
-    >
+    <scroller :on-infinite="getList">
       <!-- content goes here -->
       <div class="orders_wrap_item" v-for="(item,key) in ordersList" :key="key">
         <router-link :to="{path: '/details/', query: { id: item.id }}">
@@ -42,9 +40,6 @@
     computed: mapGetters({
       token: "token"
     }),
-    mounted() {
-      this.getList()
-    },
     methods: {
       //获取数据
       getList(done) {
@@ -55,7 +50,6 @@
           "data": {pageNumber, pageSize},
           token: this.token,
         }).then((res) => {
-          console.log(res);
           res.data.listOrder.map(items => {
             var status = items.status4Page;
             switch (status) {
