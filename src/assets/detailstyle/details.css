@@ -202,8 +202,9 @@
 .details_wrap_belongs {
   font-size: 0.28rem;
   color: #888;
-  margin: 0.4rem 0 1rem;
+  margin: 0.4rem 0 0;
   text-align: center;
+  padding-bottom: 1.2rem;
 }
 
 .details_wrap_belongs .text:last-child {
