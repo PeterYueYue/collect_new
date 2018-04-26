@@ -14,8 +14,8 @@
                 <h3>感谢你的关注</h3>
                 
                 <div class="info">
-                    冰箱品类服务区域正在全面铺设当中，现在小区如下：
-                    <ul class="community">
+                    您所选取的品类服务区域正在全面铺设当中,敬请期待;
+                    <!-- <ul class="community">
                         <li class="communityItem">
                             <span>浦东新区:</span>
                             <span>光明小区</span>
@@ -34,7 +34,7 @@
                             <span>光明小区</span>
                             <span>光明小区</span>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
                 <a @click="changeShow()" href="javascript:;">确定</a>
             </div>
