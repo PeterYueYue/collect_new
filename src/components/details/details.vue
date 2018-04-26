@@ -29,7 +29,7 @@
                                                                                     @click="openEvaluation"
                                                                                     v-show="detailsList.status4Page=='COMPLETE'">{{detailsList.isEvaluated == '1' ? '查看评价' : '评价'}}</span>
       </div>
-      <a href="tel:13828172679" class="tel"><img src="@/assets/icon_tel.png" alt=""
+      <a :href="'tel:'+detailsList.recyclers.tel" class="tel"><img src="@/assets/icon_tel.png" alt=""
                                                  class="icon_tel">联系电话：{{detailsList.recyclers?detailsList.recyclers
         .tel:''}}</a>
     </div>
