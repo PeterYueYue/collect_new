@@ -29,8 +29,13 @@
                                                                                     @click="openEvaluation"
                                                                                     v-show="detailsList.status4Page=='COMPLETE'">{{detailsList.isEvaluated == '1' ? '查看评价' : '评价'}}</span>
       </div>
+<<<<<<< HEAD
       <a href= "detailsList.recyclers.tel" class="tel"><img src="@/assets/icon_tel.png" alt=""
                                                  class="icon_tel">联系电话：{{detailsList.recyclers?detailsList.recyclers
+=======
+      <a :href="tel" class="tel"><img src="@/assets/icon_tel.png" alt=""
+                                      class="icon_tel">联系电话：{{detailsList.recyclers?detailsList.recyclers
+>>>>>>> f923cc101a6aebd91059a89c84193ccbf619a811
         .tel:''}}</a>
     </div>
     <!--  已接单 -->
@@ -128,6 +133,7 @@
         showImgView: false,
         picUrl: [],
         url: '',
+        tel: ''
       }
     },
     mounted() {
@@ -201,6 +207,7 @@
               break;
           }
           this.detailsList = res.data.order;
+          this.tel = "tel:" + res.data.order.recyclers.tel;
           this.url = res.data.order.orderNo;
           this.detailsPic = res.data.orderPicList;
           this.detailsDes = res.data.OrderItemList;
