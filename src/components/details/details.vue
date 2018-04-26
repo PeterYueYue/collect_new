@@ -26,8 +26,8 @@
     <!-- 已完成，已派单 -->
     <div class="details_wrap_reason" v-show="detailsList.status4Page=='COMPLETE'||detailsList.status4Page=='ALREADY'">
       <div class="why">{{detailsList.recyclers?detailsList.recyclers.name:''}}<span class="btn_view"
-                                                                                  @click="openEvaluation"
-                                                            v-show="detailsList.status4Page=='COMPLETE'">{{detailsList.isEvaluated == '1' ? '查看评价' : '评价'}}</span>
+                                                                                    @click="openEvaluation"
+                                                                                    v-show="detailsList.status4Page=='COMPLETE'">{{detailsList.isEvaluated == '1' ? '查看评价' : '评价'}}</span>
       </div>
       <a href="tel:13828172679" class="tel"><img src="@/assets/icon_tel.png" alt=""
                                                  class="icon_tel">联系电话：{{detailsList.recyclers?detailsList.recyclers
@@ -53,7 +53,9 @@
       <div class="text">{{detailsList.company?detailsList.company.tel:''}}</div>
     </div>
     <!-- 已派单状态才有 -->
-    <div class="details_wrap_footbtn" @click="openCode" v-show="detailsList.status4Page=='ALREADY'||detailsList.status4Page=='distribute'">确认交易</div>
+    <div class="details_wrap_footbtn" @click="openCode"
+         v-show="detailsList.status4Page=='ALREADY'||detailsList.status4Page=='distribute'">确认交易
+    </div>
     <div class="details_shadow" v-if="showShadow"></div>
     <!-- 取消理由弹窗 -->
     <div class="details_shadow_box" v-if="showOrders">
@@ -125,7 +127,7 @@
         evaluateText: '',
         showImgView: false,
         picUrl: [],
-        url: this.$route.query.id,
+        url: '',
       }
     },
     mounted() {
@@ -199,6 +201,7 @@
               break;
           }
           this.detailsList = res.data.order;
+          this.url = res.data.order.orderNo;
           this.detailsPic = res.data.orderPicList;
           this.detailsDes = res.data.OrderItemList;
         }).catch((error) => {
