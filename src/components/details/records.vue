@@ -82,9 +82,9 @@
     computed: mapGetters({
       token: "token"
     }),
-    mounted() {
-      this.getRecords()
-    },
+    // mounted() {
+    //   this.getRecords()
+    // },
     methods: {
       //获取数据
       getRecords(done){
