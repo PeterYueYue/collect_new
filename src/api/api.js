@@ -1,11 +1,7 @@
 import axios from 'axios';
 
-// 王灿
-// let base = 'http://101.132.165.211:8080';
-// 张强
-// let base = 'http://192.168.1.140:8080';
 // 测试
-let base ='http://180.153.19.161:9000';
+let base ='http://101.132.111.141:80';
 
 // import state   from './../vuex/store.js'
 // var uesrToken = state.getters.token;
