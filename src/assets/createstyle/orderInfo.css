@@ -218,5 +218,6 @@
   color: #888888;
   font-size: 0.28rem;
   line-height: 0.46rem;
-  margin-top: 2rem;
+  position: absolute;
+  bottom: 0.6rem;
 }

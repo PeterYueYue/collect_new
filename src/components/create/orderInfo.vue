@@ -65,8 +65,8 @@
 
     <div class="information">提交订单后将有售后人员与您电话沟通，请保持手机畅通</div>
     <div class="bottomInformation">
-        <div>本服务有爱回收有限公司提供</div>
-        <div>400-8288-999</div>
+        <div>本服务由{{detailsList.company?detailsList.company.name:''}}提供</div>
+        <div>123{{detailsList.company?detailsList.company.tel:''}}</div>
     </div>
 
 
@@ -109,8 +109,26 @@ export default {
             addressInfo:{
                 areaId:'',
                 address:''
-            }
+            },
+            id: this.$route.query.id,
+            detailsList: {},
         }
+    },
+    mounted() {
+      api.getDetails({
+        "app_key": "app_id_1",
+        "data": {
+          "id": this.id,
+          "isEvaluated": "0",
+          "status": 0
+        },
+        token: this.$store.state.token
+      }).then((res) => {
+        console.log(res);
+        this.detailsList = res.data.order;
+      }).catch((error) => {
+        console.log(error)
+      })
     },
     computed: mapGetters({
         futurePrice         :   'futurePrice',      //预估价格
@@ -254,5 +272,3 @@ export default {
     }
 }
 </script>
-
-

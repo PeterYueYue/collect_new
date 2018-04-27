@@ -5,7 +5,7 @@
       <swiper :options="swiperOption" ref="mySwiper">
         <!-- slides -->
         <swiper-slide v-for="items in picUrl" :key="items.id">
-          <img  @click="close" :src="items.picUrl" alt="">
+          <img @click="close" :src="items.picUrl" alt="">
         </swiper-slide>
         <div class="swiper-pagination swiper-pagination-bullets" slot="pagination"></div>
       </swiper>
@@ -52,9 +52,13 @@
   }
 </script>
 <style>
+  .swiper-wrapper {
+    height: 6rem !important;
+  }
+
   .icon_close {
     position: absolute;
-    bottom: 1.2rem;
+    bottom: 1.6rem;
     left: 50%;
     transform: translateX(-50%);
     width: 0.7rem;
@@ -78,7 +82,8 @@
   }
 
   .swiper-wrap img {
-    width: 100%
+    width: 100%;
+    height: 6rem;
   }
 
   .swiper-pagination-bullet {
