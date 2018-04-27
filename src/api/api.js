@@ -17,6 +17,17 @@ const configGetHome = {
   "nonce": "3cfb4919-211e-4737-a284-566c9a6ad016",
   "timestamp": 1520922311285,
 }
+
+//公司地址
+const configCompanyByIds = {
+  "name": "order.getCompanyByIds",
+  "format": "json",
+  "sign": "46AEDAD711B963EBDE7F1C82AA107BD6",
+  "version": "1.0",
+  "nonce": "8c98709e-db4a-409b-b76c-8cad56ab0199",
+  "timestamp": 1524810140095,
+}
+
 //订单记录
 const configGetOrders = {
   "name": "order.orderlist",
@@ -267,6 +278,10 @@ export default {
   },
   setEvaluate(params) {  //获取评价
     let config = Object.assign(configEvaluate, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data);
+  },
+  companyByIds(params) {  //公司地址
+    let config = Object.assign(configCompanyByIds, params);
     return axios.post(`${base}/ali/api`, config).then(res => res.data);
   },
 }

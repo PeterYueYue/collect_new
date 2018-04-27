@@ -65,8 +65,8 @@
 
     <div class="information">提交订单后将有售后人员与您电话沟通，请保持手机畅通</div>
     <div class="bottomInformation">
-        <div>本服务由123提供</div>
-        <div>123</div>
+        <div>本服务由{{detailsList.name}}提供</div>
+        <div>{{detailsList.tel}}</div>
     </div>
 
 
@@ -110,22 +110,21 @@ export default {
                 areaId:'',
                 address:''
             },
-            id: this.$route.query.id,
             detailsList: {},
         }
     },
     mounted() {
-      api.getDetails({
+      api.companyByIds({
         "app_key": "app_id_1",
         "data": {
-          "id": this.id,
-          "isEvaluated": "0",
-          "status": 0
+          "communityId":this.addResstext.id,
+          "categoryId": this.addRessId.id,
+          "isEvaluated": "0"
         },
         token: this.$store.state.token
       }).then((res) => {
         console.log(res);
-        this.detailsList = res.data.order;
+        this.detailsList = res.data;
       }).catch((error) => {
         console.log(error)
       })
