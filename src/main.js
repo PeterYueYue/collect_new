@@ -9,10 +9,7 @@ import 'vue-ydui/dist/ydui.base.css';
 import VueScroller from 'vue-scroller';
 Vue.use(VueScroller);
 Vue.use(Vuex);
-import Vant from 'vant';
-import 'vant/lib/vant-css/index.css';
 
-Vue.use(Vant);
 
 Vue.component(DateTime.name, DateTime);
 Vue.config.productionTip = false;

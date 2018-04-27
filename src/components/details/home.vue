@@ -1,5 +1,5 @@
 <template>
-  <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+  <pull-to :top-load-method="onRefresh" :top-config="pullRefreshConfig">
     <div class="home_wrap">
       <img src="@/assets/banner.jpg" alt="" class="home_wrap_banner">
       <!-- 有订单时 -->
@@ -38,22 +38,33 @@
         </router-link>
       </div>
     </div>
-  </van-pull-refresh>
+  </pull-to>
 </template>
 <script>
   import '@/assets/detailstyle/home.css'
   import api from '@/api/api.js'
   import {mapGetters} from 'vuex';
-  import {PullRefresh} from 'vue-ydui/dist/lib.rem/pullrefresh';
+  import PullTo from 'vue-pull-to'
 
   export default {
     name: "home",
+    components: {
+      PullTo
+    },
     data() {
       return {
         homeList: {},
         showList: true,
-        count: 0,
-        isLoading: false,
+        pullRefreshConfig: {
+          pullText: '下拉刷新', // 下拉时显示的文字
+          triggerText: '释放更新', // 下拉到触发距离时显示的文字
+          loadingText: '加载中...', // 加载中的文字
+          doneText: '加载完成', // 加载完成的文字
+          failText: '加载失败', // 加载失败的文字
+          loadedStayTime: 800, // 加载完后停留的时间ms
+          stayDistance: 80, // 触发刷新后停留的距离
+          triggerDistance: 100 // 下拉刷新触发的距离
+        }
       }
     },
     created() {
@@ -73,44 +84,11 @@
       this.getData();
     },
     methods: {
-      onRefresh() {
+      onRefresh(loaded) {
         //获取数据
-        api.getHome({
-          "app_key": "app_id_1",
-          token: this.token
-
-        }).then((res) => {
-          this.$toast('刷新成功');
-          this.isLoading = false;
-          this.count++;
-          console.log(res.data);
-          if (res.data.length === 0) {
-            this.showList = false;
-          } else {
-            res.data.map(items => {
-              var status = items.status4Page;
-              switch (status) {
-                case 'distribute':
-                  items.statusClass = 'complete';
-                  break;
-                case 'ALREADY':
-                  items.statusClass = 'complete';
-                  break;
-                case 'INIT':
-                  items.statusClass = 'waiting';
-                  break;
-                default:
-                  break;
-              }
-            });
-            this.homeList = res.data;
-          }
-        }).catch((error) => {
-          console.log(error)
-        })
-
+        this.getData(loaded)
       },
-      getData() {
+      getData(loaded) {
         //获取数据
         api.getHome({
           "app_key": "app_id_1",
@@ -138,6 +116,9 @@
               }
             });
             this.homeList = res.data;
+            if (loaded) {
+              loaded('done')
+            }
           }
         }).catch((error) => {
           console.log(error)
