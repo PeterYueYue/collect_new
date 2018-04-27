@@ -65,8 +65,8 @@
 
     <div class="information">提交订单后将有售后人员与您电话沟通，请保持手机畅通</div>
     <div class="bottomInformation">
-        <div>本服务由{{detailsList.company?detailsList.company.name:''}}提供</div>
-        <div>123{{detailsList.company?detailsList.company.tel:''}}</div>
+        <div>本服务由123提供</div>
+        <div>123</div>
     </div>
 
 

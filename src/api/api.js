@@ -1,10 +1,6 @@
 import axios from 'axios';
 
 // 测试
-<<<<<<< HEAD
-// let base ='http://180.153.19.161:9000';
-=======
->>>>>>> c461387c7c82c1b4ee70d3879365d3cc02fb691b
 let base ='http://101.132.111.141:80';
 
 // import state   from './../vuex/store.js'
