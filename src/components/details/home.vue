@@ -44,6 +44,7 @@
   import '@/assets/detailstyle/home.css'
   import api from '@/api/api.js'
   import {mapGetters} from 'vuex';
+
   export default {
     name: "home",
     data() {
@@ -66,37 +67,42 @@
       //存储token到本地
       var token = this.$route.query.token;
       window.localStorage.setItem('token', token);
-      //获取数据
-      api.getHome({
-        "app_key": "app_id_1",
-        token: this.token
+      this.getData();
+    },
+    methods: {
+      getData() {
+        //获取数据
+        api.getHome({
+          "app_key": "app_id_1",
+          token: this.token
 
-      }).then((res) => {
-        console.log(res.data);
-        if (res.data.length === 0) {
-          this.showList = false;
-        } else {
-          res.data.map(items => {
-            var status = items.status4Page;
-            switch (status) {
-              case 'distribute':
-                items.statusClass = 'complete';
-                break;
-              case 'ALREADY':
-                items.statusClass = 'complete';
-                break;
-              case 'INIT':
-                items.statusClass = 'waiting';
-                break;
-              default:
-                break;
-            }
-          });
-          this.homeList = res.data;
-        }
-      }).catch((error) => {
-        console.log(error)
-      })
+        }).then((res) => {
+          console.log(res.data);
+          if (res.data.length === 0) {
+            this.showList = false;
+          } else {
+            res.data.map(items => {
+              var status = items.status4Page;
+              switch (status) {
+                case 'distribute':
+                  items.statusClass = 'complete';
+                  break;
+                case 'ALREADY':
+                  items.statusClass = 'complete';
+                  break;
+                case 'INIT':
+                  items.statusClass = 'waiting';
+                  break;
+                default:
+                  break;
+              }
+            });
+            this.homeList = res.data;
+          }
+        }).catch((error) => {
+          console.log(error)
+        })
+      }
     },
   }
 </script>
