@@ -1,8 +1,10 @@
 <template>
-  <pull-to :top-load-method="onRefresh" :top-config="pullRefreshConfig">
+  <!-- <pull-to :top-load-method="onRefresh" :top-config="pullRefreshConfig"> -->
     <div class="home_wrap">
       <img src="@/assets/banner.jpg" alt="" class="home_wrap_banner">
       <!-- 有订单时 -->
+      <pull-to :top-load-method="onRefresh" :top-config="pullRefreshConfig">
+      
       <div v-if="showList" style="padding-bottom: 1.7rem">
         <div class="home_wrap_item" v-for="item in homeList" :key="item.id">
           <router-link :to="{path: '/details/', query: { id: item.id }}">
@@ -24,6 +26,8 @@
         <div class="home_wrap_ordername">您还没有进行中的收呗订单</div>
         <div class="home_wrap_btnname">点击下方立即回收按钮，为绿色生活助力吧！</div>
       </div>
+
+      </pull-to>
       <!-- 底部footer -->
       <div class="home_wrap_footer">
         <img src="@/assets/icon_footer.png" alt="" class="home_wrap_footer_tbg">
@@ -38,7 +42,7 @@
         </router-link>
       </div>
     </div>
-  </pull-to>
+  <!-- </pull-to> -->
 </template>
 <script>
   import '@/assets/detailstyle/home.css'
@@ -152,6 +156,9 @@
     top: -0.5rem;
     font-size: 0.24rem;
     line-height: 0.5rem;
+  }
+  .action-block .default-text{
+    font-size: 0.24rem;
   }
 </style>
 
