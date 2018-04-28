@@ -105,6 +105,9 @@
                 case 'distribute':
                   items.statusClass = 'complete';
                   break;
+                case 'TOSEND':
+                  items.statusClass = 'waiting';
+                  break;
                 case 'ALREADY':
                   items.statusClass = 'complete';
                   break;
