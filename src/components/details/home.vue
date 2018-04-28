@@ -1,10 +1,10 @@
 <template>
-  <!-- <pull-to :top-load-method="onRefresh" :top-config="pullRefreshConfig"> -->
+   <pull-to :top-load-method="onRefresh" :top-config="pullRefreshConfig">
     <div class="home_wrap">
       <img src="@/assets/banner.jpg" alt="" class="home_wrap_banner">
       <!-- 有订单时 -->
       <pull-to :top-load-method="onRefresh" :top-config="pullRefreshConfig">
-      
+
       <div v-if="showList" style="padding-bottom: 1.7rem">
         <div class="home_wrap_item" v-for="item in homeList" :key="item.id">
           <router-link :to="{path: '/details/', query: { id: item.id }}">
@@ -42,7 +42,7 @@
         </router-link>
       </div>
     </div>
-  <!-- </pull-to> -->
+   </pull-to>
 </template>
 <script>
   import '@/assets/detailstyle/home.css'

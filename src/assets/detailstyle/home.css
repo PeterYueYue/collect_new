@@ -20,7 +20,7 @@ a {
   margin-top: 0.18rem;
 }
 .home_wrap_item .time {
-  font-size: 0.26rem;
+  font-size: 0.14rem;
 }
 /* 待接单 */
 .home_wrap_item .time span.waiting {
@@ -52,11 +52,11 @@ a {
   margin-left: -1.92rem;
 }
 .home_wrap_item .content .name {
-  font-size: 0.34rem;
+  font-size: 0.18rem;
   margin-top: 0.1rem;
 }
 .home_wrap_item .content .price {
-  font-size: 0.26rem;
+  font-size: 0.14rem;
   margin-top: 0.5rem;
 }
 .home_wrap_item .content .price span {
@@ -83,7 +83,7 @@ a {
   width: 100%;
   height: 1.02rem;
   background: #fff;
-  position: fixed;
+  position: absolute;
   bottom: 0;
 }
 .home_wrap_footer_tbg {
