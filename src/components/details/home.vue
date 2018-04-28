@@ -130,7 +130,10 @@
 <style>
   .van-pull-refresh {
     width: 100%;
+  }
 
+  .vue-pull-to-wrapper {
+    width: 100%;
   }
 
   .van-toast {
