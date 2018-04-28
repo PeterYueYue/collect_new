@@ -3,7 +3,6 @@
     <div class="home_wrap">
       <img src="@/assets/banner.jpg" alt="" class="home_wrap_banner">
       <!-- 有订单时 -->
-      <pull-to :top-load-method="onRefresh" :top-config="pullRefreshConfig">
       
       <div v-if="showList" style="padding-bottom: 1.7rem">
         <div class="home_wrap_item" v-for="item in homeList" :key="item.id">
@@ -27,7 +26,6 @@
         <div class="home_wrap_btnname">点击下方立即回收按钮，为绿色生活助力吧！</div>
       </div>
 
-      </pull-to>
       <!-- 底部footer -->
       <div class="home_wrap_footer">
         <img src="@/assets/icon_footer.png" alt="" class="home_wrap_footer_tbg">
