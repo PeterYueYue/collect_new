@@ -21,7 +21,7 @@ a {
   margin-top: 0.18rem;
 }
 .home_wrap_item .time {
-  font-size: 0.24rem;
+  font-size: 0.26rem;
 }
 /* 待接单 */
 .home_wrap_item .time span.waiting {
@@ -57,7 +57,7 @@ a {
   margin-top: 0.1rem;
 }
 .home_wrap_item .content .price {
-  font-size: 0.24rem;
+  font-size: 0.26rem;
   margin-top: 0.4rem;
 }
 .home_wrap_item .content .price span {
