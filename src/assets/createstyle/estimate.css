@@ -57,6 +57,11 @@
   font-size: 0.36rem;
   color: #f4333c;
 }
+.estimate .callbackinfo .information .type_remind {
+  font-size: 0.19rem;
+  color: #999;
+  margin-top: 0.15rem;
+}
 .estimate .reference_price {
   width: 100%;
   margin: 0.21rem 0;

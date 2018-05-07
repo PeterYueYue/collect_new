@@ -22,12 +22,12 @@
                 </li>
                 <li class="item">
                     <div class="step_num">3</div>
-                    <span>回收鉴定</span>
+                    <span>上门鉴定</span>
                     <div class="xuxian"></div>
                 </li>
                 <li class="item">
                     <div class="step_num">4</div>
-                    <span>获得现金</span>
+                    <span>完成回收</span>
                     <!-- <div class="xuxian"></div> -->
                 </li>
             </ul>
@@ -36,7 +36,7 @@
         </div>
         <!-- 获取用户的地址信息来判断位置 -->
         <div class="hsdiqu clearfix"   >
-            <h5 class="fl">回收地区</h5>
+            <h5 class="fl">回收地址</h5>
             <router-link class="text fl" to="/addressel/areaelecte"  >
                 {{userAddressInfo.address}}
             </router-link>
@@ -44,7 +44,7 @@
 
         </div>
         <div class="next">
-            <span class="add_info">找不到回收的小区?</span>
+            <span class="add_info">找不到我的小区?</span>
             <h1 id="demo"></h1>
             <div  class="nextbutton  ">
                 <a  v-show="!isEnter"   class="dontEnter"     href="javascript:;">下一步</a>
@@ -106,7 +106,7 @@ export default {
          if(this.useraddress.address){
             this.isEnter = true;
             this.userAddressInfo.address = this.useraddress.address + this.useraddress.name;
-             
+
          }else{
              if(res.data.isExist){
                 this.isEnter = true;

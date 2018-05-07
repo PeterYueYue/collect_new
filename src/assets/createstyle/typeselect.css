@@ -60,6 +60,11 @@
   font-size: 0.36rem;
   color: #f4333c;
 }
+.typeselect .callbackinfo .information .type_remind {
+  font-size: 0.19rem;
+  color: #999;
+  margin-top: 0.15rem;
+}
 .typeselect .classchange {
   margin-top: 0.25rem;
   padding-bottom: 0.8rem;

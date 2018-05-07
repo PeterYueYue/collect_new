@@ -20,6 +20,7 @@
                         </span>
                     </span>
                 </div>
+                <div class="type_remind">提示：预估价格仅根据市场参考,最终成交价以上门面议为准.</div>
             </div>
         </div>
         <div class="reference_price clearfix">
@@ -31,21 +32,21 @@
                 <div class="imgbox">
                     <img src="@/assets/speciality.png" alt="">
                 </div>
-                <span>专业的质量评估</span>
+                <span>专业评估</span>
             </li>
              <li class="item">
                 <div class="imgbox">
                     <img src="@/assets/clear.png" alt="">
                 </div>
-                <span>隐私清除保密</span>
+                <span>信息保密</span>
             </li>
              <li class="item">
                 <div class="imgbox">
                     <img src="@/assets/government.png" alt="">
                 </div>
-                <span>政府担保交易</span>
+                <span>贴心服务</span>
             </li>
-            
+
 
         </ul>
 
@@ -87,10 +88,10 @@ export default {
     methods:{
         backbtn(){ //执行返回上一个路由；
           this.$router.go(-1);
-          
+
       },
     }
-  
+
 }
 </script>
 
