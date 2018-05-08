@@ -16,3 +16,5 @@ export var Get_Token                  = 'Get_Token'
 export var change_Address_Text        = 'change_Address_Text'
 export var clear_Price_Info           = 'clear_Price_Info'
 export var Clear                      = 'Clear'
+export var clear_Future_Price         = 'clear_Future_Price'
+

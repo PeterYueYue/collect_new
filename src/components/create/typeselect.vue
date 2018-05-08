@@ -112,6 +112,7 @@ export default {
     methods:{
         backbtn(){ //执行返回上一个路由；
           this.$store.dispatch('clearPriceInfo')
+          
           this.$router.go(-1);
           this.isShow-=1; 
 

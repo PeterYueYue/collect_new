@@ -22,9 +22,11 @@
                 </div>
             </div>
         </div>
-        <div class="reference_price clearfix">
+        <div   class="reference_price clearfix">
             <span class="fl">平均回收价：￥{{addRessId.price}}</span>
-            <router-link class="fr btna" to="/typeSelect/typeclass" >重新询价</router-link>
+            <a @click="letAgainM" href="javascript:;">
+                <router-link    class="fr btna" to="/typeSelect/typeclass"    >重新询价</router-link>
+            </a>
         </div>
         <ul class="authority">
             <li class="item">
@@ -85,8 +87,13 @@ export default {
 
     },
     methods:{
+        letAgainM(){
+            this.$store.dispatch("clearfuturePrice")
+            
+        },
         backbtn(){ //执行返回上一个路由；
           this.$router.go(-1);
+
           
       },
     }

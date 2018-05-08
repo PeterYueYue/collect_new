@@ -59,3 +59,6 @@ export var changeAddressText                 = ({commit}, data)   =>{   //用户
 export var clear                = ({commit}, data)   =>{   //清空内容
     commit(types.Clear, data)
 }
+export var clearfuturePrice      = ({commit}, data)   =>{   //初始预估价格
+    commit(types.clear_Future_Price, data)
+}

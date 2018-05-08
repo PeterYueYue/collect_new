@@ -127,8 +127,10 @@ export default new Vuex.Store({
       },
       Clear(state){       //清除图片信息
         this.state.imgsAddress = []
+      },
+      clear_Future_Price(){ // 初始评估价格
+        this.state.futurePrice = ''
       }
-      
     },
     plugins: [createPersistedState({storage: window.sessionStorage})]
   })

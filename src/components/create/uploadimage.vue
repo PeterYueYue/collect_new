@@ -84,7 +84,7 @@ import Exif from "exif-js";
 import api from "@/api/api.js";
 import $ from "jquery";
 import axios from "axios";
-
+import 'vant/lib/vant-css/icon-local.css';
 import "@/assets/createstyle/uploadimage.css";
 import { mapGetters } from "vuex";
 export default {

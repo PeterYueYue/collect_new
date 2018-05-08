@@ -26,12 +26,15 @@ export default {
         }
     },
     computed:mapGetters({
-        token:'token'
+        token:'token',
+        futurePrice:'futurePrice'
     }),
     created(){
 
         var {index} = this.$route.params;
         this.$store.dispatch("changePointIndex",999888555)
+        
+
 
         this.$emit('changeIndex',"1")
         //  根据分类 的属性取 分类属性选项
