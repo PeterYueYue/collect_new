@@ -28,10 +28,10 @@
       <div class="home_wrap_footer">
         <img src="@/assets/icon_footer.png" alt="" class="home_wrap_footer_tbg">
         <router-link to="/classIfy">
-          <div class="footer_circle">立即<br/>回收</div>
+          <div class="footer_circle">上门<br/>回收</div>
         </router-link>
         <router-link to="/records">
-          <div class="footer_left"><img src="@/assets/icon_foot.png" alt="" class="icon"><span>收呗足迹</span></div>
+          <div class="footer_left"><img src="@/assets/icon_foot.png" alt="" class="icon"><span>我的收呗</span></div>
         </router-link>
         <router-link to="/orders">
           <div class="footer_right"><img src="@/assets/icon_record.png" alt="" class="icon"><span>订单记录</span></div>

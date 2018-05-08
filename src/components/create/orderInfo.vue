@@ -10,7 +10,7 @@
     <div class="userInfoBox">
         <ul class="userInfo">
             <li class="item  clearfix ">
-                <strong class="fl" >姓名</strong>
+                <strong class="fl" >姓名:</strong>
                 <div  class="nameBox  fl">
                     <input @blur="isName"    v-model="nameValue"      placeholder="请输入联系人姓名 (必填)"  type="text" value="nameValue" >
                     <span  v-if="tipNmae" >名字格式可为中文和英文，长度为2-7位</span>
@@ -18,16 +18,17 @@
 
             </li>
             <li class="item  clearfix ">
-                <strong class="fl" >电话</strong>
+                <strong class="fl" >电话:</strong>
                 <div  class="nameBox  fl">
-                    <input  type="text"   @blur="isPhoneNumber"   v-model="phoneNumber" placeholder="请输入手机号码 (必填)" value="phoneNumber" >
+                    <input  type="number"   @blur="isPhoneNumber"   v-model="phoneNumber" placeholder="请输入手机号码 (必填)"
+                            value="phoneNumber" >
                     <span v-if="tipPhone"  >电话号码格式不正确</span>
                 </div>
 
             </li>
 
             <li class="item  clearfix ">
-                <strong class="fl" >地址</strong>
+                <strong class="fl" >地址:</strong>
                 <div  class="nameBox  fl">
                     <div class="addressSt">
                         {{addResstext.address}}
@@ -36,7 +37,7 @@
                 </div>
             </li>
             <li class="item ">
-               <strong class="fl" >门牌号</strong>
+               <strong class="fl" >门牌号:</strong>
                 <div  class="nameBox  fl">
                     <input  type="text" v-model="mpnumber"   placeholder="例：5号楼203室"  value="" >
                 </div>
@@ -45,7 +46,7 @@
     </div>
     <div class="collectTimeAndPrice">
         <div class="pickUp ">
-            <strong>上门时间：</strong>
+            <strong>期望上门时间:</strong>
             <time  :class="{textColor:infoTm}"   >{{time}}{{infotime}}</time>
             <div  @click="setTime" class="dataBlock">
                 <a href="javaScript:;">
@@ -53,7 +54,7 @@
             </div>
         </div>
         <div class="estimatePrice clearfix">
-            <strong class="fl">回收估计</strong>
+            <strong class="fl">回收估计:</strong>
             <span class="fr">￥{{futurePrice}}</span>
         </div>
     </div>
@@ -63,7 +64,7 @@
         <a href="javascript:;"   v-if="isOk.nameisOk == true && isOk.phoneIsOk == true && isOk.timeIsOk == true  "   @click="completeAnOrder"   class="yesEnter"     > 提交订单 </a>
     </div>
 
-    <div class="information">提交订单后将有售后人员与您电话沟通，请保持手机畅通</div>
+    <div class="information">提交订单后将有工作人员与您电话沟通，请保持手机畅通</div>
     <div class="bottomInformation">
         <div>本服务由{{detailsList.name}}提供</div>
         <div>{{detailsList.tel}}</div>

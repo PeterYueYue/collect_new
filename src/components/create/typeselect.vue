@@ -22,6 +22,7 @@
                     </span>
                 </span>
             </div>
+            <div class="type_remind">提示：预估价格仅根据市场参考,最终成交价以上门面议为准.</div>
         </div>
     </div>
     <div class="ul_Box">
@@ -29,15 +30,15 @@
             <div class="classchange"  v-for="(item,index) in dataList"  :key="item.id"   v-if="    isShow == index"        >
                 <h3 class="titlename">{{item.name}}</h3>
                 <ul class="class_change_list ">
-                    
+
                     <li class=" "   v-for="(e,i) in item.categoryAttrOptionList "   :key="e.id"   :class="{active: isActive === i }"  @click="changeItem(e,{item,index,i})"         >{{e.name}}
                         <!-- <router-link :to="'/typeSelect/typestate/' + pointIndex" class="active">{{e.name}}</router-link> -->
                         <!-- <a :class="{active: isActive === i }"  @click="changeItem(e,{item,index,i})" href="javascript:;">{{e.name}}</a> -->
                     </li>
-                    
+
                 </ul>
             </div>
-        </transition> 
+        </transition>
     </div>
     <ul class="schedule">
         <li v-for="(item,index) in dataList"  :key="item.id"  :class="{active :  index == isShow}"></li>
@@ -68,7 +69,7 @@ export default {
         return{
             itemID:null,    //商品ID
             dataList:null,  // 商品属性信息列表
-            isShow:0,       //判断第几个选项卡显示    
+            isShow:0,       //判断第几个选项卡显示
             classInfo:null , //存储类型选择的信息
             isActive: false
         }
@@ -114,9 +115,9 @@ export default {
           this.$store.dispatch('clearPriceInfo')
           
           this.$router.go(-1);
-          this.isShow-=1; 
+          this.isShow-=1;
 
-          
+
         },
         changeItem(e,itemInfo){
             if(this.isShow <this.dataList.length-1 ){
@@ -134,15 +135,15 @@ export default {
                     this.$router.push({path:'/uploadimage'})
                     this.isActive = -1
                 },200)
-                
+
           }
-      } 
-      
+      }
+
     }
-     
+
     }
 
 
-    
+
 </script>
 

@@ -26,17 +26,25 @@
   height: 1.91rem;
   top: 0;
 }
-.records_wrap_top div {
+.records_wrap_top .name {
   font-size: 0.36rem;
   color: #fff;
   position: absolute;
-  top: 0.35rem;
+  top: 0.15rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.records_wrap_top .number {
+  font-size: 0.36rem;
+  color: #fff;
+  position: absolute;
+  top: 0.68rem;
   left: 50%;
   transform: translateX(-50%);
 }
 .records_wrap_top .getbtn {
   position: absolute;
-  top: 1rem;
+  top: 1.2rem;
   left: 50%;
   transform: translateX(-50%);
   width: 2.75rem;

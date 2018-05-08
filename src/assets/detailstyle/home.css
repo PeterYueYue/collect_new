@@ -7,7 +7,7 @@ a {
 }
 .home_wrap {
   width: 100%;
-  position: relative;
+  /*position: relative;*/
 }
 .home_wrap_banner {
   width: 100%;
@@ -53,12 +53,12 @@ a {
   margin-left: -1.92rem;
 }
 .home_wrap_item .content .name {
-  font-size: 0.28rem;
+  font-size: 0.32rem;
   margin-top: 0.1rem;
 }
 .home_wrap_item .content .price {
   font-size: 0.26rem;
-  margin-top: 0.4rem;
+  margin-top: 0.45rem;
 }
 .home_wrap_item .content .price span {
   color: #f4333c;
