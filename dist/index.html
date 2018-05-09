@@ -1,0 +1,19 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>蚂蚁收呗</title><meta name=format-detection content="telephone=no"><meta name=format-detection content="email=no"><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-status-bar-style content=black><meta name=full-screen content=yes><meta name=browsermode content=application><meta name=x5-orientation content=portrait><meta name=x5-fullscreen content=true><meta name=x5-page-mode content=app><script src=https://gw.alipayobjects.com/as/g/h5-lib/alipayjsapi/3.1.0/alipayjsapi.min.js></script><script src=https://static.zhongan.com/website/life/kefu/dist/polyfill.min.js></script><link href=./static/css/app.0e34b19bdb80fd53606af826d9b0504a.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=./static/js/manifest.3ad1d5771e9b13dbdad2.js></script><script type=text/javascript src=./static/js/vendor.b77cd00a4815d168b060.js></script><script type=text/javascript src=./static/js/app.da299097340dc28bc200.js></script></body><script type=text/javascript>var scale = 1 / devicePixelRatio;
+    document.querySelector('meta[name="viewport"]').setAttribute('content', 'initial-scale=' + scale +
+        ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+    document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+    //判断手机横竖屏状态：
+    function hengshuping() {
+        if (window.orientation == 180 || window.orientation == 0) {
+            document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+        }
+        if (window.orientation == 90 || window.orientation == -90) {
+            document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+        }
+    }
+    window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
+    window.onresize = function () {
+        var wid = document.body.clientWidth || document.documentElement.clientWidth;
+        var fz = wid / 7.5;
+        document.getElementsByTagName("html")[0].style.fontSize = fz + "px";
+    };</script></html>
