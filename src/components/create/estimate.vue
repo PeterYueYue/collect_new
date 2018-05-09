@@ -32,19 +32,19 @@
         <ul class="authority">
             <li class="item">
                 <div class="imgbox">
-                    <img src="@/assets/speciality.png" alt="">
+                    <img src="@/assets/评估(1)@2x.png" alt="">
                 </div>
                 <span>专业评估</span>
             </li>
              <li class="item">
                 <div class="imgbox">
-                    <img src="@/assets/clear.png" alt="">
+                    <img src="@/assets/信息@2x.png" alt="">
                 </div>
                 <span>信息保密</span>
             </li>
              <li class="item">
                 <div class="imgbox">
-                    <img src="@/assets/government.png" alt="">
+                    <img src="@/assets/贴心关怀@2x.png" alt="">
                 </div>
                 <span>贴心服务</span>
             </li>

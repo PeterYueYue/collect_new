@@ -1,7 +1,10 @@
 <template>
-   <pull-to :top-load-method="onRefresh" :top-config="pullRefreshConfig">
-    <div class="home_wrap">
-      <img src="@/assets/banner.jpg" alt="" class="home_wrap_banner">
+  <div style="width:100%">
+    <pull-to :top-load-method="onRefresh"  :top-config="pullRefreshConfig">
+    <div class="home_wrap" >
+      <!-- <img src="@/assets/banner.jpg" alt="" class="home_wrap_banner"> -->
+      <!-- 轮播图 -->
+      <bannebox class="home_wrap_banner"></bannebox>
       <!-- 有订单时 -->
       <div v-if="showList" style="padding-bottom: 1.7rem">
         <div class="home_wrap_item" v-for="item in homeList" :key="item.id">
@@ -24,7 +27,10 @@
         <div class="home_wrap_ordername">您还没有进行中的收呗订单</div>
         <div class="home_wrap_btnname">点击下方立即回收按钮，为绿色生活助力吧！</div>
       </div>
-      <!-- 底部footer -->
+      
+    </div>
+   </pull-to>
+   <!-- 底部footer -->
       <div class="home_wrap_footer">
         <img src="@/assets/icon_footer.png" alt="" class="home_wrap_footer_tbg">
         <router-link to="/classIfy">
@@ -37,19 +43,20 @@
           <div class="footer_right"><img src="@/assets/icon_record.png" alt="" class="icon"><span>订单记录</span></div>
         </router-link>
       </div>
-    </div>
-   </pull-to>
+  </div>
+   
 </template>
 <script>
   import '@/assets/detailstyle/home.css'
   import api from '@/api/api.js'
   import {mapGetters} from 'vuex';
   import PullTo from 'vue-pull-to'
-
+  import Bannebox from './banner.vue'
   export default {
     name: "home",
     components: {
-      PullTo
+      PullTo,
+      Bannebox
     },
     data() {
       return {

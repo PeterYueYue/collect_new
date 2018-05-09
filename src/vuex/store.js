@@ -130,6 +130,7 @@ export default new Vuex.Store({
       },
       clear_Future_Price(){ // 初始评估价格
         this.state.futurePrice = ''
+        this.state.statisticsPrice = ''
       }
     },
     plugins: [createPersistedState({storage: window.sessionStorage})]
