@@ -170,7 +170,6 @@
           },
           token: this.$store.state.token
         }).then((res) => {
-          console.log(res);
           var status = res.data.order.status4Page;
           this.picUrl = res.data.orderPicList;
           switch (status) {
@@ -202,7 +201,9 @@
               break;
           }
           this.detailsList = res.data.order;
-          this.tel = "tel:" + res.data.order.recyclers.tel;
+          if(res.data.order.recyclers){
+            this.tel = "tel:" + res.data.order.recyclers.tel;
+          }
           this.url = res.data.order.orderNo;
           this.detailsPic = res.data.orderPicList;
           this.detailsDes = res.data.OrderItemList;
