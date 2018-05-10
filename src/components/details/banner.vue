@@ -39,6 +39,7 @@
 
 
 <style>
+
 .yd-slider-pagination-item{
     width: 0.15rem;
     height:0.15rem;
