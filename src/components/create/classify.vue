@@ -105,19 +105,26 @@ export default {
             "level": "0"
             },
             token:this.token
-        }).then((res)=>{this.menulist = res.data;  }).catch((erro)=>{console.log(erro)});
+        }).then((res)=>{
 
-        api.getSubList({
-                "app_key": "app_id_1",
-                "data": {
-                    "id": this.isId
-                },
-                token:this.token
-            }).then((res)=>{ 
+            console.log(res)
+            this.menulist = res.data; 
+            this.isId = res.data[0].id;
+            api.getSubList({
+                    "app_key": "app_id_1",
+                    "data": {
+                        "id": this.isId
+                    },
+                    token:this.token
+                }).then((res)=>{ 
 
-            this.subList = res.data;  
-            
-            }).catch((erro)=>{console.log(erro)})
+                this.subList = res.data;  
+                
+                }).catch((erro)=>{console.log(erro)})
+
+             }).catch((erro)=>{console.log(erro)});
+
+        
         
     },
     methods:{

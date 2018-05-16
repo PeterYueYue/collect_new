@@ -68,7 +68,7 @@ export default {
             "app_key": "app_id_1",
             "data": {
                 "areaId":this.$route.params.itemAreaId ,
-                "id": this.addRessId.id,
+                "id": this.addRessId.parentId,
             },
             token:this.token
         }).then(res =>{

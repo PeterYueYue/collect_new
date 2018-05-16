@@ -119,7 +119,7 @@ export default {
         "app_key": "app_id_1",
         "data": {
           "communityId":this.addResstext.id,
-          "categoryId": this.addRessId.id,
+          "categoryId": this.addRessId.parentId,
           "isEvaluated": "0"
         },
         token: this.$store.state.token
