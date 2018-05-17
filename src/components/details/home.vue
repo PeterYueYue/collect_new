@@ -27,7 +27,7 @@
         <div class="home_wrap_ordername">您还没有进行中的收呗订单</div>
         <div class="home_wrap_btnname">点击下方立即回收按钮，为绿色生活助力吧！</div>
       </div>
-      
+
     </div>
    </pull-to>
    <!-- 底部footer -->
@@ -44,7 +44,7 @@
         </router-link>
       </div>
   </div>
-   
+
 </template>
 <script>
   import '@/assets/detailstyle/home.css';
