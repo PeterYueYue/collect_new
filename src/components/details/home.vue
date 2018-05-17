@@ -2,7 +2,7 @@
   <div style="width:100%">
     <pull-to :top-load-method="onRefresh"  :top-config="pullRefreshConfig">
     <div class="home_wrap" >
-       <img src="@/assets/banner3.jpg" alt="" class="home_wrap_banner">
+       <img src="@/assets/banner3.png" alt="" class="home_wrap_banner">
       <!-- 轮播图 -->
       <!--<bannebox class="home_wrap_banner"></bannebox>-->
       <!-- 有订单时 -->
