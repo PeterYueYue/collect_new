@@ -2,7 +2,7 @@
   <div style="width:100%">
     <pull-to :top-load-method="onRefresh"  :top-config="pullRefreshConfig">
     <div class="home_wrap" >
-      <!-- <img src="@/assets/banner.jpg" alt="" class="home_wrap_banner"> -->
+      <!-- <img src="@/assets/banner3.png" alt="" class="home_wrap_banner"> -->
       <!-- 轮播图 -->
       <bannebox class="home_wrap_banner"></bannebox>
       <!-- 有订单时 -->
@@ -47,11 +47,11 @@
    
 </template>
 <script>
-  import '@/assets/detailstyle/home.css'
-  import api from '@/api/api.js'
+  import '@/assets/detailstyle/home.css';
+  import api from '@/api/api.js';
   import {mapGetters} from 'vuex';
-  import PullTo from 'vue-pull-to'
-  import Bannebox from './banner.vue'
+  import PullTo from 'vue-pull-to';
+  import Bannebox from './banner1.vue';
   export default {
     name: "home",
     components: {

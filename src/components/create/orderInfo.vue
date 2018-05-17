@@ -192,6 +192,7 @@ export default {
                     "tel": this.phoneNumber,
                     "communityId":this.addResstext.id,
                     "categoryId": this.addRessId.id,
+                    "categoryParentId":this.addRessId.parentId,
                     "remarks": this.textareaValue,
                     "fullAddress": this.mpnumber
                 }

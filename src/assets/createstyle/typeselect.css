@@ -91,10 +91,8 @@
   text-align: center;
   color: #666666;
   font-size: 0.3rem;
-  border: 0.01rem #999 solid;
+  border: 0.01rem #999999 solid;
   border-radius: 0.06rem;
-  /*background-image: url('../../assets/border.png');*/
-  /*background-size: 100%;*/
 }
 .typeselect .classchange .class_change_list li .active {
   color: #fff;

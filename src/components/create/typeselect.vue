@@ -127,14 +127,14 @@ export default {
                 setTimeout(()=>{
                     this.isShow+=1;
                     this.isActive = -1
-                },200)
+                },50)
             }else{
                 this.isActive = itemInfo.i
                 setTimeout(()=>{
                     this.$store.dispatch('changeStatisticsPrice',e)  //再最后跳转前再执行一次；
                     this.$router.push({path:'/uploadimage'})
                     this.isActive = -1
-                },200)
+                },50)
 
           }
       }
