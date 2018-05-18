@@ -7,6 +7,8 @@ import $ from 'jquery'
 import {DateTime} from 'vue-ydui/dist/lib.rem/datetime';
 import 'vue-ydui/dist/ydui.base.css';
 import {Slider, SliderItem} from 'vue-ydui/dist/lib.rem/slider';
+
+
 Vue.component(Slider.name, Slider);
 Vue.component(SliderItem.name, SliderItem);
 import VueScroller from 'vue-scroller';
