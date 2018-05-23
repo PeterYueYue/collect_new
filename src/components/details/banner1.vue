@@ -38,7 +38,7 @@
         </van-swipe-item>
         <van-swipe-item style="width: 7.5rem;"  >
             <a href="javascript:;">
-                <img  style="width: 7.5rem!important;"  src="@/assets/banner1.png">
+                <img  style="width: 7.5rem!important;"  src="@/assets/支付宝端-收呗画板-banner4.png">
             </a>
         </van-swipe-item>
     </van-swipe>

@@ -64,6 +64,9 @@ import '@/assets/createstyle/tool.css'
 import '@/assets/createstyle/typeselect.css'
 import Schedule from '@/components/create/common/schedule.vue'
 import { mapGetters } from 'vuex';
+
+
+
 export default {
     data(){
         return{
@@ -84,8 +87,19 @@ export default {
         isShowMeassage  : 'isShowMeassage',  //控制选不到已服务的小区的提示框
         addRessId       : 'addRessId',    //进入地址组件关联的ID
         isShowForState  : 'isShowForState', //
-        token           : 'token'
+        token           : 'token',
+        futurePrice     : 'futurePrice'
     }),
+    mounted(){
+        
+
+
+        if(this.futurePrice.length>0){
+            console.log('22222')
+            this.$store.dispatch("clearfuturePrice")
+
+        }
+    },
     created(){
         var {index} = this.$route.params;
         this.itemID = index

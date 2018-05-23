@@ -37,7 +37,7 @@ import qrCode from '@/components/details/qrCode.vue'
 
 Vue.use(Router)
 
-export default new Router({
+const router =  new Router({
   routes: [
     {
       path: '/',
@@ -110,6 +110,17 @@ export default new Router({
       path: '/typeSelect/:index',
       name: 'TypeSelect',
       component: TypeSelect,
+      beforeEnter:(to, from, next) =>{
+
+        if(from.path == "/uploadimage"){
+          this.a.app.$store.dispatch("clearfuturePrice")
+        }
+        next()
+       
+        
+        
+
+      }
     },
     {
       path:'/uploadimage',
@@ -128,4 +139,9 @@ export default new Router({
       component:OrderInfo
     }
   ]
+
 })
+
+
+
+export default router;
