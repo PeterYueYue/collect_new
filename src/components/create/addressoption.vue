@@ -93,9 +93,11 @@
     computed: mapGetters({
       useraddress: 'useraddress',
       addRessId: 'addRessId',
-      token: 'token'
+      token: 'token',
+
     }),
     created() {
+
       this.itemID = this.$store.state.msItemId;
       var {id} = this.$route.params;   //商品ID
       this.id = id;

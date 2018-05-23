@@ -108,6 +108,7 @@ export default {
       this.$store.dispatch("removeImg", index);
     },
     getTextareaValue() {
+
       this.$store.dispatch("changeTextareaValue", this.textareaValue); //文字描述信息
     },
     upload(e) {

@@ -3,11 +3,18 @@ import Vuex from 'vuex'
 import * as actions from './actions'
 import * as getters from './getters'
 import createPersistedState from 'vuex-persistedstate'
+
+import router from '../router/index.js'
+
+
+
 Vue.use(Vuex);
 // 创建 store 实例
+
 export default new Vuex.Store({
     actions,
     getters,
+
     state: {
 
       token                   : '',
@@ -128,9 +135,12 @@ export default new Vuex.Store({
       Clear(state){       //清除图片信息
         this.state.imgsAddress = []
       },
-      clear_Future_Price(){ // 初始评估价格
+      clear_Future_Price(state,data){ // 初始评估价格
+
+        console.log(111)
         this.state.futurePrice = ''
         this.state.statisticsPrice = ''
+        
       }
     },
     plugins: [createPersistedState({storage: window.sessionStorage})]

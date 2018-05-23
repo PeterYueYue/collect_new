@@ -26,12 +26,15 @@
         </div>
     </div>
     <div class="ul_Box">
-        <transition name="slide-fade">
-            <div class="classchange"  v-for="(item,index) in dataList"  :key="item.id"   v-if="    isShow == index"        >
+        <transition   v-on:leave="leave"  v-on:after-enter="afterEnter" name="slide-fade">
+            <div class="classchange  "      v-for="(item,index) in dataList"  :key="item.id"   v-if="    isShow == index"        >
                 <h3 class="titlename">{{item.name}}</h3>
                 <ul class="class_change_list ">
 
-                    <li class=" "   v-for="(e,i) in item.categoryAttrOptionList "   :key="e.id"   :class="{active: isActive === i }"  @click="changeItem(e,{item,index,i})"         >{{e.name}}
+                    <li class=" "   v-for="(e,i) in item.categoryAttrOptionList "   :key="e.id"   :class="{active: isActive === i }"  
+                    
+                      @touchstart="touchStart()"
+                      @touchend="changeItem(e,{item,index,i})"         >{{e.name}}
                         <!-- <router-link :to="'/typeSelect/typestate/' + pointIndex" class="active">{{e.name}}</router-link> -->
                         <!-- <a :class="{active: isActive === i }"  @click="changeItem(e,{item,index,i})" href="javascript:;">{{e.name}}</a> -->
                     </li>
@@ -52,6 +55,7 @@
     <!-- </transition> -->
     <!-- 底部步骤按钮提示 -->
     <!-- <schedule ></schedule> -->
+    <!-- <div  v-if="isClick" class="stopClicksome"></div> -->
   </div>
 
 </template>
@@ -64,7 +68,7 @@ import '@/assets/createstyle/tool.css'
 import '@/assets/createstyle/typeselect.css'
 import Schedule from '@/components/create/common/schedule.vue'
 import { mapGetters } from 'vuex';
-
+import $ from 'jquery'
 
 
 export default {
@@ -74,7 +78,10 @@ export default {
             dataList:null,  // 商品属性信息列表
             isShow:0,       //判断第几个选项卡显示
             classInfo:null , //存储类型选择的信息
-            isActive: false
+            isActive: false,
+            isClick:false
+
+            
         }
     },
     components:{
@@ -90,16 +97,7 @@ export default {
         token           : 'token',
         futurePrice     : 'futurePrice'
     }),
-    mounted(){
-        
 
-
-        if(this.futurePrice.length>0){
-            console.log('22222')
-            this.$store.dispatch("clearfuturePrice")
-
-        }
-    },
     created(){
         var {index} = this.$route.params;
         this.itemID = index
@@ -115,40 +113,50 @@ export default {
             token:this.token
         }).then((res)=>{
             this.dataList = res.data;
-
-
-
         }).catch((erro)=>{
             console.log(erro)
         })
-
+        this.$store.dispatch("clearfuturePrice")
         this.$store.dispatch('clearPriceInfo')
     },
     methods:{
+
+        touchStart(){
+            e.preventDefault();
+        },
+        leave(){
+            console.log(1)
+            this.isClick = true;
+        },
+        afterEnter(){
+
+            console.log(2)
+            this.isClick = false;
+        },
         backbtn(){ //执行返回上一个路由；
-          this.$store.dispatch('clearPriceInfo')
-          
+          this.$store.dispatch('clearPriceInfo')         
           this.$router.go(-1);
           this.isShow-=1;
-
-
         },
         changeItem(e,itemInfo){
             if(this.isShow <this.dataList.length-1 ){
                 this.isActive = itemInfo.i
                 this.$store.dispatch('changeStatisticsPrice',e)
                 // this.$store.dispatch('setAttrOppids',itemInfo)
-                setTimeout(()=>{
-                    this.isShow+=1;
-                    this.isActive = -1
-                },50)
+                
+
+                // console.log($('.classchange')[0].classList.value)
+                
+                this.isShow+=1;
+                this.isActive = -1
+                
             }else{
                 this.isActive = itemInfo.i
-                setTimeout(()=>{
-                    this.$store.dispatch('changeStatisticsPrice',e)  //再最后跳转前再执行一次；
-                    this.$router.push({path:'/uploadimage'})
-                    this.isActive = -1
-                },50)
+                
+                this.$store.dispatch('changeStatisticsPrice',e)  //再最后跳转前再执行一次；
+                this.$router.push({path:'/uploadimage'})
+                this.isActive = -1
+                
 
           }
       }

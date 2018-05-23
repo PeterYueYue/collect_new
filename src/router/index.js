@@ -110,17 +110,8 @@ const router =  new Router({
       path: '/typeSelect/:index',
       name: 'TypeSelect',
       component: TypeSelect,
-      beforeEnter:(to, from, next) =>{
-
-        if(from.path == "/uploadimage"){
-          this.a.app.$store.dispatch("clearfuturePrice")
-        }
-        next()
-       
-        
-        
-
-      }
+      
+      
     },
     {
       path:'/uploadimage',
