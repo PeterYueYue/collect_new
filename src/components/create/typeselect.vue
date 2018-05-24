@@ -33,7 +33,7 @@
 
                     <li class=" "   v-for="(e,i) in item.categoryAttrOptionList "   :key="e.id"   :class="{active: isActive === i }"  
                     
-                      @touchstart="touchStart()"
+                      @touchstart="touchStart(e,{item,index,i})"
                       @touchend="changeItem(e,{item,index,i})"         >{{e.name}}
                         <!-- <router-link :to="'/typeSelect/typestate/' + pointIndex" class="active">{{e.name}}</router-link> -->
                         <!-- <a :class="{active: isActive === i }"  @click="changeItem(e,{item,index,i})" href="javascript:;">{{e.name}}</a> -->
@@ -118,11 +118,12 @@ export default {
         })
         this.$store.dispatch("clearfuturePrice")
         this.$store.dispatch('clearPriceInfo')
+        this.isActive = false;
     },
     methods:{
 
-        touchStart(){
-            e.preventDefault();
+        touchStart(e,itemInfo){
+            
         },
         leave(){
             console.log(1)
@@ -151,11 +152,21 @@ export default {
                 this.isActive = -1
                 
             }else{
+
+                
                 this.isActive = itemInfo.i
                 
                 this.$store.dispatch('changeStatisticsPrice',e)  //再最后跳转前再执行一次；
-                this.$router.push({path:'/uploadimage'})
-                this.isActive = -1
+                
+                this.isActive = '-1';
+                
+                setTimeout(() =>{
+
+                    this.$router.push({path:'/uploadimage'})
+                },200)
+                
+                
+                
                 
 
           }

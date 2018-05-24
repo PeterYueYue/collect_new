@@ -15,7 +15,7 @@
                          <div class="picture" :style="'backgroundImage:url('+headerImage+')'"></div> 
                      </div> 
                      <div style="width:100%;height:100%"> 
-                         <input style="width:100%;height:100%;  opacity:0;" type="file" id="upload"  accept="image" @change="upload"> 
+                         <input style="width:100%;height:100%;  opacity:0;" type="file" id="upload"  accept="image/*" @change="upload"> 
                          <label for="upload"></label> 
 
                         <!-- <van-uploader style="width:100%;height:100%;"       :after-read="upload"     >
@@ -40,7 +40,7 @@
                            <div class="picture" ></div> 
                        </div> 
                        <div style="width:100%;height:100%"> 
-                          <input style="width:100%;height:100%;  opacity:0;" type="file" id="upload"  accept="image" @change="upload"> 
+                          <input style="width:100%;height:100%;  opacity:0;" type="file" id="upload"  accept="image/*" @change="upload"> 
                           <label for="upload"></label> 
                         <!-- <van-uploader :after-read="upload">
                           <van-icon name="photograph" />
@@ -54,9 +54,20 @@
         <div class="recycle_description">
             <h4>回收物品描述</h4>
             <div class="textarea_box">
-                <textarea rows="3" maxlength="150"  v-model="textareaValue" placeholder="请输入文字" cols="20"  >
+                <textarea rows="3" maxlength="150" autofocus="none" v-model="textareaValue" placeholder="请输入文字" cols="20"  >
                 
                 </textarea>
+                <!-- <van-cell-group>
+                  <van-field
+                    v-model="textareaValue"
+                    maxlength="150"
+                    type="textarea"
+                    placeholder="请输入留言"
+                    rows="3"
+                    autosize
+                  />
+                </van-cell-group> -->
+
                 <span>{{textareaValue.length}}/150</span>
             </div>
             <div class="nextbutton "  @click="getTextareaValue"  >
@@ -78,8 +89,14 @@
   max-width: 100%;
   margin: 20px auto;
 }
+
+.van-field .van-cell__value{
+  border: none !important;
+
+}
 </style>
 <script>
+
 import Exif from "exif-js";
 import api from "@/api/api.js";
 import $ from "jquery";
