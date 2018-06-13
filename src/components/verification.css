@@ -1,0 +1,82 @@
+.verifi {
+  width: 100%;
+  background-color: #fff;
+  text-align: center;
+}
+.verifi .phoneNumber {
+  margin-top: 1rem;
+  width: 6.34rem;
+  display: inline-block;
+}
+.verifi .phoneNumber input {
+  border: 0;
+  outline: none;
+  width: 6.34rem;
+  height: 1rem;
+  font-size: 0.6rem;
+  border-bottom: 0.01rem solid #888888;
+  position: relative;
+  z-index: 99;
+}
+.verifi .phoneNumber .phone {
+  position: relative;
+}
+.verifi .phoneNumber .phone span {
+  font-size: 0.4rem;
+  color: #888888;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.verifi .phoneNumber .phone .err {
+  position: absolute;
+  bottom: -0.4rem;
+  left: 0.2rem;
+  font-size: 0.24rem;
+  word-spacing: 0.1rem;
+  color: red;
+}
+.verifi .phoneNumber .verifibox {
+  margin-top: 0.5rem;
+  position: relative;
+}
+.verifi .phoneNumber .verifibox span {
+  position: absolute;
+  bottom: 0.2rem;
+  left: 0;
+  font-size: 0.4rem;
+  color: #888888;
+}
+.verifi .phoneNumber .verifibox .enter {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 0.34rem;
+  color: #888888;
+}
+.verifi .phoneNumber .verifibox .timebox {
+  position: absolute;
+  right: 0.1rem;
+  bottom: 0.2rem;
+  font-size: 0.4rem;
+  color: #888888;
+}
+.btn {
+  width: 6.9rem;
+  height: 0.84rem;
+  background-color: #dddddd;
+  font-size: 0.36rem;
+  display: inline-block;
+  margin-top: 2rem;
+  line-height: 0.84rem;
+  border-radius: 0.03rem;
+  color: #bfbfbf;
+}
+.okcolor {
+  color: #00a0e9 !important;
+  z-index: 100;
+}
+.bacor {
+  background-color: #00a0e9;
+  color: #fff;
+}

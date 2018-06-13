@@ -25,6 +25,11 @@ import UploadImage from '@/components/create/uploadimage.vue'
 // 马上询价
 import Estimate from '@/components/create/estimate.vue'
 import OrderInfo from '@/components/create/orderInfo.vue'
+//验证
+import Verifiaction from '@/components/verification'
+//login
+import Login from '@/components/login.vue'
+
 
 
 // wang
@@ -41,8 +46,14 @@ const router =  new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: home
+      name: 'login',
+      component: Login
+    },
+    {
+      path:'/login',
+      name:'login',
+      component:Login
+
     },
     {
       path: '/home',
@@ -128,6 +139,10 @@ const router =  new Router({
       path:'/orderInfo',
       name:'OrderInfo',
       component:OrderInfo
+    },{
+      path:'/verifiaction',
+      name:'Verifiaction',
+      component:Verifiaction
     }
   ]
 

@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // 测试
 let base ='http://101.132.111.141:80';
-
+// let base = 'http://192.168.1.162:9000';
 // import state   from './../vuex/store.js'
 // var uesrToken = state.getters.token;
 
@@ -202,6 +202,34 @@ var configComplete = {  //下单提交信息
 
 }
 
+var confiGetverifiMessage = {  //手机验证信息
+  "name": "app.message.getcode",
+	"format": "json",
+	"sign": "EAC51C3A5FE6BCF908BEE7325841AFB0",
+	"version": "1.0",
+	"nonce": "b4a189f1-a043-402a-8c5b-f58257f1e6c2",
+	"timestamp": 1528784831707
+
+
+}
+
+var configIsAuthorization = { //判断是否授权
+  "name": "member.getAuthCode",
+	"format": "json",
+	"version": "1.0",
+	"nonce": "e99c8460-6e55-4fbc-ba96-03d13992314c",
+	"timestamp": 1528789323533
+
+}
+
+var configSubmitAuthCode = { //提交手机验证码
+  "name": "member.getMessageCode",
+	"format": "json",
+	"version": "1.0",
+	"nonce": "9c66cada-6fce-4588-9f11-c2a956aca21a",
+	"timestamp": 1528791473231
+}
+
 //回收分类
 export default {
   getClassify(params){  //取得所有一级分类
@@ -284,5 +312,23 @@ export default {
     let config = Object.assign(configCompanyByIds, params);
     return axios.post(`${base}/ali/api`, config).then(res => res.data);
   },
+  getverifiMessage(params){ //手机验证信息
+    let config = Object.assign(confiGetverifiMessage, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data);
+  },
+  isAuthorization(params){ //判断是否授权
+    let config = Object.assign(configIsAuthorization, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data); 
+  },
+  submitAuthCode(params){ //提交手机验证码
+    let config = Object.assign(configSubmitAuthCode, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data); 
+  }
+
+
+
+
+
+
 }
 

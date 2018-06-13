@@ -74,17 +74,16 @@
         }
       }
     },
-    created() {
-      var urlToken = location.search;
-      var tk = urlToken.split("=");
-      // var testToken = "3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24UCSPFZ54XJGBWOYJ2KXG2OVQSA4XXBTPXSV2LCS2ZJHIRFEZICJPZDF3ZEBP3BYPWXK2Z5KX5VOOLC6EQXK3DHR3CPY43MKE3HLRVQFBVFFSBL2D734IUX7SLAVFXSWJ5XSRKODFUYOD23YECXXDBJ4WQHGD3SFWEON7HRT5LZ3OS75EKML5UDKQC76XR6NNRF6K4IRHCEA6NZSB7NRXZVRFSC3PZ4O2ZIFJROTQ"
-      // this.$store.dispatch('getToken', testToken)
-      this.$store.dispatch('getToken', tk[1])
+    beforeCreate() {
+      var tk = this.$route.query.token;
+      this.$store.dispatch('getToken', tk)
     },
     computed: mapGetters({
       token: "token"
     }),
     mounted() {
+
+    
       //存储token到本地
       var token = this.$route.query.token;
       window.localStorage.setItem('token', token);
@@ -102,7 +101,7 @@
           token: this.token
 
         }).then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           if (res.data.length === 0) {
             this.showList = false;
           } else {
