@@ -185,6 +185,10 @@
             case 'INIT':
               res.data.order.statusClass = 'waiting';
               break;
+            //已派送
+            case 'TOSEND':
+              res.data.order.statusClass = 'waiting';
+              break;
             //已取消
             case 'CANCEL':
               res.data.order.statusClass = 'cancel';
