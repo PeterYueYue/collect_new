@@ -32,7 +32,7 @@
         </li>
       </ul>
       <div class="icon_smaell"></div>
-      <h5 class="reward">交易成功即可获得1次收呗信用</h5>
+      <h5 class="reward">交易成功即可获得1积分</h5>
     </div>
     <!-- 获取用户的地址信息来判断位置 -->
     <div class="hsdiqu clearfix">
@@ -59,7 +59,7 @@
     <div class="shadow_box" v-if="showArea">
       <img src="@/assets/close_icon.png" alt="" class="close_icon" @click="closeArea">
       <div>温馨提示</div>
-      <div class="show_title">您所在的小区暂时不在回收服务范围,蚂蚁收呗正在努力成长中......</div>
+      <div class="show_title">您所在的小区暂时不在回收服务范围,正在努力成长中......</div>
     </div>
 
   </div>

@@ -15,7 +15,7 @@
   outline: none;
   width: 6.34rem;
   height: 1rem;
-  font-size: 0.6rem;
+  font-size: 0.35rem;
   border-bottom: 0.01rem solid #888888;
   position: relative;
   z-index: 99;
@@ -63,7 +63,7 @@
   font-size: 0.4rem;
   color: #888888;
 }
-.btn {
+.verifi .btn {
   width: 6.9rem;
   height: 0.84rem;
   background-color: #dddddd;
@@ -71,14 +71,14 @@
   display: inline-block;
   margin-top: 2rem;
   line-height: 0.84rem;
-  border-radius: 0.03rem;
+  border-radius: 0.08rem;
   color: #bfbfbf;
 }
-.okcolor {
+.verifi .okcolor {
   color: #00a0e9 !important;
   z-index: 100;
 }
-.bacor {
+.verifi .bacor {
   background-color: #00a0e9;
   color: #fff;
 }
@@ -88,14 +88,14 @@
     <div class="verifi">
         <div class="phoneNumber">
             <div @click="isShowPhone = false"  class="phone">
-                <input v-model="phonenumber" type="number" v-on:input="watchPhone"  @blur="revisePhone" >
-                <span  v-show="isShowPhone">请输入手机号</span>
+                <input v-model="phonenumber" type="number"  placeholder="请输入手机号" v-on:input="watchPhone"  @blur="revisePhone" >
+                <!-- <span  v-show="isShowPhone">请输入手机号</span> -->
                 <div v-show="isErr" class="err">手机格式不正确</div>
             </div>
             <div  class="verifibox"> 
-                <input @click="isShowVer = false"  v-model="vercon"  @blur="reviseVer" type="number">
+                <input @click="isShowVer = false"  placeholder="输入验证码" v-on:input="watchVer"   v-model="vercon"  @blur="reviseVer" type="number">
                 <div v-show="isShowTime" class="timebox">{{times}}秒</div>
-                <span v-show="isShowVer">输入验证码</span>
+                <!-- <span v-show="isShowVer">输入验证码</span> -->
                 <div :class="{okcolor:isEnter}" @click="action"  v-show="isShowTime == false "  class="enter ">发送验证码</div>
             </div>
         </div>
@@ -139,7 +139,6 @@ export default {
             }
         },
         watchPhone(){
-            
             var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;  
             if(this.phonenumber ===''){
                 this.isShowPhone = true;
@@ -156,6 +155,11 @@ export default {
         reviseVer(){
             if(this.vercon ===''){
                 this.isShowVer = true;
+            }
+        },
+        watchVer(){
+            if(this.vercon !=''){
+                this.isShowVer = false;
             }
         },
         action(){

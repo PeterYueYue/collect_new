@@ -2,13 +2,13 @@
   <div class="records_wrap">
     <div class="records_wrap_top">
       <img src="@/assets/banner2.png" alt="" class="banner">
-      <div class="name">我的收呗</div>
+      <div class="name">我的积分</div>
       <div class="number">{{documentNo}}</div>
-      <div class="getbtn" @click="openWindow">如何获得我的收呗<img src="@/assets/icon_mark.png" alt="" class="icon_mark"></div>
+      <div class="getbtn" @click="openWindow">如何获得积分<img src="@/assets/icon_mark.png" alt="" class="icon_mark"></div>
     </div>
     <div class="records_wrap_item">
       <ul>
-        <li :class="{ active: showTab }" @click="openTab(true)">收呗记录</li>
+        <li :class="{ active: showTab }" @click="openTab(true)">积分记录</li>
         <li :class="{ active: !showTab }" @click="openTab(false)">兑换记录</li>
         <span></span>
       </ul>
@@ -51,8 +51,8 @@
     <!-- 弹窗 -->
     <div class="records_shadow" v-if="showShadow" @click="closeBox"></div>
     <div class="records_shadow_box" v-if="showBox">
-      <div class="title">如何获得我的收呗？</div>
-      <div>“收呗”是以实现促进家庭参与垃圾分类投放及废品回收为主，记录履约行为的公益环保平台，用户可通过线上预约回收实现旧物的及时处理，在回收的同时获取“我的收呗”，兑换相应的收呗权益。</div>
+      <div class="title">如何获得积分？</div>
+      <div>“积分”是以实现促进家庭参与垃圾分类投放及废品回收为主，记录履约行为的公益环保平台，用户可通过线上预约回收实现旧物的及时处理，在回收的同时获取“积分”，兑换相应的权益。</div>
     </div>
     <img src="@/assets/icon_close.png" alt="" class="records_shadow_icon_close" @click="closeBox">
   </div>

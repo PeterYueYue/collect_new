@@ -24,7 +24,7 @@
       <!-- 无订单时 -->
       <div v-else>
         <img src="@/assets/recycling.png" alt="" class="home_wrap_icon">
-        <div class="home_wrap_ordername">您还没有进行中的收呗订单</div>
+        <div class="home_wrap_ordername">您还没有进行中的订单</div>
         <div class="home_wrap_btnname">点击下方立即回收按钮，为绿色生活助力吧！</div>
       </div>
 
@@ -37,7 +37,7 @@
           <div class="footer_circle">上门<br/>回收</div>
         </router-link>
         <router-link to="/records">
-          <div class="footer_left"><img src="@/assets/icon_foot.png" alt="" class="icon"><span>我的收呗</span></div>
+          <div class="footer_left"><img src="@/assets/icon_foot.png" alt="" class="icon"><span>我的积分</span></div>
         </router-link>
         <router-link to="/orders">
           <div class="footer_right"><img src="@/assets/icon_record.png" alt="" class="icon"><span>订单记录</span></div>
@@ -75,8 +75,18 @@
       }
     },
     beforeCreate() {
-      var tk = this.$route.query.token;
-      this.$store.dispatch('getToken', tk)
+
+      // 正式
+      // var tk = this.$route.query.token;
+      // if(tk){
+      //   this.$store.dispatch('getToken', tk)
+      // }
+
+      // 本地测试
+      var tk ='3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24UYKSBBXVXM2WR6YJ2KXG2OVQSA4DGD2SZ5GBXJGGR6KLTHGMGXHP4LABALKXACMRDHL3NESNVBEP2WZA2GLGSJS5J6YHVKEBT3O464YSDXESGATZKZFUSFGZZ3XKI4ROKWJ66O2RCF6KERAVH2RIIQXNHKX7HU2YUGDLQRM7PNQJRP56R5BQWBDN27VGZVO22BCJOWGKSHWVMA7NP2WCYYYE2GTPZ4O2ZIFJROTQ'
+      this.$store.dispatch('getToken', tk)  
+
+
     },
     computed: mapGetters({
       token: "token"

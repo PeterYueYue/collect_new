@@ -19,6 +19,11 @@ Vue.use(Vuex);
 Vue.use(Vant);
 Vue.component(DateTime.name, DateTime);
 Vue.config.productionTip = false;
+
+
+import VueRouter from 'vue-router'
+
+Vue.use(VueRouter)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

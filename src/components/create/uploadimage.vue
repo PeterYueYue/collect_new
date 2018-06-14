@@ -54,20 +54,8 @@
         <div class="recycle_description">
             <h4>回收物品描述</h4>
             <div class="textarea_box">
-                <textarea rows="3" maxlength="150" autofocus="none" v-model="textareaValue" placeholder="请输入文字" cols="20"  >
-                
+                <textarea  id="textareas" @click="actionFocus"   readonly="readonly" rows="3" maxlength="150"  v-model="textareaValue" placeholder=" 请输入文字" cols="20"  >
                 </textarea>
-                <!-- <van-cell-group>
-                  <van-field
-                    v-model="textareaValue"
-                    maxlength="150"
-                    type="textarea"
-                    placeholder="请输入留言"
-                    rows="3"
-                    autosize
-                  />
-                </van-cell-group> -->
-
                 <span>{{textareaValue.length}}/150</span>
             </div>
             <div class="nextbutton "  @click="getTextareaValue"  >
@@ -92,7 +80,6 @@
 
 .van-field .van-cell__value{
   border: none !important;
-
 }
 </style>
 <script>
@@ -109,7 +96,7 @@ export default {
     return {
       headerImage: "",
       textareaValue: "", //回收物品描述问文字
-      number: 0
+      number: 0,
     };
   },
   computed: mapGetters({
@@ -117,6 +104,10 @@ export default {
     token       : 'token'
   }),
   methods: {
+    actionFocus(){
+      var textaress = $('#textareas');
+      textaress[0].removeAttribute("readonly", "readonly")
+    },
     backbtn() {
       //执行返回上一个路由；
       this.$router.go(-1);

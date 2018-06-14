@@ -19,9 +19,7 @@
 <script>
 import api from '@/api/api.js'
 import { mapGetters } from 'vuex';
-
 export default {
-
     data(){
         return{
             dataList:null
