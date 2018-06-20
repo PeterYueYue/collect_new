@@ -4,20 +4,13 @@
       <!-- 上传图片后隐藏 -->
       <div v-show="imgsAddress.length<1" class="upimg">
         <div class="bcphotoimg" style=" width:100% ; height:100%;">
-           
-          <div class="show">
-             
+          <div class="show"> 
             <div class="picture" :style="'backgroundImage:url('+headerImage+')'"></div>
-             
           </div>
-           
           <div style="width:100%;height:100%">
-             <input style="width:100%;height:100%;  opacity:0;" type="file" id="upload" accept="image/*"
-                    @change="upload">
-             <label for="upload"></label>
-             
+            <input style="width:100%;height:100%;  opacity:0;" type="file" id="upload" accept="image/*" @change="upload">
+            <label for="upload"></label>
           </div>
-           
         </div>
       </div>
       <!-- 上传图片呢后显示 -->
@@ -31,21 +24,14 @@
         <div v-show="imgsAddress.length>0 && imgsAddress.length<3" class="isaddimg">
           <span class="level"></span>
           <span class="verticals"></span>
-          <div style=" width:100% ; height:100%;">
-             
+          <div style=" width:100% ; height:100%;"> 
             <div class="show">
-               
               <div class="picture"></div>
-               
             </div>
-             
             <div style="width:100%;height:100%">
-                <input style="width:100%;height:100%;  opacity:0;" type="file" id="upload" accept="image/*"
-                       @change="upload">
-                <label for="upload"></label>
-               
+              <input style="width:100%;height:100%;  opacity:0;" type="file" id="upload" accept="image/*" @change="upload">
+              <label for="upload"></label>
             </div>
-             
           </div>
         </div>
       </div>
@@ -54,9 +40,8 @@
     <div class="recycle_description">
       <h4>回收物品描述</h4>
       <div class="textarea_box">
-                <textarea id="textareas" @click="actionFocus" readonly="readonly" rows="3" maxlength="150"
-                          v-model="textareaValue" placeholder=" 请输入文字" cols="20">
-                </textarea>
+        <textarea id="textareas" @click="actionFocus" readonly="readonly" rows="3" maxlength="150" v-model="textareaValue" placeholder=" 请输入文字" cols="20">
+        </textarea>
         <span>{{textareaValue.length}}/150</span>
       </div>
       <div class="nextbutton " @click="getTextareaValue">
@@ -113,7 +98,6 @@
         this.$store.dispatch("removeImg", index);
       },
       getTextareaValue() {
-
         this.$store.dispatch("changeTextareaValue", this.textareaValue); //文字描述信息
       },
       upload(e) {
