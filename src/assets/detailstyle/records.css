@@ -47,14 +47,13 @@
   top: 1.2rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 2.75rem;
   height: 0.46rem;
   line-height: 0.46rem;
   border: 0.01rem #ffffff solid;
   border-radius: 0.22rem;
   font-size: 0.24rem;
   color: #fff;
-  padding: 0 0.2rem;
+  padding: 0 0.6rem 0 0.2rem;
 }
 .records_wrap_top .icon_mark {
   position: absolute;

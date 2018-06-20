@@ -41,7 +41,6 @@
         {{userAddressInfo.address}}
       </router-link>
       <span class="fr"></span>
-
     </div>
     <div class="next">
       <span class="add_info" @click="openArea">找不到我的小区?</span>
@@ -50,8 +49,6 @@
         <a v-show="!isEnter" class="dontEnter" href="javascript:;">下一步</a>
         <router-link v-show="isEnter" class="yesEnter" :to="'/typeSelect/'+addRessId.id">下一步</router-link>
       </div>
-
-
     </div>
     <!-- 如果选择的地址没有弹出此提示框 -->
     <!--<prompt-box></prompt-box>-->
@@ -97,7 +94,6 @@
 
     }),
     created() {
-
       this.itemID = this.$store.state.msItemId;
       var {id} = this.$route.params;   //商品ID
       this.id = id;
@@ -117,7 +113,6 @@
         if (this.useraddress.address) {
           this.isEnter = true;
           this.userAddressInfo.address = this.useraddress.address + this.useraddress.name;
-
         } else {
           if (res.data.isExist) {
             this.isEnter = true;
@@ -138,11 +133,11 @@
       backbtn() { //执行返回上一个路由；
         this.$router.go(-1);
       },
-      openArea(){
+      openArea() {
         this.showShadow = true;
         this.showArea = true;
       },
-      closeArea(){
+      closeArea() {
         this.showShadow = false;
         this.showArea = false;
       }
