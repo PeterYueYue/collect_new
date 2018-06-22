@@ -8,6 +8,33 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+.classify_head {
+  height: 1rem;
+  background: #fff;
+}
+.classify_head ul {
+  width: 3.22rem;
+  height: 0.5rem;
+  padding: 0;
+  margin: 0.2rem auto 0;
+  border: 0.01rem #00a0e9 solid;
+}
+.classify_head ul li {
+  float: left;
+  width: 1.6rem;
+  height: 0.5rem;
+  line-height: 0.5rem;
+  font-size: 0.24rem;
+  color: #00a0e9;
+  text-align: center;
+  cursor: pointer;
+}
+.classify_head ul li.cur {
+  color: #fff;
+  background: #00a0e9;
+}
+
 .classify .head {
   background-color: #ffffff;
   border-bottom: 0.01rem solid #dddddd;

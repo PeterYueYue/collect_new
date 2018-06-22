@@ -1,5 +1,11 @@
 <template>
   <div class="classify">
+    <div class="classify_head">
+      <ul>
+        <li :class="{ cur: showUl }" @click="openUl(true)">家电数码</li>
+        <li :class="{ cur: !showUl }" @click="openUl(false)">生活垃圾</li>
+      </ul>
+    </div>
     <div class="content clearfix">
       <ul class="commodity fl">
         <li
@@ -43,7 +49,8 @@
         menulist: '',
         isId: '1',
         subList: '',
-        isActive: '0'
+        isActive: '0',
+        showUl: true,
       }
     },
     computed: mapGetters({
@@ -92,7 +99,7 @@
         })
       },
       getAddressInfo(item, id) {  //获取子集列表里的ID
-        this.$store.dispatch('setAddRessId', item)
+        this.$store.dispatch('setAddRessId', item);
         //获取地址信息
         api.getAddRessList({
           "app_key": "app_id_1",
@@ -105,7 +112,10 @@
         }).catch((erro) => {
           console.log(erro)
         })
-      }
+      },
+      openUl(type) {
+        this.showUl = type;
+      },
     }
   }
 </script>
