@@ -39,6 +39,8 @@ import orders from '@/components/details/orders.vue'
 import records from '@/components/details/records.vue'
 import imgView from '@/components/details/imgView.vue'
 import qrCode from '@/components/details/qrCode.vue'
+import adress from '@/components/details/adress.vue'
+import addAdress from '@/components/details/addAdress.vue'
 
 Vue.use(Router)
 
@@ -59,6 +61,16 @@ const router =  new Router({
       path: '/home',
       name: 'home',
       component: home
+    },
+    {
+      path: '/adress',
+      name: 'adress',
+      component: adress
+    },
+    {
+      path: '/addAdress',
+      name: 'addAdress',
+      component: addAdress
     },
     {
       path: '/details',
@@ -121,14 +133,11 @@ const router =  new Router({
       path: '/typeSelect/:index',
       name: 'TypeSelect',
       component: TypeSelect,
-      
-      
     },
     {
       path:'/uploadimage',
       name:'UploadImage',
       component:UploadImage
-
     },
     {
       path:'/estimate',

@@ -1,0 +1,88 @@
+.adress_wrap {
+  width: 100%;
+}
+
+.adress_item {
+  padding: 0.3rem;
+  background: #fff;
+  margin-bottom: 0.2rem;
+}
+
+.adress_item .name {
+  font-size: 0.34rem;
+  color: rgb(51, 51, 51);
+}
+
+.adress_item .adress {
+  font-size: 0.3rem;
+  color: rgb(102,102,102);
+  margin-top: 0.15rem;
+}
+
+.adress_item .btn {
+ overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.adress_item .btn .btn_edit{
+  float: right;
+  width: 1.4rem;
+  height: 0.56rem;
+  line-height: 0.56rem;
+  text-align: center;
+  font-size: 0.3rem;
+  color: rgb(0,160,233);
+  border: 0.01rem rgb(0,160,233) solid;
+  border-radius: 0.06rem;
+  margin-right: 0.2rem;
+}
+
+.adress_item .btn .btn_del{
+  float: right;
+  width: 1.4rem;
+  height: 0.56rem;
+  line-height: 0.56rem;
+  text-align: center;
+  font-size: 0.3rem;
+  color: rgb(244,51,60);
+  border: 0.01rem rgb(244,51,60) solid;
+  border-radius: 0.06rem;
+}
+
+/* radio */
+.holder {
+  float: left;
+  padding-left: 0.3rem;
+  font-size: 0.3rem;
+}
+label {
+  display: inline;
+}
+.radio {
+  display: none;
+  padding-left: 0.2rem;
+}
+.radio + label {
+  width: 100%;
+  display: block;
+}
+.radio + label i {
+  background-color: rgb(204,204,204);
+  width: 0.34rem;
+  height: 0.34rem;
+  border-radius: 100%;
+  display: inline-block;
+  position: relative;
+  top: 0.07rem;
+  right: 0.2rem;
+}
+.radio:checked + label i:after {
+  content: ' ';
+  width: 0.34rem;
+  height: 0.34rem;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,160,233);
+}
