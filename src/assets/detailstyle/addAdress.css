@@ -1,3 +1,62 @@
 .add_wrap {
-  width: 100%;
+  width: 7.5rem;
+}
+
+.add_item {
+  background: #fff;
+  border-bottom: 0.01rem rgb(221,221,221) solid;
+  padding-left: 0.3rem;
+}
+
+.add_item .title {
+  padding: 0.5rem 0 0.3rem;
+  border-bottom: 0.01rem rgb(221,221,221) solid;
+  overflow: hidden;
+}
+
+.add_item .title:last-child {
+  border-bottom: none;
+}
+
+.add_item .title .left {
+  width: 1.6rem;
+  float: left;
+  font-size: 0.34rem;
+  color: rgb(0,0,0);
+}
+
+.add_item .title .right {
+  width: 5.3rem;
+  float: left;
+  font-size: 0.3rem;
+  color: rgb(117,117,117);
+  position: relative;
+}
+
+.add_item .title .right input{
+  border: none;
+  outline: none;
+  position: relative;
+  top: 0.05rem;
+}
+
+.add_item .title .right img{
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.36rem;
+  height: 0.36rem;
+}
+
+.add_btn {
+  width: 6.9rem;
+  height: 0.84rem;
+  line-height: 0.84rem;
+  text-align: center;
+  font-size: 0.36rem;
+  color: #fff;
+  background: rgb(0,160,233);
+  margin: 0.5rem auto 0;
+  border-radius: 0.1rem;
 }
