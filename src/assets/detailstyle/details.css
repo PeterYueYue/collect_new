@@ -143,8 +143,9 @@
   position: absolute;
   top: 50%;
   right: 0;
-  transform: translateY(-50%);
+  /*transform: translateY(-50%);*/
   display: block;
+  width: 2.15rem;
   width: 2.15rem;
   height: 0.56rem;
   line-height: 0.56rem;
@@ -223,6 +224,58 @@
   border: 0.01rem #00a0e9 solid;
   margin-bottom: 0.28rem;
   margin-right: 0.5rem;
+}
+
+.details_wrap_info .trash_title {
+  border-bottom: 0.01rem #ddd solid;
+  font-size: 0.34rem;
+  color: #333;
+  line-height: 0.7rem;
+  margin-left: -0.3rem;
+  padding: 0 0.3rem;
+}
+
+.details_wrap_info .trash_title span {
+  float: right;
+  font-size: 0.28rem;
+}
+
+.details_wrap_info .trash_title span span {
+  color: #f4333c;
+}
+
+.details_wrap_info .trash_item {
+  position: relative;
+  margin-left: 0.1rem;
+  padding: 0.25rem 0 0.2rem;
+}
+
+.details_wrap_info .trash_item:last-child {
+  border-bottom: 0.01rem #ddd solid;
+}
+
+.details_wrap_info .details_rubsh:last-child .trash_item:last-child {
+  border-bottom: none;
+}
+
+.details_wrap_info .trash_item .name {
+  font-size: 0.3rem;
+  color: #333;
+}
+
+.details_wrap_info .trash_item .price {
+  font-size: 0.28rem;
+  color: #f4333c;
+  margin-top: 0.05rem;
+}
+
+.details_wrap_info .trash_item .weight {
+  font-size: 0.34rem;
+  color: #333;
+  position: absolute;
+  top: 50%;
+  right: 0.3rem;
+  transform: translateY(-50%);
 }
 
 .details_wrap_belongs {

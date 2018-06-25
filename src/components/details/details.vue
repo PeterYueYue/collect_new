@@ -58,6 +58,30 @@
       <div class="lable">
         <span v-for="des in detailsDes" :key="des.id">{{des.categoryAttrOpptionName}}</span>
       </div>
+
+      <!-- 生活垃圾 -->
+      <div class="details_rubsh">
+        <div class="trash_title">废纸<span>预估价格：<span>￥39.9</span></span></div>
+        <div class="trash_item">
+          <span class="weight">3kg</span>
+          <div class="name">纸皮</div>
+          <div class="price">￥1.00/kg</div>
+        </div>
+        <div class="trash_item">
+          <span class="weight">3kg</span>
+          <div class="name">纸皮</div>
+          <div class="price">￥1.00/kg</div>
+        </div>
+      </div>
+      <div class="details_rubsh">
+        <div class="trash_title">废纸<span>预估价格：<span>￥39.9</span></span></div>
+        <div class="trash_item">
+          <span class="weight">3kg</span>
+          <div class="name">纸皮</div>
+          <div class="price">￥1.00/kg</div>
+        </div>
+      </div>
+
     </div>
     <div class="details_wrap_belongs">
       <div class="text">本服务由{{detailsList.company?detailsList.company.name:''}}提供</div>

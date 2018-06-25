@@ -145,7 +145,7 @@
   position: absolute;
   top: 50%;
   right: 0;
-  transform: translateY(-50%);
+  //transform: translateY(-50%);
   display: block;
   width: 215/@rem;
   height: 56/@rem;
@@ -225,6 +225,58 @@
   border: 1/@rem #00a0e9 solid;
   margin-bottom: 28/@rem;
   margin-right: 50/@rem;
+}
+
+.details_wrap_info .trash_title {
+  border-bottom: 1/@rem #ddd solid;
+  font-size: 34/@rem;
+  color: #333;
+  line-height: 70/@rem;
+  margin-left: -30/@rem;
+  padding: 0 30/@rem;
+}
+
+.details_wrap_info .trash_title span {
+  float: right;
+  font-size: 28/@rem;
+}
+
+.details_wrap_info .trash_title span span {
+  color: #f4333c;
+}
+
+.details_wrap_info .trash_item {
+  position: relative;
+  margin-left: 10/@rem;
+  padding: 25/@rem 0 20/@rem;
+}
+
+.details_wrap_info .trash_item:last-child {
+  border-bottom: 1/@rem #ddd solid;
+}
+
+.details_wrap_info .details_rubsh:last-child .trash_item:last-child {
+  border-bottom: none;
+}
+
+.details_wrap_info .trash_item .name {
+  font-size: 30/@rem;
+  color: #333;
+}
+
+.details_wrap_info .trash_item .price {
+  font-size: 28/@rem;
+  color: #f4333c;
+  margin-top: 5/@rem;
+}
+
+.details_wrap_info .trash_item .weight {
+  font-size: 34/@rem;
+  color: #333;
+  position: absolute;
+  top: 50%;
+  right: 30/@rem;
+  transform: translateY(-50%);
 }
 
 .details_wrap_belongs {
