@@ -7,6 +7,34 @@
       <bannebox class="home_wrap_banner"></bannebox>
       <!-- 有订单时 -->
       <div v-if="showList" style="padding-bottom: 1.7rem">
+        <div class="home_address">回收地址<router-link to="addAdress"><div class="add" >添加回收地址</div></router-link><img
+          src="@/assets/icon_right.png" alt=""></div>
+        <div class="home_address">回收地址<router-link to="addAdress"><div class="add reaonly" >上海市杨浦区大桥街道运上海市杨浦区大桥街道运河河...</div></router-link><img
+          src="@/assets/icon_right.png" alt=""></div>
+        <div class="home_call">
+          <h3>分类回收 助力绿色环保</h3>
+          <ul class="home_list">
+            <li class="item">
+              <div class="home_num">1</div>
+              <span>废品选择</span>
+              <div class="xuxian"></div>
+            </li>
+            <li class="item">
+              <div class="home_num">2</div>
+              <span>获取估价</span>
+              <div class="xuxian"></div>
+            </li>
+            <li class="item">
+              <div class="home_num">3</div>
+              <span>上门回收</span>
+              <div class="xuxian"></div>
+            </li>
+            <li class="item">
+              <div class="home_num">4</div>
+              <span>金额结算</span>
+            </li>
+          </ul>
+        </div>
         <div class="home_wrap_item" v-for="item in homeList" :key="item.id">
           <router-link :to="{path: '/details/', query: { id: item.id }}">
             <div class="time">下单时间：{{item.createDatePage}}<span :class="item.statusClass">{{item.statusPage}}</span>
@@ -109,7 +137,8 @@
       // }
 
       // 本地测试
-      var tk ='3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24V6BKSK7XCKURHCCOW4OQQ3AURASOFFN52QCVR5LE4Y7OETSSZZ43TFGRL7NE5YTTFUKA7W74ZQF553OGLWKFT3OLE3M3U5D3P5XJXREVTUR6DO6RCKNVIPJMJUOKEQZPYTNNIIS4OCLDP54TANK26MJ7QLMYFLUKQ2PQR6G5JAIMWITCWJS6QNBBPDPC6WMG5IHK3K3W2KZU47KE33F56NSKHCGRF4NFSBQ6VVJQ'
+      // var tk ='3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24V6BKSK7XCKURHCCOW4OQQ3AURASOFFN52QCVR5LE4Y7OETSSZZ43TFGRL7NE5YTTFUKA7W74ZQF553OGLWKFT3OLE3M3U5D3P5XJXREVTUR6DO6RCKNVIPJMJUOKEQZPYTNNIIS4OCLDP54TANK26MJ7QLMYFLUKQ2PQR6G5JAIMWITCWJS6QNBBPDPC6WMG5IHK3K3W2KZU47KE33F56NSKHCGRF4NFSBQ6VVJQ'
+      var tk ='3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24UCSPFZ54XJGBWOYJ2KXG2OVQSA6I7AVDEWHYHWTXEC7CUHLABIGZ7LTOFLZYLUKM2J6KRTYJLEEZEK2SNPEXA4F7IYAV4GPFLBIWMTZ4YGVKOU5ZDF42NB43W4CGNZHL5YCOBZCW72SMKT6WNE47RBT4VPY5QIMIBYSYRRTJJOEN6IDMQ37UD7JWT6YTFB7YSKVXIT7LGBOJ7ZEP4SW7XYP7JITPZ4O2ZIFJROTQ'
       this.$store.dispatch('getToken', tk)
 
     },

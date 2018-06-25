@@ -25,24 +25,40 @@ a {
 .home_address .add {
   position: absolute;
   top: 50%;
-  right: 0.3rem;
+  right: 0.7rem;
   transform: translateY(-50%);
   font-size: 0.3rem;
   color: #a4a9b0;
 }
 
-.home_address .add img{
+.home_address .add.reaonly {
+  width: 62%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: absolute;
+  top: 50%;
+  right: 0.6rem;
+  transform: translateY(-50%);
+  font-size: 0.34rem;
+  color: #333;
+}
+
+.home_address img {
   width: 0.36rem;
   height: 0.36rem;
-  position: relative;
-  top: 0.07rem;
-  left: 0.05rem;
+  position: absolute;
+  top: 50%;
+  right: 0.3rem;
+  transform: translateY(-50%);
 }
+
 .home_call {
   background-color: #ffffff;
   margin-top: 0.2rem;
   padding: 0.2rem 0 0.5rem;
 }
+
 .home_call h3 {
   font-size: 0.34rem;
   text-align: center;
@@ -51,32 +67,18 @@ a {
   color: #333;
   margin-bottom: 0.1rem;
 }
-.home_call .reward {
-  color: #444444;
-  font-size: 0.34rem;
-  margin-top: 0.3rem;
-  font-family: Regular;
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: normal;
-}
-.home_call .icon_smaell {
-  width: 0.64rem;
-  height: 0.64rem;
-  background: url('../icon_small.png') no-repeat;
-  background-size: 100%;
-  margin: 0 auto;
-  margin-top: 0.35rem;
-}
+
 .home_call .home_list {
   width: 100%;
   display: flex;
   justify-content: center;
 }
+
 .home_call .home_list .item {
   width: 1.58rem;
   position: relative;
 }
+
 .home_call .home_list .item .home_num {
   margin: 0 auto;
   width: 0.48rem;
@@ -88,12 +90,14 @@ a {
   font-size: 0.24rem;
   border-radius: 50%;
 }
+
 .home_call .home_list .item span {
   color: #666666;
   font-size: 0.3rem;
   display: block;
   margin-top: 0.2rem;
 }
+
 .home_call .home_list .item .xuxian {
   border-top: 0.01rem dashed #888888;
   width: 0.53rem;
@@ -101,6 +105,7 @@ a {
   top: 0.2rem;
   right: -0.25rem;
 }
+
 .swiper-container,
 .swiper-wrapper {
   width: 100%;
@@ -130,7 +135,7 @@ a {
 .home_wrap_item {
   padding: 0.3rem;
   background: #fff;
-  margin-top: 0.18rem;
+  margin-top: 0.2rem;
 }
 
 .home_wrap_item .time {

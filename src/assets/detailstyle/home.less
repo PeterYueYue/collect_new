@@ -28,18 +28,32 @@ a {
 .home_address .add {
   position: absolute;
   top: 50%;
-  right: 30/@rem;
+  right: 70/@rem;
   transform: translateY(-50%);
   font-size: 30/@rem;
   color: #a4a9b0;
 }
 
+.home_address .add.reaonly {
+  width: 62%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: absolute;
+  top: 50%;
+  right: 60/@rem;
+  transform: translateY(-50%);
+  font-size: 34/@rem;
+  color: #333;
+}
+
 .home_address .add img {
   width: 36/@rem;
   height: 36/@rem;
-  position: relative;
-  top: 7/@rem;
-  left: 5/@rem;
+  position: absolute;
+  top: 50%;
+  right: 30/@rem;
+  transform: translateY(-50%);
 }
 
 .home_call {
@@ -55,25 +69,6 @@ a {
   font-weight: normal;
   color: #333;
   margin-bottom: 10/@rem;
-}
-
-.home_call .reward {
-  color: #444444;
-  font-size: 34/@rem;
-  margin-top: 30/@rem;
-  font-family: Regular;
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: normal;
-}
-
-.home_call .icon_smaell {
-  width: 64/@rem;
-  height: 64/@rem;
-  background: url('../icon_small.png') no-repeat;
-  background-size: 100%;
-  margin: 0 auto;
-  margin-top: 35/@rem;
 }
 
 .home_call .home_list {
@@ -145,12 +140,8 @@ a {
 .home_wrap_item {
   padding: 30/@rem;
   background: #fff;
-  margin-top: 18/@rem;
+  margin-top: 20/@rem;
 }
-
-//.home_wrap_item:last-child {
-//  margin-bottom: 1.70rem;
-//}
 
 .home_wrap_item .time {
   font-size: 26/@rem;
