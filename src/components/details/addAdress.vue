@@ -18,7 +18,7 @@
         <div class="right"><input type="text" placeholder="请输入街道、楼牌号等"></div>
       </div>
     </div>
-    <div class="add_btn">保存</div>
+    <div class="add_btn" @click="saveData">保存</div>
   </div>
 </template>
 
@@ -32,6 +32,12 @@
 
       }
     },
-    methods: {}
+    methods: {
+      saveData(){
+        this.$router.push({
+          path: '/adress'
+        })
+      }
+    }
   }
 </script>

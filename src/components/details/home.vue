@@ -23,6 +23,32 @@
       </div>
       <!-- 无订单时 -->
       <div v-else>
+        <div class="home_address">回收地址<router-link to="addAdress"><div class="add" >添加回收地址<img
+          src="@/assets/icon_right.png" alt=""></div></router-link></div>
+        <div class="home_call">
+          <h3>分类回收 助力绿色环保</h3>
+          <ul class="home_list">
+            <li class="item">
+              <div class="home_num">1</div>
+              <span>废品选择</span>
+              <div class="xuxian"></div>
+            </li>
+            <li class="item">
+              <div class="home_num">2</div>
+              <span>获取估价</span>
+              <div class="xuxian"></div>
+            </li>
+            <li class="item">
+              <div class="home_num">3</div>
+              <span>上门回收</span>
+              <div class="xuxian"></div>
+            </li>
+            <li class="item">
+              <div class="home_num">4</div>
+              <span>金额结算</span>
+            </li>
+          </ul>
+        </div>
         <img src="@/assets/recycling.png" alt="" class="home_wrap_icon">
         <div class="home_wrap_ordername">您还没有进行中的订单</div>
         <div class="home_wrap_btnname">点击下方立即回收按钮，为绿色生活助力吧！</div>
@@ -84,16 +110,13 @@
 
       // 本地测试
       var tk ='3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24V6BKSK7XCKURHCCOW4OQQ3AURASOFFN52QCVR5LE4Y7OETSSZZ43TFGRL7NE5YTTFUKA7W74ZQF553OGLWKFT3OLE3M3U5D3P5XJXREVTUR6DO6RCKNVIPJMJUOKEQZPYTNNIIS4OCLDP54TANK26MJ7QLMYFLUKQ2PQR6G5JAIMWITCWJS6QNBBPDPC6WMG5IHK3K3W2KZU47KE33F56NSKHCGRF4NFSBQ6VVJQ'
-      this.$store.dispatch('getToken', tk)  
-
+      this.$store.dispatch('getToken', tk)
 
     },
     computed: mapGetters({
       token: "token"
     }),
     mounted() {
-
-    
       //存储token到本地
       var token = this.$route.query.token;
       window.localStorage.setItem('token', token);

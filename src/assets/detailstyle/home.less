@@ -14,24 +14,127 @@ a {
   //position: relative;
 }
 
+.home_address {
+  width: 100%;
+  height: 90/@rem;
+  line-height: 90/@rem;
+  background: rgb(255, 255, 255);
+  position: relative;
+  font-size: 34/@rem;
+  color: #000;
+  padding-left: 34/@rem;
+}
 
-.swiper-container,.swiper-wrapper{
+.home_address .add {
+  position: absolute;
+  top: 50%;
+  right: 30/@rem;
+  transform: translateY(-50%);
+  font-size: 30/@rem;
+  color: #a4a9b0;
+}
+
+.home_address .add img {
+  width: 36/@rem;
+  height: 36/@rem;
+  position: relative;
+  top: 7/@rem;
+  left: 5/@rem;
+}
+
+.home_call {
+  background-color: #ffffff;
+  margin-top: 20/@rem;
+  padding: 20/@rem 0 50/@rem;
+}
+
+.home_call h3 {
+  font-size: 34/@rem;
+  text-align: center;
+  line-height: 88/@rem;
+  font-weight: normal;
+  color: #333;
+  margin-bottom: 10/@rem;
+}
+
+.home_call .reward {
+  color: #444444;
+  font-size: 34/@rem;
+  margin-top: 30/@rem;
+  font-family: Regular;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+}
+
+.home_call .icon_smaell {
+  width: 64/@rem;
+  height: 64/@rem;
+  background: url('../icon_small.png') no-repeat;
+  background-size: 100%;
+  margin: 0 auto;
+  margin-top: 35/@rem;
+}
+
+.home_call .home_list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.home_call .home_list .item {
+  width: 158/@rem;
+  position: relative;
+}
+
+.home_call .home_list .item .home_num {
+  margin: 0 auto;
+  width: 48/@rem;
+  height: 48/@rem;
+  background-color: #00a0e9;
+  line-height: 48/@rem;
+  text-align: center;
+  color: #ffffff;
+  font-size: 24/@rem;
+  border-radius: 50%;
+}
+
+.home_call .home_list .item span {
+  color: #666666;
+  font-size: 30/@rem;
+  display: block;
+  margin-top: 20/@rem;
+}
+
+.home_call .home_list .item .xuxian {
+  border-top: 1/@rem dashed #888888;
+  width: 53/@rem;
+  position: absolute;
+  top: 20/@rem;
+  right: -25/@rem;
+}
+
+.swiper-container, .swiper-wrapper {
   width: 100%;
   height: 280/@rem;
 }
-.swiper-slide{
+
+.swiper-slide {
   height: 280/@rem;
-  
+
 }
-.swiper-slide img{
+
+.swiper-slide img {
   height: 280/@rem;
-  
+
 }
-.swiper-slide a{
+
+.swiper-slide a {
   height: 280/@rem;
-  
+
   display: block;
 }
+
 .home_wrap_banner {
   width: 750/@rem;
   height: 280/@rem;
@@ -110,13 +213,13 @@ a {
 
 .home_wrap_ordername {
   font-size: 36/@rem;
-  margin-top: 54px;
+  margin-top: 54/@rem;
   text-align: center;
 }
 
 .home_wrap_btnname {
   font-size: 28/@rem;
-  margin-top: 32px;
+  margin-top: 32/@rem;
   color: #888888;
   text-align: center;
 }
