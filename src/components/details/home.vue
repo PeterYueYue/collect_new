@@ -35,6 +35,7 @@
             </li>
           </ul>
         </div>
+        <!-- 数码家电 -->
         <div class="home_wrap_item" v-for="item in homeList" :key="item.id">
           <router-link :to="{path: '/details/', query: { id: item.id }}">
             <div class="time">下单时间：{{item.createDatePage}}<span :class="item.statusClass">{{item.statusPage}}</span>
@@ -47,6 +48,13 @@
               </div>
             </div>
           </router-link>
+        </div>
+        <!-- 生活垃圾 -->
+        <div class="home_wrap_item">
+          <div class="time">订单号：009875662789<span class="waiting">待接单</span></div>
+          <div class="o_number">下单时间：2017-9-11 12：22：30</div>
+          <div class="o_name">废纸-纸品</div>
+          <div class="o_price">预估价格：<span>￥39.9</span></div>
         </div>
       </div>
       <!-- 无订单时 -->
