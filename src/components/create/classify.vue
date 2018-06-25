@@ -2,8 +2,9 @@
   <div class="classify">
     <div class="classify_head">
       <ul>
-        <li :class="{ cur: showUl }" @click="openUl(true)">家电数码</li>
-        <li :class="{ cur: !showUl }" @click="openUl(false)">生活垃圾</li>
+        <span class="line"></span>
+        <li :class="{ cur: showUl }" @click="openUl(true)"><span>家电数码</span></li>
+        <li :class="{ cur: !showUl }" @click="openUl(false)"><span>生活垃圾</span></li>
       </ul>
     </div>
     <div class="content clearfix">

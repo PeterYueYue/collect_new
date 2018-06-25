@@ -15,23 +15,36 @@ body {
     height: 100/@rem;
     background: #fff;
     ul {
-      width: 322/@rem;
-      height: 50/@rem;
+      position: relative;
+      width: 750/@rem;
+      height: 100/@rem;
       padding: 0;
-      margin: 20/@rem auto 0;
-      border: 1/@rem #00a0e9 solid;
+      .line {
+        width: 2/@rem;
+        height: 32/@rem;
+        background: #888;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+      }
       li {
         float: left;
-        width: 160/@rem;
-        height: 50/@rem;
-        line-height: 50/@rem;
-        font-size: 24/@rem;
-        color: #00a0e9;
+        width: 750/@rem;
+        height: 100/@rem;
+        line-height: 100/@rem;
+        font-size: 30/@rem;
+        color: #333;
         text-align: center;
         cursor: pointer;
         &.cur{
-          color: #fff;
-          background: #00a0e9;
+          color: #00a0e9;
+          span{
+            width: 120/@rem;
+            height: 99/@rem;
+            display: inline-block;
+            border-bottom: 8/@rem #00a0e9 solid;
+          }
         }
       }
     }
