@@ -3,7 +3,7 @@
   <div class="details_wrap" v-else>
 
     <!-- 数码家电 -->
-    <div class="details_wrap_item">
+    <div class="details_wrap_item" v-show="detailsList.title == 'DIGITAL'">
       <div class="time">订单号：{{detailsList.orderNo}}<span
         :class="detailsList.statusClass">{{detailsList.statusPage}}</span></div>
       <div class="date">下单时间：{{detailsList.createDatePage}}</div>
@@ -17,11 +17,12 @@
     </div>
 
     <!-- 生活垃圾 -->
-    <div class="details_wrap_item">
-      <div class="time">订单号：009875662789<span class="waiting">待接单</span></div>
-      <div class="o_number">下单时间：2017-9-11 12：22：30</div>
-      <div class="o_name">废纸-纸品</div>
-      <div class="o_price">预估价格：<span>￥<span>39.9</span></span></div>
+    <div class="details_wrap_item" v-show="detailsList.title == 'HOUSEHOLD'">
+      <div class="time">订单号：{{detailsList.orderNo}}<span
+        :class="detailsList.statusClass">{{detailsList.statusPage}}</span></div>
+      <div class="o_number">下单时间：{{detailsList.createDatePage}}</div>
+      <div class="o_name">{{detailsList.category ? detailsList.category.name : ''}}</div>
+      <div class="o_price">预估价格：<span>￥<span>{{detailsList.price}}</span></span></div>
     </div>
 
     <div class="details_wrap_time"><span v-show="detailsList.level=='0'">上门时间：{{detailsList
@@ -54,34 +55,27 @@
       <div class="picture">
         <img :src="pic.picUrl" alt="" v-for="pic in detailsPic" :key="pic.id" @click="toggleImgView(true)">
       </div>
-      <div class="description">{{detailsList.remarks}}</div>
-      <div class="lable">
+      <div class="description" v-show="detailsList.title == 'DIGITAL'">{{detailsList.remarks}}</div>
+      <div class="lable" v-show="detailsList.title == 'DIGITAL'">
         <span v-for="des in detailsDes" :key="des.id">{{des.categoryAttrOpptionName}}</span>
       </div>
 
       <!-- 生活垃圾 -->
-      <div class="details_rubsh">
-        <div class="trash_title">废纸<span>预估价格：<span>￥39.9</span></span></div>
-        <div class="trash_item">
-          <span class="weight">3kg</span>
-          <div class="name">纸皮</div>
-          <div class="price">￥1.00/kg</div>
-        </div>
-        <div class="trash_item">
-          <span class="weight">3kg</span>
-          <div class="name">纸皮</div>
-          <div class="price">￥1.00/kg</div>
-        </div>
-      </div>
-      <div class="details_rubsh">
-        <div class="trash_title">废纸<span>预估价格：<span>￥39.9</span></span></div>
-        <div class="trash_item">
-          <span class="weight">3kg</span>
-          <div class="name">纸皮</div>
-          <div class="price">￥1.00/kg</div>
+      <div v-show="detailsList.title == 'HOUSEHOLD'">
+        <div class="details_rubsh" v-for="rubsh in rubshList" :key="rubsh.id">
+          <div class="trash_title">{{rubsh.name}}<span>预估价格：<span>￥{{rubsh.price}}</span></span></div>
+          <!--<div class="trash_item">-->
+            <!--<span class="weight">3kg</span>-->
+            <!--<div class="name">纸皮</div>-->
+            <!--<div class="price">￥1.00/kg</div>-->
+          <!--</div>-->
+          <div class="trash_item" v-for="cate in cateList" :key="cate.id">
+            <span class="weight">{{cate.amount}}</span>
+            <div class="name">{{cate.cateName}}</div>
+            <div class="price">{{cate.price}}</div>
+          </div>
         </div>
       </div>
-
     </div>
     <div class="details_wrap_belongs">
       <div class="text">本服务由{{detailsList.company?detailsList.company.name:''}}提供</div>
@@ -157,6 +151,8 @@
         detailsList: {},
         detailsPic: {},
         detailsDes: {},
+        rubshList: {},
+        cateList: {},
         id: this.$route.query.id,
         cancelReason: '不想卖了',
         evaluateText: '',
@@ -240,6 +236,8 @@
               break;
           }
           this.detailsList = res.data.order;
+          this.rubshList = res.data.list;
+          this.cateList = res.data.list.list;
           if(res.data.order.recyclers){
             this.tel = "tel:" + res.data.order.recyclers.tel;
           }
