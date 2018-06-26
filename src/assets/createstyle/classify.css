@@ -124,10 +124,63 @@ body {
   flex-wrap: wrap;
   justify-content: left;
 }
-.classify .content .linlei_list .item {
-  width: 1.6rem;
-  margin-left: 0.2rem;
-  margin-top: 0.4rem;
+.classify .content .linlei_list .classify_banner{
+  display: block;
+  width: 4.2rem;
+  height: 1.8rem;
+  margin: 0.35rem auto;
+}
+.classify .content .linlei_list .classify_title{
+  font-size: 0.3rem;
+  color: #333;
+}
+.classify .content .linlei_list .classify_title i{
+  display: inline-block;
+  width: 0.12rem;
+  height: 0.3rem;
+  background: #00a0e9;
+  margin-left: 0.4rem;
+  position: relative;
+  top: 0.05rem;
+  right: 0.1rem;
+}
+.classify .content .linlei_list .classify_title span{
+  font-size: 0.24rem;
+  color: #333;
+}
+.classify .content .linlei_list .classify_main {
+  width: 100%;
+  height: 8rem;
+  overflow-y: scroll;
+}
+.classify .content .linlei_list .classify_item {
+  overflow: hidden;
+  border-bottom: 0.01rem #ddd solid;
+  margin-left: 0.3rem;
+  padding: 0.45rem 0.3rem 0.25rem 0.05rem;
+}
+.classify .content .linlei_list .classify_item:last-child {
+  border-bottom: none;
+}
+.classify .content .linlei_list .classify_item img {
+  display: inline-block;
+  float: left;
+  width: 0.96rem;
+  height: 0.96rem;
+}
+.classify .content .linlei_list .classify_item .name {
+  font-size: 0.32rem;
+  color: #333;
+  padding-left: 1.2rem;
+}
+.classify .content .linlei_list .classify_item .price {
+  font-size: 0.24rem;
+  color: #f4333c;
+  padding-left: 1.2rem;
+  margin-top: 0.1rem;
+}
+.classify .content .linlei_list .classify_item .price span{
+  font-size: 0.36rem;
 }
 .classify .content .linlei_list .item img {
   width: 1.2rem;
