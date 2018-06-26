@@ -62,8 +62,7 @@
         "app_key": "app_id_1",
         "data": {
           "level": "0",
-          // "title": "DIGITAL",
-          "title": "HOUSEHOLD"
+          "title": value ? 'DIGITAL' : 'HOUSEHOLD'
         },
         token: this.token
       }).then((res) => {
