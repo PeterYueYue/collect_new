@@ -62,17 +62,17 @@
 
       <!-- 生活垃圾 -->
       <div v-show="detailsList.title == 'HOUSEHOLD'">
-        <div class="details_rubsh" v-for="rubsh in rubshList" :key="rubsh.id">
-          <div class="trash_title">{{rubsh.name}}<span>预估价格：<span>￥{{rubsh.price}}</span></span></div>
+        <div class="details_rubsh" v-for="data in rubshList" :key="data.id">
+          <div class="trash_title">{{data.name}}<span>预估价格：<span>￥{{data.price}}</span></span></div>
           <!--<div class="trash_item">-->
             <!--<span class="weight">3kg</span>-->
             <!--<div class="name">纸皮</div>-->
             <!--<div class="price">￥1.00/kg</div>-->
           <!--</div>-->
-          <div class="trash_item" v-for="cate in cateList" :key="cate.id">
-            <span class="weight">{{cate.amount}}</span>
-            <div class="name">{{cate.cateName}}</div>
-            <div class="price">{{cate.price}}</div>
+          <div class="trash_item" v-for="index in data.cateList" :key="index.id">
+            <span class="weight">{{index.amount}}</span>
+            <div class="name">{{index.cateName}}</div>
+            <div class="price">{{index.price}}</div>
           </div>
         </div>
       </div>
