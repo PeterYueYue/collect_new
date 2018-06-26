@@ -2,6 +2,7 @@ import axios from 'axios';
 
 // 测试
 let base ='http://101.132.111.141:80';
+// let base ='http://192.168.1.140:9000';
 // let base = 'http://192.168.1.162:9000';
 // import state   from './../vuex/store.js'
 // var uesrToken = state.getters.token;
@@ -318,11 +319,11 @@ export default {
   },
   isAuthorization(params){ //判断是否授权
     let config = Object.assign(configIsAuthorization, params);
-    return axios.post(`${base}/ali/api`, config).then(res => res.data); 
+    return axios.post(`${base}/ali/api`, config).then(res => res.data);
   },
   submitAuthCode(params){ //提交手机验证码
     let config = Object.assign(configSubmitAuthCode, params);
-    return axios.post(`${base}/ali/api`, config).then(res => res.data); 
+    return axios.post(`${base}/ali/api`, config).then(res => res.data);
   }
 
 
