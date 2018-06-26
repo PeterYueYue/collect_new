@@ -3,6 +3,7 @@ body {
   height: 100%;
   background-color: #f7f6fb;
 }
+
 .classify {
   height: 100%;
   display: flex;
@@ -13,12 +14,14 @@ body {
   height: 1rem;
   background: #fff;
 }
+
 .classify_head ul {
   position: relative;
   width: 7.5rem;
   height: 1rem;
   padding: 0;
 }
+
 .classify_head ul .line {
   width: 0.02rem;
   height: 0.32rem;
@@ -26,8 +29,9 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
+
 .classify_head ul li {
   float: left;
   width: 3.75rem;
@@ -38,20 +42,97 @@ body {
   text-align: center;
   cursor: pointer;
 }
+
 .classify_head ul li.cur {
   color: #00a0e9;
 }
-.classify_head ul li.cur span{
+
+.classify_head ul li.cur span {
   width: 1.2rem;
   height: 0.99rem;
   display: inline-block;
   border-bottom: 0.08rem #00a0e9 solid;
 }
 
+.classify_footer {
+  width: 7.5rem;
+  height: 1rem;
+  background: #fff;
+  border-top: 0.01rem #ddd solid;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+}
+
+.classify_footer .f_title {
+  float: left;
+  width: 4.72rem;
+  height: 1rem;
+  line-height: 1rem;
+  background: #fff;
+  font-size: 0.28rem;
+  text-align: center;
+  color: #333;
+}
+
+.classify_footer .f_title .icon {
+  position: relative;
+  width: 0.6rem;
+  display: inline-block;
+}
+
+.classify_footer .f_title .name {
+  display: inline-block;
+}
+
+.classify_footer .f_title img {
+  display: inline-block;
+  width: 0.52rem;
+  height: 0.52rem;
+  position: relative;
+  top: 0.14rem;
+  right: 0.1rem;
+}
+
+.classify_footer .f_title i {
+  display: inline-block;
+  width: 0.3rem;
+  height: 0.3rem;
+  background: #00a0e9;
+  font-size: 0.18rem;
+  color: #fff;
+  border-radius: 100%;
+  position: absolute;
+  top: 0.15rem;
+  right: 0.1rem;
+}
+
+.classify_footer .f_title .price {
+  color: #f4333c;
+}
+
+.classify_footer .f_title .price span {
+  font-size: 0.36rem;
+}
+
+.classify_footer .r_btn {
+  float: left;
+  width: 2.78rem;
+  height: 1rem;
+  line-height: 1rem;
+  background: #00a0e9;
+  font-size: 0.36rem;
+  text-align: center;
+  color: #fff;
+}
+
 .classify .head {
   background-color: #ffffff;
   border-bottom: 0.01rem solid #dddddd;
 }
+
 .classify .head .headback {
   width: 0.3rem;
   height: 0.3rem;
@@ -61,56 +142,68 @@ body {
   margin-top: 0.3rem;
   transform: rotateZ(-135deg);
 }
+
 .classify .head span {
   font-size: 0.32rem;
   color: #1b81d2;
   line-height: 0.88rem;
   margin-left: 0.3rem;
 }
+
 .classify .head h3 {
   font-size: 0.36rem;
   line-height: 0.88rem;
   color: #000000;
   margin-left: 1.8rem;
 }
+
 .classify .content {
   height: 100%;
   flex-grow: 1;
   display: flex;
 }
+
 .classify .content .commodity {
   background-color: #ffffff;
   border-right: 0.01rem solid #dddddd;
 }
+
 .classify .content .commodity .active {
   background-color: #f7f6fb;
   color: #00a0e9;
 }
+
 .classify .content .commodity .item {
   border-bottom: 0.01rem solid #dddddd;
   border-right: 0.01rem solid #dddddd;
   font-size: 0.3rem;
   line-height: 0.9rem;
 }
+
 .classify .content .pinlei {
   width: 5.59rem;
 }
+
 .classify .content .pinlei .title {
   background-color: #f7f6fb;
 }
+
 .classify .content .pinlei .title span {
   width: 0.59rem;
   height: 0.01rem;
   margin-top: 0.5rem;
   background-color: #333333;
 }
+
 .classify .content .pinlei .title .left_line {
   margin-right: 0.1rem;
   margin-left: 1.78rem;
 }
+
 .classify .content .pinlei .title .right_line {
   margin-left: 0.1rem;
 }
+
 .classify .content .pinlei .title h5 {
   font-size: 0.3rem;
   color: #333333;
@@ -118,23 +211,27 @@ body {
   font-family: PingFang-SC-Regular;
   font-weight: normal;
 }
+
 .classify .content .linlei_list {
   width: 5.59rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
 }
-.classify .content .linlei_list .classify_banner{
+
+.classify .content .linlei_list .classify_banner {
   display: block;
   width: 4.2rem;
   height: 1.8rem;
   margin: 0.35rem auto;
 }
-.classify .content .linlei_list .classify_title{
+
+.classify .content .linlei_list .classify_title {
   font-size: 0.3rem;
   color: #333;
 }
-.classify .content .linlei_list .classify_title i{
+
+.classify .content .linlei_list .classify_title i {
   display: inline-block;
   width: 0.12rem;
   height: 0.3rem;
@@ -144,49 +241,59 @@ body {
   top: 0.05rem;
   right: 0.1rem;
 }
-.classify .content .linlei_list .classify_title span{
+
+.classify .content .linlei_list .classify_title span {
   font-size: 0.24rem;
   color: #333;
 }
+
 .classify .content .linlei_list .classify_main {
   width: 100%;
-  height: 8rem;
+  height: 7.3rem;
   overflow-y: scroll;
 }
+
 .classify .content .linlei_list .classify_item {
   overflow: hidden;
   border-bottom: 0.01rem #ddd solid;
   margin-left: 0.3rem;
   padding: 0.45rem 0.3rem 0.25rem 0.05rem;
 }
+
 .classify .content .linlei_list .classify_item:last-child {
   border-bottom: none;
 }
+
 .classify .content .linlei_list .classify_item img {
   display: inline-block;
   float: left;
   width: 0.96rem;
   height: 0.96rem;
 }
+
 .classify .content .linlei_list .classify_item .name {
   font-size: 0.32rem;
   color: #333;
   padding-left: 1.2rem;
 }
+
 .classify .content .linlei_list .classify_item .price {
   font-size: 0.24rem;
   color: #f4333c;
   padding-left: 1.2rem;
   margin-top: 0.1rem;
 }
-.classify .content .linlei_list .classify_item .price span{
+
+.classify .content .linlei_list .classify_item .price span {
   font-size: 0.36rem;
 }
+
 .classify .content .linlei_list .item img {
   width: 1.2rem;
   height: 1.2rem;
   vertical-align: top;
 }
+
 .classify .content .linlei_list .item span {
   text-align: center;
   font-size: 0.24rem;

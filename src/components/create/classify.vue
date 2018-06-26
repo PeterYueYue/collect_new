@@ -66,8 +66,13 @@
         </div>
       </div>
     </div>
-  </div>
 
+    <div class="classify_footer">
+      <div class="f_title"><div class="icon"><img src="@/assets/class_icon.png" alt=""><i>1</i></div><div
+        class="name">预估金额：<span class="price">￥<span>39.9</span></span></div></div>
+      <div class="r_btn">一键回收</div>
+    </div>
+  </div>
 
 </template>
 <script>
