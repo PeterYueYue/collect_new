@@ -36,7 +36,7 @@
           </ul>
         </div>
         <!-- 数码家电 -->
-        <div class="home_wrap_item" v-for="item in homeList" :key="item.id">
+        <div class="home_wrap_item" v-for="item in homeList" :key="item.id" v-show="item.title == 'DIGITAL'">
           <router-link :to="{path: '/details/', query: { id: item.id }}">
             <div class="time">下单时间：{{item.createDatePage}}<span :class="item.statusClass">{{item.statusPage}}</span>
             </div>
@@ -50,12 +50,15 @@
           </router-link>
         </div>
         <!-- 生活垃圾 -->
-        <div class="home_wrap_item">
-          <div class="time">订单号：009875662789<span class="waiting">待接单</span></div>
-          <div class="o_number">下单时间：2017-9-11 12：22：30</div>
-          <div class="o_name">废纸-纸品</div>
-          <div class="o_price">预估价格：<span>￥39.9</span></div>
+        <div class="home_wrap_item" v-for="item in homeList" :key="item.id" v-show="item.title == 'HOUSEHOLD'">
+          <router-link :to="{path: '/details/', query: { id: item.id }}">
+            <div class="time">订单号：{{item.orderNo}}<span :class="item.statusClass">{{item.statusPage}}</span></div>
+            <div class="o_number">下单时间：{{item.createDatePage}}</div>
+            <div class="o_name">{{item.cateAttName4Page}}</div>
+            <div class="o_price">预估价格：<span>{{item.price}}</span></div>
+          </router-link>
         </div>
+
       </div>
       <!-- 无订单时 -->
       <div v-else>
@@ -146,7 +149,8 @@
 
       // 本地测试
       // var tk ='3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24V6BKSK7XCKURHCCOW4OQQ3AURASOFFN52QCVR5LE4Y7OETSSZZ43TFGRL7NE5YTTFUKA7W74ZQF553OGLWKFT3OLE3M3U5D3P5XJXREVTUR6DO6RCKNVIPJMJUOKEQZPYTNNIIS4OCLDP54TANK26MJ7QLMYFLUKQ2PQR6G5JAIMWITCWJS6QNBBPDPC6WMG5IHK3K3W2KZU47KE33F56NSKHCGRF4NFSBQ6VVJQ'
-      var tk ='3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24UCSPFZ54XJGBWOYJ2KXG2OVQSA6I7AVDEWHYHWTXEC7CUHLABIGZ7LTOFLZYLUKM2J6KRTYJLEEZEK2SNPEXA4F7IYAV4GPFLBIWMTZ4YGVKOU5ZDF42NB43W4CGNZHL5YCOBZCW72SMKT6WNE47RBT4VPY5QIMIBYSYRRTJJOEN6IDMQ37UD7JWT6YTFB7YSKVXIT7LGBOJ7ZEP4SW7XYP7JITPZ4O2ZIFJROTQ'
+      // var tk ='3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24UCSPFZ54XJGBWOYJ2KXG2OVQSA6I7AVDEWHYHWTXEC7CUHLABIGZ7LTOFLZYLUKM2J6KRTYJLEEZEK2SNPEXA4F7IYAV4GPFLBIWMTZ4YGVKOU5ZDF42NB43W4CGNZHL5YCOBZCW72SMKT6WNE47RBT4VPY5QIMIBYSYRRTJJOEN6IDMQ37UD7JWT6YTFB7YSKVXIT7LGBOJ7ZEP4SW7XYP7JITPZ4O2ZIFJROTQ'
+      var tk ='3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24VDPYKJDZTFWQI6YJ2KXG2OVQSA6NTCH4PDRHJRV2ZJHIRFEZICJP7LTOFLZYLUKM2MAZIWHAZDR6WLVKMHPOHASYS6YVLKOSFG3ZZMIUWG5QM2G4J63ORFMWG4LOVV6P3WAHZLFAZQFYMHNKS6U4QA5S4HN52VCMVHT5M4JD6KZVET55W6TNHEDLCBQ7LG32NJA4I5F47ST77NTIUN6EKACXLADPZ4O2ZIFJROTQ'
       this.$store.dispatch('getToken', tk)
 
     },
