@@ -22,6 +22,7 @@ import TypeYear from '@/components/create/common/typeyear.vue'
 import Typestate from '@/components/create/common/typestate.vue'
 // 上传图片
 import UploadImage from '@/components/create/uploadimage.vue'
+import UploadImage1 from '@/components/create/uploadimage1.vue'
 // 马上询价
 import Estimate from '@/components/create/estimate.vue'
 import OrderInfo from '@/components/create/orderInfo.vue'
@@ -138,6 +139,11 @@ const router =  new Router({
       path:'/uploadimage',
       name:'UploadImage',
       component:UploadImage
+    },
+    {
+      path:'/uploadimage1',
+      name:'UploadImage1',
+      component:UploadImage1
     },
     {
       path:'/estimate',

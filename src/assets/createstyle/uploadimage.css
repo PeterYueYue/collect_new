@@ -101,7 +101,7 @@
   text-align: center;
   color: #333333;
   font-size: 0.34rem;
-  line-height: 0.91rem;
+  line-height: 1.2rem;
 }
 .uploadimage .recycle_description h4 {
   margin-left: 0.3rem;
@@ -147,4 +147,22 @@
   color: #ffffff;
   display: block;
   border-radius: 0.1rem;
+}
+
+.uploadimage .recycle_description .nextbutton1 {
+  width: 7.5rem;
+  height: 1rem;
+  color: #ffffff;
+  font-size: 0.36rem;
+  line-height: 1rem;
+  text-align: center;
+  background-color: #00a0e9;
+  position: fixed;
+  bottom: 0;
+}
+.uploadimage .recycle_description .nextbutton1 a {
+  color: #bbb;
+  display: block;
+  line-height: 1.01rem;
+  background: #ddd;
 }
