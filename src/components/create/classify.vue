@@ -59,8 +59,8 @@
           <div class="classify_main">
             <div class="classify_item">
               <img src="@/assets/class_pic1.png" alt="">
-              <div class="name" @click="openAlert">家具</div>
-              <div class="price" @click="openAlert1">￥<span>39.9/kg</span></div>
+              <div class="name">家具</div>
+              <div class="price" @click="openAlert">￥<span>39.9/kg</span></div>
             </div>
           </div>
         </div>
@@ -70,7 +70,7 @@
     <div class="classify_footer">
       <div class="f_title"><div class="icon"><img src="@/assets/class_icon.png" alt=""><i>1</i></div><div
         class="name">预估金额：<span class="price">￥<span>39.9</span></span></div></div>
-      <div class="r_btn">一键回收</div>
+      <div class="r_btn" @click="openAlert">一键回收</div>
     </div>
 
     <!-- 弹窗 -->
