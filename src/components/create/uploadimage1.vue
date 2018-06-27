@@ -8,7 +8,8 @@
             <div class="picture" :style="'backgroundImage:url('+headerImage+')'"></div>
           </div>
           <div style="width:100%;height:100%">
-            <input style="width:100%;height:100%;  opacity:0;" type="file" id="upload" accept="image/*" @change="upload">
+            <input style="width:100%;height:100%;  opacity:0;" type="file" id="upload" accept="image/*"
+                   @change="upload">
             <label for="upload"></label>
           </div>
         </div>
@@ -29,7 +30,8 @@
               <div class="picture"></div>
             </div>
             <div style="width:100%;height:100%">
-              <input style="width:100%;height:100%;  opacity:0;" type="file" id="upload" accept="image/*" @change="upload">
+              <input style="width:100%;height:100%;  opacity:0;" type="file" id="upload" accept="image/*"
+                     @change="upload">
               <label for="upload"></label>
             </div>
           </div>
@@ -37,9 +39,36 @@
       </div>
       <div class="text">上传物品图片</div>
     </div>
+
+    <!-- 生活垃圾 -->
+    <div class="upload_main">
+      <div class="upload_head">已选回收物<span>预估价格：<span>￥39.9</span></span></div>
+      <div class="upload_rubsh">
+        <div class="utrash_title">废纸<span>预估价格：<span>￥39.9</span></span></div>
+        <div class="utrash_item">
+          <span class="weight">3kg</span>
+          <div class="name">纸皮</div>
+          <div class="price">￥1.00/kg</div>
+        </div>
+        <div class="utrash_item">
+          <span class="weight">3kg</span>
+          <div class="name">纸皮</div>
+          <div class="price">￥1.00/kg</div>
+        </div>
+      </div>
+      <div class="upload_rubsh">
+        <div class="utrash_title">废纸<span>预估价格：<span>￥39.9</span></span></div>
+        <div class="utrash_item">
+          <span class="weight">3kg</span>
+          <div class="name">纸皮</div>
+          <div class="price">￥1.00/kg</div>
+        </div>
+      </div>
+    </div>
+
     <div class="recycle_description">
       <div class="nextbutton1" @click="getTextareaValue">
-        <a v-if="imgsAddress.length<=0" href="javascript:;">请上传回收物图片  完成预约</a>
+        <a v-if="imgsAddress.length<=0" href="javascript:;">请上传回收物图片 完成预约</a>
         <router-link v-if="imgsAddress.length>0" to="/estimate">马上询价</router-link>
       </div>
     </div>

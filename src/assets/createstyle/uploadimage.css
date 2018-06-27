@@ -166,3 +166,79 @@
   line-height: 1.01rem;
   background: #ddd;
 }
+
+.upload_main {
+  max-height: 9.1rem;
+  overflow-y: scroll;
+}
+
+.upload_head {
+  font-size: 0.34rem;
+  color: #333;
+  padding: 0.5rem 0.3rem 0.2rem;
+}
+
+.upload_head span {
+  float: right;
+}
+
+.upload_head span span {
+  color: #f4333c;
+}
+
+.upload_rubsh {
+  background: #fff;
+  padding-left: 0.3rem;
+}
+
+.utrash_title {
+  border-bottom: 0.01rem #ddd solid;
+  font-size: 0.34rem;
+  color: #333;
+  line-height: 0.7rem;
+  margin-left: -0.3rem;
+  padding: 0 0.3rem;
+}
+
+.utrash_title span {
+  float: right;
+  font-size: 0.28rem;
+}
+
+.utrash_title span span {
+  color: #f4333c;
+}
+
+.utrash_item {
+  position: relative;
+  margin-left: 0.1rem;
+  padding: 0.25rem 0 0.2rem;
+}
+
+.utrash_item:last-child {
+  border-bottom: 0.01rem #ddd solid;
+}
+
+.upload_rubsh:last-child .utrash_item:last-child {
+  border-bottom: none;
+}
+
+.utrash_item .name {
+  font-size: 0.3rem;
+  color: #333;
+}
+
+.utrash_item .price {
+  font-size: 0.28rem;
+  color: #f4333c;
+  margin-top: 0.05rem;
+}
+
+.utrash_item .weight {
+  font-size: 0.34rem;
+  color: #333;
+  position: absolute;
+  top: 50%;
+  right: 0.3rem;
+  transform: translateY(-50%);
+}

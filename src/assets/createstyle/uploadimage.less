@@ -116,6 +116,72 @@
             line-height: 120/@rem;
         }
     }
+    .upload_main {
+      max-height: 910/@rem;
+      overflow-y: scroll;
+      .upload_head {
+        font-size: 34/@rem;
+        color: #333;
+        padding: 50/@rem 30/@rem 20/@rem;
+        span {
+          float: right;
+          span {
+            color: #f4333c;
+          }
+        }
+      }
+      .upload_rubsh {
+        background: #fff;
+        padding-left: 30/@rem;
+        &:last-child{
+          .utrash_item{
+            &:last-child {
+              border-bottom: none;
+            }
+          }
+        }
+        .utrash_title {
+          border-bottom: 1/@rem #ddd solid;
+          font-size: 34/@rem;
+          color: #333;
+          line-height: 70/@rem;
+          margin-left: 30/@rem;
+          padding: 0 30/@rem;
+          span {
+            float: right;
+            font-size: 28/@rem;
+            span {
+              color: #f4333c;
+            }
+          }
+        }
+        .utrash_item {
+          position: relative;
+          margin-left: 10/@rem;
+          padding: 25/@rem 0 20/@rem;
+          &:last-child {
+            border-bottom: 1/@rem #ddd solid;
+          }
+          .name {
+            font-size: 30/@rem;
+            color: #333;
+          }
+          .price {
+            font-size: 28/@rem;
+            color: #f4333c;
+            margin-top: 5/@rem;
+          }
+          .weight {
+            font-size: 34/@rem;
+            color: #333;
+            position: absolute;
+            top: 50%;
+            right: 30/@rem;
+            transform: translateY(-50%);
+          }
+        }
+      }
+    }
     .recycle_description{
 
         h4{ margin-left: 30/@rem;
