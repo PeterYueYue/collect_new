@@ -59,8 +59,8 @@
           <div class="classify_main">
             <div class="classify_item">
               <img src="@/assets/class_pic1.png" alt="">
-              <div class="name">家具</div>
-              <div class="price">￥<span>39.9/kg</span></div>
+              <div class="name" @click="openAlert">家具</div>
+              <div class="price" @click="openAlert1">￥<span>39.9/kg</span></div>
             </div>
           </div>
         </div>
@@ -72,6 +72,28 @@
         class="name">预估金额：<span class="price">￥<span>39.9</span></span></div></div>
       <div class="r_btn">一键回收</div>
     </div>
+
+    <!-- 弹窗 -->
+    <div class="class_shadow" v-if="showShadow"></div>
+    <div class="class_shadow_box" v-if="showAlert1">
+      <div class="title">回收小贴士</div>
+      <div class="remind">由于您本次下单未达到起收标准。若继续下单预约，平台工作人员可能会联系您，希望您能继续攒多一点再进行预约回收哦！感谢您对环保事业的奉献精神！</div>
+      <div class="text cur">起收标准 ：</div>
+      <div class="text">1. 回收物总重量大于30Kg</div>
+      <div class="text">2. 回收物总数量大于30个</div>
+      <div class="text">3. 回收物总金额达到50.00元</div>
+      <div class="text">满足上述任一标准即可哦！</div>
+      <div @click="closeOrders" class="btn">仍然下单</div>
+      <div @click="closeOrders" class="btn">我在攒一攒吧</div>
+    </div>
+
+    <div class="class_shadow_box" v-if="showAlert2">
+      <div class="title">回收小贴士</div>
+      <div class="remind">不精确知道您需要回收的重量或者个数？没关系！您只需根据预估输入待回收物的大约重量或个数，实际成交重量和件数将以上门回收人员实际计量为准！</div>
+      <div @click="closeOrders" class="btn">我知道了</div>
+      <div @click="closeOrders" class="btn nocolor">不再提醒</div>
+    </div>
+
   </div>
 
 </template>
@@ -89,6 +111,9 @@
         subList: '',
         isActive: '0',
         showUl: true,
+        showShadow: false,
+        showAlert1: false,
+        showAlert2: false,
       }
     },
     computed: mapGetters({
@@ -154,6 +179,22 @@
       },
       openUl(type) {
         this.showUl = type;
+      },
+      openAlert() {
+        this.showShadow = true;
+        this.showAlert1 = true;
+        document.querySelector('.details_wrap').style.overflow = 'hidden';
+      },
+      openAlert1() {
+        this.showShadow = true;
+        this.showAlert2 = true;
+        document.querySelector('.details_wrap').style.overflow = 'hidden';
+      },
+      closeOrders() {
+        this.showShadow = false;
+        this.showAlert1 = false;
+        this.showAlert2 = false;
+        document.querySelector('.details_wrap').style.overflow = 'auto';
       },
     }
   }
