@@ -41,7 +41,7 @@
             <div class="time">下单时间：{{item.createDatePage}}<span :class="item.statusClass">{{item.statusPage}}</span>
             </div>
             <div class="content">
-              <img :src="item.category.icon" alt="" class="pic">
+              <img :src="item.category?item.category.icon:''" alt="" class="pic">
               <div>
                 <div class="name">{{item.cateAttName4Page}}</div>
                 <div class="price">预估价格：<span>￥{{item.price}}</span></div>
