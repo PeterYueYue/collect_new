@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <router-link to="addAdress"><div class="adress_add">新增地址</div></router-link>
+    <router-link to="addAdress"><div class="adress_add">+ 新增地址</div></router-link>
 
     <div class="adress_footer">确认选择</div>
   </div>
