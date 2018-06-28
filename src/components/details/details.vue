@@ -69,7 +69,7 @@
             <!--<div class="name">纸皮</div>-->
             <!--<div class="price">￥1.00/kg</div>-->
           <!--</div>-->
-          <div class="trash_item" v-for="data in item.cateList" :key="data.id">
+          <div class="trash_item" v-for="data in item.list" :key="data.id">
             <span class="weight">{{data.amount}}</span>
             <div class="name">{{data.cateName}}</div>
             <div class="price">{{data.price}}</div>
