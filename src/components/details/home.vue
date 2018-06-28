@@ -50,12 +50,12 @@
           </router-link>
         </div>
         <!-- 生活垃圾 -->
-        <div class="home_wrap_item" v-for="item in homeList" :key="item.id" v-show="item.title == 'HOUSEHOLD'">
-          <router-link :to="{path: '/details/', query: { id: item.id }}">
-            <div class="time">订单号：{{item.orderNo}}<span :class="item.statusClass">{{item.statusPage}}</span></div>
-            <div class="o_number">下单时间：{{item.createDatePage}}</div>
-            <div class="o_name">{{item.cateAttName4Page}}</div>
-            <div class="o_price">预估价格：<span>{{item.price}}</span></div>
+        <div class="home_wrap_item" v-for="data in homeList" :key="data.id" v-show="data.title == 'HOUSEHOLD'">
+          <router-link :to="{path: '/details/', query: { id: data.id }}">
+            <div class="time">订单号：{{data.orderNo}}<span :class="data.statusClass">{{data.statusPage}}</span></div>
+            <div class="o_number">下单时间：{{data.createDatePage}}</div>
+            <div class="o_name">{{data.cateAttName4Page}}</div>
+            <div class="o_price">预估价格：<span>{{data.price}}</span></div>
           </router-link>
         </div>
 

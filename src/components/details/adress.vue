@@ -25,6 +25,10 @@
         <div class="btn_edit">修改</div>
       </div>
     </div>
+
+    <router-link to="addAdress"><div class="adress_add">新增地址</div></router-link>
+
+    <div class="adress_footer">确认选择</div>
   </div>
 </template>
 
