@@ -3,7 +3,7 @@ import axios from 'axios';
 // 测试
 // let base ='http://101.132.111.141:80';
 // let base ='http://192.168.1.140:9000';
-let base ='http://180.153.19.161:9000';
+let base = 'http://180.153.19.161:9000';
 // let base = 'http://192.168.1.162:9000';
 // import state   from './../vuex/store.js'
 // var uesrToken = state.getters.token;
@@ -39,6 +39,7 @@ const configGetOrders = {
   "nonce": "a5d64ec0-fbcb-434d-8684-fd9b6ce7bba0",
   "timestamp": 1522132341898,
 }
+
 //收呗记录
 const configGetRecords = {
   "name": "point.getPointListByType",
@@ -48,6 +49,7 @@ const configGetRecords = {
   "nonce": "ffe42777-4692-4e76-be13-b8823c1bb5f3",
   "timestamp": 1520416397474,
 }
+
 //订单详情
 const configGetDetails = {
   "name": "order.detail",
@@ -57,6 +59,7 @@ const configGetDetails = {
   "nonce": "ed4fa93f-b19f-4f38-96c6-2e6647ccf254",
   "timestamp": 1521424523443,
 }
+
 //取消订单
 const configCancelOrders = {
   "name": "order.cancel",
@@ -66,6 +69,7 @@ const configCancelOrders = {
   "nonce": "05eb3311-72e6-467c-860a-faf7dd4237a3",
   "timestamp": 1520924873517,
 }
+
 //获取评价
 const configGetEvaluate = {
   "name": "evaluation.getEvaluationByOrder",
@@ -75,6 +79,7 @@ const configGetEvaluate = {
   "nonce": "45418cfc-5ad2-4f48-8fe7-09ded212d999",
   "timestamp": 1520579620270,
 }
+
 //进行评价
 const configEvaluate = {
   "name": "evaluation.evaluationByOrder",
@@ -93,6 +98,7 @@ let configGetClassify = {  //回收分类
   "nonce": "518d8cb1-4e7a-49da-941f-72669ee547f6",
   "timestamp": 1521084409360,
 }
+
 let configGetSubList = {   //根据一级分类id取得所有二级分类
   "name": "category.listchild",
   "format": "json",
@@ -102,15 +108,15 @@ let configGetSubList = {   //根据一级分类id取得所有二级分类
   "timestamp": 1521091926280,
 }
 
-let configAddressList ={
+let configAddressList = {
   "name": "community.defaultAddress",
   "format": "json",
   "sign": "40AFD5662C2FFA919683D5DE60B37A7D",
   "version": "1.0",
   "nonce": "16412db9-5f3b-4af2-90cd-bdc85a98ef17",
   "timestamp": 1520835093965,
-
 }
+
 let configGetAreaList = {   //根据层级取得所有该层地区
   "name": "area.getByArea",
   "format": "json",
@@ -121,17 +127,13 @@ let configGetAreaList = {   //根据层级取得所有该层地区
 }
 
 let configAreaChildList = {  //根据父级取得所有子地区
-
   "name": "area.child",
   "format": "json",
   "sign": "A81DE37CBFECB1C01F50A634006095E4",
   "version": "1.0",
   "nonce": "ebe3fcb8-4ab5-49a7-accc-4eade3ce7446",
   "timestamp": 1520404216901,
-
 }
-
-
 
 // let cofigGetCellSeleTion = {  //根据区域id，取得该区域下所有小区 ，仅支持上一级，不支持跨层
 //   "name": "community.areaCommunity",
@@ -151,9 +153,6 @@ let cofigGetCellSeleTion = {  //根据一级分类id获取该分类服务的回�
   "timestamp": 1521103227642,
 }
 
-
-
-
 let configCategoryAttrOption = {  //根据分类 的属性取 分类属性选项
   "name": "categoryAttrOption.listCategoryAttrOption",
   "format": "json",
@@ -163,125 +162,110 @@ let configCategoryAttrOption = {  //根据分类 的属性取 分类属性选项
   "timestamp": 1520579620270,
 }
 
-
 let configGetAllattrOption = {
-
   "name": "categoryAttr.listCategoryAttrs",
   "format": "json",
   "sign": "22C2AF422064DD456A2E81A5140AB310",
   "version": "1.0",
   "nonce": "83552b17-c9a4-4bfb-9ceb-ef31dc82faa9",
   "timestamp": 1520496356565,
-
-
-
 }
-let configUpLoader    ={
+
+let configUpLoader = {
   "name": "util.uploadImage",
   "format": "json",
   "version": "1.0",
-
 }
 
-let configFturePrices ={   //请求预估价格
+let configFturePrices = {   //请求预估价格
   "name": "categoryAttr.computeValue",
   "format": "json",
   "sign": "50A96A5A5CB4FCCEDCE5BE844F410ED1",
   "version": "1.0",
   "nonce": "11fb0dbe-3816-467d-80a3-7c35558a94ef",
   "timestamp": 1521595483415,
-
-
 }
 
 var configComplete = {  //下单提交信息
   "name": "order.create",
-	"format": "json",
-	"sign": "823385CC5F251B3D1D3135F85F7D32F7",
-	"version": "1.0",
-	"nonce": "7e79e517-85fe-4431-ad1b-098b445bc4aa",
-	"timestamp": 1522215112803,
-
+  "format": "json",
+  "sign": "823385CC5F251B3D1D3135F85F7D32F7",
+  "version": "1.0",
+  "nonce": "7e79e517-85fe-4431-ad1b-098b445bc4aa",
+  "timestamp": 1522215112803,
 }
 
 var confiGetverifiMessage = {  //手机验证信息
   "name": "app.message.getcode",
-	"format": "json",
-	"sign": "EAC51C3A5FE6BCF908BEE7325841AFB0",
-	"version": "1.0",
-	"nonce": "b4a189f1-a043-402a-8c5b-f58257f1e6c2",
-	"timestamp": 1528784831707
-
-
+  "format": "json",
+  "sign": "EAC51C3A5FE6BCF908BEE7325841AFB0",
+  "version": "1.0",
+  "nonce": "b4a189f1-a043-402a-8c5b-f58257f1e6c2",
+  "timestamp": 1528784831707
 }
 
 var configIsAuthorization = { //判断是否授权
   "name": "member.getAuthCode",
-	"format": "json",
-	"version": "1.0",
-	"nonce": "e99c8460-6e55-4fbc-ba96-03d13992314c",
-	"timestamp": 1528789323533
-
+  "format": "json",
+  "version": "1.0",
+  "nonce": "e99c8460-6e55-4fbc-ba96-03d13992314c",
+  "timestamp": 1528789323533
 }
 
 var configSubmitAuthCode = { //提交手机验证码
   "name": "member.getMessageCode",
-	"format": "json",
-	"version": "1.0",
-	"nonce": "9c66cada-6fce-4588-9f11-c2a956aca21a",
-	"timestamp": 1528791473231
+  "format": "json",
+  "version": "1.0",
+  "nonce": "9c66cada-6fce-4588-9f11-c2a956aca21a",
+  "timestamp": 1528791473231
 }
 
 //回收分类
 export default {
-  getClassify(params){  //取得所有一级分类
-    let config =  Object.assign(configGetClassify,params)
-    return axios.post(`${base}/ali/api`,configGetClassify).then(res => res.data);
+  getClassify(params) {  //取得所有一级分类
+    let config = Object.assign(configGetClassify, params);
+    return axios.post(`${base}/ali/api`, configGetClassify).then(res => res.data);
   },
-  getSubList(params){  //取得所有一级分类
-    let config =  Object.assign(configGetSubList,params)
-    return axios.post(`${base}/ali/api`,config).then(res => res.data);
+  getSubList(params) {  //取得所有一级分类
+    let config = Object.assign(configGetSubList, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data);
   },
-  getAddRessList(params){  //根据最近一次订单的地址，取出该地址。并且判断传入分类是否在该地址支持服务
-    let config =  Object.assign(configAddressList,params)
-    return axios.post(`${base}/ali/api`,config).then(res => res.data);
+  getAddRessList(params) {  //根据最近一次订单的地址，取出该地址。并且判断传入分类是否在该地址支持服务
+    let config = Object.assign(configAddressList, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data);
   },
-  getAreaList(params){  //根据层级获取所有的区
-    let config =  Object.assign(configGetAreaList,params)
-    return axios.post(`${base}/ali/api`,config).then(res => res.data);
+  getAreaList(params) {  //根据层级获取所有的区
+    let config = Object.assign(configGetAreaList, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data);
   },
-  areaChildList(params){  //根据父级取得所有子地区
-    let config =  Object.assign(configAreaChildList,params)
-    return axios.post(`${base}/ali/api`,config).then(res => res.data);
+  areaChildList(params) {  //根据父级取得所有子地区
+    let config = Object.assign(configAreaChildList, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data);
   },
-  getCellSeleTion(params){//根据区域id，取得该区域下所有小区 ，仅支持上一级，不支持跨层
-    let config =  Object.assign(cofigGetCellSeleTion,params)
-    return axios.post(`${base}/ali/api`,config).then(res => res.data);
+  getCellSeleTion(params) {//根据区域id，取得该区域下所有小区 ，仅支持上一级，不支持跨层
+    let config = Object.assign(cofigGetCellSeleTion, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data);
   },
-  categoryAttrOption(params){  //根据分类 的属性取 分类属性选项
-    let config =  Object.assign(configCategoryAttrOption,params)
-    return axios.post(`${base}/ali/api`,config).then(res => res.data);
+  categoryAttrOption(params) {  //根据分类 的属性取 分类属性选项
+    let config = Object.assign(configCategoryAttrOption, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data);
   },
-  getAllattrOption(params){  //根据分类id取得所有分类属性
-    let config =  Object.assign(configGetAllattrOption,params)
-    return axios.post(`${base}/ali/api`,config).then(res => res.data);
+  getAllattrOption(params) {  //根据分类id取得所有分类属性
+    let config = Object.assign(configGetAllattrOption, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data);
   },
-
-  upLoader(params){  //拍照上传 获取图片链接地址；
-
-    let config =  Object.assign(configUpLoader,params)
-    return axios.post(`${base}/ali/api`,config).then(res => res.data);
-
+  upLoader(params) {  //拍照上传 获取图片链接地址；
+    let config = Object.assign(configUpLoader, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data);
   },
-  completeOrder(params){
-    var config = Object.assign(configComplete,params)
-    return axios.post(`${base}/ali/api`,config).then(res => res.data)
+  completeOrder(params) {
+    var config = Object.assign(configComplete, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data)
   },
-  futurePrices(params){   //请求商品的预估价格
-    let config =  Object.assign(configFturePrices,params)
-    return axios.post(`${base}/ali/api`,config).then(res => res.data);
-  }
-  ,
+  futurePrices(params) {   //请求商品的预估价格
+    let config = Object.assign(configFturePrices, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data);
+  },
   getHome(params) {  //首页未完成订单
     let config = Object.assign(configGetHome, params);
     return axios.post(`${base}/ali/api`, config).then(res => res.data);
@@ -314,22 +298,18 @@ export default {
     let config = Object.assign(configCompanyByIds, params);
     return axios.post(`${base}/ali/api`, config).then(res => res.data);
   },
-  getverifiMessage(params){ //手机验证信息
+  getverifiMessage(params) { //手机验证信息
     let config = Object.assign(confiGetverifiMessage, params);
     return axios.post(`${base}/ali/api`, config).then(res => res.data);
   },
-  isAuthorization(params){ //判断是否授权
+  isAuthorization(params) { //判断是否授权
     let config = Object.assign(configIsAuthorization, params);
     return axios.post(`${base}/ali/api`, config).then(res => res.data);
   },
-  submitAuthCode(params){ //提交手机验证码
+  submitAuthCode(params) { //提交手机验证码
     let config = Object.assign(configSubmitAuthCode, params);
     return axios.post(`${base}/ali/api`, config).then(res => res.data);
   }
-
-
-
-
 
 
 }
