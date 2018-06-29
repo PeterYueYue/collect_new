@@ -15,7 +15,7 @@
           <label :for="'radio'+item.id"><i></i>默认地址</label>
         </div>
         <div class="btn_del" @click="delectMemberAddress()">删除</div>
-        <router-link to="selectAdress"><div class="btn_edit">修改</div></router-link>
+        <div class="btn_edit" @click="selectAdress">修改</div>
       </div>
     </div>
 
@@ -68,6 +68,11 @@
           console.log(error)
         })
       },
+      selectAdress() {
+        this.$router.push({
+          path: '/selectAdress'
+        })
+      }
     }
   }
 </script>

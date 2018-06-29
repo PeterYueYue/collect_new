@@ -256,6 +256,16 @@ var configSelectMemberAddress = { //修改地址
   "timestamp": 1530083447807,
 }
 
+var configSaveMemberAddress = { //保存地址
+  "name": "memberAddress.saveMemberAddress",
+  "format": "json",
+  "sign": "D34DE788B8744895B68C6158DE6258CA",
+  "version": "1.0",
+  "nonce": "34b91916-c225-4b6e-8a9b-5d3609068e57",
+  "timestamp": 1530082221581,
+}
+
+
 
 
 //回收分类
@@ -362,6 +372,10 @@ export default {
   },
   SelectMemberAddress(params) { //修改地址
     let config = Object.assign(configSelectMemberAddress, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data);
+  },
+  SaveMemberAddress(params) { //保存地址
+    let config = Object.assign(configSaveMemberAddress, params);
     return axios.post(`${base}/ali/api`, config).then(res => res.data);
   },
 
