@@ -265,6 +265,15 @@ var configSaveMemberAddress = { //保存地址
   "timestamp": 1530082221581,
 }
 
+var configUpdateIsSelectedAddress = { //设置默认地址
+  "name": "memberAddress.updateIsSelectedAddress",
+  "format": "json",
+  "sign": "3A5A37498A59CA357725E68D420A1B75",
+  "version": "1.0",
+  "nonce": "3f109201-1132-4632-8157-418213f84cda",
+  "timestamp": 1530239469246,
+}
+
 
 
 
@@ -378,8 +387,13 @@ export default {
     let config = Object.assign(configSaveMemberAddress, params);
     return axios.post(`${base}/ali/api`, config).then(res => res.data);
   },
+  UpdateIsSelectedAddress(params) { //设置默认地址
+    let config = Object.assign(configUpdateIsSelectedAddress, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data);
+  },
 
 
 
 }
+
 

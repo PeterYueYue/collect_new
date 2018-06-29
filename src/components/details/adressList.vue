@@ -21,7 +21,7 @@
 
     <router-link to="addAdress"><div class="adress_add">+ 新增地址</div></router-link>
 
-    <div class="adress_footer">确认选择</div>
+    <div class="adress_footer" @click="UpdateAddress">确认选择</div>
   </div>
 </template>
 
@@ -68,11 +68,25 @@
           console.log(error)
         })
       },
+      //设置默认
+      UpdateAddress() {
+        api.UpdateIsSelectedAddress({
+          "app_key": "app_id_1",
+          token: this.$store.state.token,
+          "data": {
+            "id": "25"
+          },
+        }).then((res) => {
+          console.log(res);
+        }).catch((error) => {
+          console.log(error)
+        })
+      },
       selectAdress() {
         this.$router.push({
           path: '/selectAdress'
         })
-      }
+      },
     }
   }
 </script>
