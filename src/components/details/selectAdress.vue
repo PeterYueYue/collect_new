@@ -3,11 +3,13 @@
     <div class="select_item">
       <div class="title">
         <div class="left">联系人</div>
-        <div class="right">{{areaList.memberAddress.name}}</div>
+        <div class="right"><input type="text" placeholder="请输入姓名" v-model="form.name">{{areaList.memberAddress
+          .name}}</div>
       </div>
       <div class="title">
         <div class="left">手机号码</div>
-        <div class="right">{{areaList.memberAddress.tel}}</div>
+        <div class="right"><input type="text" placeholder="请输入手机号" v-model="form.tel">{{areaList.memberAddress
+          .tel}}</div>
       </div>
       <div class="title">
         <div class="left">所在地址</div>
@@ -15,7 +17,7 @@
       </div>
       <div class="title">
         <div class="left">详细地址</div>
-        <div class="right">{{areaList.streeName}}{{areaList.communityName}}{{areaList.memberAddress.houseNumber}}</div>
+        <div class="right"><input type="text" placeholder="请输入街道、楼牌号等" v-model="form.address">{{areaList.streeName}}{{areaList.communityName}}{{areaList.memberAddress.houseNumber}}</div>
       </div>
     </div>
     <div class="select_btn" @click="saveData">保存</div>
@@ -30,6 +32,11 @@
     data() {
       return {
         areaList: {},
+        form: {
+          name: '',
+          tel: '',
+          address: '',
+        }
       }
     },
     mounted() {
