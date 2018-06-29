@@ -8,6 +8,11 @@
   margin-bottom: 0.2rem;
 }
 
+/*.adress_item:active {*/
+  /*border-top: 0.01rem rgb(0, 160, 233) solid;*/
+  /*border-bottom: 0.01rem rgb(0, 160, 233) solid;*/
+/*}*/
+
 .adress_item .name {
   font-size: 0.34rem;
   color: rgb(51, 51, 51);

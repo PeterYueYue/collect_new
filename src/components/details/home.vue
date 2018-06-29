@@ -163,14 +163,14 @@
       var token = this.$route.query.token;
       window.localStorage.setItem('token', token);
       this.getData();
-      this.MemberAddress();
+      this.memberAddress();
     },
     methods: {
       onRefresh(loaded) {
         //获取数据
         this.getData(loaded)
       },
-      MemberAddress() {
+      memberAddress() {
         //默认地址
         api.MemberAddress({
           "app_key": "app_id_1",

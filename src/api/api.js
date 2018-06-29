@@ -238,6 +238,15 @@ var configMemberAddressList = { //用户地址的列表
   "timestamp": 1530083092219,
 }
 
+var configDelectMemberAddress = { //用户删除地址
+  "name": "memberAddress.delectMemberAddress",
+  "format": "json",
+  "sign": "AE164CF0097F206E387E3100A4F992BC",
+  "version": "1.0",
+  "nonce": "a66d6695-e3db-45d6-9d5c-7bbb69818bc3",
+  "timestamp": 1530083261196,
+}
+
 
 
 //回收分类
@@ -336,6 +345,10 @@ export default {
   },
   MemberAddressList(params) { //用户地址的列表
     let config = Object.assign(configMemberAddressList, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data);
+  },
+  DelectMemberAddress(params) { //用户删除地址
+    let config = Object.assign(configDelectMemberAddress, params);
     return axios.post(`${base}/ali/api`, config).then(res => res.data);
   },
 

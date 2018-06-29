@@ -14,12 +14,14 @@
             v-model="radio"/>
           <label :for="'radio'+item.id"><i></i>默认地址</label>
         </div>
-        <div class="btn_del">删除</div>
+        <div class="btn_del" @click="delectMemberAddress()">删除</div>
         <div class="btn_edit">修改</div>
       </div>
     </div>
 
-    <router-link to="addAdress"><div class="adress_add">+ 新增地址</div></router-link>
+    <router-link to="addAdress">
+      <div class="adress_add">+ 新增地址</div>
+    </router-link>
 
     <div class="adress_footer">确认选择</div>
   </div>
@@ -40,21 +42,34 @@
       //存储token到本地
       var token = this.$route.query.token;
       window.localStorage.setItem('token', token);
-      this.MemberAddressList();
+      this.memberAddressList();
     },
     methods: {
-      MemberAddressList() {
-        //地址列表
+      //地址列表
+      memberAddressList() {
         api.MemberAddressList({
           "app_key": "app_id_1",
           token: this.$store.state.token,
         }).then((res) => {
-          console.log(res);
           this.addressList = res.data;
         }).catch((error) => {
           console.log(error)
         })
       },
+      //删除
+      delectMemberAddress() {
+        api.DelectMemberAddress({
+          "app_key": "app_id_1",
+          token: this.$store.state.token,
+          "data": {
+            "id": "20"
+          },
+        }).then((res) => {
+          console.log(res);
+        }).catch((error) => {
+          console.log(error)
+        })
+      }
     }
   }
 </script>
