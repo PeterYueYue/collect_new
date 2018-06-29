@@ -229,6 +229,15 @@ var configMemberAddress = { //对外提供默认地址
   "timestamp": 1530088173679,
 }
 
+var configMemberAddressList = { //用户地址的列表
+  "name": "memberAddress.memberAddressList",
+  "format": "json",
+  "sign": "FC9A826D26B306554FA6EEA9F5633520",
+  "version": "1.0",
+  "nonce": "20c0ef73-d253-45a1-a734-4cdbee46fa34",
+  "timestamp": 1530083092219,
+}
+
 
 
 //回收分类
@@ -323,6 +332,10 @@ export default {
   },
   MemberAddress(params) { //对外提供默认地址
     let config = Object.assign(configMemberAddress, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data);
+  },
+  MemberAddressList(params) { //用户地址的列表
+    let config = Object.assign(configMemberAddressList, params);
     return axios.post(`${base}/ali/api`, config).then(res => res.data);
   },
 

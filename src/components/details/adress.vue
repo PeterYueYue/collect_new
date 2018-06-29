@@ -1,25 +1,18 @@
 <template>
   <div class="adress_wrap">
-    <div class="adress_item">
-      <div class="name">曹小叶 18939223867</div>
-      <div class="adress">上海市杨浦区定海路街道阳光花园5幢2202室</div>
+    <div class="adress_item" v-for="item in addressList" :key="item.id">
+      <div class="name">{{item.name}} {{item.tel}}</div>
+      <div class="adress">{{item.address}}{{item.houseNumber}}</div>
       <div class="btn">
         <div class="holder">
-          <input type="radio" id="radio1" name="radio" class="radio" value="radio1" v-model="radio"/><label
-          for="radio1"><i></i>默认地址
-        </label>
-        </div>
-        <div class="btn_del">删除</div>
-        <div class="btn_edit">修改</div>
-      </div>
-    </div>
-    <div class="adress_item">
-      <div class="name">曹小叶 18939223867</div>
-      <div class="adress">上海市杨浦区定海路街道阳光花园5幢2202室</div>
-      <div class="btn">
-        <div class="holder">
-          <input type="radio" id="radio2" name="radio" class="radio" value="radio2" v-model="radio"/><label
-          for="radio2"><i></i>默认地址</label>
+          <input
+            type="radio"
+            :id="'radio'+item.id"
+            name="radio"
+            class="radio"
+            :value="'radio'+item.id"
+            v-model="radio"/>
+          <label :for="'radio'+item.id"><i></i>默认地址</label>
         </div>
         <div class="btn_del">删除</div>
         <div class="btn_edit">修改</div>
@@ -39,9 +32,29 @@
   export default {
     data() {
       return {
-        radio: 'radio1'
+        radio: 'radio19',
+        addressList: {},
       }
     },
-    methods: {}
+    mounted() {
+      //存储token到本地
+      var token = this.$route.query.token;
+      window.localStorage.setItem('token', token);
+      this.MemberAddressList();
+    },
+    methods: {
+      MemberAddressList() {
+        //地址列表
+        api.MemberAddressList({
+          "app_key": "app_id_1",
+          token: this.$store.state.token,
+        }).then((res) => {
+          console.log(res);
+          this.addressList = res.data;
+        }).catch((error) => {
+          console.log(error)
+        })
+      },
+    }
   }
 </script>
