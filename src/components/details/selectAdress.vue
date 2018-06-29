@@ -54,7 +54,7 @@
       },
       saveData() {
         this.$router.push({
-          path: '/adress'
+          path: '/adressList'
         })
       }
     }

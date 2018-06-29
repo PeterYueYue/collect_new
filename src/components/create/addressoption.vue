@@ -97,16 +97,8 @@
       this.itemID = this.$store.state.msItemId;
       var {id} = this.$route.params;   //商品ID
       this.id = id;
-      api.getAddRessList({
+      api.MemberAddress({
         "app_key": "app_id_1",
-        "data": {
-          "areaId": 2,
-          "id": id,
-          "pageBean": {
-            "pageNumber": 1,
-            "pageSize": 20
-          }
-        },
         token: this.token
       }).then((res) => {
         // 判断地址栏的默认信息以及修改后的显示逻辑

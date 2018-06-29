@@ -1,62 +1,124 @@
-.add_wrap {
-  width: 7.5rem;
+.adress_wrap {
+  width: 100%;
 }
 
-.add_item {
+.adress_item {
+  padding: 0.3rem;
   background: #fff;
-  border-bottom: 0.01rem rgb(221,221,221) solid;
-  padding-left: 0.3rem;
+  margin-bottom: 0.2rem;
 }
 
-.add_item .title {
-  padding: 0.5rem 0 0.3rem;
-  border-bottom: 0.01rem rgb(221,221,221) solid;
-  overflow: hidden;
-}
+/*.adress_item:active {*/
+  /*border-top: 0.01rem rgb(0, 160, 233) solid;*/
+  /*border-bottom: 0.01rem rgb(0, 160, 233) solid;*/
+/*}*/
 
-.add_item .title:last-child {
-  border-bottom: none;
-}
-
-.add_item .title .left {
-  width: 1.6rem;
-  float: left;
+.adress_item .name {
   font-size: 0.34rem;
-  color: rgb(0,0,0);
+  color: rgb(51, 51, 51);
 }
 
-.add_item .title .right {
-  width: 5.3rem;
-  float: left;
+.adress_item .adress {
   font-size: 0.3rem;
-  color: rgb(117,117,117);
-  position: relative;
+  color: rgb(102, 102, 102);
+  margin-top: 0.15rem;
 }
 
-.add_item .title .right input{
-  border: none;
-  outline: none;
-  position: relative;
-  top: 0.05rem;
+.adress_item .btn {
+  overflow: hidden;
+  margin-top: 0.5rem;
 }
 
-.add_item .title .right img{
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 0.36rem;
-  height: 0.36rem;
-}
-
-.add_btn {
-  width: 6.9rem;
-  height: 0.84rem;
-  line-height: 0.84rem;
+.adress_item .btn .btn_edit {
+  float: right;
+  width: 1.4rem;
+  height: 0.56rem;
+  line-height: 0.56rem;
   text-align: center;
-  font-size: 0.36rem;
-  color: #fff;
-  background: rgb(0,160,233);
+  font-size: 0.3rem;
+  color: rgb(0, 160, 233);
+  border: 0.01rem rgb(0, 160, 233) solid;
+  border-radius: 0.06rem;
+  margin-right: 0.2rem;
+}
+
+.adress_item .btn .btn_del {
+  float: right;
+  width: 1.4rem;
+  height: 0.56rem;
+  line-height: 0.56rem;
+  text-align: center;
+  font-size: 0.3rem;
+  color: rgb(244, 51, 60);
+  border: 0.01rem rgb(244, 51, 60) solid;
+  border-radius: 0.06rem;
+}
+
+.adress_add {
+  width: 6.8rem;
+  height: 0.68rem;
+  line-height: 0.68rem;
+  border: 0.01rem #00a0e9 solid;
+  color: #00a0e9;
+  border-radius: 0.06rem;
+  text-align: center;
+  font-size: 0.32rem;
   margin: 0.5rem auto 0;
-  border-radius: 0.1rem;
+  background: #fff;
+}
+
+.adress_footer {
+  width: 7.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  color: #fff;
+  text-align: center;
+  font-size: 0.32rem;
+  background: #00a0e9;
+  position: fixed;
+  bottom: 0;
+}
+
+
+/* radio */
+.holder {
+  float: left;
+  padding-left: 0.3rem;
+  font-size: 0.3rem;
+}
+
+label {
+  display: inline;
+}
+
+.radio {
+  display: none;
+  padding-left: 0.2rem;
+}
+
+.radio + label {
+  width: 100%;
+  display: block;
+}
+
+.radio + label i {
+  background-color: rgb(204, 204, 204);
+  width: 0.34rem;
+  height: 0.34rem;
+  border-radius: 100%;
+  display: inline-block;
+  position: relative;
+  top: 0.07rem;
+  right: 0.2rem;
+}
+
+.radio:checked + label i:after {
+  content: ' ';
+  width: 0.34rem;
+  height: 0.34rem;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 160, 233);
 }

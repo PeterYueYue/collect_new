@@ -26,7 +26,7 @@
 </template>
 
 <script>
-  import '@/assets/detailstyle/addAdress.css'
+  import '@/assets/detailstyle/adressList.css'
   import api from '@/api/api.js'
 
   export default {

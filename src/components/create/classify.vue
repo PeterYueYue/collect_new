@@ -9,31 +9,31 @@
     </div>
     <!-- 数码家电 -->
     <!--<div class="content clearfix">-->
-    <!--<ul class="commodity fl">-->
-    <!--<li-->
-    <!--v-for="(item ,index) in menulist"-->
-    <!--:key="item.id"-->
-    <!--class="item"-->
-    <!--v-bind:class="{ active: isActive == index }"-->
-    <!--@click="getList(item.id,index)"-->
-    <!--&gt;{{item.name}}-->
-    <!--</li>-->
-    <!--</ul>-->
-    <!--<div class="pinlei fl">-->
-    <!--<div class="title clearfix">-->
-    <!--<span class="left_line fl"></span>-->
-    <!--<h5 class="fl">品类</h5>-->
-    <!--<span class="right_line fl"></span>-->
-    <!--</div>-->
-    <!--<ul class="linlei_list clearfix">-->
-    <!--<li class="item  fl" v-for="(item,index) in subList" :key="item.id" @click="getAddressInfo(item,index)">-->
-    <!--<router-link :to="'/addressoption/'+item.id">-->
-    <!--<img :src=item.icon alt="">-->
-    <!--<span>{{item.name}}</span>-->
-    <!--</router-link>-->
-    <!--</li>-->
-    <!--</ul>-->
-    <!--</div>-->
+      <!--<ul class="commodity fl">-->
+        <!--<li-->
+          <!--v-for="(item ,index) in menulist"-->
+          <!--:key="item.id"-->
+          <!--class="item"-->
+          <!--v-bind:class="{ active: isActive == index }"-->
+          <!--@click="getList(item.id,index)"-->
+        <!--&gt;{{item.name}}-->
+        <!--</li>-->
+      <!--</ul>-->
+      <!--<div class="pinlei fl">-->
+        <!--<div class="title clearfix">-->
+          <!--<span class="left_line fl"></span>-->
+          <!--<h5 class="fl">品类</h5>-->
+          <!--<span class="right_line fl"></span>-->
+        <!--</div>-->
+        <!--<ul class="linlei_list clearfix">-->
+          <!--<li class="item  fl" v-for="(item,index) in subList" :key="item.id" @click="getAddressInfo(item,index)">-->
+            <!--<router-link :to="'/addressoption/'+item.id">-->
+              <!--<img :src=item.icon alt="">-->
+              <!--<span>{{item.name}}</span>-->
+            <!--</router-link>-->
+          <!--</li>-->
+        <!--</ul>-->
+      <!--</div>-->
     <!--</div>-->
     <!-- 生活垃圾 -->
     <div class="content clearfix">

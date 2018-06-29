@@ -23,7 +23,7 @@
 </template>
 
 <script>
-  import '@/assets/detailstyle/adress.css'
+  import '@/assets/detailstyle/addAdress.css'
   import api from '@/api/api.js'
 
   export default {
@@ -35,7 +35,7 @@
     methods: {
       saveData(){
         this.$router.push({
-          path: '/adress'
+          path: '/adressList'
         })
       }
     }
