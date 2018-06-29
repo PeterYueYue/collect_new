@@ -60,7 +60,7 @@
           "app_key": "app_id_1",
           token: this.$store.state.token,
           "data": {
-            "id": "20"
+            "id": "19"
           },
         }).then((res) => {
           console.log(res);
