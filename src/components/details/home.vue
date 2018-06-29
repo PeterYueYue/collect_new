@@ -9,7 +9,7 @@
       <div v-if="showList" style="padding-bottom: 1.7rem">
         <div class="home_address">回收地址<router-link to="addAdress"><div class="add" >添加回收地址</div></router-link><img
           src="@/assets/icon_right.png" alt=""></div>
-        <div class="home_address">回收地址<router-link to="addAdress"><div class="add reaonly" >上海市杨浦区大桥街道运上海市杨浦区大桥街道运河河...</div></router-link><img
+        <div class="home_address">回收地址<router-link to="addAdress"><div class="add reaonly" >{{adressList.address}}{{adressList.houseNumber}}</div></router-link><img
           src="@/assets/icon_right.png" alt=""></div>
         <div class="home_call">
           <h3>分类回收 助力绿色环保</h3>
@@ -126,6 +126,7 @@
     data() {
       return {
         homeList: {},
+        adressList: {},
         showList: true,
         pullRefreshConfig: {
           pullText: '下拉刷新', // 下拉时显示的文字
@@ -162,18 +163,30 @@
       var token = this.$route.query.token;
       window.localStorage.setItem('token', token);
       this.getData();
+      this.MemberAddress();
     },
     methods: {
       onRefresh(loaded) {
         //获取数据
         this.getData(loaded)
       },
+      MemberAddress() {
+        //默认地址
+        api.MemberAddress({
+          "app_key": "app_id_1",
+          token: this.token
+        }).then((res) => {
+          console.log(res);
+          this.adressList = res.data;
+        }).catch((error) => {
+          console.log(error)
+        })
+      },
       getData(loaded) {
         //获取数据
         api.getHome({
           "app_key": "app_id_1",
           token: this.token
-
         }).then((res) => {
           // console.log(res.data);
           if (res.data.length === 0) {

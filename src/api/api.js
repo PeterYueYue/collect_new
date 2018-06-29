@@ -220,6 +220,17 @@ var configSubmitAuthCode = { //提交手机验证码
   "timestamp": 1528791473231
 }
 
+var configMemberAddress = { //对外提供默认地址
+  "name": "memberAddress.memberAddress",
+  "format": "json",
+  "sign": "E9A93A4B470B500879274B37482EFF04",
+  "version": "1.0",
+  "nonce": "c3c0b328-6ef0-42b8-8085-843e684b81f7",
+  "timestamp": 1530088173679,
+}
+
+
+
 //回收分类
 export default {
   getClassify(params) {  //取得所有一级分类
@@ -309,7 +320,12 @@ export default {
   submitAuthCode(params) { //提交手机验证码
     let config = Object.assign(configSubmitAuthCode, params);
     return axios.post(`${base}/ali/api`, config).then(res => res.data);
-  }
+  },
+  MemberAddress(params) { //对外提供默认地址
+    let config = Object.assign(configMemberAddress, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data);
+  },
+
 
 
 }

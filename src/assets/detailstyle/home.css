@@ -38,10 +38,11 @@ a {
   white-space: nowrap;
   position: absolute;
   top: 50%;
-  right: 0.6rem;
+  right: 0.7rem;
   transform: translateY(-50%);
   font-size: 0.34rem;
   color: #333;
+  text-align: right;
 }
 
 .home_address img {
