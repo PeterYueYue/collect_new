@@ -40,8 +40,9 @@ import orders from '@/components/details/orders.vue'
 import records from '@/components/details/records.vue'
 import imgView from '@/components/details/imgView.vue'
 import qrCode from '@/components/details/qrCode.vue'
-import adress from '@/components/details/adress.vue'
+import adressList from '@/components/details/adressList.vue'
 import addAdress from '@/components/details/addAdress.vue'
+import selectAdress from '@/components/details/selectAdress.vue'
 
 Vue.use(Router)
 
@@ -64,14 +65,19 @@ const router =  new Router({
       component: home
     },
     {
-      path: '/adress',
-      name: 'adress',
-      component: adress
+      path: '/adressList',
+      name: 'adressList',
+      component: adressList
     },
     {
       path: '/addAdress',
       name: 'addAdress',
       component: addAdress
+    },
+    {
+      path: '/selectAdress',
+      name: 'selectAdress',
+      component: selectAdress
     },
     {
       path: '/details',

@@ -247,6 +247,15 @@ var configDelectMemberAddress = { //用户删除地址
   "timestamp": 1530083261196,
 }
 
+var configSelectMemberAddress = { //修改地址
+  "name": "memberAddress.selectMemberAddress",
+  "format": "json",
+  "sign": "C6FB38926CA6CB5E167FE3DF137C6ED0",
+  "version": "1.0",
+  "nonce": "dfa3f834-3c9a-4479-bf10-96e5ccba5f35",
+  "timestamp": 1530083447807,
+}
+
 
 
 //回收分类
@@ -349,6 +358,10 @@ export default {
   },
   DelectMemberAddress(params) { //用户删除地址
     let config = Object.assign(configDelectMemberAddress, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data);
+  },
+  SelectMemberAddress(params) { //修改地址
+    let config = Object.assign(configSelectMemberAddress, params);
     return axios.post(`${base}/ali/api`, config).then(res => res.data);
   },
 

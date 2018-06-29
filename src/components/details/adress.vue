@@ -15,13 +15,11 @@
           <label :for="'radio'+item.id"><i></i>默认地址</label>
         </div>
         <div class="btn_del" @click="delectMemberAddress()">删除</div>
-        <div class="btn_edit">修改</div>
+        <router-link to="selectAdress"><div class="btn_edit">修改</div></router-link>
       </div>
     </div>
 
-    <router-link to="addAdress">
-      <div class="adress_add">+ 新增地址</div>
-    </router-link>
+    <router-link to="addAdress"><div class="adress_add">+ 新增地址</div></router-link>
 
     <div class="adress_footer">确认选择</div>
   </div>
@@ -69,7 +67,7 @@
         }).catch((error) => {
           console.log(error)
         })
-      }
+      },
     }
   }
 </script>
