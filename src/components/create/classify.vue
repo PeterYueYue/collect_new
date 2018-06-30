@@ -59,8 +59,15 @@
           <div class="classify_main">
             <div class="classify_item" v-for="item in subList" :key="item.id">
               <img :src="item.icon?item.icon:''" alt="">
-              <div class="name" @click="openAlert1">{{item.name}}</div>
-              <div class="price">{{item.priceAndUnit}}</div>
+              <div class="name">{{item.name}}</div>
+              <div class="price">¥ {{item.unitPrice}} / {{item.unit}}
+                <div class="calculation">
+                  <span class="less round" v-if="item.number" @click="less(item)">-</span>
+                  <span v-if="item.number">{{item.number}}</span>
+                  <span class="plus round" @click="plus(item)">+</span>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
@@ -69,9 +76,9 @@
 
     <div class="classify_footer">
       <div class="f_title">
-        <div class="icon"><img src="@/assets/class_icon.png" alt=""><i>1</i></div>
+        <div class="icon"><img src="@/assets/class_icon.png" alt=""><i>{{numTotal}}</i></div>
         <div
-          class="name">预估金额：<span class="price">￥<span>39.9</span></span></div>
+          class="name">预估金额：<span class="price">￥<span>{{priceTotal.toFixed(2)}}</span></span></div>
       </div>
       <div class="r_btn" @click="openAlert">一键回收</div>
     </div>
@@ -93,8 +100,8 @@
     <div class="class_shadow_box" v-if="showAlert2">
       <div class="title">回收小贴士</div>
       <div class="remind">不精确知道您需要回收的重量或者个数？没关系！您只需根据预估输入待回收物的大约重量或个数，实际成交重量和件数将以上门回收人员实际计量为准！</div>
-      <div @click="closeOrders" class="btn">我知道了</div>
-      <div @click="closeOrders" class="btn nocolor">不再提醒</div>
+      <div @click="closeOrders(false)" class="btn">我知道了</div>
+      <div @click="closeOrders(true)" class="btn nocolor">不再提醒</div>
     </div>
 
   </div>
@@ -118,6 +125,9 @@
         showAlert1: false,
         showAlert2: false,
         menuListImg: '',
+        priceTotal: 0,
+        numTotal: 0,
+        weightTotal: 0
       }
     },
     computed: mapGetters({
@@ -149,6 +159,12 @@
             },
             token: this.token
           }).then((res) => {
+            res.data.map((items) => {
+              items.unitPrice = '3.60';
+              items.unitWeight = '6';
+              items.unit = '件';
+              items.number = 0
+            });
             this.subList = res.data;
           }).catch((erro) => {
             console.log(erro)
@@ -195,26 +211,59 @@
         this.getClassFiy(!type);
       },
       openAlert() {
+        if (this.priceTotal > 50 || this.numTotal > 30 || this.weightTotal > 30) {
+          this.$router.push({
+            path: '/uploadimage1',
+            query: {
+              id: 123
+            }
+          });
+          return
+        }
         this.showShadow = true;
         this.showAlert1 = true;
-        document.querySelector('.details_wrap').style.overflow = 'hidden';
       },
       openAlert1() {
+        const status = window.localStorage.getItem('hasAgree');
+        if (status)return;
         this.showShadow = true;
         this.showAlert2 = true;
-        document.querySelector('.details_wrap').style.overflow = 'hidden';
       },
-      closeOrders() {
+      closeOrders(status) {
+        if (status) {
+          window.localStorage.setItem('hasAgree', status)
+        }
         this.showShadow = false;
         this.showAlert1 = false;
         this.showAlert2 = false;
-        document.querySelector('.details_wrap').style.overflow = 'auto';
       },
       closeOrdersPush() {
         this.$router.push({
           path: '/uploadimage1'
         })
       },
+      plus(item){
+        item.number += 1;
+        this.total();
+        this.openAlert1()
+      },
+      less(item){
+        item.number -= 1;
+        this.total();
+      },
+      total(){
+        let priceTotal = 0;
+        let numTotal = 0;
+        let weightTotal = 0;
+        this.subList.map((items) => {
+          priceTotal += items.number * items.unitPrice;
+          weightTotal += items.number * items.unitWeight;
+          numTotal += items.number;
+        });
+        this.priceTotal = priceTotal;
+        this.numTotal = numTotal;
+        this.weightTotal = weightTotal;
+      }
 
     }
   }

@@ -169,6 +169,7 @@ body {
   position: absolute;
   top: 0.15rem;
   right: 0.1rem;
+  line-height: .3rem
 }
 
 .classify_footer .f_title .price {
@@ -321,6 +322,7 @@ body {
   border-bottom: 0.01rem #ddd solid;
   margin-left: 0.3rem;
   padding: 0.45rem 0.3rem 0.25rem 0.05rem;
+  position: relative;
 }
 
 .classify .content .linlei_list .classify_item:first-child {
@@ -349,10 +351,38 @@ body {
   color: #f4333c;
   padding-left: 1.2rem;
   margin-top: 0.1rem;
+  position: relative;
 }
 
 .classify .content .linlei_list .classify_item .price span {
   font-size: 0.36rem;
+}
+
+.classify .content .linlei_list .classify_item .calculation {
+  font-size: 0.3rem;
+  float: right;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #000;
+}
+
+.classify .content .linlei_list .classify_item .calculation .round {
+  display: inline-block;
+  width: .28rem;
+  height: .28rem;
+  border-radius: 50%;
+  background: #00a0e9;
+  text-align: center;
+  line-height: .28rem;
+  color: #fff;
+  font-size: .24rem;
+}
+
+.classify .content .linlei_list .classify_item .calculation span:nth-of-type(2) {
+  font-size: .24rem;
+  display: inline-block;
+  padding: 0 .1rem
 }
 
 .classify .content .linlei_list .item img {
@@ -367,3 +397,4 @@ body {
   display: block;
   line-height: 0.4rem;
 }
+
