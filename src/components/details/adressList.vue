@@ -14,12 +14,14 @@
             v-model="radio"/>
           <label :for="'radio'+item.id"><i></i>默认地址</label>
         </div>
-        <div class="btn_del" @click="delectMemberAddress()">删除</div>
-        <div class="btn_edit" @click="selectAdress">修改</div>
+        <div class="btn_del" @click="delectMemberAddress(item.id)">删除</div>
+        <div class="btn_edit" @click="selectAdress(item.id)">修改</div>
       </div>
     </div>
 
-    <router-link to="addAdress"><div class="adress_add">+ 新增地址</div></router-link>
+    <router-link to="addAdress">
+      <div class="adress_add">+ 新增地址</div>
+    </router-link>
 
     <div class="adress_footer" @click="UpdateAddress">确认选择</div>
   </div>
@@ -55,15 +57,19 @@
         })
       },
       //删除
-      delectMemberAddress() {
+      delectMemberAddress(id) {
         api.DelectMemberAddress({
           "app_key": "app_id_1",
           token: this.$store.state.token,
           "data": {
-            "id": "19"
+            id: id,
           },
         }).then((res) => {
-          console.log(res);
+          if (res.status === 'sucess') {
+            this.memberAddressList();
+          }else{
+          	alert(res.msg)
+          }
         }).catch((error) => {
           console.log(error)
         })
@@ -74,7 +80,7 @@
           "app_key": "app_id_1",
           token: this.$store.state.token,
           "data": {
-            "id": "25"
+            "id": "27"
           },
         }).then((res) => {
           console.log(res);
