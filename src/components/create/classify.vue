@@ -54,13 +54,13 @@
           <span class="right_line fl"></span>
         </div>
         <div class="linlei_list">
-          <img src="@/assets/class_pic.png" alt="" class="classify_banner">
+          <img :src="menuListImg" alt="" class="classify_banner">
           <div class="classify_title"><i></i>回收类型<span>（以下单价为上海市平均回收价）</span></div>
           <div class="classify_main">
             <div class="classify_item" v-for="item in subList" :key="item.id">
               <img :src="item.icon?item.icon:''" alt="">
-              <div class="name">{{item.name}}</div>
-              <div class="price" @click="openAlert1">{{item.priceAndUnit}}</div>
+              <div class="name" @click="openAlert1">{{item.name}}</div>
+              <div class="price">{{item.priceAndUnit}}</div>
             </div>
           </div>
         </div>
@@ -86,7 +86,7 @@
       <div class="text">2. 回收物总数量大于30个</div>
       <div class="text">3. 回收物总金额达到50.00元</div>
       <div class="text">满足上述任一标准即可哦！</div>
-      <div @click="closeOrders" class="btn">仍然下单</div>
+      <div @click="closeOrdersPush" class="btn">仍然下单</div>
       <div @click="closeOrders" class="btn">我在攒一攒吧</div>
     </div>
 
@@ -117,6 +117,7 @@
         showShadow: false,
         showAlert1: false,
         showAlert2: false,
+        menuListImg: '',
       }
     },
     computed: mapGetters({
@@ -137,6 +138,7 @@
         }).then((res) => {
           console.log(res);
           this.menulist = res.data;
+          this.menuListImg = res.data[0].icon;
           this.isId = res.data[0].id;
           api.getSubList({
             "app_key": "app_id_1",
@@ -157,6 +159,7 @@
       },
       getList(id, index) {
         this.isId = id;
+        this.menuListImg = this.menulist[index].icon
         this.isActive = index;
         api.getSubList({
           "app_key": "app_id_1",
@@ -207,6 +210,12 @@
         this.showAlert2 = false;
         document.querySelector('.details_wrap').style.overflow = 'auto';
       },
+      closeOrdersPush() {
+        this.$router.push({
+          path: '/uploadimage1'
+        })
+      },
+
     }
   }
 </script>
