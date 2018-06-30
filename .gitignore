@@ -3,6 +3,7 @@
 # Logs
 .idea/
 node_modules/
+dist/
 
 ### Example user template template
 ### Example user template
