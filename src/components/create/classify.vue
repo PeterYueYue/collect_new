@@ -8,35 +8,35 @@
       </ul>
     </div>
     <!-- 数码家电 -->
-    <!--<div class="content clearfix">-->
-      <!--<ul class="commodity fl">-->
-        <!--<li-->
-          <!--v-for="(item ,index) in menulist"-->
-          <!--:key="item.id"-->
-          <!--class="item"-->
-          <!--v-bind:class="{ active: isActive == index }"-->
-          <!--@click="getList(item.id,index)"-->
-        <!--&gt;{{item.name}}-->
-        <!--</li>-->
-      <!--</ul>-->
-      <!--<div class="pinlei fl">-->
-        <!--<div class="title clearfix">-->
-          <!--<span class="left_line fl"></span>-->
-          <!--<h5 class="fl">品类</h5>-->
-          <!--<span class="right_line fl"></span>-->
-        <!--</div>-->
-        <!--<ul class="linlei_list clearfix">-->
-          <!--<li class="item  fl" v-for="(item,index) in subList" :key="item.id" @click="getAddressInfo(item,index)">-->
-            <!--<router-link :to="'/addressoption/'+item.id">-->
-              <!--<img :src=item.icon alt="">-->
-              <!--<span>{{item.name}}</span>-->
-            <!--</router-link>-->
-          <!--</li>-->
-        <!--</ul>-->
-      <!--</div>-->
-    <!--</div>-->
+    <div class="content clearfix" v-show="showUl">
+      <ul class="commodity fl">
+        <li
+          v-for="(item ,index) in menulist"
+          :key="item.id"
+          class="item"
+          v-bind:class="{ active: isActive == index }"
+          @click="getList(item.id,index)"
+        >{{item.name}}
+        </li>
+      </ul>
+      <div class="pinlei fl">
+        <div class="title clearfix">
+          <span class="left_line fl"></span>
+          <h5 class="fl">品类</h5>
+          <span class="right_line fl"></span>
+        </div>
+        <ul class="linlei_list clearfix">
+          <li class="item  fl" v-for="(item,index) in subList" :key="item.id" @click="getAddressInfo(item,index)">
+            <router-link :to="'/addressoption/'+item.id">
+              <img :src=item.icon alt="">
+              <span>{{item.name}}</span>
+            </router-link>
+          </li>
+        </ul>
+      </div>
+    </div>
     <!-- 生活垃圾 -->
-    <div class="content clearfix">
+    <div class="content clearfix" v-show="!showUl">
       <ul class="commodity fl">
         <li
           v-for="(item ,index) in menulist"
@@ -104,7 +104,7 @@
   import api from '@/api/api.js'
   import '@/assets/createstyle/tool.css'
   import '@/assets/createstyle/classify.css'
-  import {mapGetters} from 'vuex';
+  import { mapGetters } from 'vuex';
 
   export default {
     data() {
@@ -122,36 +122,39 @@
     computed: mapGetters({
       token: "token"
     }),
-    created: function (value) {
-      api.getClassify({
-        "app_key": "app_id_1",
-        "data": {
-          "level": "0",
-          "title": value ? 'DIGITAL' : 'HOUSEHOLD'
-        },
-        token: this.token
-      }).then((res) => {
-        console.log(res);
-        this.menulist = res.data;
-        this.isId = res.data[0].id;
-        api.getSubList({
+    created: function () {
+      this.getClassFiy();
+    },
+    methods: {
+      getClassFiy(value){
+        api.getClassify({
           "app_key": "app_id_1",
           "data": {
-            "id": this.isId,
-            "communityId": "45",
-            "title": "HOUSEHOLD"
+            "level": "0",
+            "title": value ? 'HOUSEHOLD' : 'DIGITAL'
           },
           token: this.token
         }).then((res) => {
-          this.subList = res.data;
+          console.log(res);
+          this.menulist = res.data;
+          this.isId = res.data[0].id;
+          api.getSubList({
+            "app_key": "app_id_1",
+            "data": {
+              "id": this.isId,
+              "communityId": "45",
+              "title": "HOUSEHOLD"
+            },
+            token: this.token
+          }).then((res) => {
+            this.subList = res.data;
+          }).catch((erro) => {
+            console.log(erro)
+          })
         }).catch((erro) => {
           console.log(erro)
-        })
-      }).catch((erro) => {
-        console.log(erro)
-      });
-    },
-    methods: {
+        });
+      },
       getList(id, index) {
         this.isId = id;
         this.isActive = index;
@@ -186,6 +189,7 @@
       },
       openUl(type) {
         this.showUl = type;
+        this.getClassFiy(!type);
       },
       openAlert() {
         this.showShadow = true;
