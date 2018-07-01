@@ -7,13 +7,13 @@
         <bannebox class="home_wrap_banner"></bannebox>
         <!-- 有订单时 -->
         <div v-if="showList" style="padding-bottom: 1.7rem">
-          <div class="home_address">回收地址
+          <div class="home_address" v-show="adressList===''">回收地址
             <router-link to="addAdress">
               <div class="add">添加回收地址</div>
             </router-link>
             <img
               src="@/assets/icon_right.png" alt=""></div>
-          <div class="home_address">回收地址
+          <div class="home_address" v-show="adressList!==''">回收地址
             <router-link to="adressList">
               <div class="add reaonly">{{adressList
                 .address ? adressList.address : ''}}{{adressList.houseNumber}}

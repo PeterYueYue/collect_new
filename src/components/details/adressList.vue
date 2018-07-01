@@ -67,8 +67,8 @@
         }).then((res) => {
           if (res.status === 'sucess') {
             this.memberAddressList();
-          }else{
-          	alert(res.msg)
+          } else {
+            alert(res.msg)
           }
         }).catch((error) => {
           console.log(error)
@@ -88,9 +88,12 @@
           console.log(error)
         })
       },
-      selectAdress() {
+      selectAdress(id) {
         this.$router.push({
-          path: '/selectAdress'
+          path: '/selectAdress',
+          query: {
+            id
+          }
         })
       },
     }

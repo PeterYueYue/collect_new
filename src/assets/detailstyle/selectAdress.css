@@ -4,13 +4,13 @@
 
 .select_item {
   background: #fff;
-  border-bottom: 0.01rem rgb(221,221,221) solid;
+  border-bottom: 0.01rem rgb(221, 221, 221) solid;
   padding-left: 0.3rem;
 }
 
 .select_item .title {
   padding: 0.5rem 0 0.3rem;
-  border-bottom: 0.01rem rgb(221,221,221) solid;
+  border-bottom: 0.01rem rgb(221, 221, 221) solid;
   overflow: hidden;
 }
 
@@ -22,25 +22,26 @@
   width: 1.6rem;
   float: left;
   font-size: 0.34rem;
-  color: rgb(0,0,0);
+  color: rgb(0, 0, 0);
+  min-height: .1rem
 }
 
 .select_item .title .right {
   width: 5.3rem;
   float: left;
   font-size: 0.3rem;
-  color: rgb(117,117,117);
+  color: rgb(117, 117, 117);
   position: relative;
 }
 
-.select_item .title .right input{
+.select_item .title .right input {
   border: none;
   outline: none;
   position: relative;
   top: 0.05rem;
 }
 
-.select_item .title .right img{
+.select_item .title .right img {
   position: absolute;
   right: 0;
   top: 50%;
@@ -56,7 +57,7 @@
   text-align: center;
   font-size: 0.36rem;
   color: #fff;
-  background: rgb(0,160,233);
+  background: rgb(0, 160, 233);
   margin: 0.5rem auto 0;
   border-radius: 0.1rem;
 }
