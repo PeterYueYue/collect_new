@@ -110,6 +110,7 @@ body {
         position: absolute;
         top: 15/@rem;
         right: 10/@rem;
+        line-height: 30/@rem;
       }
       .price {
         color: #f4333c;
@@ -278,6 +279,7 @@ body {
           border-bottom: 1/@rem #ddd solid;
           margin-left: 30/@rem;
           padding: 45/@rem 30/@rem 25/@rem 5/@rem;
+          position: relative;
           &:first-child {
             margin-top: -30/@rem;
           }
@@ -300,8 +302,35 @@ body {
             color: #f4333c;
             padding-left: 120/@rem;
             margin-top: 10/@rem;
+            position: relative;
             span {
               font-size: 36/@rem;
+            }
+          }
+          .calculation {
+            font-size: 30/@rem;
+            float: right;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            color: #000;
+            .round {
+              display: inline-block;
+              width: 28/@rem;
+              height: 28/@rem;
+              border-radius: 50%;
+              background: #00a0e9;
+              text-align: center;
+              line-height: 28/@rem;
+              color: #fff;
+              font-size: 24/@rem;
+              span {
+                &:nth-of-type(2) {
+                  font-size: 24/@rem;
+                  display: inline-block;
+                  padding: 0 0/@rem;
+                }
+              }
             }
           }
         }
