@@ -156,8 +156,7 @@
             if (e.area.id == itemId) {
               commList = e.community
             }
-          })
-
+          });
           console.log(commList);
           this.communityList = commList;
           this.streetList = res.data;
@@ -201,8 +200,27 @@
         this.communityList = this.streetList[this.selectStreet.index].community
       },
       saveData() {
-        this.$router.push({
-          path: '/adressList'
+        api.SaveMemberAddress({
+          "app_key": "app_id_1",
+          token: this.$store.state.token,
+          "data": {
+            "address": this.selectArea.name + this.selectStreet.name + this.selectCommunity.name + this.form.address,
+            "areaId": this.selectArea.id,
+            "houseNumber": this.form.address,
+            "name": this.form.name,
+            "tel": this.form.tel,
+            "id": this.$route.query.id,  //id传入有值时是保存修改地址，当地不传或传空时为新增地址
+            // "communityId": this.selectCommunity.id,
+            // "streetId": this.selectStreet.id,
+            "communityId":"2118",
+            "streetId":"17"
+          },
+        }).then((res) => {
+          this.$router.push({
+            path: '/adressList'
+          })
+        }).catch((error) => {
+          console.log(error)
         })
       }
     }
