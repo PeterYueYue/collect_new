@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // 测试
 // let base ='http://101.132.111.141:80';
-// let base ='http://192.168.1.140:9000';
+// let base ='http://192.168.1.155:9000';
 let base = 'http://180.153.19.161:9000';
 // let base = 'http://192.168.1.162:9000';
 // import state   from './../vuex/store.js'
