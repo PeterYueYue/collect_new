@@ -75,12 +75,12 @@
         })
       },
       //设置默认
-      UpdateAddress() {
+      UpdateAddress(id) {
         api.UpdateIsSelectedAddress({
           "app_key": "app_id_1",
           token: this.$store.state.token,
           "data": {
-            "id": "27"
+            "id": id,
           },
         }).then((res) => {
           console.log(res);
