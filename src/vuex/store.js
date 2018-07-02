@@ -137,7 +137,6 @@ export default new Vuex.Store({
       },
       clear_Future_Price(state,data){ // 初始评估价格
 
-        console.log(111)
         this.state.futurePrice = ''
         this.state.statisticsPrice = ''
         
