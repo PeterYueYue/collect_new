@@ -7,12 +7,12 @@
         <div class="holder">
           <input
             type="radio"
-            :id="'radio'+item.id"
+            :id="item.id"
             name="radio"
             class="radio"
-            :value="'radio'+item.id"
+            :value="item.id"
             v-model="radio"/>
-          <label :for="'radio'+item.id"><i></i>默认地址</label>
+          <label :for="item.id"><i></i>默认地址</label>
         </div>
         <div class="btn_del" @click="delectMemberAddress(item.id)">删除</div>
         <div class="btn_edit" @click="selectAdress(item.id)">修改</div>
@@ -32,7 +32,7 @@
   export default {
     data() {
       return {
-        radio: 'radio19',
+        radio: '',
         addressList: {},
       }
     },
@@ -50,6 +50,7 @@
           token: this.$store.state.token,
         }).then((res) => {
           this.addressList = res.data;
+          this.radio = this.addressList[0].id
         }).catch((error) => {
           console.log(error)
         })
@@ -73,15 +74,16 @@
         })
       },
       //设置默认
-      UpdateAddress(id) {
+      UpdateAddress() {
         api.UpdateIsSelectedAddress({
           "app_key": "app_id_1",
           token: this.$store.state.token,
           "data": {
-            "id": id,
+            "id": this.radio,
           },
         }).then((res) => {
           console.log(res);
+          this.memberAddressList();
         }).catch((error) => {
           console.log(error)
         })
