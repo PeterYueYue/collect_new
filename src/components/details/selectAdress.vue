@@ -50,7 +50,7 @@
       </div>
       <div class="title">
         <div class="left">详细地址</div>
-        <div class="right"><input type="text" placeholder="请输入街道、楼牌号等" v-model="form.address"></div>
+        <div class="right"><input type="text" placeholder="请输入楼牌号等" v-model="form.address"></div>
       </div>
     </div>
     <div class="select_btn" @click="saveData">保存</div>
