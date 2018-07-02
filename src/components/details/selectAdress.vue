@@ -12,7 +12,7 @@
       <div class="title">
         <div class="left">所在地址</div>
         <div class="right">
-          <select name=""  v-model="selectArea" @change="getStreet(false)">
+          <select name="" v-model="selectArea" @change="getStreet(false)">
             <option value="">请选择所在行政区</option>
             <option v-for="(items,index) in areaList"
                     :value="{id:items.id,name:items.areaName}"
@@ -25,9 +25,9 @@
       <div class="title" v-if="selectArea">
         <div class="left">街道/镇</div>
         <div class="right">
-          <select name=""  v-model="selectStreet" @change="getCommunity">
+          <select name="" v-model="selectStreet" @change="getCommunity">
             <option value="">{{addressInfo}}</option>
-            <option v-for="(  items,index) in streetList"
+            <option v-for="(items,index) in streetList"
                     :value="{id:items.area.id,index:index,name:items.area.areaName}"
                     :key="index">
               {{items.area.areaName}}
@@ -35,7 +35,7 @@
           </select>
           <img src="@/assets/icon_right.png" alt=""></div>
       </div>
-      <div class="title"  v-show="communityName" v-if="addressInfo">
+      <div class="title" v-show="communityName" v-if="addressInfo">
         <div class="left">小区</div>
         <div class="right">
           <select name="" v-model="selectCommunity">
@@ -75,8 +75,8 @@
         selectArea: '',
         selectStreet: '',
         selectCommunity: '',
-        addressInfo:'',
-        communityName:''
+        addressInfo: '',
+        communityName: ''
       }
     },
     mounted() {
@@ -86,7 +86,7 @@
       this.selectMemberAddress();
     },
     watch: {
-      selectArea(val){
+      selectArea(val) {
       }
     },
     methods: {
@@ -95,12 +95,10 @@
           "app_key": "app_id_1",
           token: this.$store.state.token,
           "data": {
-//            "id": "24"
             "id": this.$route.query.id
           },
         }).then((res) => {
-
-          console.log(res)
+          console.log(res);
           this.form.name = res.data.memberAddress.name;
           this.form.tel = res.data.memberAddress.tel;
           this.form.address = res.data.memberAddress.address;
@@ -110,33 +108,25 @@
             id: res.data.memberAddress.areaId,
             name: res.data.areaName
           };
-          
+
           this.getAreaList();
           this.yyGetSree(res.data.memberAddress.streetId);
           // this.getStreet(true);
           this.yyGtecom();
           this.selectStreet = {
-            // id: 51,
-            // name: "江宁路街道",
-            // index: 0
-           id: res.data.memberAddress.streetId,
-           name: res.data.streeName,
-           index: res.data.streetIndex
+            id: res.data.memberAddress.streetId,
+            name: res.data.streeName,
+            index: res.data.streetIndex
           };
           this.selectCommunity = {
-            // id: 2323,
-            // name: "爱文坊"
-           id: res.data.memberAddress.communityId,
-           name: res.data.communityName
+            id: res.data.memberAddress.communityId,
+            name: res.data.communityName
           };
-
-          
-          
         }).catch((error) => {
           console.log(error)
         })
       },
-      getAreaList(){
+      getAreaList() {
         api.getAreaList({
           "app_key": "app_id_1",
           "data": {
@@ -150,8 +140,7 @@
           console.log(error)
         })
       },
-
-      yyGetSree(itemId){
+      yyGetSree(itemId) {
         api.areaChildList({
           "app_key": "app_id_1",
           "data": {
@@ -160,33 +149,27 @@
           },
           token: this.$store.state.token,
         }).then((res) => {
-
           let list = res.data;
           let commList = [];
-          list.forEach((e)=>{
-            console.log(e)
-            if(e.area.id == itemId ){
+          list.forEach((e) => {
+            console.log(e);
+            if (e.area.id == itemId) {
               commList = e.community
             }
-          })  
+          })
 
-          console.log(commList)
+          console.log(commList);
           this.communityList = commList;
           this.streetList = res.data;
-
-
-          
-
         }).catch((erro) => {
           console.log(erro)
         })
-
       },
-      yyGtecom(){
+      yyGtecom() {
         this.selectCommunity = '';
         this.communityList = this.streetList[this.selectStreet.index].community
       },
-      getStreet(status){
+      getStreet(status) {
         api.areaChildList({
           "app_key": "app_id_1",
           "data": {
@@ -195,16 +178,12 @@
           },
           token: this.$store.state.token,
         }).then((res) => {
-
-          console.log(res,"123")
-
           this.streetList = res.data;
           this.addressInfo = '请选择街道';
           this.communityName = '';
           this.selectStreet = '';
           this.selectCommunity = '';
           this.streetList = res.data;
-
           // if (!status) {
           //   this.selectStreet = '';
           //   this.selectCommunity = '';
@@ -216,11 +195,8 @@
           console.log(erro)
         })
       },
-      getCommunity(){
-
+      getCommunity() {
         this.communityName = '请选择小区';
-
-
         this.selectCommunity = '';
         this.communityList = this.streetList[this.selectStreet.index].community
       },
@@ -228,9 +204,6 @@
         this.$router.push({
           path: '/adressList'
         })
-
-
-
       }
     }
   }
