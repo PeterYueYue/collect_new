@@ -73,7 +73,7 @@
       </div>
     </div>
 
-    <div class="classify_footer">
+    <div class="classify_footer" v-show="!showUl">
       <div class="f_title">
         <div class="icon"><img src="@/assets/class_icon.png" alt=""><i>{{numTotal}}</i></div>
         <div
