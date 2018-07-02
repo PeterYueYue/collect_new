@@ -60,14 +60,13 @@
             <div class="classify_item" v-for="item in subList" :key="item.id">
               <img :src="item.icon?item.icon:''" alt="">
               <div class="name">{{item.name}}</div>
-              <div class="price">¥ {{item.unitPrice}} / {{item.unit}}
+              <div class="price">¥<span>{{item.price}}/{{item.unit}}</span>
                 <div class="calculation">
                   <span class="less round" v-if="item.number" @click="less(item)">-</span>
                   <span v-if="item.number">{{item.number}}</span>
                   <span class="plus round" @click="plus(item)">+</span>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -160,9 +159,7 @@
             token: this.token
           }).then((res) => {
             res.data.map((items) => {
-              items.unitPrice = '3.60';
               items.unitWeight = '6';
-              items.unit = '件';
               items.number = 0
             });
             this.subList = res.data;
@@ -175,7 +172,7 @@
       },
       getList(id, index) {
         this.isId = id;
-        this.menuListImg = this.menulist[index].icon
+        this.menuListImg = this.menulist[index].icon;
         this.isActive = index;
         api.getSubList({
           "app_key": "app_id_1",
@@ -256,7 +253,7 @@
         let numTotal = 0;
         let weightTotal = 0;
         this.subList.map((items) => {
-          priceTotal += items.number * items.unitPrice;
+          priceTotal += items.number * items.price;
           weightTotal += items.number * items.unitWeight;
           numTotal += items.number;
         });
