@@ -2,7 +2,7 @@
   <div class="adress_wrap">
     <div class="adress_item" v-for="item in addressList" :key="item.id">
       <div class="name">{{item.name}} {{item.tel}}</div>
-      <div class="adress">{{item.address}}{{item.houseNumber}}</div>
+      <div class="adress">{{item.address}}</div>
       <div class="btn">
         <div class="holder">
           <input

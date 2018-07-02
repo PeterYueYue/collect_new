@@ -23,10 +23,10 @@
           <img src="@/assets/icon_right.png" alt=""></div>
       </div>
       <div class="title" v-if="selectArea">
-        <div class="left">街道/镇</div>
+        <div class="left"></div>
         <div class="right">
           <select name="" v-model="selectStreet" @change="getCommunity">
-            <option value="">{{addressInfo}}</option>
+            <option value="">请选择所在街道/镇</option>
             <option v-for="(items,index) in streetList"
                     :value="{id:items.area.id,index:index,name:items.area.areaName}"
                     :key="index">
@@ -35,11 +35,11 @@
           </select>
           <img src="@/assets/icon_right.png" alt=""></div>
       </div>
-      <div class="title" v-show="communityName" v-if="addressInfo">
-        <div class="left">小区</div>
+      <div class="title" v-if="selectStreet">
+        <div class="left"></div>
         <div class="right">
           <select name="" v-model="selectCommunity">
-            <option value="">{{communityName}}</option>
+            <option value="">请选择所在小区名称</option>
             <option v-for="(items,index) in communityList"
                     :value="{id:items.id,name:items.name}"
                     :key="index">
@@ -50,7 +50,7 @@
       </div>
       <div class="title">
         <div class="left">详细地址</div>
-        <div class="right"><input type="text" placeholder="请输入楼牌号等" v-model="form.address"></div>
+        <div class="right"><input type="text" placeholder="请输入街道、楼牌号等" v-model="form.address"></div>
       </div>
     </div>
     <div class="select_btn" @click="saveData">保存</div>
@@ -75,8 +75,6 @@
         selectArea: '',
         selectStreet: '',
         selectCommunity: '',
-        addressInfo: '',
-        communityName: ''
       }
     },
     mounted() {
@@ -86,7 +84,7 @@
       this.selectMemberAddress();
     },
     watch: {
-      selectArea(val) {
+      selectArea(val){
       }
     },
     methods: {
@@ -98,35 +96,33 @@
             "id": this.$route.query.id
           },
         }).then((res) => {
-          console.log(res);
           this.form.name = res.data.memberAddress.name;
           this.form.tel = res.data.memberAddress.tel;
-          this.form.address = res.data.memberAddress.address;
-          this.addressInfo = res.data.streeName;
-          this.communityName = res.data.communityName;
+          this.form.address = res.data.memberAddress.houseNumber;
           this.selectArea = {
             id: res.data.memberAddress.areaId,
             name: res.data.areaName
           };
-
           this.getAreaList();
-          this.yyGetSree(res.data.memberAddress.streetId);
-          // this.getStreet(true);
-          this.yyGtecom();
-          this.selectStreet = {
-            id: res.data.memberAddress.streetId,
-            name: res.data.streeName,
-            index: res.data.streetIndex
-          };
-          this.selectCommunity = {
-            id: res.data.memberAddress.communityId,
-            name: res.data.communityName
-          };
+          this.getStreet(true, (streetList) => {
+            const streetIndex = streetList.findIndex((items) => {
+              return items.area.areaName === res.data.streeName
+            });
+            this.selectStreet = {
+              id: res.data.memberAddress.streetId,
+              name: res.data.streeName,
+              index: streetIndex
+            };
+            this.selectCommunity = {
+              id: res.data.memberAddress.communityId,
+              name: res.data.communityName
+            };
+          });
         }).catch((error) => {
           console.log(error)
         })
       },
-      getAreaList() {
+      getAreaList(){
         api.getAreaList({
           "app_key": "app_id_1",
           "data": {
@@ -140,35 +136,7 @@
           console.log(error)
         })
       },
-      yyGetSree(itemId) {
-        api.areaChildList({
-          "app_key": "app_id_1",
-          "data": {
-            "id": this.selectArea.id,
-            "level": 1
-          },
-          token: this.$store.state.token,
-        }).then((res) => {
-          let list = res.data;
-          let commList = [];
-          list.forEach((e) => {
-            console.log(e);
-            if (e.area.id == itemId) {
-              commList = e.community
-            }
-          });
-          console.log(commList);
-          this.communityList = commList;
-          this.streetList = res.data;
-        }).catch((erro) => {
-          console.log(erro)
-        })
-      },
-      yyGtecom() {
-        this.selectCommunity = '';
-        this.communityList = this.streetList[this.selectStreet.index].community
-      },
-      getStreet(status) {
+      getStreet(status, cb){
         api.areaChildList({
           "app_key": "app_id_1",
           "data": {
@@ -178,24 +146,20 @@
           token: this.$store.state.token,
         }).then((res) => {
           this.streetList = res.data;
-          this.addressInfo = '请选择街道';
-          this.communityName = '';
-          this.selectStreet = '';
-          this.selectCommunity = '';
-          this.streetList = res.data;
-          // if (!status) {
-          //   this.selectStreet = '';
-          //   this.selectCommunity = '';
-          // } else {
-          //   this.communityList = this.streetList[this.selectStreet.index].community
-          // }
-
+          if (cb) {
+            cb(res.data)
+          }
+          if (!status) {
+            this.selectStreet = '';
+            this.selectCommunity = '';
+          } else {
+            this.communityList = this.streetList[this.selectStreet.index].community
+          }
         }).catch((erro) => {
           console.log(erro)
         })
       },
-      getCommunity() {
-        this.communityName = '请选择小区';
+      getCommunity(){
         this.selectCommunity = '';
         this.communityList = this.streetList[this.selectStreet.index].community
       },
@@ -210,10 +174,8 @@
             "name": this.form.name,
             "tel": this.form.tel,
             "id": this.$route.query.id,  //id传入有值时是保存修改地址，当地不传或传空时为新增地址
-            // "communityId": this.selectCommunity.id,
-            // "streetId": this.selectStreet.id,
-            "communityId":"2118",
-            "streetId":"17"
+            "communityId": this.selectCommunity.id,
+            "streetId": this.selectStreet.id,
           },
         }).then((res) => {
           this.$router.push({
