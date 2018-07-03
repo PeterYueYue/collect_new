@@ -183,10 +183,15 @@
             "categoryId": this.addRessId.id,
             "categoryParentId": this.addRessId.parentId,
             "remarks": this.textareaValue,
-            "fullAddress": this.mpnumber
+            "fullAddress": this.mpnumber,
+
+            //垃圾回收新增的字段
+            "streetId": "123",
+            "idAndListList": [{}],
+            "title": "HOUSEHOLD",
           }
         }).then((res) => {
-          this.$store.dispatch('clear')
+          this.$store.dispatch('clear');
           if (res.data == "SUCCESS") {
             alert("恭喜您 下单成功")
             this.$router.push({path: "/home"})
