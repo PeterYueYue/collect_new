@@ -10,7 +10,7 @@
     <div class="callbackinfo">
       <img class="" :src="addRessId.icon" alt="">
       <div class=" information ">
-        <h5>{{addRessId.name}}</h5>
+        <h5>{{addRessId?addRessId.name:''}}</h5>
         <div class="recovery_price">预估价格:<span class="young">￥<span>{{futurePrice}}</span></span></div>
         <div class="type_remind">提示：预估价格仅根据市场参考,最终成交价以上门面议为准.</div>
       </div>

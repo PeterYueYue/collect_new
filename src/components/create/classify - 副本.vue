@@ -27,7 +27,7 @@
         </div>
         <ul class="linlei_list clearfix">
           <li class="item  fl" v-for="(item,index) in subList" :key="item.id" @click="getAddressInfo(item,index)">
-            <router-link :to="'/typeSelect/'+addRessId.id">
+            <router-link :to="'/addressoption/'+item.id">
               <img :src=item.icon alt="">
               <span>{{item.name}}</span>
             </router-link>
@@ -130,7 +130,6 @@
       }
     },
     computed: mapGetters({
-      addRessId: 'addRessId',
       token: "token"
     }),
     created: function () {
