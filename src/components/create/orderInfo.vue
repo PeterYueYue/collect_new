@@ -19,13 +19,16 @@
         <li class="item clearfix ">
           <strong class="fl">电话:</strong>
           <div class="nameBox  fl">
-            <input type="number" @blur="isPhoneNumber" v-model="phoneNumber" placeholder="请输入手机号码 (必填)" value="phoneNumber">
+            <input type="number" @blur="isPhoneNumber" v-model="phoneNumber" placeholder="请输入手机号码 (必填)"
+                   value="phoneNumber">
             <span v-if="tipPhone">电话号码格式不正确</span>
           </div>
         </li>
         <li class="item clearfix">
           <strong class="fl">地址:</strong>
-          <div class="nameBox fl"><div class="addressSt">{{addResstext.address}}</div></div>
+          <div class="nameBox fl">
+            <div class="addressSt">{{addResstext.address}}</div>
+          </div>
         </li>
         <li class="item">
           <strong class="fl">门牌号:</strong>
@@ -58,8 +61,8 @@
 
     <div class="information">提交订单后将有工作人员与您电话沟通，请保持手机畅通</div>
     <div class="bottomInformation">
-      <div>本服务由{{detailsList.name}}提供</div>
-      <div>{{detailsList.tel}}</div>
+      <div>本服务由{{detailsList?detailsList.name:''}}提供</div>
+      <div>{{detailsList?detailsList.tel:''}}</div>
     </div>
 
     <div v-show="show" class="changeTimeBox">

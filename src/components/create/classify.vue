@@ -154,7 +154,7 @@
             "app_key": "app_id_1",
             "data": {
               "id": this.isId,
-              "communityId": this.addResstext.id,
+              "communityId": "2562",
               "title": "HOUSEHOLD"
             },
             token: this.token
@@ -179,7 +179,7 @@
           "app_key": "app_id_1",
           "data": {
             "id": this.isId,
-            "communityId": this.addResstext.id,
+            "communityId": "2562",
             "title": "HOUSEHOLD"
           },
           token: this.token
