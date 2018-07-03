@@ -110,7 +110,7 @@
   import api from '@/api/api.js'
   import '@/assets/createstyle/tool.css'
   import '@/assets/createstyle/classify.css'
-  import { mapGetters } from 'vuex';
+  import {mapGetters} from 'vuex';
 
   export default {
     data() {
@@ -124,6 +124,7 @@
         showAlert1: false,
         showAlert2: false,
         menuListImg: '',
+        selectProductList: [],
         priceTotal: 0,
         numTotal: 0,
         weightTotal: 0
@@ -146,7 +147,6 @@
           },
           token: this.token
         }).then((res) => {
-          console.log(res);
           this.menulist = res.data;
           this.menuListImg = res.data[0].icon;
           this.isId = res.data[0].id;
@@ -160,8 +160,14 @@
             token: this.token
           }).then((res) => {
             res.data.map((items) => {
-              items.unitWeight = '6';
-              items.number = 0
+              const haveIn = this.selectProductList.findIndex((el) => {
+                return el.id === items.id
+              });
+              if (haveIn > -1) {
+                items.number = this.selectProductList[haveIn].number
+              } else {
+                items.number = 0
+              }
             });
             this.subList = res.data;
           }).catch((erro) => {
@@ -184,6 +190,16 @@
           },
           token: this.token
         }).then((res) => {
+          res.data.map((items) => {
+            const haveIn = this.selectProductList.findIndex((el) => {
+              return el.id === items.id
+            });
+            if (haveIn > -1) {
+              items.number = this.selectProductList[haveIn].number
+            } else {
+              items.number = 0
+            }
+          });
           this.subList = res.data;
         }).catch((erro) => {
           console.log(erro)
@@ -241,6 +257,14 @@
         })
       },
       plus(item){
+        const haveIn = this.selectProductList.findIndex((el) => {
+          return el.id === item.id
+        });
+        if (haveIn > -1) {
+          this.selectProductList[haveIn].number += 1;
+        } else {
+          this.selectProductList.push(Object.assign(item, {number: 1}))
+        }
         item.number += 1;
         this.total();
         this.openAlert1()
@@ -253,7 +277,7 @@
         let priceTotal = 0;
         let numTotal = 0;
         let weightTotal = 0;
-        this.subList.map((items) => {
+        this.selectProductList.map((items) => {
           priceTotal += items.number * items.price;
           weightTotal += items.number * items.unitWeight;
           numTotal += items.number;
