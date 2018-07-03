@@ -108,7 +108,7 @@ label {
   border-radius: 100%;
   display: inline-block;
   position: relative;
-  top: 0.05rem;
+  top: 0.06rem;
   right: 0.2rem;
 }
 .radio + label i:before, .radio + label i:after{
@@ -142,7 +142,7 @@ label {
   border-radius: 100%;
   display: inline-block;
   position: relative;
-  top: 0.05rem;
+  top: 0.06rem;
   right: 0.2rem;
   background-color: #00a0e9;
 }
