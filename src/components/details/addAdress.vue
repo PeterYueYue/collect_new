@@ -49,6 +49,17 @@
       </div>
     </div>
     <div class="add_btn" @click="saveData">保存</div>
+
+    <!-- 弹窗 -->
+    <div class="add_shadow" v-if="showShadow"></div>
+    <div class="add_shadow_box" v-if="showNul">
+      <div>上述信息不能为空</div>
+      <div class="add_shadow_btn" @click="closeShadow">确定</div>
+    </div>
+    <div class="add_shadow_box" v-if="showCance">
+      <div>手机号格式不正确</div>
+      <div class="add_shadow_btn" @click="closeShadow">确定</div>
+    </div>
   </div>
 </template>
 
@@ -70,6 +81,9 @@
         selectArea: '',
         selectStreet: '',
         selectCommunity: '',
+        showShadow: false,
+        showNul: false,
+        showCance: false,
       }
     },
     mounted(){
@@ -77,6 +91,15 @@
     },
     methods: {
       saveData(){
+        //手机正则
+        let rs = /0?(13|14|15|17|18|19)[0-9]{9}/;
+        let resultTel = rs.test(this.form.tel);
+        if (!resultTel) {
+          this.showShadow = true;
+          this.showCance = true;
+          this.form.tel = '';
+          return;
+        }
         api.SaveMemberAddress({
           "app_key": "app_id_1",
           token: this.$store.state.token,
@@ -91,9 +114,14 @@
             "streetId": this.selectStreet.id,
           },
         }).then((res) => {
-          this.$router.push({
-            path: '/adressList'
-          })
+          if(res.data=='success'){
+            this.$router.push({
+              path: '/adressList'
+            })
+          }else{
+            this.showShadow = true;
+            this.showNul = true;
+          }
         }).catch((error) => {
           console.log(error)
         })
@@ -131,7 +159,12 @@
       getCommunity(){
         this.selectCommunity = '';
         this.communityList = this.streetList[this.selectStreet.index].community
-      }
+      },
+      closeShadow() {
+        this.showShadow = false;
+        this.showNul = false;
+        this.showCance = false;
+      },
     }
   }
 </script>
