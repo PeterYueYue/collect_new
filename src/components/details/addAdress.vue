@@ -114,7 +114,7 @@
             "streetId": this.selectStreet.id,
           },
         }).then((res) => {
-          if(res.data=='success'){
+          if(res.data=='保存地址成功'){
             this.$router.push({
               path: '/adressList'
             })
