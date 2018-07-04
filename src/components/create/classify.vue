@@ -132,6 +132,7 @@
     },
     computed: mapGetters({
       addRessId: 'addRessId',
+      adressInfo: 'adressInfo',
       token: "token"
     }),
     created: function () {
@@ -154,11 +155,12 @@
             "app_key": "app_id_1",
             "data": {
               "id": this.isId,
-              "communityId": "2562",
-              "title": "HOUSEHOLD"
+              "communityId": this.adressInfo.id,
+              "title": "DIGITAL"
             },
             token: this.token
           }).then((res) => {
+            console.log(res);
             res.data.map((items) => {
               const haveIn = this.selectProductList.findIndex((el) => {
                 return el.id === items.id
@@ -185,7 +187,7 @@
           "app_key": "app_id_1",
           "data": {
             "id": this.isId,
-            "communityId": "2562",
+            "communityId": this.adressInfo.id,
             "title": "HOUSEHOLD"
           },
           token: this.token
@@ -206,6 +208,7 @@
         })
       },
       getAddressInfo(item, id) {  //获取子集列表里的ID
+        this.$store.dispatch('setClassItemId',this.isId);
         this.$store.dispatch('setAddRessId', item);
         //获取地址信息
         api.MemberAddress({

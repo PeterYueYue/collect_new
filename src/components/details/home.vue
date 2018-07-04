@@ -186,6 +186,7 @@
           token: this.token
         }).then((res) => {
           console.log(res);
+          this.$store.dispatch('getAddressInfo',res.data);
           this.adressList = res.data;
         }).catch((error) => {
           console.log(error)

@@ -56,16 +56,17 @@
       addRessId: 'addRessId',
       statisticsPrice: 'statisticsPrice',
       futurePrice: 'futurePrice',
-      token: 'token'
+      token: 'token',
+      classID:'classID',
+      adressInfo: 'adressInfo',
     }),
     created() {
       api.futurePrices({
         "app_key": "app_id_1",
         "data": {
           "categoryAttrOptionPrices": this.statisticsPrice,
-          "categoryId": this.addRessId.id,
-          // "categoryId": 22,
-          "communityId": 1910,
+          "categoryId": this.classID,
+          "communityId": this.adressInfo.communityId,
         },
         token: this.token
       }).then((res) => {
