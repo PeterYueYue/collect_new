@@ -156,7 +156,7 @@
             "data": {
               "id": this.isId,
               "communityId": this.adressInfo.id,
-              "title": "DIGITAL"
+              "title": value ? 'HOUSEHOLD' : 'DIGITAL'
             },
             token: this.token
           }).then((res) => {
@@ -179,7 +179,7 @@
           console.log(erro)
         });
       },
-      getList(id, index) {
+      getList(id,index,value) {
         this.isId = id;
         this.menuListImg = this.menulist[index].icon;
         this.isActive = index;
@@ -188,7 +188,7 @@
           "data": {
             "id": this.isId,
             "communityId": this.adressInfo.id,
-            "title": "HOUSEHOLD"
+            "title":  value ? 'HOUSEHOLD' : 'DIGITAL'
           },
           token: this.token
         }).then((res) => {
