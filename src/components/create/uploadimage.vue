@@ -141,7 +141,6 @@
       },
       postImg() {
         //这里写接口
-
         ap.showLoading({
           content: '请稍后',
         });

@@ -135,7 +135,7 @@
 .uploadimage .recycle_description .nextbutton {
   width: 6.9rem;
   height: 0.84rem;
-  color: #ffffff;
+  color: #fff;
   font-size: 0.36rem;
   line-height: 0.84rem;
   text-align: center;
@@ -144,7 +144,7 @@
   border-radius: 0.1rem;
 }
 .uploadimage .recycle_description .nextbutton a {
-  color: #ffffff;
+  color: #fff;
   display: block;
   border-radius: 0.1rem;
 }
@@ -152,7 +152,7 @@
 .uploadimage .recycle_description .nextbutton1 {
   width: 7.5rem;
   height: 1rem;
-  color: #ffffff;
+  color: #ddd;
   font-size: 0.36rem;
   line-height: 1rem;
   text-align: center;
@@ -161,10 +161,9 @@
   bottom: 0;
 }
 .uploadimage .recycle_description .nextbutton1 a {
-  color: #bbb;
+  color: #fff;
   display: block;
   line-height: 1.01rem;
-  background: #ddd;
 }
 
 .upload_main {

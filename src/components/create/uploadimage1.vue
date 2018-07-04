@@ -68,8 +68,9 @@
 
     <div class="recycle_description">
       <div class="nextbutton1" @click="getTextareaValue">
-        <a v-if="imgsAddress.length<=0" href="javascript:;">请上传回收物图片 完成预约</a>
-        <router-link v-if="imgsAddress.length>0" to="/estimate">马上询价</router-link>
+        <a v-if="imgsAddress.length<=0" style="background-color:#bfc5c8;color:#ddd" href="javascript:;">请上传回收物图片
+          完成预约</a>
+        <router-link v-if="imgsAddress.length>0" to="/orderInfo">马上预约</router-link>
       </div>
     </div>
   </div>
@@ -164,7 +165,6 @@
       },
       postImg() {
         //这里写接口
-
         ap.showLoading({
           content: '请稍后',
         });
