@@ -9,9 +9,9 @@
     </header> -->
     <div class="userInfoBox">
       <ul class="userInfo">
-        <li class="item  clearfix ">
+        <li class="item clearfix">
           <strong class="fl">姓名:</strong>
-          <div class="nameBox  fl">
+          <div class="nameBox fl">
             <input @blur="isName" v-model="nameValue" placeholder="请输入联系人姓名 (必填)" type="text" value="nameValue">
             <span v-if="tipNmae">名字格式可为中文和英文，长度为2-7位</span>
           </div>
@@ -193,7 +193,7 @@
         }).then((res) => {
           this.$store.dispatch('clear');
           if (res.data == "SUCCESS") {
-            alert("恭喜您 下单成功")
+            alert("恭喜您 下单成功");
             this.$router.push({path: "/home"})
           } else {
             alert(res.data)
@@ -204,12 +204,12 @@
       },
       setTimeInfoAm() {
         this.show = false;
-        this.infoTm = "am"
+        this.infoTm = "am";
         this.infotime = "上午"
       },
       setTimeInfoPm() {
         this.show = false;
-        this.infoTm = "pm"
+        this.infoTm = "pm";
         this.infotime = "下午"
       },
       backbtn() {

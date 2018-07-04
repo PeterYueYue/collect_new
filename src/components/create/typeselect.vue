@@ -19,7 +19,7 @@
     </div>
     <div class="ul_Box">
       <transition v-on:leave="leave" v-on:after-enter="afterEnter" name="slide-fade">
-        <div class="classchange  " v-for="(item,index) in dataList" :key="item.id" v-if="    isShow == index">
+        <div class="classchange  " v-for="(item,index) in dataList" :key="item.id" v-if=" isShow == index">
           <h3 class="titlename">{{item.name}}</h3>
           <ul class="class_change_list ">
             <li class=" " v-for="(e,i) in item.categoryAttrOptionList " :key="e.id" :class="{active: isActive === i }"
@@ -31,7 +31,7 @@
       </transition>
     </div>
     <ul class="schedule">
-      <li v-for="(item,index) in dataList" :key="item.id" :class="{active :  index == isShow}"></li>
+      <li v-for="(item,index) in dataList" :key="item.id" :class="{active:index == isShow}"></li>
     </ul>
   </div>
 </template>
@@ -71,7 +71,7 @@
 
     created() {
       var {index} = this.$route.params;
-      this.itemID = index
+      this.itemID = index;
       api.getAllattrOption({
         "app_key": "app_id_1",
         "data": {
@@ -87,36 +87,37 @@
       }).catch((erro) => {
         console.log(erro)
       })
-      this.$store.dispatch("clearfuturePrice")
-      this.$store.dispatch('clearPriceInfo')
+      this.$store.dispatch("clearfuturePrice");
+      this.$store.dispatch('clearPriceInfo');
       this.isActive = false;
     },
     methods: {
-      touchStart(e, itemInfo) {},
+      touchStart(e, itemInfo) {
+      },
       leave() {
-        console.log(1)
+        console.log(1);
         this.isClick = true;
       },
       afterEnter() {
-        console.log(2)
+        console.log(2);
         this.isClick = false;
       },
       backbtn() { //执行返回上一个路由；
-        this.$store.dispatch('clearPriceInfo')
+        this.$store.dispatch('clearPriceInfo');
         this.$router.go(-1);
         this.isShow -= 1;
       },
       changeItem(e, itemInfo) {
         if (this.isShow < this.dataList.length - 1) {
-          this.isActive = itemInfo.i
-          this.$store.dispatch('changeStatisticsPrice', e)
+          this.isActive = itemInfo.i;
+          this.$store.dispatch('changeStatisticsPrice', e);
           // this.$store.dispatch('setAttrOppids',itemInfo)
           // console.log($('.classchange')[0].classList.value)
           this.isShow += 1;
-          this.isActive = -1
+          this.isActive = -1;
         } else {
-          this.isActive = itemInfo.i
-          this.$store.dispatch('changeStatisticsPrice', e)  //再最后跳转前再执行一次；
+          this.isActive = itemInfo.i;
+          this.$store.dispatch('changeStatisticsPrice', e);//再最后跳转前再执行一次；
           this.isActive = '-1';
           setTimeout(() => {
             this.$router.push({path: '/uploadimage'})

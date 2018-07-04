@@ -208,7 +208,7 @@
       getAddressInfo(item, id) {  //获取子集列表里的ID
         this.$store.dispatch('setAddRessId', item);
         //获取地址信息
-        api.getAddRessList({
+        api.MemberAddress({
           "app_key": "app_id_1",
           "data": {
             "id": 1

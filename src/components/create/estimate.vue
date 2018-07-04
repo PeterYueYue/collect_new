@@ -63,7 +63,9 @@
         "app_key": "app_id_1",
         "data": {
           "categoryAttrOptionPrices": this.statisticsPrice,
-          "categoryId": this.addRessId.id
+          "categoryId": this.addRessId.id,
+          // "categoryId": 22,
+          "communityId": 1910,
         },
         token: this.token
       }).then((res) => {
