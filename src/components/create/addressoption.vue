@@ -108,9 +108,9 @@
         } else {
           if (res.data.isExist) {
             this.isEnter = true;
-            this.userAddressInfo.address = res.data.address + res.data.name
-            this.userAddressInfo.areaId = res.data.areaId
-            this.userAddressInfo.id = res.data.id
+            this.userAddressInfo.address = res.data.address + res.data.name;
+            this.userAddressInfo.areaId = res.data.areaId;
+            this.userAddressInfo.id = res.data.id;
             this.$store.dispatch('changeAddressText', this.userAddressInfo)
           } else {
             this.isEnter = false;
