@@ -1,41 +1,27 @@
 <template>
-  
-    <ul class="schedule">
-        <li v-for="(item,index) in pointLength "  :key="item.id"    :class="{active :  index == fn1()}"></li>
-        <!-- <li></li>
-        <li></li>
-        <li></li> -->
-    </ul>
-
+  <ul class="schedule">
+    <li v-for="(item,index) in pointLength " :key="item.id" :class="{active :  index == fn1()}"></li>
+  </ul>
 </template>
 <script>
+  import {mapGetters} from 'vuex'
 
-import {mapGetters} from 'vuex'
-
-import '@/assets/createstyle/schedule.css'
-
-export default {
-
-    data(){
-        return{
-
-            pointLength:4
-        }
+  import '@/assets/createstyle/schedule.css'
+  export default {
+    data() {
+      return {
+        pointLength: 4
+      }
     },
-    methods : {
-        fn1(){
-            return this.$route.params.index-1
-
-            
-        }
+    methods: {
+      fn1() {
+        return this.$route.params.index - 1
+      }
     },
-    
-    watch:{
-        '$route' : 'fn1'
+    watch: {
+      '$route': 'fn1'
     }
-
-    
-}
+  }
 
 </script>
 
