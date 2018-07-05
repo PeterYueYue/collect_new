@@ -110,7 +110,7 @@
   import api from '@/api/api.js'
   import '@/assets/createstyle/tool.css'
   import '@/assets/createstyle/classify.css'
-  import {mapGetters} from 'vuex';
+  import { mapGetters } from 'vuex';
 
   export default {
     data() {
@@ -124,10 +124,9 @@
         showAlert1: false,
         showAlert2: false,
         menuListImg: '',
-        selectProductList: [],
-        priceTotal: 0,
-        numTotal: 0,
-        weightTotal: 0
+        selectProductList: window.sessionStorage.getItem('productList') ? JSON.parse(window.sessionStorage.getItem('productList')) : [],
+        priceTotal: window.sessionStorage.getItem('productTotal') ? JSON.parse(window.sessionStorage.getItem('productTotal')).priceTotal : 0,
+        numTotal: window.sessionStorage.getItem('productTotal') ? JSON.parse(window.sessionStorage.getItem('productTotal')).numTotal : 0
       }
     },
     computed: mapGetters({
@@ -135,7 +134,7 @@
       adressInfo: 'adressInfo',
       token: "token"
     }),
-    created: function () {
+    mounted() {
       this.getClassFiy();
     },
     methods: {
@@ -160,8 +159,8 @@
             },
             token: this.token
           }).then((res) => {
-            console.log(res);
             res.data.map((items) => {
+              items.pName = this.menulist[0].name
               const haveIn = this.selectProductList.findIndex((el) => {
                 return el.id === items.id
               });
@@ -179,7 +178,7 @@
           console.log(erro)
         });
       },
-      getList(id,index,value) {
+      getList(id, index, value) {
         this.isId = id;
         this.menuListImg = this.menulist[index].icon;
         this.isActive = index;
@@ -188,11 +187,12 @@
           "data": {
             "id": this.isId,
             "communityId": this.adressInfo.id,
-            "title":  value ? 'HOUSEHOLD' : 'DIGITAL'
+            "title": value ? 'HOUSEHOLD' : 'DIGITAL'
           },
           token: this.token
         }).then((res) => {
           res.data.map((items) => {
+            items.pName = this.menulist[index].name
             const haveIn = this.selectProductList.findIndex((el) => {
               return el.id === items.id
             });
@@ -208,7 +208,7 @@
         })
       },
       getAddressInfo(item, id) {  //获取子集列表里的ID
-        this.$store.dispatch('setClassItemId',this.isId);
+        this.$store.dispatch('setClassItemId', this.isId);
         this.$store.dispatch('setAddRessId', item);
         //获取地址信息
         api.MemberAddress({
@@ -228,12 +228,15 @@
         this.getClassFiy(!type);
       },
       openAlert() {
-        if (this.priceTotal > 50 || this.numTotal > 30 || this.weightTotal > 30) {
+        this.total();
+        if (this.priceTotal > 50 || this.numTotal > 30) {
+          window.sessionStorage.setItem('productList', JSON.stringify(this.selectProductList));
+          window.sessionStorage.setItem('productTotal', JSON.stringify({
+            priceTotal: this.priceTotal,
+            numTotal: this.numTotal
+          }));
           this.$router.push({
             path: '/uploadimage1',
-            query: {
-              id: 123
-            }
           });
           return
         }
@@ -255,6 +258,12 @@
         this.showAlert2 = false;
       },
       closeOrdersPush() {
+        this.total();
+        window.sessionStorage.setItem('productList', JSON.stringify(this.selectProductList));
+        window.sessionStorage.setItem('productTotal', JSON.stringify({
+          priceTotal: this.priceTotal,
+          numTotal: this.numTotal
+        }));
         this.$router.push({
           path: '/uploadimage1'
         })
@@ -265,31 +274,42 @@
         });
         if (haveIn > -1) {
           this.selectProductList[haveIn].number += 1;
+          item.number += 1
         } else {
-          this.selectProductList.push(Object.assign(item, {number: 1}))
+          const initItem = Object.assign(item, { number: 1 });
+          this.selectProductList.push(this.deepCopy(initItem));
         }
-        item.number += 1;
         this.total();
         this.openAlert1()
       },
       less(item){
+        const haveIn = this.selectProductList.findIndex((el) => {
+          return el.id === item.id
+        });
+        this.selectProductList[haveIn].number -= 1;
         item.number -= 1;
+        if (item.number === 0) {
+          this.selectProductList.splice(haveIn, 1)
+        }
         this.total();
       },
       total(){
         let priceTotal = 0;
         let numTotal = 0;
-        let weightTotal = 0;
         this.selectProductList.map((items) => {
           priceTotal += items.number * items.price;
-          weightTotal += items.number * items.unitWeight;
           numTotal += items.number;
         });
         this.priceTotal = priceTotal;
         this.numTotal = numTotal;
-        this.weightTotal = weightTotal;
+      },
+      deepCopy(source) {
+        let result = {};
+        for (let key in source) {
+          result[key] = typeof source[key] === 'object' ? this.deepCopy(source[key]) : source[key];
+        }
+        return result;
       }
-
     }
   }
 </script>

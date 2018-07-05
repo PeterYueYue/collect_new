@@ -42,26 +42,13 @@
 
     <!-- 生活垃圾 -->
     <div class="upload_main">
-      <div class="upload_head">已选回收物<span>预估价格：<span>￥39.9</span></span></div>
-      <div class="upload_rubsh">
-        <div class="utrash_title">废纸<span>预估价格：<span>￥39.9</span></span></div>
-        <div class="utrash_item">
-          <span class="weight">3kg</span>
-          <div class="name">纸皮</div>
-          <div class="price">￥1.00/kg</div>
-        </div>
-        <div class="utrash_item">
-          <span class="weight">3kg</span>
-          <div class="name">纸皮</div>
-          <div class="price">￥1.00/kg</div>
-        </div>
-      </div>
-      <div class="upload_rubsh">
-        <div class="utrash_title">废纸<span>预估价格：<span>￥39.9</span></span></div>
-        <div class="utrash_item">
-          <span class="weight">3kg</span>
-          <div class="name">纸皮</div>
-          <div class="price">￥1.00/kg</div>
+      <div class="upload_head">已选回收物<span>预估价格：<span>￥{{priceTotal}}</span></span></div>
+      <div class="upload_rubsh" v-for="(data,index) in productList" :key="index">
+        <div class="utrash_title">{{data.pName}}<span>预估价格：<span>￥{{data.price}}</span></span></div>
+        <div class="utrash_item" v-for="(items,index) in data.data" :key="index">
+          <span class="weight">x {{items.number}}</span>
+          <div class="name">{{items.name}}</div>
+          <div class="price">{{items.priceAndUnit}}</div>
         </div>
       </div>
     </div>
@@ -95,7 +82,7 @@
   import axios from "axios";
   import 'vant/lib/vant-css/icon-local.css';
   import "@/assets/createstyle/uploadimage.css";
-  import {mapGetters} from "vuex";
+  import { mapGetters } from "vuex";
 
   export default {
     data() {
@@ -103,12 +90,35 @@
         headerImage: "",
         textareaValue: "", //回收物品描述问文字
         number: 0,
+        productList: [],
+        priceTotal: window.sessionStorage.getItem('productTotal') ? JSON.parse(window.sessionStorage.getItem('productTotal')).priceTotal : 0,
+        numTotal: window.sessionStorage.getItem('productTotal') ? JSON.parse(window.sessionStorage.getItem('productTotal')).numTotal : 0
       };
     },
     computed: mapGetters({
       imgsAddress: "imgsAddress",
       token: 'token'
     }),
+    mounted(){
+      if (!window.sessionStorage.getItem('productList')) {
+        this.productList = [];
+        return
+      }
+      let data = JSON.parse(window.sessionStorage.getItem('productList'));
+      let productList = [];
+      data.map((items) => {
+        let index = productList.findIndex((el) => {
+          return el.pName === items.pName
+        });
+        if (index > -1) {
+          productList[index].data.push(items);
+          productList[index].price += items.price * items.number
+        } else {
+          productList.push({ pName: items.pName, data: [items], price: items.price * items.number })
+        }
+      });
+      this.productList = productList
+    },
     methods: {
       actionFocus() {
         var textaress = $('#textareas');
