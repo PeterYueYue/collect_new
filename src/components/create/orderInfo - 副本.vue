@@ -4,16 +4,29 @@
       <ul class="userInfo">
         <li class="item clearfix">
           <strong class="fl">姓名:</strong>
-          <div class="nameBox fl"><div class="addressSt">张三</div></div>
+          <div class="nameBox fl">
+            <input @blur="isName" v-model="nameValue" placeholder="请输入联系人姓名 (必填)" type="text" value="nameValue">
+            <span v-if="tipNmae">名字格式可为中文和英文，长度为2-7位</span>
+          </div>
         </li>
         <li class="item clearfix">
           <strong class="fl">电话:</strong>
-          <div class="nameBox  fl"><div class="addressSt">李四</div></div>
+          <div class="nameBox  fl">
+            <input type="number" @blur="isPhoneNumber" v-model="phoneNumber" placeholder="请输入手机号码 (必填)"
+                   value="phoneNumber">
+            <span v-if="tipPhone">电话号码格式不正确</span>
+          </div>
         </li>
         <li class="item clearfix">
           <strong class="fl">地址:</strong>
           <div class="nameBox fl">
             <div class="addressSt">{{addResstext.address}}</div>
+          </div>
+        </li>
+        <li class="item">
+          <strong class="fl">门牌号:</strong>
+          <div class="nameBox fl">
+            <input type="text" v-model="mpnumber" placeholder="例：5号楼203室" value="">
           </div>
         </li>
       </ul>
@@ -112,6 +125,7 @@
       imgsAddress: 'imgsAddress',      //用户上传图片信息
       addRessId: 'addRessId',         //一级分类信息
       categoryAttrOppIds: 'categoryAttrOppIds',  //分类属性信息
+      useraddress: 'useraddress',
       orderPic: 'orderPic',   //图片信息分类
       textareaValue: 'textareaValue',  //图片物品描述
       token: 'token',
@@ -223,6 +237,31 @@
           }
         });
       },
+      isName() {
+        var reg = RegExp();
+        var str = this.nameValue;
+        reg = /[\u4E00-\u9FA5A-Za-z0-9_]{2,16}/;       //只能是中文，长度为2-7位
+        if (reg.test(str)) {
+          this.isOk.nameisOk = true;
+          this.tipNmae = false;
+        } else {
+          this.isOk.nameisOk = false;
+          this.tipNmae = true;
+        }
+      },
+      isPhoneNumber() {
+        if (this.phoneNumber) {
+          var reg = RegExp();
+          reg = /^[1][3,4,5,7,8][0-9]{9}$|^\d{6,8}$/;
+          if (!reg.test(this.phoneNumber)) {
+            this.tipPhone = true;
+            this.isOk.phoneIsOk = false;
+          } else {
+            this.isOk.phoneIsOk = true;
+            this.tipPhone = false;
+          }
+        }
+      }
     }
   }
 </script>
