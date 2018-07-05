@@ -41,7 +41,7 @@
         <span>贴心服务</span>
       </li>
     </ul>
-    <div class="nextbutton  ">
+    <div class="nextbutton" v-show="showBtn">
       <router-link to="/orderInfo">立即回收</router-link>
     </div>
   </div>
@@ -52,6 +52,11 @@
   import {mapGetters} from 'vuex';
 
   export default {
+    data(){
+      return {
+        showBtn: true,
+      }
+    },
     computed: mapGetters({
       addRessId: 'addRessId',
       statisticsPrice: 'statisticsPrice',
@@ -70,7 +75,11 @@
         },
         token: this.token
       }).then((res) => {
-        this.$store.dispatch('changeFuturePrice', res.data)
+        this.$store.dispatch('changeFuturePrice', res.data);
+        console.log(res.data);
+        if(res.data==='你所选的街道没有企业'){
+          this.showBtn = false;
+        }
       })
     },
     methods: {
