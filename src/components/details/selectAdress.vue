@@ -126,7 +126,6 @@
         api.getAreaList({
           "app_key": "app_id_1",
           "data": {
-            "id": 1,
             "level": 0
           },
           token: this.$store.state.token,
