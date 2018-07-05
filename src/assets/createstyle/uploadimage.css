@@ -233,6 +233,10 @@
   margin-top: 0.05rem;
 }
 
+.utrash_item .price span{
+  font-size: 0.36rem;
+}
+
 .utrash_item .weight {
   font-size: 0.34rem;
   color: #333;

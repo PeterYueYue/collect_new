@@ -48,7 +48,7 @@
         <div class="utrash_item" v-for="(items,index) in data.data" :key="index">
           <span class="weight">x {{items.number}}</span>
           <div class="name">{{items.name}}</div>
-          <div class="price">{{items.priceAndUnit}}</div>
+          <div class="price">¥<span>{{items.price}}/{{items.unit}}</span></div>
         </div>
       </div>
     </div>

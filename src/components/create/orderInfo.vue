@@ -4,16 +4,16 @@
       <ul class="userInfo">
         <li class="item clearfix">
           <strong class="fl">姓名:</strong>
-          <div class="nameBox fl"><div class="addressSt">张三</div></div>
+          <div class="nameBox fl"><div class="addressSt">{{adressInfo.name}}</div></div>
         </li>
         <li class="item clearfix">
           <strong class="fl">电话:</strong>
-          <div class="nameBox  fl"><div class="addressSt">李四</div></div>
+          <div class="nameBox  fl"><div class="addressSt">{{adressInfo.tel}}</div></div>
         </li>
         <li class="item clearfix">
           <strong class="fl">地址:</strong>
           <div class="nameBox fl">
-            <div class="addressSt">{{addResstext.address}}</div>
+            <div class="addressSt">{{adressInfo.address}}</div>
           </div>
         </li>
       </ul>
@@ -136,7 +136,7 @@
           "app_key": "app_id_1",
           token: this.token,
           "data": {
-            "address": this.addResstext.address,
+            "address": this.adressInfo.address,
             "arrivalPeriod": this.infoTm,
             "linkMan": this.nameValue,
             "orderItemBean": {

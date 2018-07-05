@@ -162,7 +162,7 @@
             token: this.token
           }).then((res) => {
             res.data.map((items) => {
-              items.pName = this.menulist[0].name
+              items.pName = this.menulist[0].name;
               const haveIn = this.selectProductList.findIndex((el) => {
                 return el.id === items.id
               });
@@ -194,7 +194,7 @@
           token: this.token
         }).then((res) => {
           res.data.map((items) => {
-            items.pName = this.menulist[index].name
+            items.pName = this.menulist[index].name;
             const haveIn = this.selectProductList.findIndex((el) => {
               return el.id === items.id
             });
