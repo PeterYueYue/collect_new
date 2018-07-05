@@ -16,7 +16,7 @@
             <span v-if="tipNmae">名字格式可为中文和英文，长度为2-7位</span>
           </div>
         </li>
-        <li class="item clearfix ">
+        <li class="item clearfix">
           <strong class="fl">电话:</strong>
           <div class="nameBox  fl">
             <input type="number" @blur="isPhoneNumber" v-model="phoneNumber" placeholder="请输入手机号码 (必填)"
@@ -52,14 +52,17 @@
         <span class="fr">￥{{futurePrice}}</span>
       </div>
     </div>
-    <div class="information">实际成交价格最终验机结果为准</div>
-    <div class="nextbutton  ">
+    <div class="information">实际成交价格以回收人员上门计量验收为准</div>
+    <div class="nextbutton">
       <a v-if="isOk.nameisOk == false || isOk.phoneIsOk == false ||  isOk.timeIsOk == false" class="dontEnter">提交订单</a>
       <a href="javascript:;" v-if="isOk.nameisOk == true && isOk.phoneIsOk == true && isOk.timeIsOk == true  "
          @click="completeAnOrder" class="yesEnter"> 提交订单 </a>
     </div>
 
-    <div class="information">提交订单后将有工作人员与您电话沟通，请保持手机畅通</div>
+    <div class="information">提交订单后将有工作人员可能和您电话沟通，请保持手机畅通</div>
+
+    <router-link to="home"><div class="o_info_btn">放弃订单</div></router-link>
+
     <div class="bottomInformation">
       <div>本服务由{{detailsList?detailsList.name:''}}提供</div>
       <div>{{detailsList?detailsList.tel:''}}</div>
@@ -110,8 +113,8 @@
       api.companyByIds({
         "app_key": "app_id_1",
         "data": {
-          "communityId": this.addResstext.id,
-          "categoryId": this.addRessId.parentId,
+          "communityId": this.adressInfo.communityId,
+          "categoryId": this.classID,
           "isEvaluated": "0"
         },
         token: this.$store.state.token
@@ -133,7 +136,9 @@
       orderPic: 'orderPic',   //图片信息分类
       textareaValue: 'textareaValue',  //图片物品描述
       token: 'token',
-      addResstext: 'addResstext'    //用户默认地址
+      addResstext: 'addResstext',    //用户默认地址
+      adressInfo: 'adressInfo',   //新地址信息
+      classID:'classID',
     }),
     created() {
       if (this.imgsAddress.length < 1) {
@@ -141,8 +146,8 @@
       }
       if (this.selectedInfo.areaItem.areaName && this.selectedInfo.subdistyictItem.areaName && this.selectedInfo.cellseletionItem.address && this.selectedInfo.cellseletionItem.name) {
         this.addressInfo.address = this.selectedInfo.areaItem.areaName + this.selectedInfo.subdistyictItem.areaName + this.selectedInfo.cellseletionItem.address + this.selectedInfo.cellseletionItem.name
-        this.addressInfo.areaId = this.selectedInfo.areaItem.id
-        this.addressInfo.id = this.selectedInfo.cellseletionItem.id
+        this.addressInfo.areaId = this.selectedInfo.areaItem.id;
+        this.addressInfo.id = this.selectedInfo.cellseletionItem.id;
         this.$store.dispatch('changeAddressText', this.addressInfo)
       }
     },
@@ -179,8 +184,8 @@
             "price": this.futurePrice,
             "qty": 9999,
             "tel": this.phoneNumber,
-            "communityId": this.addResstext.id,
-            "categoryId": this.addRessId.id,
+            "communityId": this.adressInfo.communityId,
+            "categoryId": this.classID,
             "categoryParentId": this.addRessId.parentId,
             "remarks": this.textareaValue,
             "fullAddress": this.mpnumber,
