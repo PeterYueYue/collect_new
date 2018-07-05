@@ -61,7 +61,7 @@
 
     <div class="information">提交订单后将有工作人员可能和您电话沟通，请保持手机畅通</div>
 
-    <div class="o_info_btn">放弃订单</div>
+    <router-link to="home"><div class="o_info_btn">放弃订单</div></router-link>
 
     <div class="bottomInformation">
       <div>本服务由{{detailsList?detailsList.name:''}}提供</div>
