@@ -369,20 +369,23 @@ body {
 
 .classify .content .linlei_list .classify_item .calculation .round {
   display: inline-block;
-  width: 0.28rem;
-  height: 0.28rem;
+  width: 0.5rem;
+  height: 0.5rem;
   border-radius: 50%;
   background: #00a0e9;
   text-align: center;
-  line-height: 0.28rem;
+  line-height: 0.5rem;
   color: #fff;
-  font-size: 0.24rem;
+  font-size: 0.4rem;
 }
 
 .classify .content .linlei_list .classify_item .calculation span:nth-of-type(2) {
-  font-size: 0.24rem;
+  font-size: 0.3rem;
   display: inline-block;
-  padding: 0 0.1rem;
+  width: 0.4rem;
+  text-align: center;
+  position: relative;
+  top: -0.03rem;
 }
 
 .classify .content .linlei_list .item img {
