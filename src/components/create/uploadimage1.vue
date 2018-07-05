@@ -42,7 +42,7 @@
 
     <!-- 生活垃圾 -->
     <div class="upload_main">
-      <div class="upload_head">已选回收物<span>预估价格：<span>￥{{priceTotal}}</span></span></div>
+      <div class="upload_head">已选回收物<span>预估总计：<span>￥{{priceTotal}}</span></span></div>
       <div class="upload_rubsh" v-for="(data,index) in productList" :key="index">
         <div class="utrash_title">{{data.pName}}<span>预估价格：<span>￥{{data.price}}</span></span></div>
         <div class="utrash_item" v-for="(items,index) in data.data" :key="index">

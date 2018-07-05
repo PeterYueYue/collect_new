@@ -124,8 +124,10 @@
         showAlert1: false,
         showAlert2: false,
         menuListImg: '',
-        selectProductList: window.sessionStorage.getItem('productList') ? JSON.parse(window.sessionStorage.getItem('productList')) : [],
+        selectProductList: window.sessionStorage.getItem('productList') ?
+          JSON.parse(window.sessionStorage.getItem('productList')) : [],//上传成功要清掉
         priceTotal: window.sessionStorage.getItem('productTotal') ? JSON.parse(window.sessionStorage.getItem('productTotal')).priceTotal : 0,
+        //上传成功要清掉
         numTotal: window.sessionStorage.getItem('productTotal') ? JSON.parse(window.sessionStorage.getItem('productTotal')).numTotal : 0
       }
     },

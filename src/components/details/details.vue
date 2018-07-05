@@ -63,7 +63,7 @@
       <!-- 生活垃圾 -->
       <div v-show="detailsList.title == 'HOUSEHOLD'">
         <div class="details_rubsh" v-for="item in rubshList" :key="item.id">
-          <div class="trash_title">{{item.name}}<span>预估价格：<span>￥{{item.price}}</span></span></div>
+          <div class="trash_title">{{item.name}}<span>预估总计：<span>￥{{item.price}}</span></span></div>
           <div class="trash_item" v-for="data in item.list" :key="data.id">
             <span class="weight">{{data.amount}}</span>
             <div class="name">{{data.cateName}}</div>
