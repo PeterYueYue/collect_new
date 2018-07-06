@@ -152,6 +152,7 @@
           this.menulist = res.data;
           this.menuListImg = res.data[0].icon;
           this.isId = res.data[0].id;
+          this.$store.dispatch('getIsTitle',res.data[0].title);
           api.getSubList({
             "app_key": "app_id_1",
             "data": {

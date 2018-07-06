@@ -70,3 +70,7 @@ export var setClassItemId = ({commit}, data) => {   //获取分类ID
 export var getAddressInfo = ({commit}, data) => {   //获取地址信息
   commit(types.GetAddressInfo, data)
 }
+
+export var getIsTitle = ({commit}, data) => {   //获取分类title
+  commit(types.GetIsTitle, data)
+}

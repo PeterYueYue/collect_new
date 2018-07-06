@@ -116,6 +116,7 @@
       addResstext: 'addResstext',                //用户默认地址
       adressInfo: 'adressInfo',                  //新地址信息
       classID: 'classID',                        //分类父级Id
+      isTitle: 'isTitle',                          //分类title
     }),
     created() {
       if (this.imgsAddress.length < 1) {
@@ -169,7 +170,7 @@
             "remarks": this.textareaValue,
             //垃圾回收新增的字段
             "idAndListList": [{}],
-            "title": "DIGITAL",
+            "title": this.isTitle,
           }
         }).then((res) => {
           this.$store.dispatch('clear');

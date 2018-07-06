@@ -19,3 +19,4 @@ export var Clear                      = 'Clear';
 export var clear_Future_Price         = 'clear_Future_Price';
 export var SetClassItemId             = 'SetClassItemId';
 export var GetAddressInfo             = 'GetAddressInfo';
+export var GetIsTitle                  = 'GetIsTitle';

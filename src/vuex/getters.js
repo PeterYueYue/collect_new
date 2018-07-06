@@ -20,3 +20,4 @@ export var token = state => state.token;
 export var addResstext = state => state.addResstext;
 export var classID = state => state.classID;
 export var adressInfo = state => state.adressInfo;
+export var isTitle = state => state.isTitle;

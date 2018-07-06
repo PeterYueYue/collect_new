@@ -42,8 +42,9 @@ export default new Vuex.Store({
       address: '',
       areaId: ''
     },
-    classID: '',
-    adressInfo: {},
+    classID: '',     //分类父级id
+    adressInfo: {},  //默认地址和个人信息
+    isTitle: '',     //分类title
   },
   mutations: {
     getSubItemID(state, id) {  //获取子集ID
@@ -128,8 +129,10 @@ export default new Vuex.Store({
       this.state.classID = data
     },
     GetAddressInfo(state, data) {  // 默认地址信息
-      console.log(data);
       this.state.adressInfo = data
+    },
+    GetIsTitle(state, data) {  // 默认地址信息
+      this.state.isTitle = data
     },
   },
   plugins: [createPersistedState({storage: window.sessionStorage})]
