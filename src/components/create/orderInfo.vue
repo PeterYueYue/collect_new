@@ -60,6 +60,14 @@
         <span @click="setTimeInfoPm()">下午</span>
       </div>
     </div>
+
+    <!-- 弹窗 -->
+    <div class="order_info_shadow" v-if="showShadow"></div>
+    <div class="order_info_shadow_box" v-if="showNul">
+      <div>你所选的小区没有企业</div>
+      <div class="order_info_shadow_btn" @click="closeShadow">确定</div>
+    </div>
+
   </div>
 </template>
 <script>
@@ -85,6 +93,8 @@
           address: ''
         },
         detailsList: {},
+        showShadow: false,
+        showNul: false,
       }
     },
     mounted() {
@@ -170,7 +180,7 @@
             "remarks": this.textareaValue,
             //垃圾回收新增的字段
             "idAndListList": [{
-              "categoryParentId": 4,
+              "categoryParentId": this.classID,
               "categoryParentName": "废纸",
               "idAndAmount": [{
                 "amount": 625,
@@ -186,7 +196,8 @@
             alert("恭喜您 下单成功");
             this.$router.push({path: "/home"})
           } else {
-            alert(res.data)
+            this.showShadow = true;
+            this.showNul = true;
           }
         }).catch((err) => {
           alert(err)
@@ -228,6 +239,11 @@
             this.iscolor = true;
           }
         });
+      },
+      closeShadow() {
+        this.showShadow = false;
+        this.showNul = false;
+        this.$router.push({path: "/home"})
       },
     }
   }

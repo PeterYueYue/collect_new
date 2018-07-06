@@ -157,7 +157,7 @@
             "app_key": "app_id_1",
             "data": {
               "id": this.isId,
-              "communityId": this.adressInfo.id,
+              "communityId": this.adressInfo.communityId,
               "title": value ? 'HOUSEHOLD' : 'DIGITAL'
             },
             token: this.token
@@ -189,7 +189,7 @@
           "app_key": "app_id_1",
           "data": {
             "id": this.isId,
-            "communityId": this.adressInfo.id,
+            "communityId": this.adressInfo.communityId,
             "title": value ? 'HOUSEHOLD' : 'DIGITAL'
           },
           token: this.token

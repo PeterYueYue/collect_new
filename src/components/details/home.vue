@@ -185,7 +185,6 @@
           "app_key": "app_id_1",
           token: this.token
         }).then((res) => {
-          console.log(res);
           this.$store.dispatch('getAddressInfo',res.data);
           this.adressList = res.data;
         }).catch((error) => {
@@ -198,7 +197,6 @@
           "app_key": "app_id_1",
           token: this.token
         }).then((res) => {
-          // console.log(res.data);
           if (res.data.length === 0) {
             this.showList = false;
           } else {
