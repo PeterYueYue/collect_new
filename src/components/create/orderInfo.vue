@@ -4,11 +4,15 @@
       <ul class="userInfo">
         <li class="item clearfix">
           <strong class="fl">姓名:</strong>
-          <div class="nameBox fl"><div class="addressSt">{{adressInfo.name}}</div></div>
+          <div class="nameBox fl">
+            <div class="addressSt">{{adressInfo.name}}</div>
+          </div>
         </li>
         <li class="item clearfix">
           <strong class="fl">电话:</strong>
-          <div class="nameBox  fl"><div class="addressSt">{{adressInfo.tel}}</div></div>
+          <div class="nameBox  fl">
+            <div class="addressSt">{{adressInfo.tel}}</div>
+          </div>
         </li>
         <li class="item clearfix">
           <strong class="fl">地址:</strong>
@@ -34,13 +38,15 @@
     </div>
     <div class="information">实际成交价格以回收人员上门计量验收为准</div>
     <div class="nextbutton">
-      <a v-if="isOk.timeIsOk == false" class="dontEnter">提交订单</a>
-      <a href="javascript:;" v-if="isOk.timeIsOk == true" @click="completeAnOrder" class="yesEnter">提交订单</a>
+      <!--<a v-if="isOk.timeIsOk == false" class="dontEnter">提交订单</a>-->
+      <a href="javascript:;" v-if="isOk.timeIsOk == false" @click="completeAnOrder" class="yesEnter">提交订单</a>
     </div>
 
     <div class="information">提交订单后将有工作人员可能和您电话沟通，请保持手机畅通</div>
 
-    <router-link to="home"><div class="o_info_btn">放弃订单</div></router-link>
+    <router-link to="home">
+      <div class="o_info_btn">放弃订单</div>
+    </router-link>
 
     <div class="bottomInformation">
       <div>本服务由{{detailsList?detailsList.name:''}}提供</div>
@@ -70,7 +76,6 @@
         show: false,
         infoTm: '',
         infotime: '',
-        mpnumber: '',
         isOk: {
           timeIsOk: false
         },
@@ -99,18 +104,18 @@
       })
     },
     computed: mapGetters({
-      futurePrice: 'futurePrice',      //预估价格
-      appointmentTime: 'appointmentTime',  //上门预约时间
-      selectedInfo: 'selectedInfo',      //用来存储 地址选择 已选择信息
-      imgsAddress: 'imgsAddress',      //用户上传图片信息
-      addRessId: 'addRessId',         //一级分类信息
+      futurePrice: 'futurePrice',                //预估价格
+      appointmentTime: 'appointmentTime',        //上门预约时间
+      selectedInfo: 'selectedInfo',              //用来存储 地址选择 已选择信息
+      imgsAddress: 'imgsAddress',                //用户上传图片信息
+      addRessId: 'addRessId',                    //一级分类信息
       categoryAttrOppIds: 'categoryAttrOppIds',  //分类属性信息
-      orderPic: 'orderPic',   //图片信息分类
-      textareaValue: 'textareaValue',  //图片物品描述
+      orderPic: 'orderPic',                      //图片信息分类
+      textareaValue: 'textareaValue',            //图片物品描述
       token: 'token',
-      addResstext: 'addResstext',    //用户默认地址
-      adressInfo: 'adressInfo',   //新地址信息
-      classID:'classID',
+      addResstext: 'addResstext',                //用户默认地址
+      adressInfo: 'adressInfo',                  //新地址信息
+      classID: 'classID',                        //分类父级Id
     }),
     created() {
       if (this.imgsAddress.length < 1) {
@@ -131,8 +136,13 @@
           token: this.token,
           "data": {
             "address": this.adressInfo.address,
+            "areaId": this.adressInfo.areaId,
+            "communityId": this.adressInfo.communityId,
+            "streetId": this.adressInfo.streetId,
+            "fullAddress": this.adressInfo.houseNumber,
             "arrivalPeriod": this.infoTm,
             "linkMan": this.adressInfo.name,
+            "tel": this.adressInfo.tel,
             "orderItemBean": {
               "categoryAttrId": 0,
               "orderId": 0,
@@ -150,23 +160,16 @@
               "delFlag": "0"
             },
             "isEvaluated": "0",
-            // "recyclerId": 0,
             "unit": "计量单位",
-            "areaId": this.addResstext.areaId,
             "arrivalTime": this.time,
             "price": this.futurePrice,
             "qty": 9999,
-            "tel": this.adressInfo.tel,
-            "communityId": this.adressInfo.communityId,
             "categoryId": this.classID,
             "categoryParentId": this.addRessId.parentId,
             "remarks": this.textareaValue,
-            "fullAddress": this.mpnumber,
-
             //垃圾回收新增的字段
-            "streetId": "123",
             "idAndListList": [{}],
-            "title": "HOUSEHOLD",
+            "title": "DIGITAL",
           }
         }).then((res) => {
           this.$store.dispatch('clear');
