@@ -70,7 +70,7 @@
         "app_key": "app_id_1",
         "data": {
           "categoryAttrOptionPrices": this.statisticsPrice,
-          "categoryId": this.classID,
+          "categoryId": this.addRessId.id,
           "communityId": this.adressInfo.communityId,
         },
         token: this.token
