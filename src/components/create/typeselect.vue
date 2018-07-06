@@ -95,11 +95,9 @@
       touchStart(e, itemInfo) {
       },
       leave() {
-        console.log(1);
         this.isClick = true;
       },
       afterEnter() {
-        console.log(2);
         this.isClick = false;
       },
       backbtn() { //执行返回上一个路由；

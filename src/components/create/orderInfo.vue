@@ -116,7 +116,7 @@
       addResstext: 'addResstext',                //用户默认地址
       adressInfo: 'adressInfo',                  //新地址信息
       classID: 'classID',                        //分类父级Id
-      isTitle: 'isTitle',                          //分类title
+      isTitle: 'isTitle',                        //分类title
     }),
     created() {
       if (this.imgsAddress.length < 1) {
@@ -165,11 +165,19 @@
             "arrivalTime": this.time,
             "price": this.futurePrice,
             "qty": 9999,
-            "categoryId": this.classID,
-            "categoryParentId": this.addRessId.parentId,
+            "categoryId": this.addRessId.id,
+            "categoryParentId": this.classID,
             "remarks": this.textareaValue,
             //垃圾回收新增的字段
-            "idAndListList": [{}],
+            "idAndListList": [{
+              "categoryParentId": 4,
+              "categoryParentName": "废纸",
+              "idAndAmount": [{
+                "amount": 625,
+                "categoryId": 5,
+                "categoryName": "纸皮"
+              }]
+            }],
             "title": this.isTitle,
           }
         }).then((res) => {
