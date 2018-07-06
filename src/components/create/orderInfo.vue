@@ -34,9 +34,8 @@
     </div>
     <div class="information">实际成交价格以回收人员上门计量验收为准</div>
     <div class="nextbutton">
-      <a v-if="isOk.nameisOk == false || isOk.phoneIsOk == false ||  isOk.timeIsOk == false" class="dontEnter">提交订单</a>
-      <a href="javascript:;" v-if="isOk.nameisOk == true && isOk.phoneIsOk == true && isOk.timeIsOk == true  "
-         @click="completeAnOrder" class="yesEnter"> 提交订单 </a>
+      <a v-if="isOk.timeIsOk == false" class="dontEnter">提交订单</a>
+      <a href="javascript:;" v-if="isOk.timeIsOk == true" @click="completeAnOrder" class="yesEnter">提交订单</a>
     </div>
 
     <div class="information">提交订单后将有工作人员可能和您电话沟通，请保持手机畅通</div>
@@ -66,19 +65,13 @@
   export default {
     data() {
       return {
-        nameValue: '',
-        phoneNumber: '',
         datetime5: '2018-01-11 上午',
         time: '请选择上门回收时间 ',
         show: false,
         infoTm: '',
         infotime: '',
-        tipNmae: false,
-        tipPhone: false,
         mpnumber: '',
         isOk: {
-          nameisOk: false,
-          phoneIsOk: false,
           timeIsOk: false
         },
         iscolor: false,
@@ -123,12 +116,13 @@
       if (this.imgsAddress.length < 1) {
         this.$router.push({path: "/home"})
       }
-      if (this.selectedInfo.areaItem.areaName && this.selectedInfo.subdistyictItem.areaName && this.selectedInfo.cellseletionItem.address && this.selectedInfo.cellseletionItem.name) {
-        this.addressInfo.address = this.selectedInfo.areaItem.areaName + this.selectedInfo.subdistyictItem.areaName + this.selectedInfo.cellseletionItem.address + this.selectedInfo.cellseletionItem.name
-        this.addressInfo.areaId = this.selectedInfo.areaItem.id;
-        this.addressInfo.id = this.selectedInfo.cellseletionItem.id;
-        this.$store.dispatch('changeAddressText', this.addressInfo)
-      }
+      // if (this.selectedInfo.areaItem.areaName && this.selectedInfo.subdistyictItem.areaName && this.selectedInfo.cellseletionItem.address && this.selectedInfo.cellseletionItem.name) {
+      //   this.addressInfo.address = this.selectedInfo.areaItem.areaName + this.selectedInfo.subdistyictItem.areaName +
+      //     this.selectedInfo.cellseletionItem.address + this.selectedInfo.cellseletionItem.name;
+      //   this.addressInfo.areaId = this.selectedInfo.areaItem.id;
+      //   this.addressInfo.id = this.selectedInfo.cellseletionItem.id;
+      //   this.$store.dispatch('changeAddressText', this.addressInfo)
+      // }
     },
     methods: {
       completeAnOrder() {
@@ -138,7 +132,7 @@
           "data": {
             "address": this.adressInfo.address,
             "arrivalPeriod": this.infoTm,
-            "linkMan": this.nameValue,
+            "linkMan": this.adressInfo.name,
             "orderItemBean": {
               "categoryAttrId": 0,
               "orderId": 0,
@@ -162,7 +156,7 @@
             "arrivalTime": this.time,
             "price": this.futurePrice,
             "qty": 9999,
-            "tel": this.phoneNumber,
+            "tel": this.adressInfo.tel,
             "communityId": this.adressInfo.communityId,
             "categoryId": this.classID,
             "categoryParentId": this.addRessId.parentId,
@@ -207,8 +201,8 @@
         var endTime1 = new Date();
         var endTime2 = new Date(endTime1);
         endTime2.setDate(endTime1.getDate() + 8);
-        var startTime = startTime2.getFullYear() + "-" + (startTime2.getMonth() + 1) + "-" + startTime2.getDate()
-        var endTime = endTime2.getFullYear() + "-" + (endTime2.getMonth() + 1) + "-" + endTime2.getDate()
+        var startTime = startTime2.getFullYear() + "-" + (startTime2.getMonth() + 1) + "-" + startTime2.getDate();
+        var endTime = endTime2.getFullYear() + "-" + (endTime2.getMonth() + 1) + "-" + endTime2.getDate();
         ap.datePicker({
           formate: 'yyyy-MM-dd',
           currentDate: startTime,
