@@ -41,9 +41,7 @@
         <span>贴心服务</span>
       </li>
     </ul>
-    <div class="nextbutton" v-show="showBtn">
-      <router-link to="/orderInfo">立即回收</router-link>
-    </div>
+    <div class="nextbutton" v-show="showBtn"><router-link to="/orderInfo">立即回收</router-link></div>
   </div>
 </template>
 <script>

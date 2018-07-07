@@ -38,8 +38,8 @@
     </div>
     <div class="information">实际成交价格以回收人员上门计量验收为准</div>
     <div class="nextbutton">
-      <a v-if="isOk.timeIsOk == false" class="dontEnter">提交订单</a>
-      <!--<a href="javascript:;" v-if="isOk.timeIsOk == false" @click="completeAnOrder" class="yesEnter">提交订单</a>-->
+      <!--<a v-if="isOk.timeIsOk == false" class="dontEnter">提交订单</a>-->
+      <a href="javascript:;" v-if="isOk.timeIsOk == false" @click="completeAnOrder" class="yesEnter">提交订单</a>
     </div>
 
     <div class="information">提交订单后将有工作人员可能和您电话沟通，请保持手机畅通</div>
@@ -218,10 +218,9 @@
           }
         }).then((res) => {
           this.$store.dispatch('clear');
-          if (res.data == "SUCCESS") {
+          if (res.data === "SUCCESS") {
             this.showShadow = true;
             this.showSuccess = true;
-            this.$router.push({path: "/home"})
           } else {
             this.showShadow = true;
             this.showNul = true;
