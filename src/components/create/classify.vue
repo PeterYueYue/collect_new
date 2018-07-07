@@ -76,7 +76,7 @@
     <div class="classify_footer" v-show="!showUl">
       <div class="f_title">
         <div class="icon"><img src="@/assets/class_icon.png" alt=""><i>{{numTotal}}</i></div>
-        <div class="name">预估金额：<span class="price">￥<span>{{priceTotal.toFixed(2)}}</span></span></div>
+        <div class="name">预估金额：<span class="price">￥<span>{{priceTotal}}</span></span></div>
       </div>
       <div class="r_btn" @click="openAlert">一键回收</div>
     </div>
@@ -310,7 +310,7 @@
           priceTotal += items.number * items.price;
           numTotal += items.number;
         });
-        this.priceTotal = priceTotal;
+        this.priceTotal = priceTotal.toFixed(2);
         this.numTotal = numTotal;
       },
       deepCopy(source) {

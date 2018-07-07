@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App'
+import VConsole from 'vconsole'
 import Vuex from 'vuex'
 import store from './vuex/store'
 import router from './router'
@@ -29,6 +30,9 @@ new Vue({
   el: '#app',
   router,
   store,
+  mounted(){
+    // var vConsole = new VConsole();
+  },
   components: {App},
   template: '<App/>'
 })

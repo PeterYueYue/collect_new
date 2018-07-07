@@ -37,9 +37,10 @@
       </div>
     </div>
     <div class="information">实际成交价格以回收人员上门计量验收为准</div>
+
     <div class="nextbutton">
-      <!--<a v-if="isOk.timeIsOk == false" class="dontEnter">提交订单</a>-->
-      <a href="javascript:;" v-if="isOk.timeIsOk == false" @click="completeAnOrder" class="yesEnter">提交订单</a>
+      <a v-if="isOk.timeIsOk == false" class="dontEnter">提交订单</a>
+      <a href="javascript:;" v-if="isOk.timeIsOk == true" @click="completeAnOrder" class="yesEnter">提交订单</a>
     </div>
 
     <div class="information">提交订单后将有工作人员可能和您电话沟通，请保持手机畅通</div>
@@ -100,11 +101,14 @@
         showNul: false,
         showSuccess: false,
         idAndListList: [],
-        garbagePrice: JSON.parse(window.sessionStorage.getItem('productTotal')).priceTotal
+        garbagePrice: window.sessionStorage.getItem('productTotal') ? JSON.parse(window.sessionStorage.getItem('productTotal')).priceTotal : ''
       }
     },
     mounted() {
       this.getCompany();
+      if (this.isTitle === 'DIGITAL') {
+        return;
+      }
       let productList = JSON.parse(window.sessionStorage.getItem('productList'));
       let orderList = [];
       productList.map((items) => {
@@ -207,7 +211,7 @@
             "isEvaluated": "0",
             "unit": "计量单位",
             "arrivalTime": this.time,
-            "price": this.isTitle === 'DIGITAL' ? this.futurePrice : this.garbagePrice.toFixed(2),
+            "price": this.isTitle === 'DIGITAL' ? this.futurePrice : this.garbagePrice,
             "qty": 9999,
             "categoryId": this.addRessId.id,
             "categoryParentId": this.classID,
