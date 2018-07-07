@@ -203,7 +203,7 @@
             "isEvaluated": "0",
             "unit": "计量单位",
             "arrivalTime": this.time,
-            "price": this.isTitle === 'DIGITAL' ? this.futurePrice : this.garbagePrice,
+            "price": this.isTitle === 'DIGITAL' ? this.futurePrice : this.garbagePrice.toFixed(2),
             "qty": 9999,
             "categoryId": this.addRessId.id,
             "categoryParentId": this.classID,
@@ -216,7 +216,7 @@
           this.$store.dispatch('clear');
           if (res.data == "SUCCESS") {
             alert("恭喜您 下单成功");
-            // this.$router.push({path: "/home"})
+            this.$router.push({path: "/home"})
           } else {
             this.showShadow = true;
             this.showNul = true;
@@ -265,7 +265,7 @@
       closeShadow() {
         this.showShadow = false;
         this.showNul = false;
-        // this.$router.push({path: "/home"})
+        this.$router.push({path: "/home"})
       },
     }
   }
