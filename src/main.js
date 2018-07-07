@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App'
-import VConsole from 'vconsole'
+// import VConsole from 'vconsole'
 import Vuex from 'vuex'
 import store from './vuex/store'
 import router from './router'
