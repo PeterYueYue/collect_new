@@ -253,14 +253,14 @@
         this.showAlert1 = true;
       },
       openAlert1() {
-        const status = window.localStorage.getItem('hasAgree');
+        const status = window.sessionStorage.getItem('hasAgree');
         if (status)return;
         this.showShadow = true;
         this.showAlert2 = true;
       },
       closeOrders(status) {
         if (status) {
-          window.localStorage.setItem('hasAgree', status)
+          window.sessionStorage.setItem('hasAgree', status)
         }
         this.showShadow = false;
         this.showAlert1 = false;
