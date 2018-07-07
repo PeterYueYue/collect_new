@@ -187,6 +187,18 @@
                 "categoryId": 5,
                 "categoryName": "纸皮"
               }]
+            },{
+              "categoryParentId": 7,
+              "categoryParentName": "废塑料",
+              "idAndAmount": [{
+                "amount": 8,
+                "categoryId": 9,
+                "categoryName": "饮料瓶"
+              },{
+                "amount": 8,
+                "categoryId": 8,
+                "categoryName": "环保袋"
+              }]
             }],
             "title": this.isTitle,
           }
