@@ -33,7 +33,7 @@
       </div>
       <div class="estimatePrice clearfix">
         <strong class="fl">回收估计:</strong>
-        <span class="fr">￥{{futurePrice}}</span>
+        <span class="fr">￥{{isTitle === 'DIGITAL' ? futurePrice : garbagePrice}}</span>
       </div>
     </div>
     <div class="information">实际成交价格以回收人员上门计量验收为准</div>
@@ -95,23 +95,37 @@
         detailsList: {},
         showShadow: false,
         showNul: false,
+        idAndListList: [],
+        garbagePrice: JSON.parse(window.sessionStorage.getItem('productTotal')).priceTotal
       }
     },
     mounted() {
-      api.companyByIds({
-        "app_key": "app_id_1",
-        "data": {
-          "communityId": this.adressInfo.communityId,
-          "categoryId": this.classID,
-          "isEvaluated": "0"
-        },
-        token: this.$store.state.token
-      }).then((res) => {
-        console.log(res);
-        this.detailsList = res.data;
-      }).catch((error) => {
-        console.log(error)
-      })
+      this.getCompany();
+      let productList = JSON.parse(window.sessionStorage.getItem('productList'));
+      let orderList = [];
+      productList.map((items) => {
+        let index = orderList.findIndex((el) => {
+          return el.categoryParentId === items.pId
+        });
+        if (index > -1) {
+          orderList[index].idAndAmount.push({
+            amount: items.number,
+            categoryId: items.id,
+            categoryName: items.name,
+          });
+          orderList[index].categoryParentId = items.pId;
+          orderList[index].categoryParentName = items.pName;
+        } else {
+          orderList.push({
+            categoryParentName: items.pName, idAndAmount: [{
+              amount: items.number,
+              categoryId: items.id,
+              categoryName: items.name,
+            }], categoryParentId: items.pId
+          })
+        }
+      });
+      this.idAndListList = orderList;
     },
     computed: mapGetters({
       futurePrice: 'futurePrice',                //预估价格
@@ -141,6 +155,22 @@
       // }
     },
     methods: {
+      getCompany() {
+        api.companyByIds({
+          "app_key": "app_id_1",
+          "data": {
+            "communityId": this.adressInfo.communityId,
+            "categoryId": this.classID,
+            "isEvaluated": "0"
+          },
+          token: this.$store.state.token
+        }).then((res) => {
+          console.log(res);
+          this.detailsList = res.data;
+        }).catch((error) => {
+          console.log(error)
+        })
+      },
       completeAnOrder() {
         api.completeOrder({
           "app_key": "app_id_1",
@@ -173,40 +203,20 @@
             "isEvaluated": "0",
             "unit": "计量单位",
             "arrivalTime": this.time,
-            "price": this.futurePrice,
+            "price": this.isTitle === 'DIGITAL' ? this.futurePrice : this.garbagePrice,
             "qty": 9999,
             "categoryId": this.addRessId.id,
             "categoryParentId": this.classID,
             "remarks": this.textareaValue,
             //垃圾回收新增的字段
-            "idAndListList": [{
-              "categoryParentId": this.classID,
-              "categoryParentName": "废纸",
-              "idAndAmount": [{
-                "amount": 625,
-                "categoryId": 5,
-                "categoryName": "纸皮"
-              }]
-            },{
-              "categoryParentId": 7,
-              "categoryParentName": "废塑料",
-              "idAndAmount": [{
-                "amount": 8,
-                "categoryId": 9,
-                "categoryName": "饮料瓶"
-              },{
-                "amount": 8,
-                "categoryId": 8,
-                "categoryName": "环保袋"
-              }]
-            }],
+            "idAndListList": this.idAndListList,
             "title": this.isTitle,
           }
         }).then((res) => {
           this.$store.dispatch('clear');
           if (res.data == "SUCCESS") {
             alert("恭喜您 下单成功");
-            this.$router.push({path: "/home"})
+            // this.$router.push({path: "/home"})
           } else {
             this.showShadow = true;
             this.showNul = true;
@@ -255,7 +265,7 @@
       closeShadow() {
         this.showShadow = false;
         this.showNul = false;
-        this.$router.push({path: "/home"})
+        // this.$router.push({path: "/home"})
       },
     }
   }

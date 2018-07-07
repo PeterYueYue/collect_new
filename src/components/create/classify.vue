@@ -167,6 +167,7 @@
             this.comIsNull = res.data.comIsNull;
             res.data.ComCatePriceList.map((items) => {
               items.pName = this.menulist[0].name;
+              items.pId = this.menulist[0].id;
               const haveIn = this.selectProductList.findIndex((el) => {
                 return el.id === items.id
               });
@@ -200,6 +201,7 @@
           this.comIsNull = res.data.comIsNull;
           res.data.ComCatePriceList.map((items) => {
             items.pName = this.menulist[index].name;
+            items.pId = this.menulist[index].id;
             const haveIn = this.selectProductList.findIndex((el) => {
               return el.id === items.id
             });
