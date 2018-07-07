@@ -76,11 +76,12 @@
     <div class="classify_footer" v-show="!showUl">
       <div class="f_title">
         <div class="icon"><img src="@/assets/class_icon.png" alt=""><i>{{numTotal}}</i></div>
-        <div
-          class="name">预估金额：<span class="price">￥<span>{{priceTotal.toFixed(2)}}</span></span></div>
+        <div class="name">预估金额：<span class="price">￥<span>{{priceTotal.toFixed(2)}}</span></span></div>
       </div>
       <div class="r_btn" @click="openAlert">一键回收</div>
     </div>
+
+    <div class="classify_foot" v-show="!showUl&&!comIsNull">您所在街道暂无回收企业</div>
 
     <!-- 弹窗 -->
     <div class="class_shadow" v-if="showShadow"></div>
@@ -115,6 +116,7 @@
   export default {
     data() {
       return {
+        comIsNull: false,
         menulist: '',
         isId: '1',
         subList: '',
@@ -162,7 +164,8 @@
             },
             token: this.token
           }).then((res) => {
-            res.data.map((items) => {
+            this.comIsNull = res.data.comIsNull;
+            res.data.ComCatePriceList.map((items) => {
               items.pName = this.menulist[0].name;
               const haveIn = this.selectProductList.findIndex((el) => {
                 return el.id === items.id
@@ -173,7 +176,7 @@
                 items.number = 0
               }
             });
-            this.subList = res.data;
+            this.subList = res.data.ComCatePriceList;
           }).catch((erro) => {
             console.log(erro)
           })
@@ -194,7 +197,8 @@
           },
           token: this.token
         }).then((res) => {
-          res.data.map((items) => {
+          this.comIsNull = res.data.comIsNull;
+          res.data.ComCatePriceList.map((items) => {
             items.pName = this.menulist[index].name;
             const haveIn = this.selectProductList.findIndex((el) => {
               return el.id === items.id
@@ -205,7 +209,7 @@
               items.number = 0
             }
           });
-          this.subList = res.data;
+          this.subList = res.data.ComCatePriceList;
         }).catch((erro) => {
           console.log(erro)
         })
@@ -272,6 +276,7 @@
         })
       },
       plus(item){
+        this.getAddressInfo(item);
         const haveIn = this.selectProductList.findIndex((el) => {
           return el.id === item.id
         });

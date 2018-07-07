@@ -117,6 +117,21 @@ body {
   border-bottom: 0.08rem #00a0e9 solid;
 }
 
+.classify_foot {
+  width: 7.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  background: #f7f6fb;
+  border-top: 0.01rem #ddd solid;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-size: 0.28rem;
+  color: #999;
+}
+
 .classify_footer {
   width: 7.5rem;
   height: 1rem;

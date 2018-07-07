@@ -77,7 +77,7 @@
       }).then((res) => {
         this.$store.dispatch('changeFuturePrice', res.data);
         console.log(res.data);
-        if(res.data==='你所选的街道没有企业'){
+        if(res.data==='你所选的街道没有回收企业入驻'){
           this.showBtn = false;
         }
       })
