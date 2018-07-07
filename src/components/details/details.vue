@@ -10,7 +10,7 @@
       <div class="content">
         <img :src="detailsList.category?detailsList.category.icon:''" alt="" class="pic">
         <div>
-          <div class="name">{{detailsList.category ? detailsList.category.name : ''}}</div>
+          <div class="name">{{detailsList.cateAttName4Page}}</div>
           <div class="price">预估价格：<span>￥<span class="money">{{detailsList.price}}</span></span></div>
         </div>
       </div>
@@ -21,7 +21,7 @@
       <div class="time">订单号：{{detailsList.orderNo}}<span
         :class="detailsList.statusClass">{{detailsList.statusPage}}</span></div>
       <div class="o_number">下单时间：{{detailsList.createDatePage}}</div>
-      <div class="o_name">{{detailsList.category ? detailsList.category.name : ''}}</div>
+      <div class="o_name">{{detailsList.cateAttName4Page}}</div>
       <div class="o_price">预估价格：<span>￥<span>{{detailsList.price}}</span></span></div>
     </div>
 
