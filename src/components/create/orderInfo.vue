@@ -68,6 +68,11 @@
       <div class="order_info_shadow_btn" @click="closeShadow">确定</div>
     </div>
 
+    <div class="order_info_shadow_box" v-if="showSuccess">
+      <div>恭喜您 下单成功</div>
+      <div class="order_info_shadow_btn" @click="closeShadow">确定</div>
+    </div>
+
   </div>
 </template>
 <script>
@@ -95,6 +100,7 @@
         detailsList: {},
         showShadow: false,
         showNul: false,
+        showSuccess: false,
         idAndListList: [],
         garbagePrice: JSON.parse(window.sessionStorage.getItem('productTotal')).priceTotal
       }
@@ -215,7 +221,8 @@
         }).then((res) => {
           this.$store.dispatch('clear');
           if (res.data == "SUCCESS") {
-            alert("恭喜您 下单成功");
+            this.showShadow = true;
+            this.showSuccess = true;
             this.$router.push({path: "/home"})
           } else {
             this.showShadow = true;
@@ -265,6 +272,9 @@
       closeShadow() {
         this.showShadow = false;
         this.showNul = false;
+        this.showSuccess = false;
+        window.localStorage.removeItem('productList');
+        window.localStorage.removeItem('productTotal');
         this.$router.push({path: "/home"})
       },
     }
