@@ -20,8 +20,7 @@
         let str = window.location.href;
         let str1 = str.substring((str.indexOf('?') + 1), str.indexOf('#'));
         let ayth_code = this.qs.parse(str1).auth_code;
-
-        alert(ayth_code)
+        
         api.isAuthorization({
           "app_key": "app_id_1",
           "data": {
