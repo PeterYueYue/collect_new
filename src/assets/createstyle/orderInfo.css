@@ -190,6 +190,13 @@
   margin-left: 0.3rem;
   margin-right: 0.3rem;
 }
+.orderinfo .information span {
+  font-size: 0.4rem;
+  color: #00a0e9;
+  position: relative;
+  top: 0.12rem;
+  right: 0.05rem;
+}
 .orderinfo .nextbutton {
   width: 6.9rem;
   height: 0.84rem;
