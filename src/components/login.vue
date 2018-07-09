@@ -1,58 +1,58 @@
 <template>
-    
-    <div> </div>
+
+  <div></div>
 </template>
 
 <script>
 
-import api from '@/api/api.js';
-export default {
+  import api from '@/api/api.js';
 
-    data(){
-        return{
+  export default {
 
-
-        }
+    data() {
+      return {}
     },
-    mounted(){
-        if(!this.$route.query.token){
-            // let str = 'http://alipay.mayishoubei.com/index.html?app_id=2017022805948218&source=alipay_wallet&userOutputs=auth_base&scope=auth_base,auth_user,auth_ecard&alipay_token=&auth_code=a3d562a21da947edb529137e04b6TX66#/'
-        let str = window.location.href
-        let str1 = str.substring((str.indexOf('?')+1),str.indexOf('#'))
-        let ayth_code = this.qs.parse(str1).auth_code
+    mounted() {
+      if (!this.$route.query.token) {
+        //本地
+        // let str =
+        //   'http://alipay.mayishoubei.com/index.html?app_id=2017022805948218&source=alipay_wallet&userOutputs=auth_base&scope=auth_base,auth_user,auth_ecard&alipay_token=&auth_code=5f4c0df9d7834417af5918d3ceffVE35#/'
+        //正式
+        let str = window.location.href;
+        let str1 = str.substring((str.indexOf('?') + 1), str.indexOf('#'));
+        let ayth_code = this.qs.parse(str1).auth_code;
+        console.log(ayth_code);
         api.isAuthorization({
-            "app_key": "app_id_1",
-            "data": {
-                "authCode": ayth_code
-            }
-            }).then(res =>{
-            if(res.data.mobile == '0'){
-                    this.$router.push({
-                    path:'/verifiaction',
-                    query:{
-                        id:res.data.id
-                    }
-                })
-            }
-            if(res.data.mobile == '1'){
-                 this.$router.push({
-                path:'/home',
-                query:{
-                    token:res.data.token
-                }
-                })
-            }
-        }) 
-        }
-      
-        
-
+          "app_key": "app_id_1",
+          "data": {
+            "authCode": ayth_code
+          }
+        }).then(res => {
+          alert(1);
+          console.log(res);
+          if (res.data.mobile == '0') {
+            alert(2)
+            this.$router.push({
+              path: '/verifiaction',
+              query: {
+                id: res.data.id
+              }
+            })
+          }
+          if (res.data.mobile == '1') {
+            this.$router.push({
+              path: '/home',
+              query: {
+                token: res.data.token
+              }
+            })
+          }
+        })
+      }
 
     }
-    
-    
 
 
-}
+  }
 </script>
 
