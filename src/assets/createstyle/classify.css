@@ -3,22 +3,19 @@ body {
   height: 100%;
   background-color: #f7f6fb;
 }
-
 .classify {
   height: 100%;
   display: flex;
   flex-direction: column;
 }
-
-.class_shadow {
+.classify .class_shadow {
   position: fixed;
   top: 0;
   width: 100%;
   height: 100%;
   background: rgba(51, 51, 51, 0.7);
 }
-
-.class_shadow_box {
+.classify .class_shadow_box {
   box-sizing: border-box;
   position: absolute;
   top: 50%;
@@ -28,102 +25,50 @@ body {
   background: rgba(247, 247, 247, 0.96);
   border-radius: 0.3rem;
 }
-
-.class_shadow_box .title {
+.classify .class_shadow_box .title {
   font-size: 0.34rem;
   text-align: center;
   margin-top: 0.5rem;
 }
-
-.class_shadow_box .remind {
+.classify .class_shadow_box .remind {
   width: 4.6rem;
   margin: 0.2rem auto 0;
   font-size: 0.26rem;
   color: #333;
   text-align: justify;
 }
-
-.class_shadow_box .text {
+.classify .class_shadow_box .text {
   width: 4.6rem;
   margin: 0 auto;
   font-size: 0.26rem;
   color: #333;
 }
-
-.class_shadow_box .text.cur {
+.classify .class_shadow_box .text.cur {
   font-weight: bold;
   margin: 0.2rem auto 0.1rem;
 }
-
-.class_shadow_box .btn {
+.classify .class_shadow_box .btn {
   height: 0.9rem;
   line-height: 0.9rem;
   text-align: center;
   font-size: 0.34rem;
   color: #00a0e9;
-  border-top: 0.01rem #ddd solid;
+  border-top: 0.01rem #dddddd solid;
   margin-top: 0.3rem;
 }
-
-.class_shadow_box .btn:last-child {
+.classify .class_shadow_box .btn:last-child {
   margin-top: 0;
 }
-
-.class_shadow_box .btn.nocolor {
+.classify .class_shadow_box .btn.nocolor {
   color: #888;
 }
-
-.classify_head {
-  height: 1rem;
-  background: #fff;
-}
-
-.classify_head ul {
-  position: relative;
-  width: 7.5rem;
-  height: 1rem;
-  padding: 0;
-}
-
-.classify_head ul .line {
-  width: 0.02rem;
-  height: 0.32rem;
-  background: #888;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.classify_head ul li {
-  float: left;
-  width: 3.75rem;
-  height: 1rem;
-  line-height: 1rem;
-  font-size: 0.3rem;
-  color: #333;
-  text-align: center;
-  cursor: pointer;
-}
-
-.classify_head ul li.cur {
-  color: #00a0e9;
-}
-
-.classify_head ul li.cur span {
-  width: 1.4rem;
-  height: 0.99rem;
-  display: inline-block;
-  border-bottom: 0.08rem #00a0e9 solid;
-}
-
-.classify_foot {
+.classify .classify_foot {
   width: 7.5rem;
   height: 1rem;
   line-height: 1rem;
   text-align: center;
   background: #f7f6fb;
-  border-top: 0.01rem #ddd solid;
+  border-top: 0.01rem #dddddd solid;
   overflow: hidden;
   position: fixed;
   bottom: 0;
@@ -131,19 +76,17 @@ body {
   font-size: 0.28rem;
   color: #999;
 }
-
-.classify_footer {
+.classify .classify_footer {
   width: 7.5rem;
   height: 1rem;
   background: #fff;
-  border-top: 0.01rem #ddd solid;
+  border-top: 0.01rem #dddddd solid;
   overflow: hidden;
   position: fixed;
   bottom: 0;
   left: 0;
 }
-
-.classify_footer .f_title {
+.classify .classify_footer .f_title {
   float: left;
   width: 4.72rem;
   height: 1rem;
@@ -153,18 +96,15 @@ body {
   text-align: center;
   color: #333;
 }
-
-.classify_footer .f_title .icon {
+.classify .classify_footer .f_title .icon {
   position: relative;
   width: 0.6rem;
   display: inline-block;
 }
-
-.classify_footer .f_title .name {
+.classify .classify_footer .f_title .name {
   display: inline-block;
 }
-
-.classify_footer .f_title img {
+.classify .classify_footer .f_title img {
   display: inline-block;
   width: 0.52rem;
   height: 0.52rem;
@@ -172,8 +112,7 @@ body {
   top: 0.14rem;
   right: 0.1rem;
 }
-
-.classify_footer .f_title i {
+.classify .classify_footer .f_title i {
   display: inline-block;
   width: 0.3rem;
   height: 0.3rem;
@@ -186,16 +125,13 @@ body {
   right: 0.1rem;
   line-height: 0.3rem;
 }
-
-.classify_footer .f_title .price {
+.classify .classify_footer .f_title .price {
   color: #f4333c;
 }
-
-.classify_footer .f_title .price span {
+.classify .classify_footer .f_title .price span {
   font-size: 0.36rem;
 }
-
-.classify_footer .r_btn {
+.classify .classify_footer .r_btn {
   float: left;
   width: 2.78rem;
   height: 1rem;
@@ -205,12 +141,48 @@ body {
   text-align: center;
   color: #fff;
 }
-
+.classify .classify_head {
+  height: 1rem;
+  background: #fff;
+}
+.classify .classify_head ul {
+  position: relative;
+  width: 7.5rem;
+  height: 1rem;
+  padding: 0;
+}
+.classify .classify_head ul .line {
+  width: 0.02rem;
+  height: 0.32rem;
+  background: #888;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.classify .classify_head ul li {
+  float: left;
+  width: 7.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: 0.3rem;
+  color: #333;
+  text-align: center;
+  cursor: pointer;
+}
+.classify .classify_head ul li.cur {
+  color: #00a0e9;
+}
+.classify .classify_head ul li.cur span {
+  width: 1.4rem;
+  height: 0.99rem;
+  display: inline-block;
+  border-bottom: 0.08rem #00a0e9 solid;
+}
 .classify .head {
   background-color: #ffffff;
   border-bottom: 0.01rem solid #dddddd;
 }
-
 .classify .head .headback {
   width: 0.3rem;
   height: 0.3rem;
@@ -220,68 +192,56 @@ body {
   margin-top: 0.3rem;
   transform: rotateZ(-135deg);
 }
-
 .classify .head span {
   font-size: 0.32rem;
   color: #1b81d2;
   line-height: 0.88rem;
   margin-left: 0.3rem;
 }
-
 .classify .head h3 {
   font-size: 0.36rem;
   line-height: 0.88rem;
   color: #000000;
   margin-left: 1.8rem;
 }
-
 .classify .content {
   height: 100%;
   flex-grow: 1;
   display: flex;
 }
-
 .classify .content .commodity {
   background-color: #ffffff;
   border-right: 0.01rem solid #dddddd;
 }
-
 .classify .content .commodity .active {
   background-color: #f7f6fb;
   color: #00a0e9;
 }
-
 .classify .content .commodity .item {
   border-bottom: 0.01rem solid #dddddd;
   border-right: 0.01rem solid #dddddd;
   font-size: 0.3rem;
   line-height: 0.9rem;
 }
-
 .classify .content .pinlei {
   width: 5.59rem;
 }
-
 .classify .content .pinlei .title {
   background-color: #f7f6fb;
 }
-
 .classify .content .pinlei .title span {
   width: 0.59rem;
   height: 0.01rem;
   margin-top: 0.5rem;
   background-color: #333333;
 }
-
 .classify .content .pinlei .title .left_line {
   margin-right: 0.1rem;
   margin-left: 1.78rem;
 }
-
 .classify .content .pinlei .title .right_line {
   margin-left: 0.1rem;
 }
-
 .classify .content .pinlei .title h5 {
   font-size: 0.3rem;
   color: #333333;
@@ -289,26 +249,22 @@ body {
   font-family: PingFang-SC-Regular;
   font-weight: normal;
 }
-
 .classify .content .linlei_list {
   width: 5.59rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
 }
-
 .classify .content .linlei_list .classify_banner {
   display: block;
   width: 5rem;
   height: 1.8rem;
   margin: 0.35rem auto;
 }
-
 .classify .content .linlei_list .classify_title {
   font-size: 0.3rem;
   color: #333;
 }
-
 .classify .content .linlei_list .classify_title i {
   display: inline-block;
   width: 0.12rem;
@@ -319,61 +275,51 @@ body {
   top: 0.05rem;
   right: 0.1rem;
 }
-
 .classify .content .linlei_list .classify_title span {
   font-size: 0.24rem;
   color: #333;
 }
-
 .classify .content .linlei_list .classify_main {
   width: 100%;
   height: 7rem;
   overflow-y: scroll;
-  margin-top: 0.3rem;
+  margin-top: 30rem;
 }
-
-.classify .content .linlei_list .classify_item {
+.classify .content .linlei_list .classify_main .classify_item {
   overflow: hidden;
-  border-bottom: 0.01rem #ddd solid;
+  border-bottom: 0.01rem #dddddd solid;
   margin-left: 0.3rem;
   padding: 0.45rem 0.3rem 0.25rem 0.05rem;
   position: relative;
 }
-
-.classify .content .linlei_list .classify_item:first-child {
+.classify .content .linlei_list .classify_main .classify_item:first-child {
   margin-top: -0.3rem;
 }
-
-.classify .content .linlei_list .classify_item:last-child {
+.classify .content .linlei_list .classify_main .classify_item:last-child {
   border-bottom: none;
 }
-
-.classify .content .linlei_list .classify_item img {
+.classify .content .linlei_list .classify_main .classify_item img {
   display: inline-block;
   float: left;
   width: 0.96rem;
   height: 0.96rem;
 }
-
-.classify .content .linlei_list .classify_item .name {
+.classify .content .linlei_list .classify_main .classify_item .name {
   font-size: 0.32rem;
   color: #333;
   padding-left: 1.2rem;
 }
-
-.classify .content .linlei_list .classify_item .price {
+.classify .content .linlei_list .classify_main .classify_item .price {
   font-size: 0.24rem;
   color: #f4333c;
   padding-left: 1.2rem;
   margin-top: 0.1rem;
   position: relative;
 }
-
-.classify .content .linlei_list .classify_item .price span {
+.classify .content .linlei_list .classify_main .classify_item .price span {
   font-size: 0.36rem;
 }
-
-.classify .content .linlei_list .classify_item .calculation {
+.classify .content .linlei_list .classify_main .classify_item .calculation {
   font-size: 0.3rem;
   float: right;
   position: absolute;
@@ -381,8 +327,7 @@ body {
   bottom: 0;
   color: #000;
 }
-
-.classify .content .linlei_list .classify_item .calculation .round {
+.classify .content .linlei_list .classify_main .classify_item .calculation .round {
   display: inline-block;
   width: 0.5rem;
   height: 0.5rem;
@@ -393,8 +338,7 @@ body {
   color: #fff;
   font-size: 0.4rem;
 }
-
-.classify .content .linlei_list .classify_item .calculation span:nth-of-type(2) {
+.classify .content .linlei_list .classify_main .classify_item .calculation .round span:nth-of-type(2) {
   font-size: 0.3rem;
   display: inline-block;
   width: 0.4rem;
@@ -402,17 +346,19 @@ body {
   position: relative;
   top: -0.03rem;
 }
-
+.classify .content .linlei_list .item {
+  width: 1.6rem;
+  margin-left: 0.2rem;
+  margin-top: 0.4rem;
+}
 .classify .content .linlei_list .item img {
   width: 1.2rem;
   height: 1.2rem;
   vertical-align: top;
 }
-
 .classify .content .linlei_list .item span {
   text-align: center;
   font-size: 0.24rem;
   display: block;
   line-height: 0.4rem;
 }
-

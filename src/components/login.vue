@@ -15,12 +15,13 @@
     mounted() {
       if (!this.$route.query.token) {
         //本地
-        // let str =
-        //   'http://alipay.mayishoubei.com/index.html?app_id=2017022805948218&source=alipay_wallet&userOutputs=auth_base&scope=auth_base,auth_user,auth_ecard&alipay_token=&auth_code=5f4c0df9d7834417af5918d3ceffVE35#/'
+        // let str = 'http://alipay.mayishoubei.com/index.html?app_id=2017022805948218&source=alipay_wallet&userOutputs=auth_base&scope=auth_base,auth_user,auth_ecard&alipay_token=&auth_code=5f4c0df9d7834417af5918d3ceffVE35#/'
         //正式
         let str = window.location.href;
         let str1 = str.substring((str.indexOf('?') + 1), str.indexOf('#'));
         let ayth_code = this.qs.parse(str1).auth_code;
+
+        alert(ayth_code)
         api.isAuthorization({
           "app_key": "app_id_1",
           "data": {

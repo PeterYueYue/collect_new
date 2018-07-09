@@ -49,12 +49,7 @@ Vue.use(Router)
 const router =  new Router({
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: home
-    },
-    {
-      path:'/login',
+      path:'/',
       name:'login',
       component:Login
 
