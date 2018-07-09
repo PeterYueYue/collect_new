@@ -21,17 +21,13 @@
         let str = window.location.href;
         let str1 = str.substring((str.indexOf('?') + 1), str.indexOf('#'));
         let ayth_code = this.qs.parse(str1).auth_code;
-        console.log(ayth_code);
         api.isAuthorization({
           "app_key": "app_id_1",
           "data": {
             "authCode": ayth_code
           }
         }).then(res => {
-          alert(1);
-          console.log(res);
           if (res.data.mobile == '0') {
-            alert(2)
             this.$router.push({
               path: '/verifiaction',
               query: {
