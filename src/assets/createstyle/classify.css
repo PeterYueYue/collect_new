@@ -319,6 +319,12 @@ body {
 .classify .content .linlei_list .classify_main .classify_item .price span {
   font-size: 0.36rem;
 }
+.classify .content .linlei_list .classify_main .classify_item .price span.class_number {
+  font-size: 0.36rem;
+  width: 0.65rem;
+  display: inline-block;
+  text-align: center;
+}
 .classify .content .linlei_list .classify_main .classify_item .calculation {
   font-size: 0.3rem;
   float: right;

@@ -63,7 +63,7 @@
               <div class="price">¥<span>{{item.price}}/{{item.unit}}</span>
                 <div class="calculation">
                   <span class="less round" v-if="item.number" @click="less(item)">-</span>
-                  <span v-if="item.number">{{item.number}}</span>
+                  <span v-if="item.number" class="class_number">{{item.number}}</span>
                   <span class="plus round" @click="plus(item)">+</span>
                 </div>
               </div>
