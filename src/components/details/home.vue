@@ -68,11 +68,9 @@
         <!-- 无订单时 -->
         <div v-else>
           <div class="home_address">回收地址
-            <router-link to="addAdress">
-              <div class="add">添加回收地址</div>
-            </router-link>
-            <img
-              src="@/assets/icon_right.png" alt=""></div>
+            <router-link to="addAdress"><div class="add">添加回收地址</div></router-link>
+            <img src="@/assets/icon_right.png" alt="">
+          </div>
           <div class="home_call">
             <h3>分类回收 助力绿色环保</h3>
             <ul class="home_list">
