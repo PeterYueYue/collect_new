@@ -111,7 +111,7 @@
   import api from '@/api/api.js'
   import '@/assets/createstyle/tool.css'
   import '@/assets/createstyle/classify.css'
-  import { mapGetters } from 'vuex';
+  import {mapGetters} from 'vuex';
 
   export default {
     data() {
@@ -142,7 +142,7 @@
       this.getClassFiy();
     },
     methods: {
-      getClassFiy(value){
+      getClassFiy(value) {
         api.getClassify({
           "app_key": "app_id_1",
           "data": {
@@ -154,12 +154,12 @@
           this.menulist = res.data;
           this.menuListImg = res.data[0].icon;
           this.isId = res.data[0].id;
-          this.$store.dispatch('getIsTitle',res.data[0].title);
+          this.$store.dispatch('getIsTitle', res.data[0].title);
           api.getSubList({
             "app_key": "app_id_1",
             "data": {
               "id": this.isId,
-              "communityId": this.adressInfo.communityId,
+              "communityId": this.adressInfo ? this.adressInfo.communityId : '',
               "title": value ? 'HOUSEHOLD' : 'DIGITAL'
             },
             token: this.token
@@ -193,7 +193,7 @@
           "app_key": "app_id_1",
           "data": {
             "id": this.isId,
-            "communityId": this.adressInfo.communityId,
+            "communityId": this.adressInfo ? this.adressInfo.communityId : '',
           },
           token: this.token
         }).then((res) => {
@@ -253,7 +253,7 @@
       },
       openAlert1() {
         const status = window.sessionStorage.getItem('hasAgree');
-        if (status)return;
+        if (status) return;
         this.showShadow = true;
         this.showAlert2 = true;
       },
@@ -276,7 +276,7 @@
           path: '/uploadimage1'
         })
       },
-      plus(item){
+      plus(item) {
         this.getAddressInfo(item);
         const haveIn = this.selectProductList.findIndex((el) => {
           return el.id === item.id
@@ -285,13 +285,13 @@
           this.selectProductList[haveIn].number += 1;
           item.number += 1
         } else {
-          const initItem = Object.assign(item, { number: 1 });
+          const initItem = Object.assign(item, {number: 1});
           this.selectProductList.push(this.deepCopy(initItem));
         }
         this.total();
         this.openAlert1()
       },
-      less(item){
+      less(item) {
         const haveIn = this.selectProductList.findIndex((el) => {
           return el.id === item.id
         });
@@ -302,7 +302,7 @@
         }
         this.total();
       },
-      total(){
+      total() {
         let priceTotal = 0;
         let numTotal = 0;
         this.selectProductList.map((items) => {
