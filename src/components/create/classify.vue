@@ -185,7 +185,7 @@
           console.log(erro)
         });
       },
-      getList(id, index, value) {
+      getList(id, index) {
         this.isId = id;
         this.menuListImg = this.menulist[index].icon;
         this.isActive = index;
@@ -194,7 +194,6 @@
           "data": {
             "id": this.isId,
             "communityId": this.adressInfo.communityId,
-            "title": value ? 'HOUSEHOLD' : 'DIGITAL'
           },
           token: this.token
         }).then((res) => {
