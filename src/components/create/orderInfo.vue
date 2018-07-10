@@ -27,8 +27,7 @@
         <strong>期望上门时间:</strong>
         <time :class="{textColor:infoTm}">{{time}}{{infotime}}</time>
         <div @click="setTime" class="dataBlock">
-          <a href="javaScript:;">
-          </a>
+          <a href="javaScript:;"></a>
         </div>
       </div>
       <div class="estimatePrice clearfix">
