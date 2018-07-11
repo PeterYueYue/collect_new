@@ -64,10 +64,13 @@
             id: id,
           },
         }).then((res) => {
-          if (res.status === 'sucess') {
-            this.memberAddressList();
-          } else {
-            alert(res.msg)
+          var r = confirm("确认删除该地址？");
+          if (r == true) {
+            if (res.status === 'sucess') {
+              this.memberAddressList();
+            } else {
+              alert(res.msg)
+            }
           }
         }).catch((error) => {
           console.log(error)

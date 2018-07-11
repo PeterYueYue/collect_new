@@ -62,9 +62,9 @@
               <div class="name">{{item.name}}</div>
               <div class="price">¥<span>{{item.price}}/{{item.unit}}</span>
                 <div class="calculation">
-                  <span class="less round" v-if="item.number" @click="less(item)">-</span>
+                  <span class="less round" v-if="item.number" @touchstart="less(item)">-</span>
                   <span v-if="item.number" class="class_number">{{item.number}}</span>
-                  <span class="plus round" @click="plus(item)">+</span>
+                  <span class="plus round" @touchstart="plus(item)">+</span>
                 </div>
               </div>
             </div>
@@ -100,8 +100,9 @@
     <div class="class_shadow_box" v-if="showAlert2">
       <div class="title">回收小贴士</div>
       <div class="remind">不精确知道您需要回收的重量或者个数？没关系！您只需根据预估输入待回收物的大约重量或个数，实际成交重量和件数将以上门回收人员实际计量为准！</div>
-      <div @click="closeOrders(false)" class="btn">我知道了</div>
-      <div @click="closeOrders(true)" class="btn nocolor">不再提醒</div>
+      <!--<div @click="closeOrders(false)" class="btn">我知道了</div>-->
+      <!--<div @click="closeOrders(true)" class="btn nocolor">不再提醒</div>-->
+      <div @click="closeOrders(true)" class="btn">我知道了</div>
     </div>
 
   </div>

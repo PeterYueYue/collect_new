@@ -78,9 +78,9 @@
       }).then((res) => {
         this.$store.dispatch('changeFuturePrice', res.data);
         console.log(res.data);
-        if(res.data==='你所选的街道没有回收企业入驻'){
+        if(res.data==='您的小区暂无回收企业'){
           this.showBtn = false;
-        }if(res.data==='你没有传小区id'){
+        }if(res.data==='您暂未添加回收地址'){
           this.showAddBtn = false;
         }
       })
