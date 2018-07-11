@@ -60,7 +60,7 @@
               <div class="time">下单时间：{{item.createDatePage}}<span :class="item.statusClass">{{item.statusPage}}</span></div>
               <div class="o_number">订单号：{{item.orderNo}}</div>
               <div class="o_name">{{item.cateAttName4Page}}</div>
-              <div class="o_price">预估价格：<span>{{item.price}}</span></div>
+              <div class="o_price">预估价格：<span>￥{{item.price}}</span></div>
             </router-link>
           </div>
 
