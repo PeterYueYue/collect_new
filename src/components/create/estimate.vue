@@ -42,6 +42,8 @@
       </li>
     </ul>
     <div class="nextbutton" v-show="showBtn"><router-link to="/uploadimage">下一步</router-link></div>
+    <div class="nextbutton" v-show="!showBtn"><router-link to="/home">返回首页</router-link></div>
+    <div class="nextcur" v-show="!showAddBtn"><router-link to="/addAdress">+ 新增小区地址</router-link></div>
   </div>
 </template>
 <script>
@@ -53,6 +55,7 @@
     data(){
       return {
         showBtn: true,
+        showAddBtn: true,
       }
     },
     computed: mapGetters({
@@ -69,7 +72,7 @@
         "data": {
           "categoryAttrOptionPrices": this.statisticsPrice,
           "categoryId": this.addRessId.id,
-          "communityId": this.adressInfo.communityId,
+          "communityId": this.adressInfo?this.adressInfo.communityId:'',
         },
         token: this.token
       }).then((res) => {
@@ -77,6 +80,8 @@
         console.log(res.data);
         if(res.data==='你所选的街道没有回收企业入驻'){
           this.showBtn = false;
+        }if(res.data==='你没有传小区id'){
+          this.showAddBtn = false;
         }
       })
     },
