@@ -182,13 +182,13 @@ a {
 }
 .home_wrap_icon {
   display: block;
-  width: 2.44rem;
-  height: 1.6rem;
-  margin: 1.2rem auto 0;
+  width: 1.95rem;
+  height: 1.28rem;
+  margin: 0.5rem auto 0;
 }
 .home_wrap_ordername {
   font-size: 0.36rem;
-  margin-top: 0.54rem;
+  margin-top: 0.3rem;
   text-align: center;
 }
 .home_wrap_btnname {

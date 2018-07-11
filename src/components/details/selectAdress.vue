@@ -7,7 +7,7 @@
       </div>
       <div class="title">
         <div class="left">手机号码</div>
-        <div class="right"><input type="text" placeholder="请输入手机号" v-model="form.tel"></div>
+        <div class="right"><input type="number" placeholder="请输入手机号" v-model="form.tel"></div>
       </div>
       <div class="title">
         <div class="left">所在地址</div>
