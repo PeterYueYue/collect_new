@@ -117,9 +117,7 @@
         }
     }
     .upload_main {
-      max-height: 850/@rem;
-      overflow-y: scroll;
-      padding-bottom: 150/@rem;
+      padding-bottom: 110/@rem;
       .upload_head {
         font-size: 34/@rem;
         color: #333;
@@ -131,55 +129,60 @@
           }
         }
       }
-      .upload_rubsh {
-        background: #fff;
-        &:last-child{
-          .utrash_item{
-            &:last-child {
-              border-bottom: none;
+      .up_group {
+        max-height: 650/@rem;
+        overflow-y: scroll;
+        background: red;
+        .upload_rubsh {
+          background: #fff;
+          &:last-child{
+            .utrash_item{
+              &:last-child {
+                border-bottom: none;
+              }
             }
           }
-        }
-        .utrash_title {
-          border-bottom: 1/@rem #ddd solid;
-          font-size: 34/@rem;
-          color: #333;
-          line-height: 70/@rem;
-          padding: 0 30/@rem;
-          span {
-            float: right;
-            font-size: 28/@rem;
-            span {
-              color: #f4333c;
-            }
-          }
-        }
-        .utrash_item {
-          position: relative;
-          margin-left: 30/@rem;
-          padding: 25/@rem 0 20/@rem 10/@rem;
-          &:last-child {
+          .utrash_title {
             border-bottom: 1/@rem #ddd solid;
-          }
-          .name {
-            font-size: 30/@rem;
-            color: #333;
-          }
-          .price {
-            font-size: 28/@rem;
-            color: #f4333c;
-            margin-top: 5/@rem;
-            span {
-              font-size: 36/@rem;
-            }
-          }
-          .weight {
             font-size: 34/@rem;
             color: #333;
-            position: absolute;
-            top: 50%;
-            right: 30/@rem;
-            transform: translateY(-50%);
+            line-height: 70/@rem;
+            padding: 0 30/@rem;
+            span {
+              float: right;
+              font-size: 28/@rem;
+              span {
+                color: #f4333c;
+              }
+            }
+          }
+          .utrash_item {
+            position: relative;
+            margin-left: 30/@rem;
+            padding: 25/@rem 0 20/@rem 10/@rem;
+            &:last-child {
+              border-bottom: 1/@rem #ddd solid;
+            }
+            .name {
+              font-size: 30/@rem;
+              color: #333;
+            }
+            .price {
+              font-size: 28/@rem;
+              color: #f4333c;
+              margin-top: 5/@rem;
+              span {
+                font-size: 36/@rem;
+              }
+            }
+            .weight {
+              font-size: 34/@rem;
+              color: #333;
+              position: absolute;
+              top: 50%;
+              right: 30/@rem;
+              transform: translateY(-50%);
+            }
           }
         }
       }
