@@ -114,7 +114,7 @@
   width: 6.9rem;
   height: 0.84rem;
   color: #ffffff;
-  font-size: 0.36rem;
+  font-size: 0.32rem;
   line-height: 0.84rem;
   text-align: center;
   background-color: #00a0e9;
@@ -123,5 +123,20 @@
 }
 .estimate .nextbutton a {
   color: #ffffff;
+  display: block;
+}
+.estimate .nextcur {
+  width: 6.9rem;
+  height: 0.84rem;
+  color: #00a0e9;
+  font-size: 0.32rem;
+  line-height: 0.84rem;
+  text-align: center;
+  border: 0.01rem #00a0e9 solid;
+  margin: 0.5rem auto 0;
+  border-radius: 0.1rem;
+}
+.estimate .nextcur a {
+  color: #00a0e9;
   display: block;
 }
