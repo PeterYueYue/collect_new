@@ -103,7 +103,7 @@
           </div>
           <img src="@/assets/recycling.png" alt="" class="home_wrap_icon">
           <div class="home_wrap_ordername">您还没有进行中的订单</div>
-          <div class="home_wrap_btnname">点击下方立即回收按钮，为绿色生活助力吧！</div>
+          <div class="home_wrap_btnname">点击下方上门回收按钮，为绿色生活助力吧！</div>
         </div>
 
       </div>
