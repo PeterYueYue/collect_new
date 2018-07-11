@@ -120,7 +120,6 @@
 .uploadimage .upload_main .up_group {
   max-height: 6.5rem;
   overflow-y: scroll;
-  background: red;
 }
 .uploadimage .upload_main .upload_rubsh {
   background: #fff;
