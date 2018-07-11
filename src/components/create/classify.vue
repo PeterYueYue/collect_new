@@ -89,7 +89,7 @@
       <div class="title">回收小贴士</div>
       <div class="remind">由于您本次下单未达到起收标准。若继续下单预约，平台工作人员可能会联系您，希望您能继续攒多一点再进行预约回收哦！感谢您对环保事业的奉献精神！</div>
       <div class="text cur">起收标准 ：</div>
-      <div class="text">1. 回收物总重量大于30Kg</div>
+      <div class="text">1. 回收物总重量大于10Kg</div>
       <div class="text">2. 回收物总数量大于30个</div>
       <div class="text">3. 回收物总金额达到50.00元</div>
       <div class="text">满足上述任一标准即可哦！</div>
@@ -99,10 +99,13 @@
 
     <div class="class_shadow_box" v-if="showAlert2">
       <div class="title">回收小贴士</div>
-      <div class="remind">不精确知道您需要回收的重量或者个数？没关系！您只需根据预估输入待回收物的大约重量或个数，实际成交重量和件数将以上门回收人员实际计量为准！</div>
+      <div class="remind">不精确知道您要回收的重量或者个数？<br/>
+      没关系！<br/>
+      您只需根据预估输入待回收物的大约重量或个数，实际成交重量和件数将以上门回收人员实际计量为准！
+      </div>
       <!--<div @click="closeOrders(false)" class="btn">我知道了</div>-->
       <!--<div @click="closeOrders(true)" class="btn nocolor">不再提醒</div>-->
-      <div @click="closeOrders(true)" class="btn">我知道了</div>
+      <div @click="closeOrders(true)" class="btn1">我知道了</div>
     </div>
 
   </div>
@@ -238,7 +241,7 @@
       },
       openAlert() {
         this.total();
-        if (this.priceTotal > 50 || this.numTotal > 30) {
+        if (this.priceTotal > 50 || this.numTotal > 30 || this.number > 10) {
           window.sessionStorage.setItem('productList', JSON.stringify(this.selectProductList));
           window.sessionStorage.setItem('productTotal', JSON.stringify({
             priceTotal: this.priceTotal,

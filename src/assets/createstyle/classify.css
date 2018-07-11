@@ -47,7 +47,7 @@ body {
   font-weight: bold;
   margin: 0.2rem auto 0.1rem;
 }
-.classify .class_shadow_box .btn {
+.classify .class_shadow_box .btn, .classify .class_shadow_box .btn1 {
   height: 0.9rem;
   line-height: 0.9rem;
   text-align: center;
