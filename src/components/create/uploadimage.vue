@@ -45,8 +45,8 @@
         <span>{{textareaValue.length}}/150</span>
       </div>
       <div class="nextbutton " @click="getTextareaValue">
-        <a v-if="imgsAddress.length<=0" style="background-color:#bfc5c8;" href="javascript:;">马上询价</a>
-        <router-link v-if="imgsAddress.length>0" to="/estimate">马上询价</router-link>
+        <a v-if="imgsAddress.length<=0" style="background-color:#bfc5c8;" href="javascript:;">下一步</a>
+        <router-link v-if="imgsAddress.length>0" to="/orderInfo">下一步</router-link>
       </div>
     </div>
   </div>

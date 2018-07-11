@@ -31,7 +31,7 @@
         </div>
       </div>
       <div class="estimatePrice clearfix">
-        <strong class="fl">回收估计:</strong>
+        <strong class="fl">预估回收价格:</strong>
         <span class="fr">￥{{isTitle === 'DIGITAL' ? futurePrice : garbagePrice}}</span>
       </div>
     </div>

@@ -118,7 +118,7 @@
           this.$store.dispatch('changeStatisticsPrice', e);//再最后跳转前再执行一次；
           this.isActive = '-1';
           setTimeout(() => {
-            this.$router.push({path: '/uploadimage'})
+            this.$router.push({path: '/estimate'})
           }, 200)
         }
       }
