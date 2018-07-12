@@ -8,7 +8,7 @@
             <div class="picture" :style="'backgroundImage:url('+headerImage+')'"></div>
           </div>
           <div style="width:100%;height:100%">
-            <input style="width:100%;height:100%;  opacity:0;" type="file" id="upload" accept="image/*"
+            <input style="width:100%;height:100%;opacity:0;" type="file" id="upload" accept="image/*"
                    @change="upload">
             <label for="upload"></label>
           </div>
@@ -30,7 +30,7 @@
               <div class="picture"></div>
             </div>
             <div style="width:100%;height:100%">
-              <input style="width:100%;height:100%;  opacity:0;" type="file" id="upload" accept="image/*"
+              <input style="width:100%;height:100%;opacity:0;" type="file" id="upload" accept="image/*"
                      @change="upload">
               <label for="upload"></label>
             </div>
@@ -56,10 +56,13 @@
     </div>
 
     <div class="recycle_description">
-      <div class="nextbutton1" @click="getTextareaValue">
-        <a v-if="imgsAddress.length<=0" style="background-color:#bfc5c8;color:#ddd" href="javascript:;">请上传回收物图片
-          完成预约</a>
-        <router-link v-if="imgsAddress.length>0" to="/orderInfo">马上预约</router-link>
+      <div class="nextbutton2" @click="getTextareaValue" v-if="imgsAddress.length<=0" >
+       <input style="width: 100%;background-color:#bfc5c8;color:#ddd;opacity:0;" type="file" id="upload"
+              accept="image/*" @change="upload">
+        <label for="upload">请上传回收物图片完成预约</label>
+      </div>
+      <div class="nextbutton1" @click="getTextareaValue" v-if="imgsAddress.length>0">
+        <router-link to="/orderInfo">马上预约</router-link>
       </div>
     </div>
   </div>

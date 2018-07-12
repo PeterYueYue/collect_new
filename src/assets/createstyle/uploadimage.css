@@ -230,3 +230,24 @@
   display: block;
   line-height: 1.01rem;
 }
+
+.uploadimage .recycle_description .nextbutton2 {
+  width: 7.5rem;
+  height: 1rem;
+  color: #ddd;
+  font-size: 0.36rem;
+  line-height: 1rem;
+  text-align: center;
+  background-color: #bfc5c8;
+  position: fixed;
+  bottom: 0;
+}
+
+.uploadimage .recycle_description .nextbutton2 label {
+  color: #ddd;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 7.5rem;
+}
