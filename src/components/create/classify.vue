@@ -89,7 +89,7 @@
       <div class="title">回收小贴士</div>
       <div class="remind">由于您本次下单未达到起收标准。若继续下单预约，平台工作人员可能会联系您，希望您能继续攒多一点再进行预约回收哦！感谢您对环保事业的奉献精神！</div>
       <div class="text cur">起收标准 ：</div>
-      <div class="text">1. 回收物总重量大于10Kg</div>
+      <div class="text">1. 回收物总重量大于30Kg</div>
       <div class="text">2. 回收物总数量大于30个</div>
       <div class="text">3. 回收物总金额达到50.00元</div>
       <div class="text">满足上述任一标准即可哦！</div>
@@ -241,7 +241,7 @@
       },
       openAlert() {
         this.total();
-        if (this.priceTotal > 50 || this.numTotal > 30 || this.number > 10) {
+        if (this.priceTotal > 50 || this.numTotal > 30) {
           window.sessionStorage.setItem('productList', JSON.stringify(this.selectProductList));
           window.sessionStorage.setItem('productTotal', JSON.stringify({
             priceTotal: this.priceTotal,
