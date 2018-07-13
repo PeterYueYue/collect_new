@@ -146,6 +146,7 @@
     }),
     mounted() {
       this.getClassFiy();
+      this.total();
     },
     methods: {
       getClassFiy(value) {
@@ -247,9 +248,9 @@
         let unitUnitK = 0;
         this.selectProductList.map((items) => {
           if (items.unit === '个') {
-            unitUnitG += items.number;      //怎么加‘个’的number
+            unitUnitG += items.number;
           } else if (items.unit === 'kg') {
-            unitUnitK += items.number;      //怎么加‘kg’的number
+            unitUnitK += items.number;
           }
         });
         this.unitUnitG = unitUnitG;
