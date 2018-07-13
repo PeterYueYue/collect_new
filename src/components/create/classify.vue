@@ -100,8 +100,8 @@
     <div class="class_shadow_box" v-if="showAlert2">
       <div class="title">回收小贴士</div>
       <div class="remind">不精确知道您要回收的重量或者个数？<br/>
-      没关系！<br/>
-      您只需根据预估输入待回收物的大约重量或个数，实际成交重量和件数将以上门回收人员实际计量为准！
+        没关系！<br/>
+        您只需根据预估输入待回收物的大约重量或个数，实际成交重量和件数将以上门回收人员实际计量为准！
       </div>
       <!--<div @click="closeOrders(false)" class="btn">我知道了</div>-->
       <!--<div @click="closeOrders(true)" class="btn nocolor">不再提醒</div>-->
@@ -115,7 +115,7 @@
   import api from '@/api/api.js'
   import '@/assets/createstyle/tool.css'
   import '@/assets/createstyle/classify.css'
-  import {mapGetters} from 'vuex';
+  import { mapGetters } from 'vuex';
 
   export default {
     data() {
@@ -243,7 +243,18 @@
       },
       openAlert() {
         this.total();
-        if (this.priceTotal > 50 || this.unitUnitG > 10 || this.unitUnitK > 30) {
+        let unitUnitG = 0;
+        let unitUnitK = 0;
+        this.selectProductList.map((items) => {
+          if (items.unit === '个') {
+            unitUnitG += items.number;      //怎么加‘个’的number
+          } else if (items.unit === 'kg') {
+            unitUnitK += items.number;      //怎么加‘kg’的number
+          }
+        });
+        this.unitUnitG = unitUnitG;
+        this.unitUnitK = unitUnitK;
+        if (this.priceTotal > 50 || this.unitUnitK > 10 || this.unitUnitG > 30) {
           window.sessionStorage.setItem('productList', JSON.stringify(this.selectProductList));
           window.sessionStorage.setItem('productTotal', JSON.stringify({
             priceTotal: this.priceTotal,
@@ -293,7 +304,7 @@
           this.selectProductList[haveIn].number += 1;
           item.number += 1
         } else {
-          const initItem = Object.assign(item, {number: 1});
+          const initItem = Object.assign(item, { number: 1 });
           this.selectProductList.push(this.deepCopy(initItem));
         }
         this.total();
@@ -313,23 +324,12 @@
       total() {
         let priceTotal = 0;
         let numTotal = 0;
-        let unitUnitG = 0;
-        let unitUnitK = 0;
         this.selectProductList.map((items) => {
           priceTotal += items.number * items.price;
           numTotal += items.number;
-          if(items.unit === '个'){
-            unitUnitG += items.number;      //怎么加‘个’的number
-          }else if(items.unit === 'kg'){
-            unitUnitK += items.number;      //怎么加‘kg’的number
-          }
         });
         this.priceTotal = priceTotal.toFixed(2);
         this.numTotal = numTotal;
-        this.unitUnitG = unitUnitG;
-        this.unitUnitK = unitUnitK;
-        console.log(this.unitUnitG + 'kg');
-        console.log(this.unitUnitK + '个');
       },
       deepCopy(source) {
         let result = {};
