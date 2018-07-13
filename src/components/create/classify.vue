@@ -89,7 +89,7 @@
       <div class="title">回收小贴士</div>
       <div class="remind">由于您本次下单未达到起收标准。若继续下单预约，平台工作人员可能会联系您，希望您能继续攒多一点再进行预约回收哦！感谢您对环保事业的奉献精神！</div>
       <div class="text cur">起收标准 ：</div>
-      <div class="text">1. 回收物总重量大于30Kg</div>
+      <div class="text">1. 回收物总重量大于10Kg</div>
       <div class="text">2. 回收物总数量大于30个</div>
       <div class="text">3. 回收物总金额达到50.00元</div>
       <div class="text">满足上述任一标准即可哦！</div>
@@ -134,7 +134,9 @@
           JSON.parse(window.sessionStorage.getItem('productList')) : [],//上传成功要清掉
         priceTotal: window.sessionStorage.getItem('productTotal') ? JSON.parse(window.sessionStorage.getItem('productTotal')).priceTotal : 0,
         //上传成功要清掉
-        numTotal: window.sessionStorage.getItem('productTotal') ? JSON.parse(window.sessionStorage.getItem('productTotal')).numTotal : 0
+        numTotal: window.sessionStorage.getItem('productTotal') ? JSON.parse(window.sessionStorage.getItem('productTotal')).numTotal : 0,
+        unitUnitG: window.sessionStorage.getItem('productTotal') ? JSON.parse(window.sessionStorage.getItem('productTotal')).unitUnitG : 0,
+        unitUnitK: window.sessionStorage.getItem('productTotal') ? JSON.parse(window.sessionStorage.getItem('productTotal')).unitUnitK : 0,
       }
     },
     computed: mapGetters({
@@ -241,11 +243,13 @@
       },
       openAlert() {
         this.total();
-        if (this.priceTotal > 50 || this.numTotal > 30) {
+        if (this.priceTotal > 50 || this.unitUnitG > 10 || this.unitUnitK > 30) {
           window.sessionStorage.setItem('productList', JSON.stringify(this.selectProductList));
           window.sessionStorage.setItem('productTotal', JSON.stringify({
             priceTotal: this.priceTotal,
-            numTotal: this.numTotal
+            // numTotal: this.numTotal
+            unitUnitG: this.unitUnitG,
+            unitUnitK: this.unitUnitK,
           }));
           this.$router.push({
             path: '/uploadimage1',
@@ -309,12 +313,23 @@
       total() {
         let priceTotal = 0;
         let numTotal = 0;
+        let unitUnitG = 0;
+        let unitUnitK = 0;
         this.selectProductList.map((items) => {
           priceTotal += items.number * items.price;
           numTotal += items.number;
+          if(items.unit === '个'){
+            unitUnitG += items.number;      //怎么加‘个’的number
+          }else if(items.unit === 'kg'){
+            unitUnitK += items.number;      //怎么加‘kg’的number
+          }
         });
         this.priceTotal = priceTotal.toFixed(2);
         this.numTotal = numTotal;
+        this.unitUnitG = unitUnitG;
+        this.unitUnitK = unitUnitK;
+        console.log(this.unitUnitG + 'kg');
+        console.log(this.unitUnitK + '个');
       },
       deepCopy(source) {
         let result = {};
