@@ -67,23 +67,13 @@
       adressInfo: 'adressInfo',
     }),
     created() {
-      api.futurePrices({
-        "app_key": "app_id_1",
-        "data": {
-          "categoryAttrOptionPrices": this.statisticsPrice,
-          "categoryId": this.addRessId.id,
-          "communityId": this.adressInfo?this.adressInfo.communityId:'',
-        },
-        token: this.token
-      }).then((res) => {
-        this.$store.dispatch('changeFuturePrice', res.data);
-        console.log(res.data);
-        if(res.data==='您的小区暂无回收企业'){
-          this.showBtn = false;
-        }if(res.data==='您暂未添加回收地址'){
-          this.showAddBtn = false;
-        }
-      })
+      api.MemberAddress({
+          "app_key": "app_id_1",
+          token: this.token
+        }).then((res) => {
+          this.$store.dispatch('getAddressInfo',res.data);
+          this.isFuturePrtices();
+        })
     },
     methods: {
       letAgainM() {
@@ -92,6 +82,27 @@
       backbtn() { //执行返回上一个路由；
         this.$router.go(-1);
       },
+      isFuturePrtices(){
+        api.futurePrices({
+          "app_key": "app_id_1",
+          "data": {
+            "categoryAttrOptionPrices": this.statisticsPrice,
+            "categoryId": this.addRessId.id,
+            "communityId": this.adressInfo?this.adressInfo.communityId:'',
+          },
+          token: this.token
+        })
+        .then((res) => {
+          this.$store.dispatch('changeFuturePrice', res.data);
+          if(res.data==='您的小区暂无回收企业'){
+            this.showBtn = false;
+          } else if(res.data==='您暂未添加回收地址'){
+            this.showAddBtn = false;
+          }
+        })
+
+
+      }
     }
   }
 </script>

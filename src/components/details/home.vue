@@ -141,7 +141,7 @@
         homeList: {},
         adressList: {},
         showList: true,
-        pullRefreshConfig: {
+        pullRefreshConfig: { 
           pullText: '下拉刷新', // 下拉时显示的文字
           triggerText: '释放更新', // 下拉到触发距离时显示的文字
           loadingText: '加载中...', // 加载中的文字
@@ -161,7 +161,7 @@
         this.$store.dispatch('getToken', tk)
       }
 
-      // 本地测试
+      //本地测试
       // var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24VDPYKJDZTFWQI47BL5WTPAJFXJ2K2SNPDGA4W6O73WJYLY5ZQKBUGEACH6QJ4HX3P22XKUOGQHGQF4IG4JDK3IUTEZQYKVPN6DUNWTOL5K2ETJEYS7YQXNI4MSLCRB6IBI6QEEE7ACPMUGTRUZQLJ6EGNVQ67NUOG3NTHPRFVOB6I3FSWFJTI74U2SCWWNLOHH2H2F6WZGERHAFJYVKSFZRMRLLPZ4O2ZIFJROTQ'
       // this.$store.dispatch('getToken', tk)
 

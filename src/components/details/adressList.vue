@@ -88,7 +88,7 @@
           console.log(res);
           this.memberAddressList();
           this.$router.push({
-            path: '/home',
+            path: '/estimate',
           })
         }).catch((error) => {
           console.log(error)

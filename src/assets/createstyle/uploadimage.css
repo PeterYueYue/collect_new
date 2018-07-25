@@ -121,47 +121,47 @@
   max-height: 6.5rem;
   overflow-y: scroll;
 }
-.uploadimage .upload_main .upload_rubsh {
+.uploadimage .upload_main .up_group .upload_rubsh {
   background: #fff;
 }
-.uploadimage .upload_main .upload_rubsh:last-child .utrash_item:last-child {
+.uploadimage .upload_main .up_group .upload_rubsh:last-child .utrash_item:last-child {
   border-bottom: none;
 }
-.uploadimage .upload_main .upload_rubsh .utrash_title {
+.uploadimage .upload_main .up_group .upload_rubsh .utrash_title {
   border-bottom: 0.01rem #dddddd solid;
   font-size: 0.34rem;
   color: #333;
   line-height: 0.7rem;
   padding: 0 0.3rem;
 }
-.uploadimage .upload_main .upload_rubsh .utrash_title span {
+.uploadimage .upload_main .up_group .upload_rubsh .utrash_title span {
   float: right;
   font-size: 0.28rem;
 }
-.uploadimage .upload_main .upload_rubsh .utrash_title span span {
+.uploadimage .upload_main .up_group .upload_rubsh .utrash_title span span {
   color: #f4333c;
 }
-.uploadimage .upload_main .upload_rubsh .utrash_item {
+.uploadimage .upload_main .up_group .upload_rubsh .utrash_item {
   position: relative;
   margin-left: 0.3rem;
   padding: 0.25rem 0 0.2rem 0.1rem;
 }
-.uploadimage .upload_main .upload_rubsh .utrash_item:last-child {
+.uploadimage .upload_main .up_group .upload_rubsh .utrash_item:last-child {
   border-bottom: 0.01rem #dddddd solid;
 }
-.uploadimage .upload_main .upload_rubsh .utrash_item .name {
+.uploadimage .upload_main .up_group .upload_rubsh .utrash_item .name {
   font-size: 0.3rem;
   color: #333;
 }
-.uploadimage .upload_main .upload_rubsh .utrash_item .price {
+.uploadimage .upload_main .up_group .upload_rubsh .utrash_item .price {
   font-size: 0.28rem;
   color: #f4333c;
   margin-top: 0.05rem;
 }
-.uploadimage .upload_main .upload_rubsh .utrash_item .price span {
+.uploadimage .upload_main .up_group .upload_rubsh .utrash_item .price span {
   font-size: 0.36rem;
 }
-.uploadimage .upload_main .upload_rubsh .utrash_item .weight {
+.uploadimage .upload_main .up_group .upload_rubsh .utrash_item .weight {
   font-size: 0.34rem;
   color: #333;
   position: absolute;
@@ -230,7 +230,6 @@
   display: block;
   line-height: 1.01rem;
 }
-
 .uploadimage .recycle_description .nextbutton2 {
   width: 7.5rem;
   height: 1rem;
@@ -242,12 +241,11 @@
   position: fixed;
   bottom: 0;
 }
-
 .uploadimage .recycle_description .nextbutton2 label {
   color: #ddd;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   width: 7.5rem;
 }

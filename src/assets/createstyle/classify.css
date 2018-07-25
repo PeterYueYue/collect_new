@@ -47,7 +47,7 @@ body {
   font-weight: bold;
   margin: 0.2rem auto 0.1rem;
 }
-.classify .class_shadow_box .btn, .classify .class_shadow_box .btn1 {
+.classify .class_shadow_box .btn {
   height: 0.9rem;
   line-height: 0.9rem;
   text-align: center;
@@ -61,6 +61,15 @@ body {
 }
 .classify .class_shadow_box .btn.nocolor {
   color: #888;
+}
+.classify .class_shadow_box .btn1 {
+  height: 0.9rem;
+  line-height: 0.9rem;
+  text-align: center;
+  font-size: 0.34rem;
+  color: #00a0e9;
+  border-top: 0.01rem #dddddd solid;
+  margin-top: 0.3rem;
 }
 .classify .classify_foot {
   width: 7.5rem;
@@ -282,7 +291,6 @@ body {
 .classify .content .linlei_list .classify_main {
   width: 100%;
   height: 7rem;
-  /*overflow-y: scroll;*/
   margin-top: 0.3rem;
   overflow-scrolling: touch;
   -webkit-overflow-scrolling: touch;
