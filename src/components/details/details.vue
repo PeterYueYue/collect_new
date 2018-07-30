@@ -63,11 +63,11 @@
       <!-- 生活垃圾 -->
       <div v-show="detailsList.title == 'HOUSEHOLD'">
         <div class="details_rubsh" v-for="item in rubshList" :key="item.id">
-          <div class="trash_title">{{item.name}}<span>预估总计：<span>￥{{item.price}}</span></span></div>
+          <div class="trash_title">{{item.name}}<span>预估总计：<span>￥{{item.price.toFixed(2)}}</span></span></div>
           <div class="trash_item" v-for="data in item.list" :key="data.id">
-            <span class="weight">{{data.amount}}</span>
+            <span class="weight">{{data.amount+data.unit}}</span>
             <div class="name">{{data.cateName}}</div>
-            <div class="price">{{data.price}}</div>
+            <div class="price">¥{{data.price+'/'+data.unit}}</div>
           </div>
         </div>
       </div>
@@ -77,9 +77,9 @@
       <div class="text">{{detailsList.company?detailsList.company.tel:''}}</div>
     </div>
     <!-- 已派单状态才有 -->
-    <div class="details_wrap_footbtn" @click="openCode"
+    <!-- <div class="details_wrap_footbtn" @click="openCode"
          v-show="detailsList.status4Page=='ALREADY'||detailsList.status4Page=='distribute'">确认交易
-    </div>
+    </div> -->
     <div class="details_shadow" v-if="showShadow"></div>
     <!-- 取消理由弹窗 -->
     <div class="details_shadow_box" v-if="showOrders">
@@ -233,6 +233,8 @@
           this.detailsList = res.data.order;
           this.rubshList = res.data.list;
           this.cateList = res.data.list.list;
+
+          console.log(this.rubshList,"123")
           if(res.data.order.recyclers){
             this.tel = "tel:" + res.data.order.recyclers.tel;
           }

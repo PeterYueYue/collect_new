@@ -179,6 +179,7 @@
         })
       },
       completeAnOrder() {
+        this.isOk.timeIsOk = false;
         api.completeOrder({
           "app_key": "app_id_1",
           token: this.token,
@@ -220,6 +221,7 @@
             "title": this.isTitle,
           }
         }).then((res) => {
+          this.isOk.timeIsOk = true;
           this.$store.dispatch('clear');
           if (res.data === "SUCCESS") {
             this.showShadow = true;

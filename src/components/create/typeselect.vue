@@ -66,7 +66,8 @@
       addRessId: 'addRessId',    //进入地址组件关联的ID
       isShowForState: 'isShowForState', //
       token: 'token',
-      futurePrice: 'futurePrice'
+      futurePrice: 'futurePrice',
+      adressInfo:'adressInfo'
     }),
 
     created() {
@@ -76,6 +77,7 @@
         "app_key": "app_id_1",
         "data": {
           "id": this.addRessId.id,
+          "communityId" :this.adressInfo.communityId,  
           "pageBean": {
             "pageNumber": 1,
             "pageSize": 20

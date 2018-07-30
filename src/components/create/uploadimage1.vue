@@ -45,9 +45,9 @@
       <div class="upload_head">已选回收物<span>预估总计：<span>￥{{priceTotal}}</span></span></div>
       <div class="up_group">
         <div class="upload_rubsh" v-for="(data,index) in productList" :key="index">
-          <div class="utrash_title">{{data.pName}}<span>预估价格：<span>￥{{data.price}}</span></span></div>
+          <div class="utrash_title">{{data.pName}}<span>预估价格：<span>￥{{data.price.toFixed(2)}}</span></span></div>
             <div class="utrash_item" v-for="(items,index) in data.data" :key="index">
-              <span class="weight">x {{items.number}}</span>
+              <span class="weight">x {{items.number+items.unit}}</span>
               <div class="name">{{items.name}}</div>
               <div class="price">¥<span>{{items.price}}/{{items.unit}}</span></div>
             </div>
@@ -110,6 +110,8 @@
         return
       }
       let data = JSON.parse(window.sessionStorage.getItem('productList'));
+
+      console.log(data,"shuju")
       let productList = [];
       data.map((items) => {
         let index = productList.findIndex((el) => {
