@@ -41,9 +41,9 @@
         <span>贴心服务</span>
       </li>
     </ul>
-    <div class="nextbutton" v-show="showBtn"><router-link to="/uploadimage">下一步</router-link></div>
-    <div class="nextbutton" v-show="!showBtn"><router-link to="/home">返回首页</router-link></div>
-    <div class="nextcur" v-show="!showAddBtn"><router-link to="/addAdress">+ 新增小区地址</router-link></div>
+    <div class="nextbutton" v-show="showBtn == 'enter' && showAddBtn == 'enter' "><router-link to="/uploadimage">下一步</router-link></div>
+    <div class="nextbutton" v-show="showBtn == 'back' ||showAddBtn == 'back'"><router-link to="/home">返回首页</router-link></div>
+    <div class="nextcur" ><router-link to="/addAdress">+ 新增小区地址</router-link></div>
   </div>
 </template>
 <script>
@@ -54,8 +54,8 @@
   export default {
     data(){
       return {
-        showBtn: true,
-        showAddBtn: true,
+        showBtn: 'enter',
+        showAddBtn: 'enter',
       }
     },
     computed: mapGetters({
@@ -93,11 +93,13 @@
           token: this.token
         })
         .then((res) => {
+
           this.$store.dispatch('changeFuturePrice', res.data);
-          if(res.data==='您的小区暂无回收企业'){
-            this.showBtn = false;
-          } else if(res.data==='您暂未添加回收地址'){
-            this.showAddBtn = false;
+          if(res.data=='您的小区暂无回收企业'){
+            this.showBtn = 'back';
+          }
+          if(res.data=='您暂未添加回收地址'){
+            this.showAddBtn = 'back';
           }
         })
 

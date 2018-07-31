@@ -63,6 +63,10 @@ export var clearfuturePrice = ({commit}, data) => {   //初始预估价格
 export var setClassItemId = ({commit}, data) => {   //获取分类ID
   commit(types.SetClassItemId, data)
 }
+export var recyclingType = ({commit}, data) => {   //回收类型
+  commit(types.RecyclingType, data)
+}
+
 
 //---------------------------------------------------------------------------------------------------------------
 

@@ -138,7 +138,7 @@
     }),
     methods: {
       revisePhone() {
-        var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+        var myreg = /^[1][3,4,6,5,7,8][0-9]{9}$/;
         if (this.phonenumber === '') {
           this.isShowPhone = true;
           this.isErr = false;
@@ -153,7 +153,7 @@
         }
       },
       watchPhone() {
-        var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+        var myreg = /^[1][3,4,5,6,7,8][0-9]{9}$/;
         if (this.phonenumber === '') {
           this.isShowPhone = true;
           this.isEnter = false;

@@ -24,6 +24,7 @@ body {
   width: 5.9rem;
   background: rgba(247, 247, 247, 0.96);
   border-radius: 0.3rem;
+  line-height: 0.5rem;
 }
 .classify .class_shadow_box .title {
   font-size: 0.34rem;
@@ -263,6 +264,22 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
+  position: relative;
+}
+.classify .content .linlei_list .questions {
+  position: absolute;
+  right: 0.6rem;
+  top: 0.2rem;
+  font-size: 0.24rem;
+}
+.classify .content .linlei_list .questions span {
+  width: 0.23rem;
+  height: 0.23rem;
+  background: url('../icon/问号\(1\)@2x.png') no-repeat;
+  background-size: 100% 100%;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 0.05rem;
 }
 .classify .content .linlei_list .classify_banner {
   display: block;
@@ -273,6 +290,12 @@ body {
 .classify .content .linlei_list .classify_title {
   font-size: 0.3rem;
   color: #333;
+  padding: 0.3rem 0;
+  border-bottom: 0.01rem #dddddd solid;
+  margin-left: 0.3rem;
+  text-indent: -0.5rem;
+  border-top: 0.01rem #dddddd solid;
+  margin-top: -0.01rem #dddddd solid;
 }
 .classify .content .linlei_list .classify_title i {
   display: inline-block;
@@ -294,6 +317,8 @@ body {
   margin-top: 0.3rem;
   overflow: scroll;
   padding-bottom: 2rem;
+  overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
 }
 .classify .content .linlei_list .classify_main .classify_item {
   overflow: hidden;
@@ -301,6 +326,36 @@ body {
   margin-left: 0.3rem;
   padding: 0.45rem 0.3rem 0.25rem 0.05rem;
   position: relative;
+}
+.classify .content .linlei_list .classify_main .classify_item .optbtn {
+  position: absolute;
+  right: 0.3rem;
+  bottom: 0.2rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: url(../icon/价格未选中@2x.png) no-repeat;
+  background-size: 100% 100%;
+}
+.classify .content .linlei_list .classify_main .classify_item .optbtn .btn {
+  width: 200%;
+  height: 200%;
+  margin-top: -0.5rem;
+  margin-left: -0.5rem;
+}
+.classify .content .linlei_list .classify_main .classify_item .optbtn1 {
+  position: absolute;
+  right: 0.3rem;
+  bottom: 0.2rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: url(../icon/心未选中@2x.png) no-repeat;
+  background-size: 100% 100%;
+}
+.classify .content .linlei_list .classify_main .classify_item .optbtn1 .btn {
+  width: 200%;
+  height: 200%;
+  margin-top: -0.5rem;
+  margin-left: -0.5rem;
 }
 .classify .content .linlei_list .classify_main .classify_item:first-child {
   margin-top: -0.3rem;
@@ -377,4 +432,15 @@ body {
   font-size: 0.24rem;
   display: block;
   line-height: 0.4rem;
+}
+.disable {
+  background-color: #c1cccc !important;
+}
+.checked {
+  background: url(../icon/心选中@2x.png) no-repeat !important;
+  background-size: 100% 100% !important;
+}
+.checked1 {
+  background: url(../icon/价格选中@2x.png) no-repeat !important;
+  background-size: 100% 100% !important;
 }

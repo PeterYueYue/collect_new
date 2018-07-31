@@ -45,6 +45,7 @@ export default new Vuex.Store({
     classID: '',     //分类父级id
     adressInfo: {},  //默认地址和个人信息
     isTitle: '',     //分类title
+    recyclingType:'appliances',
   },
   mutations: {
     getSubItemID(state, id) {  //获取子集ID
@@ -120,6 +121,7 @@ export default new Vuex.Store({
     },
     Clear(state) {       //清除图片信息
       this.state.imgsAddress = []
+      this.state.addRessId = {}
     },
     clear_Future_Price(state, data) { // 初始评估价格
       this.state.futurePrice = '';
@@ -134,6 +136,10 @@ export default new Vuex.Store({
     GetIsTitle(state, data) {  // 默认地址信息
       this.state.isTitle = data
     },
+    RecyclingType(state,data) {
+      this.state.recyclingType = data;
+    }
   },
+  
   plugins: [createPersistedState({storage: window.sessionStorage})]
 })

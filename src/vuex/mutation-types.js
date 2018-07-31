@@ -1,5 +1,5 @@
 export var SET_CHANGE_INDEX           = 'set_change_index';
-export var Set_user_info 		           = 'Set_user_info';
+export var Set_user_info 		      = 'Set_user_info';
 export var Change_Address             = 'Change_Address';
 export var Change_Show_Or_Hidden      = 'Change_Show_Or_Hidden';
 export var Set_Add_Ress_Id            = 'Set_Add_Ress_Id';
@@ -19,4 +19,6 @@ export var Clear                      = 'Clear';
 export var clear_Future_Price         = 'clear_Future_Price';
 export var SetClassItemId             = 'SetClassItemId';
 export var GetAddressInfo             = 'GetAddressInfo';
-export var GetIsTitle                  = 'GetIsTitle';
+export var GetIsTitle                 = 'GetIsTitle';
+export var RecyclingType              = 'RecyclingType';
+

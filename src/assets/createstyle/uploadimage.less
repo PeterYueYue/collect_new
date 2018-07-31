@@ -131,9 +131,12 @@
       }
       .up_group {
         max-height: 650/@rem;
-        overflow-y: scroll;
+        overflow: scroll;
+        overflow-scrolling: touch;
+        -webkit-overflow-scrolling: touch;
         .upload_rubsh {
-          background: #fff;
+          
+         background: #fff;
           &:last-child{
             .utrash_item{
               &:last-child {

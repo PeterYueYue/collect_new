@@ -22,7 +22,7 @@
         </li>
       </ul>
     </div>
-    <div class="collectTimeAndPrice">
+    <div  v-if="recyclingType == 'appliances'"  class="collectTimeAndPrice">
       <div class="pickUp">
         <strong>期望上门时间:</strong>
         <time :class="{textColor:infoTm}">{{time}}{{infotime}}</time>
@@ -30,7 +30,7 @@
           <a href="javaScript:;"></a>
         </div>
       </div>
-      <div class="estimatePrice clearfix">
+      <div  v-if="recyclingType == 'appliances'" class="estimatePrice clearfix">
         <strong class="fl">预估回收价格:</strong>
         <span class="fr">￥{{isTitle === 'DIGITAL' ? futurePrice : garbagePrice}}</span>
       </div>
@@ -38,8 +38,8 @@
     <div class="information"><span>*</span>实际成交价格以回收人员上门计量验收为准</div>
 
     <div class="nextbutton">
-      <a v-if="isOk.timeIsOk == false" class="dontEnter">提交订单</a>
-      <a href="javascript:;" v-if="isOk.timeIsOk == true" @click="completeAnOrder" class="yesEnter">提交订单</a>
+      <a v-if="isOk.timeIsOk == false && recyclingType == 'appliances'" class="dontEnter">提交订单</a>
+      <a href="javascript:;" v-if="isOk.timeIsOk == true ||recyclingType !== 'appliances'  " @click="completeAnOrder" class="yesEnter">提交订单</a>
     </div>
 
     <div class="information"><span>*</span>提交订单后将有工作人员可能和您电话沟通，请保持手机畅通</div>
@@ -83,7 +83,7 @@
     data() {
       return {
         datetime5: '2018-01-11 上午',
-        time: '请选择上门回收时间 ',
+        time:'请选择上门回收时间',
         show: false,
         infoTm: '',
         infotime: '',
@@ -114,6 +114,7 @@
         let index = orderList.findIndex((el) => {
           return el.categoryParentId === items.pId
         });
+
         if (index > -1) {
           orderList[index].idAndAmount.push({
             amount: items.number,
@@ -124,15 +125,18 @@
           orderList[index].categoryParentName = items.pName;
         } else {
           orderList.push({
-            categoryParentName: items.pName, idAndAmount: [{
+            categoryParentName: items.pName, 
+            idAndAmount: [{
               amount: items.number,
               categoryId: items.id,
               categoryName: items.name,
             }], categoryParentId: items.pId
           })
         }
+
       });
       this.idAndListList = orderList;
+      
     },
     computed: mapGetters({
       futurePrice: 'futurePrice',                //预估价格
@@ -148,6 +152,7 @@
       adressInfo: 'adressInfo',                  //新地址信息
       classID: 'classID',                        //分类父级Id
       isTitle: 'isTitle',                        //分类title
+      recyclingType:'recyclingType',
     }),
     created() {
       if (this.imgsAddress.length < 1) {
@@ -180,6 +185,9 @@
       },
       completeAnOrder() {
         this.isOk.timeIsOk = false;
+        if(this.time == '请选择上门回收时间'){
+          this.time = '';
+        }
         api.completeOrder({
           "app_key": "app_id_1",
           token: this.token,
@@ -223,7 +231,11 @@
         }).then((res) => {
           this.isOk.timeIsOk = true;
           this.$store.dispatch('clear');
+          window.sessionStorage.removeItem('productList');
+          window.sessionStorage.removeItem('productTotal');
+
           if (res.data === "SUCCESS") {
+
             this.showShadow = true;
             this.showSuccess = true;
           } else {

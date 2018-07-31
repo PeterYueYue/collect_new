@@ -140,6 +140,9 @@
         })
       },
       getStreet(){
+    //  支付宝内加载提示
+        ap.showLoading({content: '请稍候',});
+    //  请求区域数据
         api.areaChildList({
           "app_key": "app_id_1",
           "data": {
@@ -147,13 +150,15 @@
             "level": 1
           },
           token: this.$store.state.token,
-        }).then((res) => {
+        })
+        .then((res) => {
           this.selectStreet = '';
           this.selectCommunity = '';
           this.streetList = res.data;
-        }).catch((erro) => {
-          console.log(erro)
+    //  关闭支付宝加载提示
+          ap.hideLoading();
         })
+        
       },
       getCommunity(){
         this.selectCommunity = '';

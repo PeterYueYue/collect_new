@@ -119,7 +119,9 @@
 }
 .uploadimage .upload_main .up_group {
   max-height: 6.5rem;
-  overflow-y: scroll;
+  overflow: scroll;
+  overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
 }
 .uploadimage .upload_main .up_group .upload_rubsh {
   background: #fff;
