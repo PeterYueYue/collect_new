@@ -141,7 +141,7 @@ body {
         span {
           font-size: 36/@rem;
         }
-        
+
       }
 
     }
@@ -178,7 +178,7 @@ body {
         width: 375/@rem;
         height: 100/@rem;
         line-height: 100/@rem;
-        font-size: 30/@rem;
+        font-size: 28/@rem;
         color: #333;
         text-align: center;
         cursor: pointer;
@@ -234,7 +234,7 @@ body {
       .item {
         border-bottom: 1/@rem solid #dddddd;
         border-right: 1/@rem solid #dddddd;
-        font-size: 30/@rem;
+        font-size: 28/@rem;
         line-height: 90/@rem;
       }
     }
@@ -256,7 +256,7 @@ body {
           margin-left: 10/@rem;
         }
         h5 {
-          font-size: 30/@rem;
+          font-size: 28/@rem;
           color: #333333;
           line-height: 90/@rem;
           font-family: PingFang-SC-Regular;
@@ -272,7 +272,7 @@ body {
       position: relative;
       .questions{
         position: absolute;
-        right: 60/@rem;
+        right: 30/@rem;
         top: 20/@rem;
         font-size: 24/@rem;
         span{
@@ -286,22 +286,22 @@ body {
         }
 
       }
-      
+
       .classify_banner {
         display: block;
         width: 500/@rem;
         height: 180/@rem;
-        margin: 35/@rem auto;
+        margin: 65/@rem auto 0;
       }
       .classify_title {
-        font-size: 30/@rem;
+        font-size: 28/@rem;
         color: #333;
-        padding: 30/@rem 0;
-        border-bottom: 1/@rem #ddd solid;
+        padding: 30/@rem 0 0 0;
         margin-left: 30/@rem;
         text-indent: -50/@rem;
-        border-top: 1/@rem #ddd solid;
-        margin-top: -1/@rem #ddd solid;
+        &:first-child {
+          padding: 0;
+        }
         i {
           display: inline-block;
           width: 12/@rem;
@@ -329,12 +329,12 @@ body {
           overflow: hidden;
           border-bottom: 1/@rem #ddd solid;
           margin-left: 30/@rem;
-          padding: 45/@rem 30/@rem 25/@rem 5/@rem;
+          padding: 45/@rem 30/@rem 35/@rem 5/@rem;
           position: relative;
           .optbtn{
             position: absolute;
             right: 30/@rem;
-            bottom: 20/@rem;
+            bottom: 40/@rem;
             width: 50/@rem;
             height: 50/@rem;
             background: url(../icon/价格未选中@2x.png) no-repeat;
@@ -343,13 +343,13 @@ body {
               width: 200%;
               height: 200%;
               margin-top:-50/@rem;
-              margin-left:-50/@rem;  
+              margin-left:-50/@rem;
             }
           }
           .optbtn1{
             position: absolute;
             right: 30/@rem;
-            bottom: 20/@rem;
+            bottom: 40/@rem;
             width: 50/@rem;
             height: 50/@rem;
             background: url(../icon/心未选中@2x.png) no-repeat;
@@ -358,11 +358,11 @@ body {
               width: 200%;
               height: 200%;
               margin-top:-50/@rem;
-              margin-left:-50/@rem; 
+              margin-left:-50/@rem;
             }
 
           }
-          
+
           &:first-child {
             margin-top: -30/@rem;
           }
@@ -376,23 +376,33 @@ body {
             height: 96/@rem;
           }
           .name {
-            font-size: 32/@rem;
+            font-size: 28/@rem;
             color: #333;
             padding-left: 120/@rem;
+          }
+          .xiaoge {
+            font-size: 24/@rem;
+            color: #888;
+            padding-left: 120/@rem;
+            margin-top: 15/@rem;
+            position: relative;
           }
           .price {
             font-size: 24/@rem;
             color: #f4333c;
             padding-left: 120/@rem;
-            margin-top: 10/@rem;
+            margin-top: 15/@rem;
             position: relative;
             span {
-              font-size: 36/@rem;
+              font-size: 32/@rem;
               &.class_number {
                 font-size: 36/@rem;
                 width: 65/@rem;
                 display: inline-block;
                 text-align: center;
+              }
+              &.class_number {
+                font-size: 24/@rem;
               }
             }
           }

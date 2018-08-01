@@ -175,7 +175,7 @@ body {
   width: 3.75rem;
   height: 1rem;
   line-height: 1rem;
-  font-size: 0.3rem;
+  font-size: 0.28rem;
   color: #333;
   text-align: center;
   cursor: pointer;
@@ -230,7 +230,7 @@ body {
 .classify .content .commodity .item {
   border-bottom: 0.01rem solid #dddddd;
   border-right: 0.01rem solid #dddddd;
-  font-size: 0.3rem;
+  font-size: 0.28rem;
   line-height: 0.9rem;
 }
 .classify .content .pinlei {
@@ -253,7 +253,7 @@ body {
   margin-left: 0.1rem;
 }
 .classify .content .pinlei .title h5 {
-  font-size: 0.3rem;
+  font-size: 0.28rem;
   color: #333333;
   line-height: 0.9rem;
   font-family: PingFang-SC-Regular;
@@ -268,7 +268,7 @@ body {
 }
 .classify .content .linlei_list .questions {
   position: absolute;
-  right: 0.6rem;
+  right: 0.3rem;
   top: 0.2rem;
   font-size: 0.24rem;
 }
@@ -285,17 +285,17 @@ body {
   display: block;
   width: 5rem;
   height: 1.8rem;
-  margin: 0.35rem auto;
+  margin: 0.65rem auto 0;
 }
 .classify .content .linlei_list .classify_title {
-  font-size: 0.3rem;
+  font-size: 0.28rem;
   color: #333;
-  padding: 0.3rem 0;
-  border-bottom: 0.01rem #dddddd solid;
+  padding: 0.3rem 0 0 0;
   margin-left: 0.3rem;
   text-indent: -0.5rem;
-  border-top: 0.01rem #dddddd solid;
-  margin-top: -0.01rem #dddddd solid;
+}
+.classify .content .linlei_list .classify_title:first-child {
+  padding: 0;
 }
 .classify .content .linlei_list .classify_title i {
   display: inline-block;
@@ -324,13 +324,13 @@ body {
   overflow: hidden;
   border-bottom: 0.01rem #dddddd solid;
   margin-left: 0.3rem;
-  padding: 0.45rem 0.3rem 0.25rem 0.05rem;
+  padding: 0.45rem 0.3rem 0.35rem 0.05rem;
   position: relative;
 }
 .classify .content .linlei_list .classify_main .classify_item .optbtn {
   position: absolute;
   right: 0.3rem;
-  bottom: 0.2rem;
+  bottom: 0.4rem;
   width: 0.5rem;
   height: 0.5rem;
   background: url(../icon/价格未选中@2x.png) no-repeat;
@@ -345,7 +345,7 @@ body {
 .classify .content .linlei_list .classify_main .classify_item .optbtn1 {
   position: absolute;
   right: 0.3rem;
-  bottom: 0.2rem;
+  bottom: 0.4rem;
   width: 0.5rem;
   height: 0.5rem;
   background: url(../icon/心未选中@2x.png) no-repeat;
@@ -370,7 +370,7 @@ body {
   height: 0.96rem;
 }
 .classify .content .linlei_list .classify_main .classify_item .name {
-  font-size: 0.32rem;
+  font-size: 0.28rem;
   color: #333;
   padding-left: 1.2rem;
 }
@@ -378,17 +378,27 @@ body {
   font-size: 0.24rem;
   color: #f4333c;
   padding-left: 1.2rem;
-  margin-top: 0.1rem;
+  margin-top: 0.15rem;
+  position: relative;
+}
+.classify .content .linlei_list .classify_main .classify_item .xiaoge {
+  font-size: 0.24rem;
+  color: #888;
+  padding-left: 1.2rem;
+  margin-top: 0.15rem;
   position: relative;
 }
 .classify .content .linlei_list .classify_main .classify_item .price span {
-  font-size: 0.36rem;
+  font-size: 0.32rem;
 }
 .classify .content .linlei_list .classify_main .classify_item .price span.class_number {
   font-size: 0.36rem;
   width: 0.65rem;
   display: inline-block;
   text-align: center;
+}
+.classify .content .linlei_list .classify_main .classify_item .price span.danwei {
+  font-size: 0.24rem;
 }
 .classify .content .linlei_list .classify_main .classify_item .calculation {
   font-size: 0.3rem;
