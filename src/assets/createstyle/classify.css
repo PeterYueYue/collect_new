@@ -27,7 +27,7 @@ body {
   line-height: 0.5rem;
 }
 .classify .class_shadow_box .title {
-  font-size: 0.34rem;
+  font-size: 0.3rem;
   text-align: center;
   margin-top: 0.5rem;
 }
@@ -41,7 +41,7 @@ body {
 .classify .class_shadow_box .text {
   width: 4.6rem;
   margin: 0 auto;
-  font-size: 0.26rem;
+  font-size: 0.24rem;
   color: #333;
 }
 .classify .class_shadow_box .text.cur {
@@ -52,14 +52,14 @@ body {
   height: 0.9rem;
   line-height: 0.9rem;
   text-align: center;
-  font-size: 0.34rem;
+  font-size: 0.32rem;
   color: #00a0e9;
   border-top: 0.01rem #dddddd solid;
   margin-top: 0.3rem;
 }
-.classify .class_shadow_box .btn:last-child {
-  margin-top: 0;
-}
+/*.classify .class_shadow_box .btn:last-child {*/
+  /*margin-top: 0;*/
+/*}*/
 .classify .class_shadow_box .btn.nocolor {
   color: #888;
 }
@@ -273,13 +273,13 @@ body {
   font-size: 0.24rem;
 }
 .classify .content .linlei_list .questions span {
-  width: 0.23rem;
-  height: 0.23rem;
+  width: 0.28rem;
+  height: 0.28rem;
   background: url('../icon/问号\(1\)@2x.png') no-repeat;
   background-size: 100% 100%;
   display: inline-block;
   vertical-align: top;
-  margin-top: 0.05rem;
+  margin-top: 0.02rem;
 }
 .classify .content .linlei_list .classify_banner {
   display: block;

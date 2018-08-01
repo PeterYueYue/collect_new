@@ -111,7 +111,8 @@
     <!-- 弹窗 -->
     <div class="class_shadow" v-if="showShadow"></div>
     <div class="class_shadow_box" v-if="showAlert1">
-      <div class="title"></div>
+      <div class="title">{{recTypeExp}}?</div>
+      <!-- <div class="remind">由于您本次下单未达到起收标准。若继续下单预约，平台工作人员可能会联系您，希望您能继续攒多一点再进行预约回收哦！感谢您对环保事业的奉献精神！</div> -->
       <!-- <div class="remind">由于您本次下单未达到起收标准。若继续下单预约，平台工作人员可能会联系您，希望您能继续攒多一点再进行预约回收哦！感谢您对环保事业的奉献精神！</div> -->
       <div class="text" v-for="item in text" :key="item.id">{{item}}</div>
 
@@ -143,6 +144,7 @@
   export default {
     data() {
       return {
+        recTypeExp: '',
         comIsNull: false,
         menulist: '',
         isId: '1',
@@ -198,6 +200,7 @@
           token: this.token
         }).then((res) => {
           this.menulist = res.data;
+          this.recTypeExp = res.data.recTypeExp;
           this.text = res.data[0].recNotes;
           this.menuListImg = res.data[0].icon;
           this.questionTitle = res.data[0].name;
@@ -251,6 +254,7 @@
         $(".classify_main").animate({scrollTop: '0'}, 50);
         /*******************************/
         this.isId = id;
+        this.recTypeExp = res.data.recTypeExp;
         this.text = this.menulist[index].recNotes;
         this.menuListImg = this.menulist[index].icon;
         this.questionTitle = this.menulist[index].name;
