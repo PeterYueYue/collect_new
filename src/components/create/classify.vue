@@ -66,9 +66,7 @@
               <img :src="item.icon?item.icon:''" alt="">
               <div class="name">{{item.name}}</div>
               <div class="price">
-                ¥<span>
-                  {{item.price}}/{{item.unit}}
-                </span>
+                ¥<span>{{item.price}}/<span class="danwei">{{item.unit}}</span></span>
 
                 <!-- 有重量和价格单位的 -->
                 <!-- <div class="calculation">
@@ -80,7 +78,6 @@
               <div v-bind:class="{ checked1: item.checked == '1'}" class="optbtn">
                 <div @touchstart="addProduct1(item,index)" class="btn"></div>
               </div>
-
             </div>
             <div class="classify_title"><i></i>上门回收服务 <br/><span>（由于价值较低，暂无回收价格，请回收小哥带走，可增加绿色环保积分）</span></div>
             <div class="classify_item" v-for="  (item,index) in noPriceList" :key="item.ids">
@@ -91,6 +88,7 @@
                   {{item.price}}/{{item.unit}}
                 </span>
               </div>
+              <div class="xiaoge">麻烦回收小哥带走</div>
               <div v-bind:class="{ checked: item.checked == '1' }" class="optbtn1">
                 <div @touchstart="addProduct(item,index)" class="btn"></div>
               </div>
