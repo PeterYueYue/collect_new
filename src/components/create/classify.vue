@@ -55,49 +55,46 @@
         </div>
         <div class="linlei_list">
           <img :src="menuListImg" alt="" class="classify_banner">
-          <div   @touchstart="showShadow = true ; showAlert1 = true" class="questions">
+          <div @touchstart="showShadow = true ; showAlert1 = true" class="questions">
             <span></span> 什么是{{questionTitle}}
           </div>
-          
-          
-          
+
+
           <div class="classify_main">
             <div class="classify_title"><i></i>回收类型<span>（以下单价为上海市平均回收价）</span></div>
-            <div class="classify_item"  v-for="  (item,index) in subList" :key="item.id">
+            <div class="classify_item" v-for="  (item,index) in subList" :key="item.id">
               <img :src="item.icon?item.icon:''" alt="">
               <div class="name">{{item.name}}</div>
               <div class="price">
                 ¥<span>
                   {{item.price}}/{{item.unit}}
                 </span>
-                
-          
 
-              <!-- 有重量和价格单位的 -->
+                <!-- 有重量和价格单位的 -->
                 <!-- <div class="calculation">
                   <span class="less round" v-if="item.number" @touchstart="less(item)">-</span>
                   <span v-if="item.number" class="class_number">{{item.number}}</span>
                   <span class="plus round" @touchstart="plus(item)">+</span>
                 </div> -->
               </div>
-              <div    v-bind:class="{ checked1: item.checked == '1'}"   class="optbtn">
-                <div  @touchstart="addProduct1(item,index)"  class="btn"></div>
+              <div v-bind:class="{ checked1: item.checked == '1'}" class="optbtn">
+                <div @touchstart="addProduct1(item,index)" class="btn"></div>
               </div>
-              
+
             </div>
             <div class="classify_title"><i></i>上门回收服务 <br/><span>（由于价值较低，暂无回收价格，请回收小哥带走，可增加绿色环保积分）</span></div>
-            <div class="classify_item"    v-for="  (item,index) in noPriceList" :key="item.ids">
+            <div class="classify_item" v-for="  (item,index) in noPriceList" :key="item.ids">
               <img :src="item.icon?item.icon:''" alt="">
               <div class="name">{{item.name}}</div>
-              <div  v-if="item.price !== 0" class="price">
+              <div v-if="item.price !== 0" class="price">
                 ¥<span>
                   {{item.price}}/{{item.unit}}
                 </span>
               </div>
-              <div  v-bind:class="{ checked: item.checked == '1' }"  class="optbtn1">
+              <div v-bind:class="{ checked: item.checked == '1' }" class="optbtn1">
                 <div @touchstart="addProduct(item,index)" class="btn"></div>
               </div>
-              
+
             </div>
           </div>
         </div>
@@ -109,7 +106,7 @@
         <div class="icon"><img src="@/assets/class_icon.png" alt=""><i>{{numTotal}}</i></div>
         <div class="name">已选类型数量：<span class="price"><span>{{numTotal}}</span></span></div>
       </div>
-      <div class="r_btn"  :class="{disable:numTotal <= 0}"  @touchstart="openAlert">一键回收</div>
+      <div class="r_btn" :class="{disable:numTotal <= 0}" @touchstart="openAlert">一键回收</div>
     </div>
 
     <div class="classify_foot" v-show="!showUl&&!comIsNull">您所在街道暂无回收企业</div>
@@ -119,8 +116,8 @@
     <div class="class_shadow_box" v-if="showAlert1">
       <div class="title"></div>
       <!-- <div class="remind">由于您本次下单未达到起收标准。若继续下单预约，平台工作人员可能会联系您，希望您能继续攒多一点再进行预约回收哦！感谢您对环保事业的奉献精神！</div> -->
-      <div class="text"  v-for="item in text"  :key="item.id" >{{item}}</div>
-      
+      <div class="text" v-for="item in text" :key="item.id">{{item}}</div>
+
       <div @touchstart="showShadow = false ;showAlert1= false " class="btn">我知道了</div>
       <!-- <div @click="closeOrders" class="btn">我在攒一攒吧</div> -->
     </div>
@@ -143,7 +140,7 @@
   import api from '@/api/api.js'
   import '@/assets/createstyle/tool.css'
   import '@/assets/createstyle/classify.css'
-  import { mapGetters } from 'vuex';
+  import {mapGetters} from 'vuex';
 
   export default {
     data() {
@@ -152,15 +149,15 @@
         menulist: '',
         isId: '1',
         subList: '',
-        noPriceList:'',
+        noPriceList: '',
         isActive: '0',
         showUl: true,
         showShadow: false,
         showAlert1: false,
         showAlert2: false,
         menuListImg: '',
-        questionTitle:'',
-        text:[],
+        questionTitle: '',
+        text: [],
         selectProductList: window.sessionStorage.getItem('productList') ?
           JSON.parse(window.sessionStorage.getItem('productList')) : [],//上传成功要清掉
         priceTotal: window.sessionStorage.getItem('productTotal') ? JSON.parse(window.sessionStorage.getItem('productTotal')).priceTotal : 0,
@@ -170,24 +167,19 @@
         unitUnitK: window.sessionStorage.getItem('productTotal') ? JSON.parse(window.sessionStorage.getItem('productTotal')).unitUnitK : 0,
       }
     },
-    computed:{
-      ...mapGetters(['addRessId','adressInfo','token','recyclingType']),
-      
-
-
+    computed: {
+      ...mapGetters(['addRessId', 'adressInfo', 'token', 'recyclingType']),
     },
-    watch:{
-      recyclingType(newValue, oldValue){
+    watch: {
+      recyclingType(newValue, oldValue) {
         console.log(newValue, oldValue)
-        if(newValue == 'waste'){
+        if (newValue == 'waste') {
           this.$store.dispatch('clear');
         }
-        if(oldValue == 'waste'){
-
+        if (oldValue == 'waste') {
           window.sessionStorage.removeItem('productList');
           window.sessionStorage.removeItem('productTotal');
           this.numTotal = 0;
-
         }
       }
     },
@@ -234,13 +226,13 @@
               }
             });
 
-            this.subList = res.data.ComCatePriceList.map(e =>{
+            this.subList = res.data.ComCatePriceList.map(e => {
               e.checked = false
               e.pName = this.menulist[0].name;
               e.pId = this.menulist[0].id;
               return e
             });
-            this.noPriceList = res.data.ComCateNoPriceList.map( e => { 
+            this.noPriceList = res.data.ComCateNoPriceList.map(e => {
               e.checked = false
               e.pName = this.menulist[0].name;
               e.pId = this.menulist[0].id;
@@ -254,7 +246,6 @@
         });
       },
       getList(id, index) {
-
         this.isId = id;
         this.text = this.menulist[index].recNotes;
         this.menuListImg = this.menulist[index].icon;
@@ -283,35 +274,31 @@
           });
 
           let resDataList = JSON.parse(window.sessionStorage.getItem('productList'));
-          this.subList = res.data.ComCatePriceList.map(e =>{
-            resDataList.map( k => {
-                if(e.name !== k.name && !e.checked){
-                  e.checked = false
-                }else{
-                  e.checked = true
-                }
+          this.subList = res.data.ComCatePriceList.map(e => {
+            resDataList.map(k => {
+              if (e.name !== k.name && !e.checked) {
+                e.checked = false
+              } else {
+                e.checked = true
+              }
             })
             e.pName = this.menulist[index].name;
             e.pId = this.menulist[index].id;
             return e
           });
 
-          this.noPriceList = res.data.ComCateNoPriceList.map( el => { 
-            resDataList.map( k => {
-                if(el.name !== k.name && !el.checked){
-                  el.checked = false
-                }else{
-                  el.checked = true
-                }
+          this.noPriceList = res.data.ComCateNoPriceList.map(el => {
+            resDataList.map(k => {
+              if (el.name !== k.name && !el.checked) {
+                el.checked = false
+              } else {
+                el.checked = true
+              }
             })
             el.pName = this.menulist[index].name;
             el.pId = this.menulist[index].id;
             return el
           })
-
-
-
-          
         }).catch((erro) => {
           console.log(erro)
         })
@@ -332,14 +319,16 @@
           console.log(erro)
         })
       },
-      openUl(type,household) {
-        this.$store.dispatch('recyclingType',household);
+      openUl(type, household) {
+        this.$store.dispatch('recyclingType', household);
         this.showUl = type;
         this.getClassFiy(!type);
       },
       openAlert() {
 
-        if(this.numTotal <= 0){return}
+        if (this.numTotal <= 0) {
+          return
+        }
         this.total();
         let unitUnitG = 0;
         let unitUnitK = 0;
@@ -403,7 +392,7 @@
           this.selectProductList[haveIn].number += 1;
           item.number += 1
         } else {
-          const initItem = Object.assign(item, { number: 1 });
+          const initItem = Object.assign(item, {number: 1});
           this.selectProductList.push(this.deepCopy(initItem));
         }
         this.total();
@@ -418,12 +407,6 @@
         if (item.number === 0) {
           this.selectProductList.splice(haveIn, 1)
         }
-       
-        
-
-
-
-
         this.total();
       },
       total() {
@@ -435,7 +418,7 @@
         });
         this.priceTotal = priceTotal.toFixed(2);
         this.numTotal = numTotal;
-         window.sessionStorage.setItem('productList', JSON.stringify(this.selectProductList));
+        window.sessionStorage.setItem('productList', JSON.stringify(this.selectProductList));
       },
       deepCopy(source) {
         let result = {};
@@ -444,29 +427,22 @@
         }
         return result;
       },
-      addProduct(item,index){
+      addProduct(item, index) {
         this.noPriceList[index].checked = !item.checked;
-        if(this.noPriceList[index].checked){
+        if (this.noPriceList[index].checked) {
           this.plus(item)
-        } else{
+        } else {
           this.less(item)
         }
-
-
-
       },
-      addProduct1(item,index){
-          this.subList[index].checked = !item.checked;
-          if(this.subList[index].checked){
-            this.plus(item)
-          } else{
-            this.less(item)
-          }
-          
+      addProduct1(item, index) {
+        this.subList[index].checked = !item.checked;
+        if (this.subList[index].checked) {
+          this.plus(item)
+        } else {
+          this.less(item)
+        }
       }
-      
-
-      
     }
   }
 </script>

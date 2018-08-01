@@ -141,7 +141,7 @@
         homeList: {},
         adressList: {},
         showList: true,
-        pullRefreshConfig: { 
+        pullRefreshConfig: {
           pullText: '下拉刷新', // 下拉时显示的文字
           triggerText: '释放更新', // 下拉到触发距离时显示的文字
           loadingText: '加载中...', // 加载中的文字
@@ -155,13 +155,13 @@
     },
     beforeCreate() {
       // 正式
-      var tk = this.$route.query.token;
-      if(tk){
-        this.$store.dispatch('getToken', tk)
-      }
+      // var tk = this.$route.query.token;
+      // if(tk){
+      //   this.$store.dispatch('getToken', tk)
+      // }
       //本地测试
-      // var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24V6BKSK7XCKURHCCOW4OQQ3AURAWCWWM3DWVZAK26YBVRDBQAHVKQTFGRL7NE5YTTEKSLRMHPXJEUXNYHTXXO74NAXV7LFWMC7YUXC3VPEAEL6PWUFQRKFWA25BQY2GM3FVNKHDFZSG6P3IS2772DYABHQ2W64HHHKSJS7QRA35L4KISEZTXJOKANNJO6BZVQ4H2PH5N637WA7QVJQIDPHINZ67WPK3U7KIVGKP3Q'
-      // this.$store.dispatch('getToken', tk)
+      var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24V6BKSK7XCKURHCCOW4OQQ3AURAWCWWM3DWVZAK26YBVRDBQAHVKQTFGRL7NE5YTTEKSLRMHPXJEUXNYHTXXO74NAXV7LFWMC7YUXC3VPEAEL6PWUFQRKFWA25BQY2GM3FVNKHDFZSG6P3IS2772DYABHQ2W64HHHKSJS7QRA35L4KISEZTXJOKANNJO6BZVQ4H2PH5N637WA7QVJQIDPHINZ67WPK3U7KIVGKP3Q'
+      this.$store.dispatch('getToken', tk)
 
     },
     computed: mapGetters({

@@ -93,7 +93,6 @@
           token: this.token
         })
         .then((res) => {
-
           this.$store.dispatch('changeFuturePrice', res.data);
           if(res.data=='您的小区暂无回收企业'){
             this.showBtn = 'back';
@@ -102,8 +101,6 @@
             this.showAddBtn = 'back';
           }
         })
-
-
       }
     }
   }

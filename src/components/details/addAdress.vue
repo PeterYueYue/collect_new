@@ -86,11 +86,11 @@
         showCance: false,
       }
     },
-    mounted(){
+    mounted() {
       this.getAreaList();
     },
     methods: {
-      saveData(){
+      saveData() {
         //手机正则
         let rs = /0?(13|14|15|17|18|19)[0-9]{9}/;
         let resultTel = rs.test(this.form.tel);
@@ -114,11 +114,11 @@
             "streetId": this.selectStreet.id,
           },
         }).then((res) => {
-          if(res.data=='保存地址成功'){
+          if (res.data == '保存地址成功') {
             this.$router.push({
               path: '/adressList'
             })
-          }else{
+          } else {
             this.showShadow = true;
             this.showNul = true;
           }
@@ -126,7 +126,7 @@
           console.log(error)
         })
       },
-      getAreaList(){
+      getAreaList() {
         api.getAreaList({
           "app_key": "app_id_1",
           "data": {
@@ -139,10 +139,10 @@
           console.log(error)
         })
       },
-      getStreet(){
-    //  支付宝内加载提示
+      getStreet() {
+        // 支付宝内加载提示
         ap.showLoading({content: '请稍候',});
-    //  请求区域数据
+        // 请求区域数据
         api.areaChildList({
           "app_key": "app_id_1",
           "data": {
@@ -151,16 +151,16 @@
           },
           token: this.$store.state.token,
         })
-        .then((res) => {
-          this.selectStreet = '';
-          this.selectCommunity = '';
-          this.streetList = res.data;
-    //  关闭支付宝加载提示
-          ap.hideLoading();
-        })
-        
+          .then((res) => {
+            this.selectStreet = '';
+            this.selectCommunity = '';
+            this.streetList = res.data;
+            // 关闭支付宝加载提示
+            ap.hideLoading();
+          })
+
       },
-      getCommunity(){
+      getCommunity() {
         this.selectCommunity = '';
         this.communityList = this.streetList[this.selectStreet.index].community
       },

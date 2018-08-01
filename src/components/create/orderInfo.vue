@@ -125,7 +125,7 @@
           orderList[index].categoryParentName = items.pName;
         } else {
           orderList.push({
-            categoryParentName: items.pName, 
+            categoryParentName: items.pName,
             idAndAmount: [{
               amount: items.number,
               categoryId: items.id,
@@ -136,7 +136,7 @@
 
       });
       this.idAndListList = orderList;
-      
+
     },
     computed: mapGetters({
       futurePrice: 'futurePrice',                //预估价格
@@ -235,7 +235,6 @@
           window.sessionStorage.removeItem('productTotal');
 
           if (res.data === "SUCCESS") {
-
             this.showShadow = true;
             this.showSuccess = true;
           } else {
