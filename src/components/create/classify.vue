@@ -3,8 +3,8 @@
     <div class="classify_head">
       <ul>
         <span class="line"></span>
-        <li :class="{ cur: showUl }" @touchstart="openUl(true,'appliances')"><span>家电数码</span></li>
         <li :class="{ cur: !showUl }" @touchstart="openUl(false,'waste')"><span>生活垃圾</span></li>
+        <li :class="{ cur: showUl }" @touchstart="openUl(true,'appliances')"><span>家电数码</span></li>
       </ul>
     </div>
     <!-- 数码家电 -->
@@ -59,10 +59,9 @@
             <span></span> 什么是{{questionTitle}}
           </div>
 
-
           <div class="classify_main">
-            <div class="classify_title"><i></i>回收类型<span>（以下单价为上海市平均回收价）</span></div>
-            <div class="classify_item" v-for="  (item,index) in subList" :key="item.id">
+            <div class="classify_title" v-show="subList.length>0"><i></i>回收类型<span>（以下单价为上海市平均回收价）</span></div>
+            <div class="classify_item" v-for="(item,index) in subList" :key="item.id">
               <img :src="item.icon?item.icon:''" alt="">
               <div class="name">{{item.name}}</div>
               <div class="price">
@@ -138,7 +137,7 @@
   import api from '@/api/api.js'
   import '@/assets/createstyle/tool.css'
   import '@/assets/createstyle/classify.css'
-  import { mapGetters } from 'vuex';
+  import {mapGetters} from 'vuex';
   import $ from 'jquery'
 
   export default {
@@ -150,7 +149,7 @@
         subList: '',
         noPriceList: '',
         isActive: '0',
-        showUl: true,
+        showUl: false,
         showShadow: false,
         showAlert1: false,
         showAlert2: false,
@@ -177,7 +176,7 @@
           this.isActive = '0'
         }
         if (oldValue == 'waste') {
-          this.isActive ='0'
+          this.isActive = '0'
           window.sessionStorage.removeItem('productList');
           window.sessionStorage.removeItem('productTotal');
           this.numTotal = 0;
@@ -185,7 +184,7 @@
       }
     },
     mounted() {
-      this.getClassFiy();
+      this.getClassFiy('HOUSEHOLD');
       this.total();
     },
     methods: {
@@ -233,6 +232,7 @@
               e.pId = this.menulist[0].id;
               return e
             });
+
             this.noPriceList = res.data.ComCateNoPriceList.map(e => {
               e.checked = false
               e.pName = this.menulist[0].name;
@@ -248,7 +248,7 @@
       },
       getList(id, index) {
         // 恢复列表元素的滚动位置
-        $(".classify_main").animate({scrollTop: '0'},50);
+        $(".classify_main").animate({scrollTop: '0'}, 50);
         /*******************************/
         this.isId = id;
         this.text = this.menulist[index].recNotes;
@@ -281,12 +281,8 @@
 
           let resDataList = JSON.parse(window.sessionStorage.getItem('productList'));
 
-
-          
-
-          
           this.subList = res.data.ComCatePriceList.map(e => {
-            if(resDataList){
+            if (resDataList) {
               resDataList.map(k => {
                 if (e.name !== k.name && !e.checked) {
                   e.checked = false
@@ -299,9 +295,10 @@
             e.pId = this.menulist[index].id;
             return e
           });
-          if(res.data.ComCateNoPriceList){
+
+          if (res.data.ComCateNoPriceList) {
             this.noPriceList = res.data.ComCateNoPriceList.map(el => {
-              if(resDataList){
+              if (resDataList) {
                 resDataList.map(k => {
                   if (el.name !== k.name && !el.checked) {
                     el.checked = false
@@ -315,8 +312,6 @@
               return el
             })
           }
-
-          
         }).catch((erro) => {
           console.log(erro)
         })

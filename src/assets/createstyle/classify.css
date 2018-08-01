@@ -294,9 +294,6 @@ body {
   margin-left: 0.3rem;
   text-indent: -0.5rem;
 }
-.classify .content .linlei_list .classify_title:first-child {
-  padding: 0;
-}
 .classify .content .linlei_list .classify_title i {
   display: inline-block;
   width: 0.12rem;
@@ -314,7 +311,6 @@ body {
 .classify .content .linlei_list .classify_main {
   width: 100%;
   height: 7rem;
-  margin-top: 0.3rem;
   overflow: scroll;
   padding-bottom: 2rem;
   overflow-scrolling: touch;
