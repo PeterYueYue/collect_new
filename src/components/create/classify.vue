@@ -176,8 +176,10 @@
         console.log(newValue, oldValue)
         if (newValue == 'waste') {
           this.$store.dispatch('clear');
+          this.isActive = '0'
         }
         if (oldValue == 'waste') {
+          this.isActive ='0'
           window.sessionStorage.removeItem('productList');
           window.sessionStorage.removeItem('productTotal');
           this.numTotal = 0;
@@ -263,6 +265,8 @@
           },
           token: this.token
         }).then((res) => {
+
+          console.log(res)
           this.comIsNull = res.data.comIsNull;
           res.data.ComCatePriceList.map((items) => {
             items.pName = this.menulist[index].name;
@@ -278,31 +282,43 @@
           });
 
           let resDataList = JSON.parse(window.sessionStorage.getItem('productList'));
+
+
+          
+
+          
           this.subList = res.data.ComCatePriceList.map(e => {
-            resDataList.map(k => {
-              if (e.name !== k.name && !e.checked) {
-                e.checked = false
-              } else {
-                e.checked = true
-              }
-            })
+            if(resDataList){
+              resDataList.map(k => {
+                if (e.name !== k.name && !e.checked) {
+                  e.checked = false
+                } else {
+                  e.checked = true
+                }
+              })
+            }
             e.pName = this.menulist[index].name;
             e.pId = this.menulist[index].id;
             return e
           });
-
-          this.noPriceList = res.data.ComCateNoPriceList.map(el => {
-            resDataList.map(k => {
-              if (el.name !== k.name && !el.checked) {
-                el.checked = false
-              } else {
-                el.checked = true
+          if(res.data.ComCateNoPriceList){
+            this.noPriceList = res.data.ComCateNoPriceList.map(el => {
+              if(resDataList){
+                resDataList.map(k => {
+                  if (el.name !== k.name && !el.checked) {
+                    el.checked = false
+                  } else {
+                    el.checked = true
+                  }
+                })
               }
+              el.pName = this.menulist[index].name;
+              el.pId = this.menulist[index].id;
+              return el
             })
-            el.pName = this.menulist[index].name;
-            el.pId = this.menulist[index].id;
-            return el
-          })
+          }
+
+          
         }).catch((erro) => {
           console.log(erro)
         })
@@ -326,6 +342,13 @@
       openUl(type, household) {
         this.$store.dispatch('recyclingType', household);
         this.showUl = type;
+        // let hd = ''
+        // if(household == 'appliances'){
+        //     hd = 'HOUSEHOLD'
+        // }
+        // if(household == 'waste'){
+        //   hd = 'DIGITAL'
+        // }
         this.getClassFiy(!type);
       },
       openAlert() {
