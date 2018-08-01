@@ -140,7 +140,8 @@
   import api from '@/api/api.js'
   import '@/assets/createstyle/tool.css'
   import '@/assets/createstyle/classify.css'
-  import {mapGetters} from 'vuex';
+  import { mapGetters } from 'vuex';
+  import $ from 'jquery'
 
   export default {
     data() {
@@ -246,6 +247,9 @@
         });
       },
       getList(id, index) {
+        // 恢复列表元素的滚动位置
+        $(".classify_main").animate({scrollTop: '0'},50);
+        /*******************************/
         this.isId = id;
         this.text = this.menulist[index].recNotes;
         this.menuListImg = this.menulist[index].icon;
