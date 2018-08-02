@@ -43,6 +43,7 @@ import qrCode from '@/components/details/qrCode.vue'
 import adressList from '@/components/details/adressList.vue'
 import addAdress from '@/components/details/addAdress.vue'
 import selectAdress from '@/components/details/selectAdress.vue'
+import ad from '@/components/details/ad.vue'
 
 Vue.use(Router)
 
@@ -57,6 +58,11 @@ const router =  new Router({
       path: '/home',
       name: 'home',
       component: home
+    },
+    {
+      path: '/ad',
+      name: 'ad',
+      component: ad
     },
     {
       path: '/adressList',
