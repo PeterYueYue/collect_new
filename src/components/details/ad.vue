@@ -46,6 +46,9 @@
 
 </template>
 <style stylus>
+  html,body {
+    overflow-x:hidden;
+  }
   body {
     background: #f5f5f9;
     height: auto;
