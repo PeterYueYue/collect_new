@@ -15,6 +15,16 @@
   margin: 0.4rem auto;
   width: 0.6rem;
 }
+.records_remind {
+  line-height: 0.5rem;
+  text-align: center;
+  font-size: 0.3rem;
+  color: #888;
+  margin-top: 0.6rem;
+}
+.records_remind.new {
+  margin-top: 0;
+}
 .records_wrap_top {
   position: relative;
   width: 100%;

@@ -14,9 +14,10 @@ a {
   line-height: 0.9rem;
   background: #ffffff;
   position: relative;
-  font-size: 0.34rem;
-  color: #000;
+  font-size: 0.36rem;
+  color: #333;
   padding-left: 0.34rem;
+  font-weight: bold;
 }
 .home_address .add {
   position: absolute;
@@ -25,9 +26,10 @@ a {
   transform: translateY(-50%);
   font-size: 0.3rem;
   color: #a4a9b0;
+  font-weight: normal;
 }
 .home_address .add.reaonly {
-  width: 62%;
+  width: 88%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -37,7 +39,9 @@ a {
   transform: translateY(-50%);
   font-size: 0.34rem;
   color: #333;
-  text-align: right;
+  text-align: left;
+  font-weight: bold;
+  padding-left: 0.5rem;
 }
 .home_address img {
   width: 0.36rem;
@@ -47,10 +51,18 @@ a {
   right: 0.3rem;
   transform: translateY(-50%);
 }
+.home_address img.icon_add_logo {
+  width: 0.42rem;
+  height: 0.42rem;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
 .home_call {
   background-color: #ffffff;
   margin-top: 0.2rem;
-  padding: 0.2rem 0 0.5rem;
+  padding: 0.5rem 0;
 }
 .home_call h3 {
   font-size: 0.34rem;

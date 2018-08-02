@@ -11,9 +11,10 @@
             <router-link to="addAdress"><div class="add">添加回收地址</div></router-link>
             <img src="@/assets/icon_right.png" alt="">
           </div>
-          <div class="home_address" v-else>回收地址
+          <div class="home_address" v-else>
             <router-link to="adressList">
-              <div class="add reaonly">{{adressList.address ? adressList.address : ''}}{{adressList.houseNumber}}</div>
+              <div class="add reaonly"><img src="@/assets/icon_add_logo.png" alt="" class="icon_add_logo">{{adressList.address ?
+                adressList.address : ''}}{{adressList.houseNumber}}</div>
             </router-link>
             <img src="@/assets/icon_right.png" alt="">
           </div>
@@ -71,14 +72,14 @@
             <router-link to="addAdress"><div class="add">添加回收地址</div></router-link>
             <img src="@/assets/icon_right.png" alt="">
           </div>
-          <div class="home_address" v-else>回收地址
+          <div class="home_address" v-else>
             <router-link to="adressList">
-              <div class="add reaonly">{{adressList.address ? adressList.address : ''}}{{adressList.houseNumber}}</div>
+              <div class="add reaonly"><img src="@/assets/icon_add_logo.png" alt="" class="icon_add_logo">{{adressList.address ?
+                adressList.address : ''}}{{adressList.houseNumber}}</div>
             </router-link>
             <img src="@/assets/icon_right.png" alt="">
           </div>
           <div class="home_call">
-            <h3>分类回收 助力绿色环保</h3>
             <ul class="home_list">
               <li class="item">
                 <div class="home_num">1</div>
@@ -115,7 +116,7 @@
         <div class="footer_circle">上门<br/>回收</div>
       </router-link>
       <router-link to="/records">
-        <div class="footer_left"><img src="@/assets/icon_foot.png" alt="" class="icon"><span>我的积分</span></div>
+        <div class="footer_left"><img src="@/assets/icon_foot.png" alt="" class="icon"><span>环保能量</span></div>
       </router-link>
       <router-link to="/orders">
         <div class="footer_right"><img src="@/assets/icon_record.png" alt="" class="icon"><span>订单记录</span></div>
