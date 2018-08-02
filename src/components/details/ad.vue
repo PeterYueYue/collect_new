@@ -43,17 +43,9 @@
     <div class="text">5、电源线拖线板</div>
     <div class="text">6、其他金属制品，如装饰工艺品等</div>
   </div>
-
 </template>
-<style stylus>
-  html,body {
-    overflow-x:hidden;
-  }
-  body {
-    background: #f5f5f9;
-    height: auto;
-    padding-bottom: 0.8rem;
-  }
+
+<style scoped>
   .ad_wrap {
     width: 7.5rem;
     padding: 0 0.3rem;
@@ -73,5 +65,8 @@
     font-size: 0.28rem;
     color: #333;
     line-height: 0.45rem;
+  }
+  .ad_wrap .text:last-child {
+    padding-bottom: 0.8rem;
   }
 </style>
