@@ -278,6 +278,11 @@ body {
   flex-wrap: wrap;
   justify-content: left;
   position: relative;
+  height: 9rem;
+  overflow: scroll;
+  padding-bottom: 1rem;
+  overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
 }
 .classify .content .linlei_list .questions {
   position: absolute;
@@ -323,11 +328,6 @@ body {
 }
 .classify .content .linlei_list .classify_main {
   width: 100%;
-  height: 7rem;
-  overflow: scroll;
-  padding-bottom: 2rem;
-  overflow-scrolling: touch;
-  -webkit-overflow-scrolling: touch;
 }
 .classify .content .linlei_list .classify_main .classify_item {
   overflow: hidden;
