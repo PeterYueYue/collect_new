@@ -106,7 +106,14 @@
       <div class="r_btn" :class="{disable:numTotal <= 0}" @touchstart="openAlert">一键回收</div>
     </div>
 
-    <div class="classify_foot" v-show="!showUl&&!comIsNull">您所在街道暂无回收企业</div>
+    <div class="classify_foot" v-show="!showUl&&comIsNull==='1'">您所在街道暂无回收企业</div>
+    <router-link to="/addAdress">
+      <div class="classify_foot" v-show="!showUl&&comIsNull==='0'">您暂未添加回收地址,请去添加地址</div>
+    </router-link>
+    <router-link to="/addAdress">
+      <div class="classify_foot" v-show="showUl&&comIsNull==='0'">您暂未添加回收地址,请去添加地址</div>
+    </router-link>
+
 
     <!-- 弹窗 -->
     <div class="class_shadow" v-if="showShadow"></div>
@@ -145,7 +152,7 @@
     data() {
       return {
         recTypeExp: '',
-        comIsNull: false,
+        comIsNull: '',
         menulist: '',
         isId: '1',
         subList: '',
@@ -267,8 +274,6 @@
           },
           token: this.token
         }).then((res) => {
-
-          console.log(res)
           this.comIsNull = res.data.comIsNull;
           res.data.ComCatePriceList.map((items) => {
             items.pName = this.menulist[index].name;

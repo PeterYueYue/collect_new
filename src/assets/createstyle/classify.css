@@ -72,6 +72,19 @@ body {
   border-top: 0.01rem #dddddd solid;
   margin-top: 0.3rem;
 }
+.classify .classify_foot_new {
+  width: 7.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  background: #00a0e9;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-size: 0.28rem;
+  color: #fff;
+}
 .classify .classify_foot {
   width: 7.5rem;
   height: 1rem;
@@ -326,7 +339,7 @@ body {
 .classify .content .linlei_list .classify_main .classify_item .optbtn {
   position: absolute;
   right: 0.3rem;
-  bottom: 0.4rem;
+  bottom: 0.35rem;
   width: 0.5rem;
   height: 0.5rem;
   background: url(../icon/价格未选中@2x.png) no-repeat;
@@ -341,7 +354,7 @@ body {
 .classify .content .linlei_list .classify_main .classify_item .optbtn1 {
   position: absolute;
   right: 0.3rem;
-  bottom: 0.4rem;
+  bottom: 0.35rem;
   width: 0.5rem;
   height: 0.5rem;
   background: url(../icon/心未选中@2x.png) no-repeat;
