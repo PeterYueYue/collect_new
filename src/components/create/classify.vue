@@ -54,7 +54,7 @@
           <span class="right_line fl"></span>
         </div>
         <div class="linlei_list">
-          <img :src="menuListImg" alt="" class="classify_banner">
+          <img :src="menuListImg" alt="" class="classify_banner" @touchstart="showShadow = true ; showAlert1 = true">
           <div @touchstart="showShadow = true ; showAlert1 = true" class="questions">
             <span></span> 什么是{{questionTitle}}
           </div>
@@ -200,7 +200,7 @@
           token: this.token
         }).then((res) => {
           this.menulist = res.data;
-          this.recTypeExp = res.data.recTypeExp;
+          this.recTypeExp = res.data[0].recTypeExp;
           this.text = res.data[0].recNotes;
           this.menuListImg = res.data[0].icon;
           this.questionTitle = res.data[0].name;
@@ -254,7 +254,7 @@
         $(".classify_main").animate({scrollTop: '0'}, 50);
         /*******************************/
         this.isId = id;
-        this.recTypeExp = res.data.recTypeExp;
+        this.recTypeExp = this.menulist[index].recTypeExp;
         this.text = this.menulist[index].recNotes;
         this.menuListImg = this.menulist[index].icon;
         this.questionTitle = this.menulist[index].name;
