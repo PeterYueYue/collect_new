@@ -14,10 +14,9 @@ a {
   line-height: 0.9rem;
   background: #ffffff;
   position: relative;
-  font-size: 0.36rem;
-  color: #333;
+  font-size: 0.34rem;
+  color: #000;
   padding-left: 0.34rem;
-  font-weight: bold;
 }
 .home_address .add {
   position: absolute;
@@ -26,10 +25,9 @@ a {
   transform: translateY(-50%);
   font-size: 0.3rem;
   color: #a4a9b0;
-  font-weight: normal;
 }
 .home_address .add.reaonly {
-  width: 88%;
+  width: 62%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -39,9 +37,7 @@ a {
   transform: translateY(-50%);
   font-size: 0.34rem;
   color: #333;
-  text-align: left;
-  font-weight: bold;
-  padding-left: 0.5rem;
+  text-align: right;
 }
 .home_address img {
   width: 0.36rem;

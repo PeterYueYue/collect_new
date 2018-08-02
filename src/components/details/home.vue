@@ -11,10 +11,9 @@
             <router-link to="addAdress"><div class="add">添加回收地址</div></router-link>
             <img src="@/assets/icon_right.png" alt="">
           </div>
-          <div class="home_address" v-else>
+          <div class="home_address" v-else>回收地址
             <router-link to="adressList">
-              <div class="add reaonly"><img src="@/assets/icon_add_logo.png" alt="" class="icon_add_logo">{{adressList.address ?
-                adressList.address : ''}}{{adressList.houseNumber}}</div>
+              <div class="add reaonly">{{adressList.address ? adressList.address : ''}}{{adressList.houseNumber}}</div>
             </router-link>
             <img src="@/assets/icon_right.png" alt="">
           </div>
@@ -72,10 +71,9 @@
             <router-link to="addAdress"><div class="add">添加回收地址</div></router-link>
             <img src="@/assets/icon_right.png" alt="">
           </div>
-          <div class="home_address" v-else>
+          <div class="home_address" v-else>回收地址
             <router-link to="adressList">
-              <div class="add reaonly"><img src="@/assets/icon_add_logo.png" alt="" class="icon_add_logo">{{adressList.address ?
-                adressList.address : ''}}{{adressList.houseNumber}}</div>
+              <div class="add reaonly">{{adressList.address ? adressList.address : ''}}{{adressList.houseNumber}}</div>
             </router-link>
             <img src="@/assets/icon_right.png" alt="">
           </div>
