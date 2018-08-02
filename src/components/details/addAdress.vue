@@ -92,7 +92,7 @@
     methods: {
       saveData() {
         //手机正则
-        let rs = /0?(13|14|15|17|18|19)[0-9]{9}/;
+        let rs = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57]|19[0-9]|16[0-9])[0-9]{8}$/;
         let resultTel = rs.test(this.form.tel);
         if (!resultTel) {
           this.showShadow = true;
