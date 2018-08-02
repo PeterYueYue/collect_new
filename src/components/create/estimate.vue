@@ -41,9 +41,9 @@
         <span>贴心服务</span>
       </li>
     </ul>
-    <div class="nextbutton" v-show="showBtn == 'enter' && showAddBtn == 'enter' "><router-link to="/uploadimage">下一步</router-link></div>
+    <div class="nextbutton" v-show="showBtn == 'enter' && showAddBtn == 'enter'"><router-link to="/uploadimage">下一步</router-link></div>
     <div class="nextbutton" v-show="showBtn == 'back' ||showAddBtn == 'back'"><router-link to="/home">返回首页</router-link></div>
-    <div class="nextcur" ><router-link to="/addAdress">+ 新增小区地址</router-link></div>
+    <div class="nextcur" v-show="showAddBtn == 'back'"><router-link to="/addAdress">+ 新增小区地址</router-link></div>
   </div>
 </template>
 <script>
