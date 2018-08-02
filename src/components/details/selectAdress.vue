@@ -54,6 +54,13 @@
       </div>
     </div>
     <div class="select_btn" @click="saveData">保存</div>
+
+    <!-- 弹窗 -->
+    <div class="add_shadow" v-if="showShadow"></div>
+    <div class="add_shadow_box" v-if="showCance">
+      <div>手机号格式不正确</div>
+      <div class="add_shadow_btn" @click="closeShadow">确定</div>
+    </div>
   </div>
 </template>
 
@@ -75,6 +82,8 @@
         selectArea: '',
         selectStreet: '',
         selectCommunity: '',
+        showShadow: false,
+        showCance: false,
       }
     },
     mounted() {
@@ -163,6 +172,15 @@
         this.communityList = this.streetList[this.selectStreet.index].community
       },
       saveData() {
+        //手机正则
+        let rs = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57]|19[0-9]|16[0-9])[0-9]{8}$/;
+        let resultTel = rs.test(this.form.tel);
+        if (!resultTel) {
+          this.showShadow = true;
+          this.showCance = true;
+          this.form.tel = '';
+          return;
+        }
         api.SaveMemberAddress({
           "app_key": "app_id_1",
           token: this.$store.state.token,
@@ -183,6 +201,10 @@
         }).catch((error) => {
           console.log(error)
         })
+      },
+      closeShadow() {
+        this.showShadow = false;
+        this.showCance = false;
       }
     }
   }
