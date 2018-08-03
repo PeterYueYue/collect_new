@@ -13,7 +13,8 @@
   margin-top: 0.18rem;
 }
 .orders_wrap_item .time {
-  font-size: 0.28rem;
+  font-size: 0.3rem;
+  color: #333;
 }
 /* 已取消 */
 .orders_wrap_item .time span.cancel {
@@ -51,9 +52,10 @@
   margin-top: 0.03rem;
 }
 .orders_wrap_item .o_name {
-  font-size: 0.34rem;
+  font-size: 0.3rem;
   color: #333;
-  margin-top: 0.4rem;
+  margin-top: 0.2rem;
+  font-weight: bold;
 }
 .orders_wrap_item .o_price {
   font-size: 0.28rem;
@@ -75,14 +77,21 @@
   margin-left: -1.92rem;
 }
 .orders_wrap_item .content .name {
-  font-size: 0.34rem;
+  font-size: 0.3rem;
+  color: #333;
+  font-weight: bold;
+  margin-top: 0.15rem;
 }
 .orders_wrap_item .content .price {
   font-size: 0.28rem;
-  margin-top: 0.58rem;
+  margin-top: 0.4rem;
+  color: #333;
 }
 .orders_wrap_item .content .price span {
   color: #f4333c;
+}
+.orders_wrap_item .content .price span span {
+  font-size: 0.36rem;
 }
 .orders_wrap_text {
   width: 3.3rem;
