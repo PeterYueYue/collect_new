@@ -3,9 +3,10 @@
     <div class="records_wrap_top">
       <img src="@/assets/banner2.png" alt="" class="banner">
       <div class="name">我的环保能量</div>
-      <div class="number">{{documentNo}}</div>
+      <div class="number">{{documentNo}}kg</div>
       <div class="getbtn" @click="openWindow">如何获得环保能量<img src="@/assets/icon_mark.png" alt="" class="icon_mark"></div>
     </div>
+    <div class="records_title">可用环保能量<span>{{documentNo}}kg</span></div>
     <div class="records_remind">各种优惠权益正在建设中</div>
     <div class="records_remind new">敬请期待...</div>
     <!--<div class="records_wrap_item">-->

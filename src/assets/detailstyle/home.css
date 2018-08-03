@@ -16,7 +16,7 @@ a {
   position: relative;
   font-size: 0.36rem;
   color: #333;
-  padding-left: 0.34rem;
+  padding-left: 0.8rem;
   font-weight: bold;
 }
 .home_address .add {
@@ -57,6 +57,14 @@ a {
   position: absolute;
   top: 50%;
   left: 0;
+  transform: translateY(-50%);
+}
+.home_address img.icon_add_logo_new {
+  width: 0.42rem;
+  height: 0.42rem;
+  position: absolute;
+  top: 50%;
+  left: 0.3rem;
   transform: translateY(-50%);
 }
 .home_call {
