@@ -7,18 +7,19 @@
         <bannebox class="home_wrap_banner"></bannebox>
         <!-- 有订单时 -->
         <div v-if="showList" style="padding-bottom: 1.7rem">
-          <div class="home_address" v-if="!adressList">回收地址
+          <div class="home_address" v-if="!adressList"><img src="@/assets/icon_add_logo.png" alt="" class="icon_add_logo">回收地址
             <router-link to="addAdress"><div class="add">添加回收地址</div></router-link>
             <img src="@/assets/icon_right.png" alt="">
           </div>
-          <div class="home_address" v-else>回收地址
+          <div class="home_address" v-else>
             <router-link to="adressList">
-              <div class="add reaonly">{{adressList.address ? adressList.address : ''}}{{adressList.houseNumber}}</div>
+              <div class="add reaonly"><img src="@/assets/icon_add_logo.png" alt="" class="icon_add_logo">{{adressList.address ?
+                adressList.address : ''}}{{adressList.houseNumber}}</div>
             </router-link>
             <img src="@/assets/icon_right.png" alt="">
           </div>
           <div class="home_call">
-            <h3>分类回收 助力绿色环保</h3>
+            <!--<h3>分类回收 助力绿色环保</h3>-->
             <ul class="home_list">
               <li class="item">
                 <div class="home_num">1</div>
@@ -50,7 +51,7 @@
                 <img :src="item.category?item.category.icon:''" alt="" class="pic">
                 <div>
                   <div class="name">{{item.cateAttName4Page}}</div>
-                  <div class="price">预估价格：<span>￥{{item.price}}</span></div>
+                  <div class="price">预估价格：<span>￥<span>{{item.price}}</span></span></div>
                 </div>
               </div>
             </router-link>
@@ -60,20 +61,21 @@
               <div class="time">下单时间：{{item.createDatePage}}<span :class="item.statusClass">{{item.statusPage}}</span></div>
               <div class="o_number">订单号：{{item.orderNo}}</div>
               <div class="o_name">{{item.cateAttName4Page}}</div>
-              <div class="o_price">预估价格：<span>￥{{item.price}}</span></div>
+              <!--<div class="o_price">预估价格：<span>￥{{item.price}}</span></div>-->
             </router-link>
           </div>
 
         </div>
         <!-- 无订单时 -->
         <div v-else>
-          <div class="home_address" v-if="!adressList">回收地址
+          <div class="home_address" v-if="!adressList"><img src="@/assets/icon_add_logo.png" alt="" class="icon_add_logo">回收地址
             <router-link to="addAdress"><div class="add">添加回收地址</div></router-link>
             <img src="@/assets/icon_right.png" alt="">
           </div>
-          <div class="home_address" v-else>回收地址
+          <div class="home_address" v-else>
             <router-link to="adressList">
-              <div class="add reaonly">{{adressList.address ? adressList.address : ''}}{{adressList.houseNumber}}</div>
+              <div class="add reaonly"><img src="@/assets/icon_add_logo.png" alt="" class="icon_add_logo">{{adressList.address ?
+                adressList.address : ''}}{{adressList.houseNumber}}</div>
             </router-link>
             <img src="@/assets/icon_right.png" alt="">
           </div>

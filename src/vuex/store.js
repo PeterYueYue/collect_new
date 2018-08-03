@@ -45,7 +45,7 @@ export default new Vuex.Store({
     classID: '',     //分类父级id
     adressInfo: {},  //默认地址和个人信息
     isTitle: '',     //分类title
-    recyclingType:'appliances',
+    recyclingType: 'waste',
   },
   mutations: {
     getSubItemID(state, id) {  //获取子集ID
@@ -140,6 +140,6 @@ export default new Vuex.Store({
       this.state.recyclingType = data;
     }
   },
-  
+
   plugins: [createPersistedState({storage: window.sessionStorage})]
 })

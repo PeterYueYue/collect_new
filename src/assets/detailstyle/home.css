@@ -14,9 +14,10 @@ a {
   line-height: 0.9rem;
   background: #ffffff;
   position: relative;
-  font-size: 0.34rem;
-  color: #000;
+  font-size: 0.36rem;
+  color: #333;
   padding-left: 0.34rem;
+  font-weight: bold;
 }
 .home_address .add {
   position: absolute;
@@ -25,9 +26,10 @@ a {
   transform: translateY(-50%);
   font-size: 0.3rem;
   color: #a4a9b0;
+  font-weight: normal;
 }
 .home_address .add.reaonly {
-  width: 62%;
+  width: 88%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -37,7 +39,9 @@ a {
   transform: translateY(-50%);
   font-size: 0.34rem;
   color: #333;
-  text-align: right;
+  text-align: left;
+  font-weight: bold;
+  padding-left: 0.5rem;
 }
 .home_address img {
   width: 0.36rem;
@@ -128,7 +132,8 @@ a {
   margin-top: 0.2rem;
 }
 .home_wrap_item .time {
-  font-size: 0.26rem;
+  font-size: 0.3rem;
+  color: #333;
 }
 /* 待接单 */
 .home_wrap_item .time span.waiting {
@@ -154,9 +159,10 @@ a {
   margin-top: 0.05rem;
 }
 .home_wrap_item .o_name {
-  font-size: 0.34rem;
+  font-size: 0.3rem;
   color: #333;
-  margin-top: 0.4rem;
+  margin-top: 0.2rem;
+  font-weight: bold;
 }
 .home_wrap_item .o_price {
   font-size: 0.28rem;
@@ -178,15 +184,20 @@ a {
   margin-left: -1.92rem;
 }
 .home_wrap_item .content .name {
-  font-size: 0.32rem;
-  margin-top: 0.1rem;
+  font-size: 0.3rem;
+  margin-top: 0.2rem;
+  color: #333;
+  font-weight: bold;
 }
 .home_wrap_item .content .price {
-  font-size: 0.26rem;
-  margin-top: 0.45rem;
+  font-size: 0.28rem;
+  margin-top: 0.35rem;
 }
 .home_wrap_item .content .price span {
   color: #f4333c;
+}
+.home_wrap_item .content .price span span{
+  font-size: 0.36rem;
 }
 .home_wrap_icon {
   display: block;

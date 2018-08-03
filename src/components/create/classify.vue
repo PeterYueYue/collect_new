@@ -193,6 +193,7 @@
       }
     },
     mounted() {
+      this.$store.dispatch('recyclingType', 'waste');
       this.getClassFiy('HOUSEHOLD');
       this.total();
     },
