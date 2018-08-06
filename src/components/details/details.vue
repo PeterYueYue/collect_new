@@ -22,12 +22,16 @@
         :class="detailsList.statusClass">{{detailsList.statusPage}}</span></div>
       <div class="o_number">下单时间：{{detailsList.createDatePage}}</div>
       <div class="o_name">{{detailsList.cateAttName4Page}}</div>
-      <div class="o_price">预估价格：<span>￥<span>{{detailsList.price}}</span></span></div>
+      <!--<div class="o_price">预估价格：<span>￥<span>{{detailsList.price}}</span></span></div>-->
     </div>
 
-    <div class="details_wrap_time"><span v-show="detailsList.level=='0'">上门时间：{{detailsList
-      .arrivalTimePage}}</span><span class="btn_cancel" @click="openOrders"
-                                     v-show="detailsList.status4Page!=='COMPLETE'&&detailsList.status4Page!=='CANCEL'&&detailsList.status4Page!=='REJECTED'">取消订单</span>
+    <div class="details_wrap_time" v-show="detailsList.title == 'DIGITAL'">
+      <span v-show="detailsList.level=='0'">上门时间：{{detailsList.arrivalTimePage}}</span>
+      <span class="btn_cancel" @click="openOrders" v-show="detailsList.status4Page!=='COMPLETE'&&detailsList.status4Page!=='CANCEL'&&detailsList.status4Page!=='REJECTED'">取消订单</span>
+    </div>
+
+    <div class="details_wrap_time" v-show="detailsList.title == 'HOUSEHOLD'">
+      <span class="btn_cancel" @click="openOrders" v-show="detailsList.status4Page!=='COMPLETE'&&detailsList.status4Page!=='CANCEL'&&detailsList.status4Page!=='REJECTED'">取消订单</span>
     </div>
     <!-- 待接单状态无此div -->
     <!-- 已取消 -->
