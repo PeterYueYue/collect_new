@@ -133,10 +133,10 @@
   height: 0.56rem;
   line-height: 0.56rem;
   text-align: center;
-  border: 0.01rem #888888 solid;
+  background: #0299e3;
   border-radius: 0.06rem;
   font-size: 0.3rem;
-  color: #666;
+  color: #fff;
 }
 .details_wrap_reason .answer {
   font-size: 0.28rem;
