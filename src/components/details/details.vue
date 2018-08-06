@@ -161,7 +161,7 @@
         url: '',
         tel: '',
         listData: {},
-        listPrice: '',
+        listPrice: 0,
       }
     },
     mounted() {
