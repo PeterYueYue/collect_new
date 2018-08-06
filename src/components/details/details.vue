@@ -67,13 +67,15 @@
       <!-- 生活垃圾 -->
       <div v-show="detailsList.title == 'HOUSEHOLD'">
         <div class="details_rubsh" v-for="item in rubshList" :key="item.id">
-          <div class="trash_title">{{item.name}}<span>预估总计：<span>￥{{item.price.toFixed(2)}}</span></span></div>
+          <div class="trash_title">{{item.name}}<span>X {{item.count}}</span></div>
           <div class="trash_item" v-for="data in item.list" :key="data.id">
-            <span class="weight">{{data.amount+data.unit}}</span>
-            <div class="name">{{data.cateName}}</div>
-            <div class="price">¥{{data.price+'/'+data.unit}}</div>
+            <div class="name">{{data.cateName}}<span class="number">¥{{data.price+'/'+data
+              .unit}}</span><span class="amount" v-show="detailsList.status4Page=='COMPLETE'">X {{data.amount}}</span></div>
           </div>
+          <div class="zero">{{item.categoryName}}</div>
         </div>
+        <div class="trash_total_price" v-show="detailsList.status4Page=='COMPLETE'">成交价格<span><span>￥</span>{{listData.price}}</span></div>
+        <div class="trash_total_price" v-show="detailsList.status4Page=='COMPLETE'">环保能量<span>{{listData.greenCount}}<span>kg</span></span></div>
       </div>
     </div>
     <div class="details_wrap_belongs">
@@ -158,7 +160,8 @@
         showImgView: false,
         picUrl: [],
         url: '',
-        tel: ''
+        tel: '',
+        listData: {},
       }
     },
     mounted() {
@@ -200,6 +203,7 @@
           },
           token: this.$store.state.token
         }).then((res) => {
+          this.listData = res.data;
           var status = res.data.order.status4Page;
           this.picUrl = res.data.orderPicList;
           switch (status) {
@@ -237,8 +241,6 @@
           this.detailsList = res.data.order;
           this.rubshList = res.data.list;
           this.cateList = res.data.list.list;
-
-          console.log(this.rubshList,"123")
           if(res.data.order.recyclers){
             this.tel = "tel:" + res.data.order.recyclers.tel;
           }
