@@ -72,7 +72,8 @@
           </div>
           <div class="zero">{{item.categoryName}}</div>
         </div>
-        <div class="trash_total_price" v-show="detailsList.status4Page=='COMPLETE'">成交价格<span><span>￥</span>{{listData.price}}</span></div>
+        <div class="trash_total_price" v-show="detailsList.status4Page=='COMPLETE'">成交价格<span><span style="float: left">￥</span>
+          {{listPrice.toFixed(2)}}</span></div>
         <div class="trash_total_price" v-show="detailsList.status4Page=='COMPLETE'">环保能量<span>{{listData.greenCount}}<span>kg</span></span></div>
       </div>
     </div>
@@ -160,6 +161,7 @@
         url: '',
         tel: '',
         listData: {},
+        listPrice: '',
       }
     },
     mounted() {
@@ -238,6 +240,13 @@
           }
           this.detailsList = res.data.order;
           this.rubshList = res.data.list;
+          let listPrice = 0;
+          this.rubshList.map((items) => {
+            if (items.price) {
+              listPrice += items.price;
+            }
+          });
+          this.listPrice = listPrice;
           this.cateList = res.data.list.list;
           if(res.data.order.recyclers){
             this.tel = "tel:" + res.data.order.recyclers.tel;
