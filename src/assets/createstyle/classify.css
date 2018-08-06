@@ -90,14 +90,14 @@ body {
   height: 1rem;
   line-height: 1rem;
   text-align: center;
-  background: #f7f6fb;
+  background: #00a0e9;
   border-top: 0.01rem #dddddd solid;
   overflow: hidden;
   position: fixed;
   bottom: 0;
   left: 0;
   font-size: 0.28rem;
-  color: #999;
+  color: #fff;
 }
 .classify .classify_footer {
   width: 7.5rem;
