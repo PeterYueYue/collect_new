@@ -30,9 +30,14 @@
       <span class="btn_cancel" @click="openOrders" v-show="detailsList.status4Page!=='COMPLETE'&&detailsList.status4Page!=='CANCEL'&&detailsList.status4Page!=='REJECTED'">取消订单</span>
     </div>
 
-    <div class="details_wrap_time" v-show="detailsList.title == 'HOUSEHOLD'">
-      <span class="btn_cancel" @click="openOrders" v-show="detailsList.status4Page!=='COMPLETE'&&detailsList.status4Page!=='CANCEL'&&detailsList.status4Page!=='REJECTED'">取消订单</span>
+    <div v-show="detailsList.title == 'HOUSEHOLD'">
+      <div class="details_wrap_time new"
+           v-if="detailsList.status4Page!=='COMPLETE'&&detailsList.status4Page!=='CANCEL'&&detailsList.status4Page!=='REJECTED'">
+        <span class="btn_cancel" @click="openOrders">取消订单</span>
+      </div>
+      <div class="details_wrap_time" v-else></div>
     </div>
+
     <!-- 待接单状态无此div -->
     <!-- 已取消 -->
     <div class="details_wrap_reason" v-show="detailsList.status4Page=='CANCEL'||detailsList.status4Page=='REJECTED'">
