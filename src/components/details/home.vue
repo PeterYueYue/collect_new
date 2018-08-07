@@ -15,7 +15,7 @@
           <div class="home_address" v-else>
             <router-link to="adressList">
               <div class="add reaonly"><img src="@/assets/icon_add_logo.png" alt="" class="icon_add_logo">{{adressList.address ?
-                adressList.address : ''}}{{adressList.houseNumber}}</div>
+                adressList.address : ''}}</div>
             </router-link>
             <img src="@/assets/icon_right.png" alt="">
           </div>
