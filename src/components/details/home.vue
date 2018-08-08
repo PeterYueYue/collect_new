@@ -6,7 +6,7 @@
         <!-- 轮播图 -->
         <bannebox class="home_wrap_banner"></bannebox>
         <!-- 有订单时 -->
-        <div v-if="showList" style="padding-bottom: 1.7rem">
+        <div v-if="showList"    style="padding-bottom: 1.7rem">
           <div class="home_address" v-if="!adressList"><img src="@/assets/icon_add_logo.png" alt=""
                                                             class="icon_add_logo_new">回收地址
             <router-link to="addAdress"><div class="add">添加回收地址</div></router-link>
@@ -157,13 +157,13 @@
     },
     beforeCreate() {
       // 正式
-      var tk = this.$route.query.token;
-      if(tk){
-        this.$store.dispatch('getToken', tk)
-      }
+      // var tk = this.$route.query.token;
+      // if(tk){
+      //   this.$store.dispatch('getToken', tk)
+      // }
       //本地测试
-      // var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24V6BKSK7XCKURHCCOW4OQQ3AURAWCWWM3DWVZAK26YBVRDBQAHVKQTFGRL7NE5YTTEKSLRMHPXJEUXNYHTXXO74NAXV7LFWMC7YUXC3VPEAEL6PWUFQRKFWA25BQY2GM3FVNKHDFZSG6P3IS2772DYABHQ2W64HHHKSJS7QRA35L4KISEZTXJOKANNJO6BZVQ4H2PH5N637WA7QVJQIDPHINZ67WPK3U7KIVGKP3Q'
-      // this.$store.dispatch('getToken', tk)
+      var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24V6BKSK7XCKURHCCOW4OQQ3AURAWCWWM3DWVZAK26YBVRDBQAHVKQTFGRL7NE5YTTEKSLRMHPXJEUXNYHTXXO74NAXV7LFWMC7YUXC3VPEAEL6PWUFQRKFWA25BQY2GM3FVNKHDFZSG6P3IS2772DYABHQ2W64HHHKSJS7QRA35L4KISEZTXJOKANNJO6BZVQ4H2PH5N637WA7QVJQIDPHINZ67WPK3U7KIVGKP3Q'
+      this.$store.dispatch('getToken', tk)
 
     },
     computed: mapGetters({

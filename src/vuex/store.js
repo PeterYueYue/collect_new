@@ -4,14 +4,12 @@ import * as actions from './actions'
 import * as getters from './getters'
 import createPersistedState from 'vuex-persistedstate'
 
-import router from '../router/index.js'
-
 Vue.use(Vuex);
 // 创建 store 实例
 
 export default new Vuex.Store({
-  actions,
   getters,
+  actions,
   state: {
     token: '',
     count: 0,
@@ -138,7 +136,8 @@ export default new Vuex.Store({
     },
     RecyclingType(state,data) {
       this.state.recyclingType = data;
-    }
+    },
+    
   },
 
   plugins: [createPersistedState({storage: window.sessionStorage})]

@@ -4,7 +4,7 @@ import App from './App'
 import Vuex from 'vuex'
 import store from './vuex/store'
 import router from './router'
-import $ from 'jquery'
+
 import {DateTime} from 'vue-ydui/dist/lib.rem/datetime';
 import 'vue-ydui/dist/ydui.base.css';
 import {Slider, SliderItem} from 'vue-ydui/dist/lib.rem/slider';

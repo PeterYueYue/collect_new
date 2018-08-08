@@ -80,7 +80,10 @@
             </div>
             <div class="classify_title"><i></i>上门回收服务 <br/><span>（由于价值较低，暂无回收价格，请回收小哥带走，可增加绿色环保积分）</span></div>
             <div class="classify_item" v-for="  (item,index) in noPriceList" :key="item.ids">
-              <img :src="item.icon?item.icon:''" alt="">
+              <img id="shopImg" :src="item.icon?item.icon:''" alt="">
+              <!-- <img  :src="item.icon?item.icon:''" alt=""> -->
+
+              
               <div class="name">{{item.name}}</div>
               <div v-if="item.price !== 0" class="price">
                 ¥<span>
@@ -97,10 +100,18 @@
         </div>
       </div>
     </div>
-
+    <!-- 回收车start -->
+    <car  v-show="isShowCar   ==    'on'" 
+          :selectProductList  =     "selectProductList" 
+          @deleItem           =     "less"  
+          @closeCar           =     'closeCar' 
+          @clearAllItem       =     "clearAllItem" 
+          class               =     "carBox"
+    ></car>
+    <!-- 回收车  end -->
     <div class="classify_footer" v-show="!showUl">
       <div class="f_title">
-        <div class="icon"><img src="@/assets/class_icon.png" alt=""><i>{{numTotal}}</i></div>
+        <div  @touchstart="closeCar('on')"  class="icon"><img id="carbox" src="@/assets/class_icon.png" alt=""><i>{{numTotal}}</i></div>
         <div class="name">已选类型数量：<span class="price"><span>{{numTotal}}</span></span></div>
       </div>
       <div class="r_btn" :class="{disable:numTotal <= 0}" @touchstart="openAlert">一键回收</div>
@@ -146,9 +157,13 @@
   import '@/assets/createstyle/tool.css'
   import '@/assets/createstyle/classify.css'
   import {mapGetters} from 'vuex';
-  import $ from 'jquery'
+  import $ from 'jquery';
+  import Car from './car/car.vue'
 
   export default {
+    components:{
+      Car
+    },
     data() {
       return {
         recTypeExp: '',
@@ -164,7 +179,9 @@
         showAlert2: false,
         menuListImg: '',
         questionTitle: '',
+        isShowCar:'off',
         text: [],
+        information:{},
         selectProductList: window.sessionStorage.getItem('productList') ?
           JSON.parse(window.sessionStorage.getItem('productList')) : [],//上传成功要清掉
         priceTotal: window.sessionStorage.getItem('productTotal') ? JSON.parse(window.sessionStorage.getItem('productTotal')).priceTotal : 0,
@@ -237,19 +254,33 @@
               }
             });
 
+            // 默认给每一个商品增加一个点击状态
             this.subList = res.data.ComCatePriceList.map(e => {
               e.checked = false
               e.pName = this.menulist[0].name;
               e.pId = this.menulist[0].id;
               return e
             });
-
             this.noPriceList = res.data.ComCateNoPriceList.map(e => {
               e.checked = false
               e.pName = this.menulist[0].name;
               e.pId = this.menulist[0].id;
               return e
             })
+
+            // 处理刷新后的选择状态；
+            this.selectProductList.forEach(e => {
+              this.subList = this.subList.map( k => {
+                if(e.id == k.id){k.checked = e.checked}
+                return k;
+              })
+              this.noPriceList = this.noPriceList.map( k => {
+                if(e.id == k.id){k.checked = e.checked}
+                return k;
+              })
+
+            })
+            
           }).catch((erro) => {
             console.log(erro)
           })
@@ -259,7 +290,7 @@
       },
       getList(id, index) {
         // 恢复列表元素的滚动位置
-        $(".classify_main").animate({scrollTop: '0'}, 50);
+        $(".linlei_list").animate({scrollTop: '0'}, 50);
         /*******************************/
         this.isId = id;
         this.recTypeExp = this.menulist[index].recTypeExp;
@@ -345,13 +376,6 @@
       openUl(type, household) {
         this.$store.dispatch('recyclingType', household);
         this.showUl = type;
-        // let hd = ''
-        // if(household == 'appliances'){
-        //     hd = 'HOUSEHOLD'
-        // }
-        // if(household == 'waste'){
-        //   hd = 'DIGITAL'
-        // }
         this.getClassFiy(!type);
       },
       openAlert() {
@@ -427,16 +451,31 @@
         }
         this.total();
         this.openAlert1()
+
       },
       less(item) {
-        const haveIn = this.selectProductList.findIndex((el) => {
-          return el.id === item.id
-        });
-        this.selectProductList[haveIn].number -= 1;
-        item.number -= 1;
-        if (item.number === 0) {
-          this.selectProductList.splice(haveIn, 1)
+
+
+        this.selectProductList = this.selectProductList.filter(e => e.id !== item.id)
+        
+        if(this.selectProductList.length < 6){
+
+          $('.carList')[0].style.height =this.selectProductList.length*1.15 +'rem';
         }
+        if(this.selectProductList.length <= 0){
+          this.closeCar('off')
+        }
+        
+        this.getList(this.isId,this.isActive)
+        
+        // const haveIn = this.selectProductList.findIndex((el) => {
+        //   return el.id === item.id
+        // });
+        // this.selectProductList[haveIn].number -= 1;
+        // item.number -= 1;
+        // if (item.number === 0) {
+        //   this.selectProductList.splice(haveIn, 1)
+        // }
         this.total();
       },
       total() {
@@ -460,7 +499,7 @@
       addProduct(item, index) {
         this.noPriceList[index].checked = !item.checked;
         if (this.noPriceList[index].checked) {
-          this.plus(item)
+            this.animate(item)
         } else {
           this.less(item)
         }
@@ -468,10 +507,71 @@
       addProduct1(item, index) {
         this.subList[index].checked = !item.checked;
         if (this.subList[index].checked) {
-          this.plus(item)
+          this.animate(item)
         } else {
           this.less(item)
         }
+      },
+      closeCar(data){
+        if(data =='on' && this.selectProductList.length){
+
+          if(this.selectProductList.length >=6){
+            $('.carList')[0].style.height = '7.37rem';
+          }else{
+            $('.carList')[0].style.height = this.selectProductList.length * 1.15 +'rem';
+          }
+
+          this.isShowCar = data;
+          $('.carMain').css({'background':'rgba(0,0,0,.5)'})
+          $('.carContent').animate({bottom:'0%'}, "fast", () => {
+
+          })
+        }else{
+          $('.carMain').css({'background':'none'})
+          $('.carContent').animate({bottom: '-60%'}, "fast", () => {
+              this.isShowCar = data;
+          });
+        }
+
+        
+       
+      },
+      clearAllItem(){
+
+        this.selectProductList = [];
+        window.sessionStorage.setItem('productList', JSON.stringify(this.selectProductList));
+        this.getClassFiy('HOUSEHOLD');
+        this.total();
+        this.closeCar('off')
+      },
+      animate(item){
+
+         /*回收箱 动画*/ 
+        /* YueYue  */  
+          let event = window.event||arguments[0];
+          let animateTarget = event.target.parentNode.parentNode.childNodes[0];
+          let n = document.createElement("img");
+              n.src = animateTarget.src
+              n.width = animateTarget.width;
+              n.height = animateTarget.height;
+              n.style.position =  'absolute';
+              n.className = 'newNode'
+              n.style.top = $(animateTarget).offset().top +'px';
+              n.style.left= $(animateTarget).offset().left+'px';
+          app.append(n)
+          let carboxOffH = $('#carbox').offset().top;
+          let moveBH = carboxOffH - $(animateTarget).offset().top;
+          let moveLW =  $(animateTarget).offset().left - $('#carbox').offset().left
+          $(".newNode").animate({ 
+            top: $(animateTarget).offset().top += moveBH ,
+            left: $(animateTarget).offset().left - moveLW, 
+          }, 200,() => {
+
+            $(".newNode").remove();
+            this.plus(item)
+            
+          });
+
       }
     }
   }
