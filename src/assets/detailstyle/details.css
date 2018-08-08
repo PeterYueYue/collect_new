@@ -99,6 +99,9 @@
   font-size: 0.3rem;
   padding: 0 0.3rem;
 }
+.details_wrap_time.new {
+  height: 1.08rem;
+}
 .details_wrap_time .btn_cancel {
   position: absolute;
   top: 50%;
@@ -133,10 +136,10 @@
   height: 0.56rem;
   line-height: 0.56rem;
   text-align: center;
-  border: 0.01rem #888888 solid;
+  background: #0299e3;
   border-radius: 0.06rem;
   font-size: 0.3rem;
-  color: #666;
+  color: #fff;
 }
 .details_wrap_reason .answer {
   font-size: 0.28rem;
@@ -160,7 +163,7 @@
   right: 0.1rem;
 }
 .details_wrap_info {
-  padding: 0 0 0.1rem 0.3rem;
+  padding-left: 0.3rem;
   background: #fff;
   margin-top: 0.2rem;
   overflow: hidden;
@@ -198,13 +201,34 @@
   margin-bottom: 0.28rem;
   margin-right: 0.5rem;
 }
+.details_wrap_info .trash_total_price {
+  border-top: 0.01rem #dddddd solid;
+  font-size: 0.3rem;
+  color: #333;
+  height: 1rem;
+  line-height: 1rem;
+  font-weight: bold;
+  margin-left: -0.3rem;
+  padding-left: 0.3rem;
+}
+.details_wrap_info .trash_total_price span {
+  color: #f4333c;
+  float: right;
+  padding-right: 0.32rem;
+}
+.details_wrap_info .trash_total_price span span {
+  font-weight: normal;
+  font-size: 0.24rem;
+  padding-right: 0;
+}
 .details_wrap_info .trash_title {
   border-bottom: 0.01rem #dddddd solid;
-  font-size: 0.34rem;
+  font-size: 0.3rem;
   color: #333;
   line-height: 0.7rem;
   margin-left: -0.3rem;
   padding: 0 0.3rem;
+  font-weight: bold;
 }
 .details_wrap_info .trash_title span {
   float: right;
@@ -216,7 +240,6 @@
 }
 .details_wrap_info .trash_item {
   position: relative;
-  margin-left: 0.1rem;
   padding: 0.25rem 0 0.2rem;
 }
 .details_wrap_info .trash_item:last-child {
@@ -226,8 +249,24 @@
   border-bottom: none;
 }
 .details_wrap_info .trash_item .name {
-  font-size: 0.3rem;
+  font-size: 0.28rem;
   color: #333;
+}
+.details_wrap_info .trash_item .name .amount{
+  float: right;
+}
+.details_wrap_info .trash_item .name .number{
+  float: right;
+  padding-right: 0.3rem;
+  width: 2rem;
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: right;
+}
+.details_wrap_info .zero {
+  font-size: 0.28rem;
+  color: #333;
+  margin: 0.1rem 0 0.3rem 0;
 }
 .details_wrap_info .trash_item .price {
   font-size: 0.28rem;
