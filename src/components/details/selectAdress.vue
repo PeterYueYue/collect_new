@@ -25,7 +25,7 @@
       <div class="title" v-if="selectArea">
         <div class="left"></div>
         <div class="right">
-          <select name="" v-model="selectStreet" @change="getCommunity">
+          <select name="" v-model="selectStreet" @change="getCommunity" @focus="getCommunity">
             <option value="">请选择所在街道/镇</option>
             <option v-for="(items,index) in streetList"
                     :value="{id:items.area.id,index:index,name:items.area.areaName}"
@@ -38,7 +38,7 @@
       <div class="title" v-if="selectStreet" v-show="!showArea">
         <div class="left">小区名称</div>
         <div class="right">
-          <select name="" v-model="selectCommunity">
+          <select name="" v-model="selectCommunity" @change="communityChange">
             <option value="">请选择所在小区名称</option>
             <option v-for="(items,index) in communityList"
                     :value="{id:items.id,name:items.name}"
@@ -118,12 +118,11 @@
           },
         }).then((res) => {
           this.areaValue = res.data.memberAddress.communityId;
-          console.log(this.areaValue);
-          if(this.areaValue > 0){
+          if (this.areaValue > 0) {
             this.showArea = false;
-          }else if(this.areaValue && this.areaValue=== -1){
+          } else if (this.areaValue && this.areaValue === -1) {
             this.showArea = true;
-          }else if(!this.areaValue){
+          } else if (!this.areaValue) {
             this.showArea = true;
           }
           this.form.name = res.data.memberAddress.name;
@@ -192,7 +191,10 @@
       getCommunity(){
         this.showArea = true;
         this.selectCommunity = '';
-        this.communityList = this.streetList[this.selectStreet.index].community
+        this.communityList = this.streetList[this.selectStreet.index].community;
+        if (this.communityList.length !== 0) {
+          this.showArea = false
+        }
       },
       saveData() {
         //手机正则
@@ -208,13 +210,7 @@
           "app_key": "app_id_1",
           token: this.$store.state.token,
           "data": {
-            // "address":
-            //   (this.form.area==='')?(this.selectArea.name + this.selectStreet.name + '' + this.form.address):((!this.areaValue ||this.selectCommunity === 'noVal') ? this.selectArea.name +
-            //   this.selectStreet.name +
-            //   this.form.area + this.form.address : this.selectArea.name + this.selectStreet.name +
-            //   this.selectCommunity.name + this.form.address),
-            "address": this.form.area===''?this.selectArea.name + this.selectStreet.name + '' + this.form.address:this.selectArea.name +
-                this.selectStreet.name + this.form.area + this.form.address,
+            "address": this.selectCommunity !== '' && this.selectCommunity !== 'noVal' && this.selectCommunity.id > 0 ? this.selectArea.name + this.selectStreet.name + this.selectCommunity.name + this.form.address : this.selectArea.name + this.selectStreet.name + this.form.area + this.form.address,
             "areaId": this.selectArea.id,
             "houseNumber": this.form.address,
             "name": this.form.name,
@@ -237,10 +233,17 @@
         this.showCance = false;
       },
       modifyData() {
-        if(this.communityList.length === 0){
+        if (this.communityList.length === 0 || this.selectCommunity === 'noVal' || this.selectCommunity.id < 0) {
           this.form.area = ''
         }
       },
+      communityChange(){
+        if (this.selectCommunity === 'noVal') {
+          this.showArea = true
+        } else {
+          this.showArea = false
+        }
+      }
     }
   }
 </script>
