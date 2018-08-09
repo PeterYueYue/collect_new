@@ -118,8 +118,13 @@
           },
         }).then((res) => {
           this.areaValue = res.data.memberAddress.communityId;
-          if(this.areaValue){
+          console.log(this.areaValue);
+          if(this.areaValue > 0){
             this.showArea = false;
+          }else if(this.areaValue && this.areaValue=== -1){
+            this.showArea = true;
+          }else if(!this.areaValue){
+            this.showArea = true;
           }
           this.form.name = res.data.memberAddress.name;
           this.form.tel = res.data.memberAddress.tel;
@@ -230,9 +235,7 @@
       },
       modifyData() {
         if(this.communityList.length === 0){
-
-        }else{
-
+          
         }
       },
     }
