@@ -35,8 +35,8 @@
           </select>
           <img src="@/assets/icon_right.png" alt=""></div>
       </div>
-      <div class="title" v-if="selectStreet">
-        <div class="left"></div>
+      <div class="title" v-if="selectStreet" v-show="!showArea">
+        <div class="left">小区名称</div>
         <div class="right">
           <select name="" v-model="selectCommunity">
             <option value="">请选择所在小区名称</option>
@@ -45,8 +45,17 @@
                     :key="index">
               {{items.name}}
             </option>
+            <option value="noVal">找不到所在小区</option>
           </select>
-          <img src="@/assets/icon_right.png" alt=""></div>
+          <img src="@/assets/icon_right.png" alt="">
+        </div>
+      </div>
+      <div class="title" v-show="showArea">
+        <div class="left">小区名称</div>
+        <div class="right new">
+          <input type="text" placeholder="请输入小区名称" v-model="form.area">
+          <span class="modify" @click="modifyData">修改</span>
+        </div>
       </div>
       <div class="title">
         <div class="left">详细地址</div>
@@ -74,6 +83,7 @@
         form: {
           name: '',
           tel: '',
+          area: '',
           address: '',
         },
         areaList: [],
@@ -84,6 +94,8 @@
         selectCommunity: '',
         showShadow: false,
         showCance: false,
+        showArea: true,
+        areaValue: '',
       }
     },
     mounted() {
@@ -105,8 +117,13 @@
             "id": this.$route.query.id
           },
         }).then((res) => {
+          this.areaValue = res.data.memberAddress.communityId;
+          if(this.areaValue){
+            this.showArea = false;
+          }
           this.form.name = res.data.memberAddress.name;
           this.form.tel = res.data.memberAddress.tel;
+          this.form.area = res.data.communityName;
           this.form.address = res.data.memberAddress.houseNumber;
           this.selectArea = {
             id: res.data.memberAddress.areaId,
@@ -168,6 +185,7 @@
         })
       },
       getCommunity(){
+        this.showArea = true;
         this.selectCommunity = '';
         this.communityList = this.streetList[this.selectStreet.index].community
       },
@@ -185,7 +203,10 @@
           "app_key": "app_id_1",
           token: this.$store.state.token,
           "data": {
-            "address": this.selectArea.name + this.selectStreet.name + this.selectCommunity.name + this.form.address,
+            "address": (!this.areaValue ||this.selectCommunity === 'noVal') ? this.selectArea.name +
+              this.selectStreet.name +
+              this.form.area + this.form.address : this.selectArea.name + this.selectStreet.name +
+              this.selectCommunity.name + this.form.address,
             "areaId": this.selectArea.id,
             "houseNumber": this.form.address,
             "name": this.form.name,
@@ -193,6 +214,7 @@
             "id": this.$route.query.id,  //id传入有值时是保存修改地址，当地不传或传空时为新增地址
             "communityId": this.selectCommunity.id,
             "streetId": this.selectStreet.id,
+            "commByUserInput": this.form.area,
           },
         }).then((res) => {
           this.$router.push({
@@ -205,7 +227,14 @@
       closeShadow() {
         this.showShadow = false;
         this.showCance = false;
-      }
+      },
+      modifyData() {
+        if(this.communityList.length === 0){
+
+        }else{
+
+        }
+      },
     }
   }
 </script>
