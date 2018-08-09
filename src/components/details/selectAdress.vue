@@ -235,7 +235,7 @@
       },
       modifyData() {
         if(this.communityList.length === 0){
-          
+
         }
       },
     }
