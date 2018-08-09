@@ -9,6 +9,9 @@ let base ='http://101.132.111.141:80';
 // 张强
 // let base ='http://192.168.1.155:9000';
 
+// 王灿
+// let base ='http://192.168.1.163:9000';
+
 // import state   from './../vuex/store.js'
 // var uesrToken = state.getters.token;
 

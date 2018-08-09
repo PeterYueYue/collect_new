@@ -174,6 +174,7 @@
       },
       getCommunity() {
         this.selectCommunity = '';
+        this.showStreet = true;
         this.communityList = this.streetList[this.selectStreet.index].community;
         if(this.communityList.length === 0){
           this.showStreet = false

@@ -208,10 +208,13 @@
           "app_key": "app_id_1",
           token: this.$store.state.token,
           "data": {
-            "address": (!this.areaValue ||this.selectCommunity === 'noVal') ? this.selectArea.name +
-              this.selectStreet.name +
-              this.form.area + this.form.address : this.selectArea.name + this.selectStreet.name +
-              this.selectCommunity.name + this.form.address,
+            // "address":
+            //   (this.form.area==='')?(this.selectArea.name + this.selectStreet.name + '' + this.form.address):((!this.areaValue ||this.selectCommunity === 'noVal') ? this.selectArea.name +
+            //   this.selectStreet.name +
+            //   this.form.area + this.form.address : this.selectArea.name + this.selectStreet.name +
+            //   this.selectCommunity.name + this.form.address),
+            "address": this.form.area===''?this.selectArea.name + this.selectStreet.name + '' + this.form.address:this.selectArea.name +
+                this.selectStreet.name + this.form.area + this.form.address,
             "areaId": this.selectArea.id,
             "houseNumber": this.form.address,
             "name": this.form.name,
@@ -235,7 +238,7 @@
       },
       modifyData() {
         if(this.communityList.length === 0){
-
+          this.form.area = ''
         }
       },
     }
