@@ -70,6 +70,10 @@
       <div>手机号格式不正确</div>
       <div class="add_shadow_btn" @click="closeShadow">确定</div>
     </div>
+    <div class="add_shadow_box" v-if="showCance2">
+      <div>联系人格式不正确</div>
+      <div class="add_shadow_btn" @click="closeShadow">确定</div>
+    </div>
   </div>
 </template>
 
@@ -94,6 +98,7 @@
         selectCommunity: '',
         showShadow: false,
         showCance: false,
+        showCance2: false,
         showArea: true,
         areaValue: '',
       }
@@ -197,6 +202,15 @@
         }
       },
       saveData() {
+        //联系人正则
+        let rn = /^[\u4E00-\u9FA5A-Za-z]+$/;
+        let resultName = rn.test(this.form.name);
+        if (!resultName) {
+          this.showShadow = true;
+          this.showCance2 = true;
+          this.form.name = '';
+          return;
+        }
         //手机正则
         let rs = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57]|19[0-9]|16[0-9])[0-9]{8}$/;
         let resultTel = rs.test(this.form.tel);
@@ -231,6 +245,7 @@
       closeShadow() {
         this.showShadow = false;
         this.showCance = false;
+        this.showCance2 = false;
       },
       modifyData() {
         if (this.communityList.length === 0 || this.selectCommunity === 'noVal' || this.selectCommunity.id < 0) {
