@@ -74,8 +74,16 @@
                   <span class="plus round" @touchstart="plus(item)">+</span>
                 </div> -->
               </div>
-              <div v-bind:class="{ checked1: item.checked == '1'}" class="optbtn">
-                <div @touchstart="addProduct1(item,index)" class="btn"></div>
+              <div  
+                    
+                    @touchstart= addProduct1Start
+                    @touchmove = addProduct1Move
+                    @touchend  = addProduct1End(item,index) 
+                    v-bind:class="{ checked1: item.checked == '1'}" 
+                    class="optbtn">
+
+                    
+                <div  class="btn"></div>
               </div>
             </div>
             <div class="classify_title"><i></i>上门回收服务 <br/><span>（由于价值较低，暂无回收价格，请回收小哥带走，可增加绿色环保积分）</span></div>
@@ -92,7 +100,11 @@
               </div>
               <div class="xiaoge">麻烦回收小哥带走</div>
               <div v-bind:class="{ checked: item.checked == '1' }" class="optbtn1">
-                <div @touchstart="addProduct(item,index)" class="btn"></div>
+                <div 
+                      @touchstart= addProductStart
+                      @touchmove = addProductMove
+                      @touchend  = addProductEnd(item,index) 
+                     class="btn"></div>
               </div>
 
             </div>
@@ -181,6 +193,7 @@
         questionTitle: '',
         isShowCar:'off',
         text: [],
+        justTouch : '',
         information:{},
         selectProductList: window.sessionStorage.getItem('productList') ?
           JSON.parse(window.sessionStorage.getItem('productList')) : [],//上传成功要清掉
@@ -512,6 +525,81 @@
           this.less(item)
         }
       },
+
+      addProduct1Start(e){
+        this.justTouch = 'true';
+        let target = {
+            startY : e.changedTouches[0].pageY,
+            startX : e.changedTouches[0].pageX,
+        }
+        return target;
+
+      },
+      addProduct1Move(e){
+        let moveEndX = e.changedTouches[0].pageX;
+        let moveEndY = e.changedTouches[0].pageY;
+        let  X = moveEndX - this.addProduct1Start.startX;
+        let  Y = moveEndY - this.addProduct1Start.startY;
+        if ( Math.abs(X) > Math.abs(Y) && X > 0 ) {
+            this.justTouch = 'true';
+        }
+        else if ( Math.abs(X) > Math.abs(Y) && X < 0 ) {
+            this.justTouch = 'true';
+        }
+        else if ( Math.abs(Y) > Math.abs(X) && Y > 0) {
+            this.justTouch = 'true'     }
+        else if ( Math.abs(Y) > Math.abs(X) && Y < 0 ) {
+            this.justTouch = 'true'
+        }
+        else{
+            this.justTouch = 'false'
+        }
+
+      },
+      addProduct1End(item,index){
+        if(this.justTouch == 'true'){
+          this.addProduct1(item, index);
+        }
+      },
+      addProductStart(e){
+
+        this.justTouch = 'true';
+        console.log(e)
+        let target = {
+            startY : e.changedTouches[0].pageY,
+            startX : e.changedTouches[0].pageX,
+        }
+        return target;
+
+      },
+      addProductMove(e){
+        let moveEndX = e.changedTouches[0].pageX;
+        let moveEndY = e.changedTouches[0].pageY;
+        let  X = moveEndX - this.addProductStart.startX;
+        let  Y = moveEndY - this.addProductStart.startY;
+        if ( Math.abs(X) > Math.abs(Y) && X > 0 ) {
+            this.justTouch = 'true';
+        }
+        else if ( Math.abs(X) > Math.abs(Y) && X < 0 ) {
+            this.justTouch = 'true';
+        }
+        else if ( Math.abs(Y) > Math.abs(X) && Y > 0) {
+            this.justTouch = 'true'     }
+        else if ( Math.abs(Y) > Math.abs(X) && Y < 0 ) {
+            this.justTouch = 'true'
+        }
+        else{
+            this.justTouch = 'false'
+        }
+
+      },
+      addProductEnd(item,index){
+        if(this.justTouch == 'true'){
+          this.addProduct(item, index);
+        }
+      },
+
+
       closeCar(data){
         if(data =='on' && this.selectProductList.length){
 
@@ -572,7 +660,12 @@
             
           });
 
-      }
+      },
+
+
+
+
+
     }
   }
 </script>

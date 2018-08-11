@@ -1,0 +1,146 @@
+.ticketdetails {
+  color: #333333;
+  overflow: hidden;
+}
+.ticketdetails header {
+  text-align: center;
+}
+.ticketdetails header .logo {
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background-color: #fff;
+  position: relative;
+  margin: 0.31rem auto 0 auto;
+}
+.ticketdetails header .logo img {
+  display: block;
+  width: 1.31rem;
+  height: 1.31rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 30%;
+}
+.ticketdetails header h3 {
+  font-size: 0.26rem;
+  line-height: 0.46rem;
+  text-align: center;
+  margin-top: 0.22rem;
+  font-weight: 300;
+}
+.ticketdetails header strong {
+  font-size: 0.38rem;
+  line-height: 0.65rem;
+  font-weight: 300;
+}
+.ticketdetails header .validity {
+  font-size: 0.24rem;
+  line-height: 0.36rem;
+  letter-spacing: 0.01rem;
+}
+.ticketdetails header .changeButton {
+  width: 5.2rem;
+  height: 0.84rem;
+  background-color: #00a0e9;
+  border-radius: 0.05rem;
+  color: #fff;
+  line-height: 0.84rem;
+  font-size: 0.32rem;
+  letter-spacing: 0.04rem;
+  margin: 0.15rem auto 0 auto;
+  font-weight: 300;
+}
+.ticketdetails .content {
+  margin-top: 0.3rem;
+  width: 7.5rem;
+}
+.ticketdetails .content .title {
+  line-height: 0.78rem;
+  font-size: 0.26rem;
+  background-color: #fff;
+  padding-left: 0.2rem;
+}
+.ticketdetails .content .main {
+  padding: 0.3rem;
+  background-color: #fff;
+  width: 100%;
+  margin-top: 0.02rem;
+}
+.ticketdetails .content .main .item {
+  width: 7.5rem;
+  text-align: left;
+  letter-spacing: 0.03rem;
+  margin-bottom: 0.2rem;
+}
+.ticketdetails .content .main .item span {
+  font-size: 0.26rem;
+  line-height: 0.38rem;
+}
+.ticketdetails .content .main .item .info {
+  font-size: 0.26rem;
+  line-height: 0.36rem;
+  font-weight: 300;
+}
+.ticketdetails footer {
+  font-size: 0.28rem;
+  line-height: 0.9rem;
+  text-align: left;
+  text-indent: 0.32rem;
+  background-color: #fff;
+  margin-top: 0.02rem;
+  position: relative;
+}
+.ticketdetails footer .arrows {
+  position: absolute;
+  right: 0.4rem;
+  bottom: 0.3rem;
+  width: 0.25rem;
+  height: 0.25rem;
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  /* IE 9 */
+  -moz-transform: rotate(45deg);
+  /* Firefox */
+  -webkit-transform: rotate(45deg);
+  /* Safari 和 Chrome */
+  -o-transform: rotate(45deg);
+  /* Opera */
+  border-top: 0.02rem solid #333333;
+  border-right: 0.02rem solid #333333;
+}
+.ticketdetails .popupBox {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.ticketdetails .popupBox .messageBox {
+  background: #fff;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 70%;
+  bottom: 0;
+  left: 0;
+}
+.ticketdetails .popupBox .messageBox h3 {
+  line-height: 0.8rem;
+  font-size: 0.22rem;
+  height: 0.8rem;
+}
+.ticketdetails .popupBox .messageBox .content {
+  border-top: 0.02rem solid #cccccc;
+  margin: 0;
+  color: #cccccc;
+  font-size: 0.22rem;
+  text-align: left;
+  padding: 0.3rem;
+  line-height: 0.32rem;
+}

@@ -278,7 +278,26 @@ var configUpdateIsSelectedAddress = { //设置默认地址
   "timestamp": 1530239469246,
 }
 
+var configGetIntegralList = { /*获取积分商城券列表*/
 
+  "app_key": "app_id_1",
+	"name": "product.getProductListYes",
+	"format": "json",
+	"sign": "32B4691EE78E15C09BE465DE9D757562",
+	"version": "1.0",
+	"nonce": "d5cf7661-8075-48e0-8639-73d8de6c72e8",
+	"timestamp": 1533792336965
+}
+
+var configSendVoucher = { /*给用户发券*/
+  "app_key": "app_id_1",
+	"name": "product.sendVoucher",
+	"format": "json",
+	"sign": "6054CC1246723770F13844BED9C1A4F1",
+	"version": "1.0",
+	"nonce": "46ee1781-77ec-4099-b61a-d5a5be413cb7",
+	"timestamp": 1533792761228,
+}
 
 
 //回收分类
@@ -395,6 +414,17 @@ export default {
     let config = Object.assign(configUpdateIsSelectedAddress, params);
     return axios.post(`${base}/ali/api`, config).then(res => res.data);
   },
+
+  GetIntegralList(params) { /*获取积分商城券列表*/
+    let config = Object.assign(configGetIntegralList, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data);
+  },
+  SendVoucher(params) { /*给用户发券*/
+    let config = Object.assign(configSendVoucher, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data)
+  }
+ 
+
 
 
 
