@@ -1,7 +1,8 @@
 <template>
-  <div style="width:100%">
+  <div style="width:100% ; height:100%">
     <pull-to :top-load-method="onRefresh" :top-config="pullRefreshConfig">
-      <div class="home_wrap">
+      <div class="bestBox">
+        <div  class="home_wrap">
         <!-- <img src="@/assets/banner3.png" alt="" class="home_wrap_banner"> -->
         <!-- 轮播图 -->
         <bannebox class="home_wrap_banner"></bannebox>
@@ -109,6 +110,8 @@
         </div>
 
       </div>
+
+      </div>
     </pull-to>
     <!-- 底部footer -->
     <div class="home_wrap_footer">
@@ -116,7 +119,7 @@
       <router-link to="/classIfy">
         <div class="footer_circle">上门<br/>回收</div>
       </router-link>
-      <router-link to="/records">
+      <router-link to="/integralshoping">
         <div class="footer_left"><img src="@/assets/icon_foot.png" alt="" class="icon"><span>环保能量</span></div>
       </router-link>
       <router-link to="/orders">
@@ -175,11 +178,22 @@
       window.localStorage.setItem('token', token);
       this.getData();
       this.memberAddress();
+      document.title = '回收分类'
     },
     methods: {
       onRefresh(loaded) {
         //获取数据
         this.getData(loaded)
+      },
+
+      pullStart(ev){
+
+        console.log(ev)
+
+        for(var i= 0; i<ev.path.length;i++){
+
+          console.log(ev.path[i].className)
+        }
       },
       memberAddress() {
         //默认地址

@@ -78,7 +78,7 @@
   margin-left: -1.92rem;
 }
 .details_wrap_item .content .name {
-  font-size: 0.30rem;
+  font-size: 0.3rem;
   font-weight: bold;
   margin-top: 0.15rem;
 }
@@ -225,10 +225,17 @@
   border-bottom: 0.01rem #dddddd solid;
   font-size: 0.3rem;
   color: #333;
+  height: 1rem;
+  line-height: 1rem;
+  font-weight: bold;
+}
+.details_wrap_info .trash_title {
+  border-bottom: 0.01rem #dddddd solid;
+  font-size: 0.3rem;
+  color: #333;
   line-height: 0.7rem;
   margin-left: -0.3rem;
   padding: 0 0.3rem;
-  font-weight: bold;
 }
 .details_wrap_info .trash_title span {
   float: right;
@@ -252,10 +259,10 @@
   font-size: 0.28rem;
   color: #333;
 }
-.details_wrap_info .trash_item .name .amount{
+.details_wrap_info .trash_item .name .amount {
   float: right;
 }
-.details_wrap_info .trash_item .name .number{
+.details_wrap_info .trash_item .name .number {
   float: right;
   padding-right: 0.3rem;
   width: 2rem;

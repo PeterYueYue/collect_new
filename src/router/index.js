@@ -36,7 +36,7 @@ import  Ticketdetails     from '@/components/integralShopping/ticketdetails'
 import  home              from '@/components/details/home.vue'
 import  details           from '@/components/details/details.vue'
 import  orders            from '@/components/details/orders.vue'
-import  records           from '@/components/details/records.vue'
+// import  records           from '@/components/details/records.vue'
 import  imgView           from '@/components/details/imgView.vue'
 import  qrCode            from '@/components/details/qrCode.vue'
 import  adressList        from '@/components/details/adressList.vue'
@@ -91,11 +91,11 @@ const router =  new Router({
       name: 'imgView',
       component: imgView
     },
-    {
-      path: '/records',
-      name: 'records',
-      component: records
-    },
+    // {
+    //   path: '/records',
+    //   name: 'records',
+    //   component: records
+    // },
     {
       path: '/orders',
       name: 'orders',

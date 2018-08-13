@@ -6,15 +6,15 @@
                 <strong>
                     累计回收环保能量
                 </strong>
-                <div class="quantity">1000kg</div>
-                <div class="strategy">
+                <div class="quantity">{{totalQuantity}}kg</div>
+                <div  @click="showShadow = true " class="strategy">
                     如何获得环保能量
                     <span class="icon"></span>
                 </div>
             </div>
             <div class="useEnvironmental">
                 <span class="enviromental">可用环保能量</span>
-                <span class="digit">100kg</span>
+                <span class="digit">{{availableQuantity}}kg</span>
             </div>
         </header>
         <!-- 主体 -->
@@ -42,6 +42,20 @@
             
         </ul>
 
+        <!-- 弹窗 -->
+        <div class="records_shadow" v-if="showShadow" ></div>
+        <div class="records_shadow_box"  v-if="showShadow" >
+            <div class="title">如何获得环保能量？</div>
+            <div>用户可通过线上下单回收生活垃圾，待回收人员上门称重回收后，即可获得相应重量的环保能量，用来兑换权益。</div>
+            <div>目前权益正在努力建设当中，更多权益，敬请期待...</div>
+            <img src="@/assets/icon_close.png" alt="" class="records_shadow_icon_close"  @click="showShadow = false " >
+        </div>
+        
+
+
+
+
+
     </div>
 </template>
 
@@ -54,17 +68,38 @@ export default {
     data(){
         return{
             list:[],
-            justTouch : 'true'
+            justTouch : 'true',
+            totalQuantity:'',
+            availableQuantity:'',
+            showShadow:false,
         }
     },
-    created(){
-        document.title = "积分商城"
+    mounted(){
+        document.title = "我的能量"
+        this.getRecords();
 
          api.GetIntegralList().then( res => {
              this.list = res.data;
         })
     },
+    computed:mapGetters({
+        token:"token"
+    }),
     methods:{
+        getRecords(){
+            api.getRecords({
+            "app_key": "app_id_1",
+            "data": {pageNumber:1, pageSize:10},
+            token: this.token
+            }).then((res) => {
+            console.log(res);
+            this.totalQuantity = res.data[0];
+            this.availableQuantity = res.data[2];
+            }).catch((error) => {
+            console.log(error)
+            })
+
+        },
         // touchstart
         toDteailsStart(e){
             this.justTouch = 'true';

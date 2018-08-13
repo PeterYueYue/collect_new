@@ -64,7 +64,7 @@
 </template>
 
 <script>
-  import '@/assets/detailstyle/records.css'
+  // import '@/assets/detailstyle/records.css'
   import api from '@/api/api.js'
   import {mapGetters} from 'vuex';
 

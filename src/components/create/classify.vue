@@ -226,6 +226,7 @@
       this.$store.dispatch('recyclingType', 'waste');
       this.getClassFiy('HOUSEHOLD');
       this.total();
+      document.title = "回收分类"
     },
     methods: {
       getClassFiy(value) {
@@ -301,10 +302,14 @@
           console.log(erro)
         });
       },
-      getList(id, index) {
+      getList(id, index,state) {
         // 恢复列表元素的滚动位置
-        $(".linlei_list").animate({scrollTop: '0'}, 50);
-        /*******************************/
+
+        if(!state){
+          $(".linlei_list").animate({scrollTop: '0'}, 50);
+          /*******************************/
+        }
+        
         this.isId = id;
         this.recTypeExp = this.menulist[index].recTypeExp;
         this.text = this.menulist[index].recNotes;
@@ -479,7 +484,7 @@
           this.closeCar('off')
         }
         
-        this.getList(this.isId,this.isActive)
+        this.getList(this.isId,this.isActive,'delet')
         
         // const haveIn = this.selectProductList.findIndex((el) => {
         //   return el.id === item.id
@@ -653,7 +658,9 @@
           $(".newNode").animate({ 
             top: $(animateTarget).offset().top += moveBH ,
             left: $(animateTarget).offset().left - moveLW, 
-          }, 200,() => {
+            
+            
+          },"200",() => {
 
             $(".newNode").remove();
             this.plus(item)

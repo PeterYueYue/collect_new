@@ -275,7 +275,7 @@ body {
   flex-wrap: wrap;
   justify-content: left;
   position: relative;
-  height: 9rem;
+  height: 100%;
   overflow: scroll;
   padding-bottom: 1rem;
   overflow-scrolling: touch;
@@ -330,7 +330,7 @@ body {
   overflow: hidden;
   border-bottom: 0.01rem #dddddd solid;
   margin-left: 0.3rem;
-  padding: 0.45rem 0.3rem 0.35rem 0.05rem;
+  padding: 0.45rem 0.3rem 0 0.05rem;
   position: relative;
 }
 .classify .content .linlei_list .classify_main .classify_item .optbtn {
