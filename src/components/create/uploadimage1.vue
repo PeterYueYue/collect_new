@@ -105,6 +105,7 @@
       token: 'token'
     }),
     mounted(){
+      document.setTitle('回收物描述');
       if (!window.sessionStorage.getItem('productList')) {
         this.productList = [];
         return

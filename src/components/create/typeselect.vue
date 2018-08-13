@@ -77,7 +77,7 @@
         "app_key": "app_id_1",
         "data": {
           "id": this.addRessId.id,
-          "communityId" :this.adressInfo.communityId,  
+          "communityId" :this.adressInfo.communityId,
           "pageBean": {
             "pageNumber": 1,
             "pageSize": 20
@@ -92,6 +92,9 @@
       this.$store.dispatch("clearfuturePrice");
       this.$store.dispatch('clearPriceInfo');
       this.isActive = false;
+    },
+    mounted(){
+      document.setTitle('回收物价格评估');
     },
     methods: {
       touchStart(e, itemInfo) {

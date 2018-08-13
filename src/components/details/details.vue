@@ -170,6 +170,7 @@
       }
     },
     mounted() {
+      document.setTitle('订单详情');
       //获取数据
       this.getData();
       //获取评价

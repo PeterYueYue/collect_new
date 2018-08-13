@@ -178,7 +178,7 @@
       window.localStorage.setItem('token', token);
       this.getData();
       this.memberAddress();
-      document.setTitle('垃圾回收分类');
+      document.setTitle('垃圾分类回收');
     },
     methods: {
       onRefresh(loaded) {

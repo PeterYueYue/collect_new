@@ -75,6 +75,9 @@
           this.isFuturePrtices();
         })
     },
+    mounted(){
+      document.setTitle('回收物价格评估');
+    },
     methods: {
       letAgainM() {
         this.$store.dispatch("clearfuturePrice")
