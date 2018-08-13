@@ -74,15 +74,15 @@
                   <span class="plus round" @touchstart="plus(item)">+</span>
                 </div> -->
               </div>
-              <div  
-                    
+              <div
+
                     @touchstart= addProduct1Start
                     @touchmove = addProduct1Move
-                    @touchend  = addProduct1End(item,index) 
-                    v-bind:class="{ checked1: item.checked == '1'}" 
+                    @touchend  = addProduct1End(item,index)
+                    v-bind:class="{ checked1: item.checked == '1'}"
                     class="optbtn">
 
-                    
+
                 <div  class="btn"></div>
               </div>
             </div>
@@ -91,7 +91,7 @@
               <img id="shopImg" :src="item.icon?item.icon:''" alt="">
               <!-- <img  :src="item.icon?item.icon:''" alt=""> -->
 
-              
+
               <div class="name">{{item.name}}</div>
               <div v-if="item.price !== 0" class="price">
                 ¥<span>
@@ -100,10 +100,10 @@
               </div>
               <div class="xiaoge">麻烦回收小哥带走</div>
               <div v-bind:class="{ checked: item.checked == '1' }" class="optbtn1">
-                <div 
+                <div
                       @touchstart= addProductStart
                       @touchmove = addProductMove
-                      @touchend  = addProductEnd(item,index) 
+                      @touchend  = addProductEnd(item,index)
                      class="btn"></div>
               </div>
 
@@ -113,11 +113,11 @@
       </div>
     </div>
     <!-- 回收车start -->
-    <car  v-show="isShowCar   ==    'on'" 
-          :selectProductList  =     "selectProductList" 
-          @deleItem           =     "less"  
-          @closeCar           =     'closeCar' 
-          @clearAllItem       =     "clearAllItem" 
+    <car  v-show="isShowCar   ==    'on'"
+          :selectProductList  =     "selectProductList"
+          @deleItem           =     "less"
+          @closeCar           =     'closeCar'
+          @clearAllItem       =     "clearAllItem"
           class               =     "carBox"
     ></car>
     <!-- 回收车  end -->
@@ -129,7 +129,7 @@
       <div class="r_btn" :class="{disable:numTotal <= 0}" @touchstart="openAlert">一键回收</div>
     </div>
 
-    <div class="classify_foot" v-show="!showUl&&comIsNull==='1'">您所在小区暂无回收企业</div>
+    <div class="classify_foot" v-show="!showUl&&comIsNull==='1'">您所在小区暂未开通生活垃圾回收服务</div>
     <router-link to="/addAdress">
       <div class="classify_foot" v-show="!showUl&&comIsNull==='0'">您暂未添加回收地址,请去添加地址</div>
     </router-link>
@@ -293,7 +293,7 @@
               })
 
             })
-            
+
           }).catch((erro) => {
             console.log(erro)
           })
@@ -470,7 +470,7 @@
 
 
         this.selectProductList = this.selectProductList.filter(e => e.id !== item.id)
-        
+
         if(this.selectProductList.length < 6){
 
           $('.carList')[0].style.height =this.selectProductList.length*1.15 +'rem';
@@ -478,9 +478,9 @@
         if(this.selectProductList.length <= 0){
           this.closeCar('off')
         }
-        
+
         this.getList(this.isId,this.isActive)
-        
+
         // const haveIn = this.selectProductList.findIndex((el) => {
         //   return el.id === item.id
         // });
@@ -621,8 +621,8 @@
           });
         }
 
-        
-       
+
+
       },
       clearAllItem(){
 
@@ -634,8 +634,8 @@
       },
       animate(item){
 
-         /*回收箱 动画*/ 
-        /* YueYue  */  
+         /*回收箱 动画*/
+        /* YueYue  */
           let event = window.event||arguments[0];
           let animateTarget = event.target.parentNode.parentNode.childNodes[0];
           let n = document.createElement("img");
@@ -650,14 +650,14 @@
           let carboxOffH = $('#carbox').offset().top;
           let moveBH = carboxOffH - $(animateTarget).offset().top;
           let moveLW =  $(animateTarget).offset().left - $('#carbox').offset().left
-          $(".newNode").animate({ 
+          $(".newNode").animate({
             top: $(animateTarget).offset().top += moveBH ,
-            left: $(animateTarget).offset().left - moveLW, 
+            left: $(animateTarget).offset().left - moveLW,
           }, 200,() => {
 
             $(".newNode").remove();
             this.plus(item)
-            
+
           });
 
       },
