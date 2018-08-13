@@ -657,15 +657,10 @@
           let moveLW =  $(animateTarget).offset().left - $('#carbox').offset().left
           $(".newNode").animate({
             top: $(animateTarget).offset().top += moveBH ,
-<<<<<<< HEAD
             left: $(animateTarget).offset().left - moveLW, 
             
             
           },"200",() => {
-=======
-            left: $(animateTarget).offset().left - moveLW,
-          }, 200,() => {
->>>>>>> 28738e36bebc170fce9fc104478f1013d5065b76
 
             $(".newNode").remove();
             this.plus(item)
