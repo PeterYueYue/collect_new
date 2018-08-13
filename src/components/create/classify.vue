@@ -483,15 +483,9 @@
         if(this.selectProductList.length <= 0){
           this.closeCar('off')
         }
-<<<<<<< HEAD
         
         this.getList(this.isId,this.isActive,'delet')
         
-=======
-
-        this.getList(this.isId,this.isActive)
-
->>>>>>> 28738e36bebc170fce9fc104478f1013d5065b76
         // const haveIn = this.selectProductList.findIndex((el) => {
         //   return el.id === item.id
         // });
