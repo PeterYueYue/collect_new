@@ -41,6 +41,21 @@
             document.getElementsByTagName("html")[0].style.fontSize = fz + "px";
         };
 
+
+        //修改标题
+        document.setTitle = function(t) {
+          document.title = t;
+          var i = document.createElement('iframe');
+          i.src = '//m.baidu.com/favicon.ico';
+          i.style.display = 'none';
+          i.onload = function() {
+            setTimeout(function(){
+              i.remove();
+            }, 9)
+          }
+          document.body.appendChild(i);
+        }
+
     </script>
      <!-- <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no,telephone=no,address=no"> -->
      <!-- 支付宝文档需要用到的js -->
