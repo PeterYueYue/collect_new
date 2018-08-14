@@ -302,6 +302,15 @@ var configSendVoucher = { /*给用户发券*/
 	"timestamp": 1533792761228,
 }
 
+var configProductListNo = {//消耗0积分的列表
+	"name": "product.getProductListNo",
+	"format": "json",
+	"sign": "32B4691EE78E15C09BE465DE9D757562",
+	"version": "1.0",
+	"nonce": "d5cf7661-8075-48e0-8639-73d8de6c72e8",
+	"timestamp": 1533792336965
+}
+
 
 //回收分类
 export default {
@@ -421,6 +430,10 @@ export default {
   GetIntegralList(params) { /*获取积分商城券列表*/
     let config = Object.assign(configGetIntegralList, params);
     return axios.post(`${base}/ali/api`, config).then(res => res.data);
+  },
+  ProductListYes(params){ //获取零积分列表
+    let config = Object.assign(configProductListNo,params);
+    return axios.post(`${base}/ali/api`,config).then(res => res.data);
   },
   SendVoucher(params) { /*给用户发券*/
     let config = Object.assign(configSendVoucher, params);

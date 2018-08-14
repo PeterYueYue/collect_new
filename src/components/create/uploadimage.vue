@@ -85,6 +85,9 @@
       imgsAddress: "imgsAddress",
       token: 'token'
     }),
+    mounted(){
+      document.setTitle('回收物描述');
+    },
     methods: {
       actionFocus() {
         var textaress = $('#textareas');

@@ -21,12 +21,12 @@
         <!-- 主体 -->
 
         <ul class="content">
-            <li  
+            <li
                 @touchstart = toDteailsStart
                 @touchmove  = toDteailsMove
-                @touchend = toDteails(item) 
-                v-for=" item in list"  
-                :key="item.id"  
+                @touchend = toDteails(item)
+                v-for=" item in list"
+                :key="item.id"
                 class="item clearfix">
 
                 <img class="imageOfGgift fl" :src= item.img alt="">
@@ -40,7 +40,7 @@
                 </div>
                 <span  class="statistics fr">{{item.bindingQuantity}}人兑换</span>
             </li>
-            
+
         </ul>
 
         <!-- 弹窗 -->
@@ -51,7 +51,7 @@
             <div>目前权益正在努力建设当中，更多权益，敬请期待...</div>
             <img src="@/assets/icon_close.png" alt="" class="records_shadow_icon_close"  @click="showShadow = false " >
         </div>
-        
+
 
 
 
@@ -76,9 +76,8 @@ export default {
         }
     },
     mounted(){
-        document.title = "我的能量"
+      document.setTitle('环保能量');
         this.getRecords();
-
          api.GetIntegralList().then( res => {
              this.list = res.data;
         })
@@ -139,7 +138,7 @@ export default {
             }
         }
     }
-    
+
 }
 </script>
 

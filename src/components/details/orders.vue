@@ -50,6 +50,9 @@
     computed: mapGetters({
       token: "token"
     }),
+    mounted(){
+      document.setTitle('订单记录');
+    },
     methods: {
       //获取数据
       getList(done) {

@@ -104,6 +104,7 @@
       }
     },
     mounted() {
+      document.setTitle('确认订单');
       this.getCompany();
       if (this.isTitle === 'DIGITAL') {
         return;
