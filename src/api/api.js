@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 // 正式
-let base ='http://101.132.111.141:80';
+// let base ='http://101.132.111.141:80';
 
 // 测试
-// let base = 'http://180.153.19.161:9000';
+let base = 'http://180.153.19.161:9000';
 
 // 张强
 // let base ='http://192.168.1.155:9000';
@@ -439,7 +439,7 @@ export default {
     let config = Object.assign(configSendVoucher, params);
     return axios.post(`${base}/ali/api`, config).then(res => res.data)
   }
- 
+
 
 
 
