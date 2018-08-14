@@ -217,7 +217,7 @@
       }
     },
     mounted() {
-      this.$store.dispatch('recyclingType', 'waste');
+      this.$store.dispatch('recyclingType', 'appliances');
       this.getClassFiy();
       this.total();
       document.title = "垃圾回收分类"
