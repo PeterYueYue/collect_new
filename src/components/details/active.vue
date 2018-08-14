@@ -29,7 +29,7 @@
                             <p class="progress_contain">
                                 <span class="progress_bar" :style="'width:'+item.bindingQuantity/item.combinationCount*100+'%'"></span>
                             </p>
-                            <p>已抢 <big class="progress_persents">{{item.bindingQuantity}}%</big> </p>
+                            <p>已抢 <big class="progress_persents">{{item.bindingQuantity/item.combinationCount*100}}%</big> </p>
                         </div>
                         <div class="coupon_button" @click="getCoupon(item.id)">立即领取</div>
                     </div>
@@ -37,7 +37,7 @@
             </div>
             <div class="coupon" v-for="item in productlist" :key="item.id" v-if="item.bindingQuantity>=item.combinationCount">
                 <div class="coupon_icon">
-                    <img src="@/assets/coupon.png" alt="" class="icon_img">
+                    <img :src="item.img" alt="" class="icon_img">
                 </div>
                 <div class="coupon_content">
                     <p class="coupon_title">
