@@ -167,13 +167,13 @@
     },
     beforeCreate() {
       // 正式
-      var tk = this.$route.query.token;
-      if(tk){
-        this.$store.dispatch('getToken', tk)
-      }
+      // var tk = this.$route.query.token;
+      // if(tk){
+      //   this.$store.dispatch('getToken', tk)
+      // }
       //本地测试
-      // var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24V6BKSK7XCKURHCCOW4OQQ3AURAWCWWM3DWVZAK26YBVRDBQAHVKQTFGRL7NE5YTTEKSLRMHPXJEUXNYHTXXO74NAXV7LFWMC7YUXC3VPEAEL6PWUFQRKFWA25BQY2GM3FVNKHDFZSG6P3IS2772DYABHQ2W64HHHKSJS7QRA35L4KISEZTXJOKANNJO6BZVQ4H2PH5N637WA7QVJQIDPHINZ67WPK3U7KIVGKP3Q'
-      // this.$store.dispatch('getToken', tk)
+      var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24V6BKSK7XCKURHCCOW4OQQ3AURAWCWWM3DWVZAK26YBVRDBQAHVKQTFGRL7NE5YTTEKSLRMHPXJEUXNYHTXXO74NAXV7LFWMC7YUXC3VPEAEL6PWUFQRKFWA25BQY2GM3FVNKHDFZSG6P3IS2772DYABHQ2W64HHHKSJS7QRA35L4KISEZTXJOKANNJO6BZVQ4H2PH5N637WA7QVJQIDPHINZ67WPK3U7KIVGKP3Q'
+      this.$store.dispatch('getToken', tk)
 
     },
     computed: mapGetters({
@@ -187,7 +187,7 @@
       this.memberAddress();
       document.setTitle('垃圾分类回收');
       this.screenWidth=document.documentElement.clientWidth;
-      this.screenHeight = document.documentElement.clientHeight; 
+      this.screenHeight = document.documentElement.clientHeight;
     },
     methods: {
       onRefresh(loaded) {
@@ -253,9 +253,9 @@
           console.log(error)
         })
       },
-      startHandle(e){  
+      startHandle(e){
         this.screenWidth=document.documentElement.clientWidth;
-        this.screenHeight = document.documentElement.clientHeight; 
+        this.screenHeight = document.documentElement.clientHeight;
         this.floatbutton = $('.floatbutton')
         this.floatbutton.css('transition','all 0s')
         if(!e){ e = window.event;}
@@ -263,7 +263,7 @@
         this.posY=e.touches[0].pageY-parseInt(this.floatbutton.css('top'));
       },
       moveHandle(e){
-        if(e.targetTouches.length == 1){ 
+        if(e.targetTouches.length == 1){
           e.stopPropagation();
           e.preventDefault();
           if((e.touches[0].pageY-this.posY)<=50){
@@ -303,13 +303,13 @@
               this.floatbutton.css('top','50px');
             }else{//靠近右边
               this.floatbutton.css('left',(this.screenWidth-parseInt(this.floatbutton[0].clientWidth)-50)+"px")
-            } 
+            }
           }
         }else {//上半部分
             if((parseInt(this.floatbutton.css('left'))+parseInt(this.floatbutton[0].clientWidth)/2)<=(this.screenWidth/2)){//在左半部分
             if( (this.screenHeight-(parseInt(this.floatbutton.css('top'))+parseInt(this.floatbutton[0].clientHeight)/2))<=(parseInt(this.floatbutton.css('left'))+parseInt(this.floatbutton[0].clientWidth)/2)){//靠近下方
               this.floatbutton.css('top',(this.screenHeight-parseInt(this.floatbutton[0].clientHeight)-50)+"px");
-            }else{//靠近左边             
+            }else{//靠近左边
               this.floatbutton.css('left','50px')
             }
           }else{//在右半部分
@@ -317,7 +317,7 @@
               this.floatbutton.css('top',(this.screenHeight-parseInt(this.floatbutton[0].clientHeight)-50)+"px")
             }else{//靠近右边
               this.floatbutton.css('left',(this.screenWidth-parseInt(this.floatbutton[0].clientWidth)-50)+"px")
-            } 
+            }
           }
         }
       }

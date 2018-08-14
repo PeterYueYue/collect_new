@@ -3,8 +3,8 @@
     <div class="classify_head">
       <ul>
         <span class="line"></span>
-        <li :class="{ cur: !showUl }" @touchstart="openUl(false,'waste')"><span>生活垃圾</span></li>
         <li :class="{ cur: showUl }" @touchstart="openUl(true,'appliances')"><span>家电数码</span></li>
+        <li :class="{ cur: !showUl }" @touchstart="openUl(false,'waste')"><span>生活垃圾</span></li>
       </ul>
     </div>
     <!-- 数码家电 -->
@@ -180,7 +180,7 @@
         subList: '',
         noPriceList: '',
         isActive: '0',
-        showUl: false,
+        showUl: true,
         showShadow: false,
         showAlert1: false,
         showAlert2: false,
@@ -218,7 +218,7 @@
     },
     mounted() {
       this.$store.dispatch('recyclingType', 'waste');
-      this.getClassFiy('HOUSEHOLD');
+      this.getClassFiy();
       this.total();
       document.title = "垃圾回收分类"
     },
