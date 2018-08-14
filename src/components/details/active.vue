@@ -84,7 +84,7 @@ export default {
         }
     },
     mounted(){
-        document.setTitle('优惠权益');
+        document.setTitle('抢优惠');
         this.getActive();
     },
     methods:{
