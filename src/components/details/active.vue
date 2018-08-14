@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="active_wrap_content">
-            <div class="coupon" v-for="item in productlist" :key="item.id">
+            <div class="coupon" v-for="item in productlist" :key="item.id" v-if="item.bindingQuantity<item.combinationCount">
                 <div class="coupon_icon">
                     <img :src="item.img" alt="" class="icon_img">
                 </div>
@@ -27,7 +27,7 @@
                     <div class="coupon_button_wrap">
                         <div class="progress">
                             <p class="progress_contain">
-                                <span class="progress_bar" :style="'width:'+item.bindingQuantity/baseCount*100+'%'"></span>
+                                <span class="progress_bar" :style="'width:'+item.bindingQuantity/item.combinationCount*100+'%'"></span>
                             </p>
                             <p>已抢 <big class="progress_persents">{{item.bindingQuantity}}%</big> </p>
                         </div>
@@ -35,16 +35,16 @@
                     </div>
                 </div>
             </div>
-            <div class="coupon" >
+            <div class="coupon" v-for="item in productlist" :key="item.id" v-if="item.bindingQuantity>=item.combinationCount">
                 <div class="coupon_icon">
                     <img src="@/assets/coupon.png" alt="" class="icon_img">
                 </div>
                 <div class="coupon_content">
                     <p class="coupon_title">
                          <span class="icon_1 down">家乐福</span>
-                         <span class="icon_2">多力葵花籽调和油1.8L</span>
+                         <span class="icon_2">{{item.brand.substring(5,item.brand.length)}}</span>
                     </p>
-                    <p class="coupon_explain">8.8折优惠券（原价19.8元，用券后17.5元）</p>
+                    <p class="coupon_explain">{{item.name}}</p>
                     <div class="coupon_button_wrap">
                         <div class="progress">
                             <p class="progress_contain down">

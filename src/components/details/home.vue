@@ -1,5 +1,5 @@
-<template>
-  <div style="width:100% ; height:100%">
+<template> 
+  <div style="width:100% ; height:100%" >
     <pull-to :top-load-method="onRefresh" :top-config="pullRefreshConfig">
       <div class="bestBox">
         <div  class="home_wrap">
@@ -327,10 +327,10 @@
 <style>
     .floatbutton{
     position:fixed;
-    bottom: 120px;
-    right: 50px;
-    width: 1.2rem;
-    height:1rem;
+    bottom: 150px;
+    right: 40px;
+    width: 1.3rem;
+    height:1.2rem;
     z-index: 100000;
     transition: all 0 ;
   }
