@@ -251,8 +251,8 @@
       startHandle(e){
         this.screenWidth=document.documentElement.clientWidth;
         this.screenHeight = document.documentElement.clientHeight;
-        this.floatbutton = $('.floatbutton')
-        this.floatbutton.css('transition','all 0s')
+        this.floatbutton = $('.floatbutton');
+        this.floatbutton.css('transition','all 0s');
         if(!e){ e = window.event;}
         this.posX=e.touches[0].pageX-parseInt(this.floatbutton.css('left'));
         this.posY=e.touches[0].pageY-parseInt(this.floatbutton.css('top'));
@@ -285,7 +285,7 @@
       },
       endHandle(e){
         // 释放时自动贴到最近位置
-        this.floatbutton.css('transition','all 0.3s')
+        this.floatbutton.css('transition','all 0.3s');
         if((parseInt(this.floatbutton.css('top'))+parseInt(this.floatbutton[0].clientHeight)/2)<=(this.screenHeight/2)){//在上半部分
           if((parseInt(this.floatbutton.css('left'))+parseInt(this.floatbutton[0].clientWidth)/2)<=(this.screenWidth/2)){//在左半部分
             if((parseInt(this.floatbutton.css('top'))+parseInt(this.floatbutton[0].clientHeight)/2)<=(parseInt(this.floatbutton.css('left'))+parseInt(this.floatbutton[0].clientWidth)/2)){//靠近上方
@@ -327,7 +327,7 @@
     width: 1.2rem;
     height:1rem;
     z-index: 100000;
-    transition: all 0 ;
+    transition: all 0s;
   }
 
   .van-pull-refresh {
