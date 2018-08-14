@@ -228,6 +228,7 @@ body {
   height: 100%;
   flex-grow: 1;
   display: flex;
+  overflow: hidden;
 }
 .classify .content .commodity {
   background-color: #ffffff;
@@ -277,7 +278,7 @@ body {
   position: relative;
   height: 100%;
   overflow: scroll;
-  padding-bottom: 1rem;
+  padding-bottom: 2.2rem;
   overflow-scrolling: touch;
   -webkit-overflow-scrolling: touch;
 }
