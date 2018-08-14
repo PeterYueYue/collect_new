@@ -43,6 +43,7 @@ import  adressList        from '@/components/details/adressList.vue'
 import  addAdress         from '@/components/details/addAdress.vue'
 import  selectAdress      from '@/components/details/selectAdress.vue'
 import  ad                from '@/components/details/ad.vue'
+import active             from '@/components/details/active.vue'
 Vue.use(Router)
 const router =  new Router({
   routes: [
@@ -90,6 +91,11 @@ const router =  new Router({
       path: '/imgView',
       name: 'imgView',
       component: imgView
+    },
+    {
+      path: '/active',
+      name: 'active',
+      component: active
     },
     // {
     //   path: '/records',

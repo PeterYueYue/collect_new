@@ -126,6 +126,12 @@
         <div class="footer_right"><img src="@/assets/icon_record.png" alt="" class="icon"><span>订单记录</span></div>
       </router-link>
     </div>
+
+    <router-link to="/active">
+      <div class="floatbutton" ref="floatbutton" @touchstart="startHandle($event)" @touchmove="moveHandle($event)" @touchend="endHandle($event)">
+          <img src="@/assets/coupon_icon.png" alt="" class="coupon_icon">
+      </div>
+    </router-link>
   </div>
 
 </template>
@@ -135,6 +141,7 @@
   import {mapGetters} from 'vuex';
   import PullTo from 'vue-pull-to';
   import Bannebox from './banner1.vue';
+  import $ from 'jquery'
   export default {
     name: "home",
     components: {
@@ -179,6 +186,8 @@
       this.getData();
       this.memberAddress();
       document.setTitle('垃圾分类回收');
+      this.screenWidth=document.documentElement.clientWidth;
+      this.screenHeight = document.documentElement.clientHeight; 
     },
     methods: {
       onRefresh(loaded) {
@@ -243,11 +252,89 @@
         }).catch((error) => {
           console.log(error)
         })
+      },
+      startHandle(e){  
+        this.screenWidth=document.documentElement.clientWidth;
+        this.screenHeight = document.documentElement.clientHeight; 
+        this.floatbutton = $('.floatbutton')
+        this.floatbutton.css('transition','all 0s')
+        if(!e){ e = window.event;}
+        this.posX=e.touches[0].pageX-parseInt(this.floatbutton.css('left'));
+        this.posY=e.touches[0].pageY-parseInt(this.floatbutton.css('top'));
+      },
+      moveHandle(e){
+        if(e.targetTouches.length == 1){ 
+          e.stopPropagation();
+          e.preventDefault();
+          if((e.touches[0].pageY-this.posY)<=40){
+            //超过顶部
+            this.floatbutton.css('top','40px')
+          }
+          else if((e.touches[0].pageY)>(this.screenHeight-parseInt(this.floatbutton[0].clientHeight))){
+            //超过底部
+            this.floatbutton.css('top',(this.screenHeight-parseInt(this.floatbutton[0].clientHeight)-40)+'px')
+          }else{
+            this.floatbutton.css('top',(e.touches[0].pageY-parseInt(this.floatbutton[0].clientHeight)/2)+'px')
+          }
+
+          if((e.touches[0].pageX-this.posX)<=40){
+            //超过左边
+            this.floatbutton.css('left','40px')
+          }else if((e.touches[0].pageX)>(this.screenWidth-parseInt(this.floatbutton[0].clientWidth))){
+            //超过右边
+            this.floatbutton.css('left',(this.screenWidth-parseInt(this.floatbutton[0].clientWidth)-40)+'px')
+          }else {
+            this.floatbutton.css('left',(e.touches[0].pageX-parseInt(this.floatbutton[0].clientWidth)/2)+'px')
+          }
+        }
+      },
+      endHandle(e){
+        // 释放时自动贴到最近位置
+        this.floatbutton.css('transition','all 0.3s')
+        if((parseInt(this.floatbutton.css('top'))+parseInt(this.floatbutton[0].clientHeight)/2)<=(this.screenHeight/2)){//在上半部分
+          if((parseInt(this.floatbutton.css('left'))+parseInt(this.floatbutton[0].clientWidth)/2)<=(this.screenWidth/2)){//在左半部分
+            if((parseInt(this.floatbutton.css('top'))+parseInt(this.floatbutton[0].clientHeight)/2)<=(parseInt(this.floatbutton.css('left'))+parseInt(this.floatbutton[0].clientWidth)/2)){//靠近上方
+               this.floatbutton.css('top','40px')
+            }else{//靠近左边
+              this.floatbutton.css('left','40px')
+            }
+          }else {
+            if((parseInt(this.floatbutton.css('top'))+parseInt(this.floatbutton[0].clientHeight)/2)<=(this.screenWidth-(parseInt(this.floatbutton.css('left'))+parseInt(this.floatbutton[0].clientWidth)/2))){//靠近上方
+              this.floatbutton.css('top','40px');
+            }else{//靠近右边
+              this.floatbutton.css('left',(this.screenWidth-parseInt(this.floatbutton[0].clientWidth)-40)+"px")
+            } 
+          }
+        }else {//上半部分
+            if((parseInt(this.floatbutton.css('left'))+parseInt(this.floatbutton[0].clientWidth)/2)<=(this.screenWidth/2)){//在左半部分
+            if( (this.screenHeight-(parseInt(this.floatbutton.css('top'))+parseInt(this.floatbutton[0].clientHeight)/2))<=(parseInt(this.floatbutton.css('left'))+parseInt(this.floatbutton[0].clientWidth)/2)){//靠近下方
+              this.floatbutton.css('top',(this.screenHeight-parseInt(this.floatbutton[0].clientHeight)-40)+"px");
+            }else{//靠近左边             
+              this.floatbutton.css('left','40px')
+            }
+          }else{//在右半部分
+            if( (this.screenHeight-(parseInt(this.floatbutton.css('top'))+parseInt(this.floatbutton[0].clientHeight)/2))<=(this.screenWidth-(parseInt(this.floatbutton.css('left'))+parseInt(this.floatbutton[0].clientWidth)/2)) ){//靠近上方
+              this.floatbutton.css('top',(this.screenHeight-parseInt(this.floatbutton[0].clientHeight)-40)+"px")
+            }else{//靠近右边
+              this.floatbutton.css('left',(this.screenWidth-parseInt(this.floatbutton[0].clientWidth)-40)+"px")
+            } 
+          }
+        }
       }
     },
   }
 </script>
 <style>
+    .floatbutton{
+    position:fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 1rem;
+    height:0.9rem;
+    z-index: 100000;
+    transition: all 0 ;
+  }
+
   .van-pull-refresh {
     width: 100%;
   }
@@ -276,6 +363,10 @@
 
   .action-block .default-text {
     font-size: 0.24rem;
+  }
+  .coupon_icon{
+    width: 100%;
+    height: 100%;
   }
 </style>
 
