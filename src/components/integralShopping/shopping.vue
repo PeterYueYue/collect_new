@@ -1,8 +1,9 @@
 <template>
     <div class="integralShopping">
         <!-- 头部 -->
-        <header class="head">
+        <div class="head">
             <div class="bacBox">
+                <img src="./img/banner2.png" alt="">
                 <strong>
                     累计回收环保能量
                 </strong>
@@ -16,7 +17,7 @@
                 <span class="enviromental">可用环保能量</span>
                 <span class="digit">{{availableQuantity}}kg</span>
             </div>
-        </header>
+        </div>
         <!-- 主体 -->
 
         <ul class="content">
