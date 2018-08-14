@@ -29,7 +29,7 @@
                             <p class="progress_contain">
                                 <span class="progress_bar" :style="'width:'+item.bindingQuantity/item.combinationCount*100+'%'"></span>
                             </p>
-                            <p>已抢 <big class="progress_persents">{{item.bindingQuantity/item.combinationCount*100}}%</big> </p>
+                            <p>已抢 <big class="progress_persents">{{(item.bindingQuantity/item.combinationCount*100).toFixed(1)}}%</big> </p>
                         </div>
                         <div class="coupon_button" @click="getCoupon(item.id)">立即领取</div>
                     </div>
