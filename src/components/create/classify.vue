@@ -264,7 +264,7 @@
 
             // 默认给每一个商品增加一个点击状态
             this.subList = res.data.ComCatePriceList.map(e => {
-              e.checked = false
+              e.checked = false;
               e.pName = this.menulist[0].name;
               e.pId = this.menulist[0].id;
               return e
@@ -390,6 +390,7 @@
       },
       openUl(type, household) {
         this.$store.dispatch('recyclingType', household);
+        this.subList = '';
         this.showUl = type;
         this.getClassFiy(!type);
       },
