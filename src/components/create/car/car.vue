@@ -12,7 +12,7 @@
                         <p v-if="item.price > 0" >
                         ￥<span>{{item.price}}/{{item.unit}}</span>     
                         </p>
-                        <span v-if="item.price <= 0 " class="noPrice">麻烦回收小哥带走</span>
+                        <!-- <span v-if="item.price <= 0 " class="noPrice">麻烦回收小哥带走</span> -->
                         <i  v-if="item.price > 0"  class="icon"  @touchstart="deleItem(item)"  ></i>
                         <i  v-if="item.price <= 0" class="icon1" @touchstart="deleItem(item)"   ></i>
                     </div>
@@ -32,11 +32,8 @@ export default {
             list :[]
         }
     },
-    created(){
-        this.list = this.selectProductList.map(e => {
-            e.name = e.name.replace('<br/>','')
-            return e;
-        })
+    mounted(){
+        this.list = this.selectProductList;
     },
     methods:{
         showOrHiddenCar(ev){

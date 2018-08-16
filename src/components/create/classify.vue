@@ -74,21 +74,12 @@
                 </div> -->
               </div>
               <div
-<<<<<<< HEAD
                     @touchstart= addProduct1Start
                     @touchmove = addProduct1Move
                     @touchend  = addProduct1End(item,index)
                     v-bind:class="{ checked1: item.checked == '1'}"
                     class="optbtn">
                 <div  class="btn"></div>
-=======
-                @touchstart=addProduct1Start
-                @touchmove=addProduct1Move
-                @touchend=addProduct1End(item,index)
-                v-bind:class="{ checked1: item.checked == '1'}"
-                class="optbtn">
-                <div class="btn"></div>
->>>>>>> 25f0d9cb48900984678bc9f88d9f0d65b2ba1198
               </div>
             </div>
             <div class="classify_title"><i></i>上门回收服务 <br/><span>（由于价值较低，暂无回收价格，请回收小哥带走，可增加绿色环保积分）</span></div>
@@ -462,6 +453,7 @@
         })
       },
       plus(item) {
+        item.name = item.name.replace("<br/>","")
         this.getAddressInfo(item);
         const haveIn = this.selectProductList.findIndex((el) => {
           return el.id === item.id
@@ -609,7 +601,7 @@
       closeCar(data){
         if(data =='on' && this.selectProductList.length){
 
-          $('body').css('overflow','hidden');
+          $('linlei_list').css('overflow','hidden');
 
           if(this.selectProductList.length >=6){
             $('.carList')[0].style.height = '7.37rem';
@@ -622,7 +614,7 @@
 
           })
         }else{
-          $('body').css('overflow','initial');
+          $('linlei_list').css('overflow','initial');
           $('.carMain').css({'background':'none'})
           $('.carContent').animate({bottom: '-60%'}, "fast", () => {
             this.isShowCar = data;
