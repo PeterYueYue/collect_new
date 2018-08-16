@@ -228,6 +228,7 @@ body {
   height: 100%;
   flex-grow: 1;
   display: flex;
+  overflow: hidden;
 }
 .classify .content .commodity {
   background-color: #ffffff;
@@ -277,7 +278,7 @@ body {
   position: relative;
   height: 100%;
   overflow: scroll;
-  padding-bottom: 1rem;
+  padding-bottom: 2.2rem;
   overflow-scrolling: touch;
   -webkit-overflow-scrolling: touch;
 }
@@ -330,7 +331,7 @@ body {
   overflow: hidden;
   border-bottom: 0.01rem #dddddd solid;
   margin-left: 0.3rem;
-  padding: 0.45rem 0.3rem 0 0.05rem;
+  padding: 0.45rem 0.3rem 0.45rem 0.05rem;
   position: relative;
 }
 .classify .content .linlei_list .classify_main .classify_item .optbtn {

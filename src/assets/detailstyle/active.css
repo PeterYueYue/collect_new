@@ -56,19 +56,23 @@
 }
 .active_wrap_content .coupon{
     width: 90%;
-    height: 2.2rem;
-    padding: 0.2rem;
+    height: 2.5rem;
+    padding: 0.2rem 0.15rem;
     margin:0 auto 0.3rem auto; 
+    background-image: url('../coupon_background.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
 }
 .active_wrap_content .coupon_icon{
-    width: 28%;
+    width: 30%;
     height: 100%;
     display: inline-block;
     vertical-align: top;
 }
 .active_wrap_content .coupon_content{
-    width: 65%;
-    margin-left: 0.25rem;
+    width: 60%;
+    margin-left: 0.40rem;
     display: inline-block;
     vertical-align: top;
 }
@@ -86,7 +90,7 @@
     color: white;
     border-radius: 8px;
     padding:0.04rem 0.18rem; 
-    margin-right: 0.14rem;
+    margin-right: 0.05rem;
 }
 .coupon_content .icon_2,.coupon_content .icon_2{
     vertical-align: middle;
@@ -154,6 +158,7 @@
 .shadow_box {
     width: 70%;
     height: 3rem;
+    padding-bottom: 0.1rem;
     box-sizing: border-box;
     position: absolute;
     top: 50%;

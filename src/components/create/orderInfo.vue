@@ -22,7 +22,7 @@
         </li>
       </ul>
     </div>
-    <div  v-if="recyclingType == 'appliances'"  class="collectTimeAndPrice">
+    <div v-if="recyclingType == 'appliances'"  class="collectTimeAndPrice">
       <div class="pickUp">
         <strong>期望上门时间:</strong>
         <time :class="{textColor:infoTm}">{{time}}{{infotime}}</time>
@@ -30,7 +30,7 @@
           <a href="javaScript:;"></a>
         </div>
       </div>
-      <div  v-if="recyclingType == 'appliances'" class="estimatePrice clearfix">
+      <div v-if="recyclingType == 'appliances'" class="estimatePrice clearfix">
         <strong class="fl">预估回收价格:</strong>
         <span class="fr">￥{{isTitle === 'DIGITAL' ? futurePrice : garbagePrice}}</span>
       </div>
@@ -39,7 +39,7 @@
 
     <div class="nextbutton">
       <a v-if="isOk.timeIsOk == false && recyclingType == 'appliances'" class="dontEnter">提交订单</a>
-      <a href="javascript:;" v-if="isOk.timeIsOk == true ||recyclingType !== 'appliances'  " @click="completeAnOrder" class="yesEnter">提交订单</a>
+      <a href="javascript:;" v-if="isOk.timeIsOk == true ||recyclingType !== 'appliances'" @click="completeAnOrder" class="yesEnter">提交订单</a>
     </div>
 
     <div class="information"><span>*</span>提交订单后将有工作人员可能和您电话沟通，请保持手机畅通</div>
@@ -156,6 +156,7 @@
       recyclingType:'recyclingType',
     }),
     created() {
+      console.log(this.recyclingType);
       if (this.imgsAddress.length < 1) {
         this.$router.push({path: "/home"})
       }

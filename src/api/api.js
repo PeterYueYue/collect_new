@@ -439,7 +439,7 @@ export default {
     let config = Object.assign(configSendVoucher, params);
     return axios.post(`${base}/ali/api`, config).then(res => res.data)
   }
- 
+
 
 
 
