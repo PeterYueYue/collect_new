@@ -75,14 +75,11 @@
                 </div> -->
               </div>
               <div
-
                     @touchstart= addProduct1Start
                     @touchmove = addProduct1Move
                     @touchend  = addProduct1End(item,index)
                     v-bind:class="{ checked1: item.checked == '1'}"
                     class="optbtn">
-
-
                 <div  class="btn"></div>
               </div>
             </div>
@@ -106,7 +103,6 @@
                       @touchend  = addProductEnd(item,index)
                      class="btn"></div>
               </div>
-
             </div>
           </div>
         </div>
@@ -608,6 +604,8 @@
       closeCar(data){
         if(data =='on' && this.selectProductList.length){
 
+          $('body').css('overflow','hidden');
+
           if(this.selectProductList.length >=6){
             $('.carList')[0].style.height = '7.37rem';
           }else{
@@ -620,6 +618,7 @@
 
           })
         }else{
+          $('body').css('overflow','initial');
           $('.carMain').css({'background':'none'})
           $('.carContent').animate({bottom: '-60%'}, "fast", () => {
               this.isShowCar = data;

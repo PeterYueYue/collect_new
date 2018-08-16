@@ -1,6 +1,5 @@
 .carMain {
   position: absolute;
-  bottom: 1.01rem;
   left: 0;
   height: 100%;
   width: 100%;
@@ -64,6 +63,12 @@
   font-size: 0.3rem;
   color: #333333;
   line-height: 1.15rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+  margin-right: 1rem;
+  width: 3rem;
 }
 .carMain .carContent .carList li p {
   font-size: 0.24rem;

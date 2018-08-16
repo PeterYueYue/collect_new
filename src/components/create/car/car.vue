@@ -33,7 +33,10 @@ export default {
         }
     },
     created(){
-        this.list = this.selectProductList
+        this.list = this.selectProductList.map(e => {
+            e.name = e.name.replace('<br/>','')
+            return e;
+        })
     },
     methods:{
         showOrHiddenCar(ev){
