@@ -96,9 +96,19 @@
         showCance: false,
         showCance2: false,
         showStreet: true,
+        location:{}
       }
     },
     mounted() {
+
+      //获取经纬度
+      AlipayJSBridge.call('getCurrentLocation', { bizType: 'didi',requestType:0 },  (result) => {
+        if (result.error) {
+          alert(result.errorMessage);
+          return;
+        }
+        this.location = result
+      });
       this.getAreaList();
     },
     methods: {
@@ -172,8 +182,12 @@
         api.areaChildList({
           "app_key": "app_id_1",
           "data": {
-            "id": this.selectArea.id,
-            "level": 1
+            "id"        : this.selectArea.id,
+            "level"     : 1,
+            "latitude"  :this.location.latitude?this.location.latitude:'',
+            "longitude" :this.location.longitude?this.location.longitude:''
+            
+
           },
           token: this.$store.state.token,
         })

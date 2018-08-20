@@ -78,7 +78,9 @@ export default {
     mounted(){
       document.setTitle('环保能量');
         this.getRecords();
-         api.GetIntegralList().then( res => {
+         api.GetIntegralList({
+             "token":this.token
+         }).then( res => {
              this.list = res.data;
         })
     },

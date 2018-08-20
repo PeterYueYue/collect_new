@@ -608,7 +608,7 @@
           } else {
             $('.carList')[0].style.height = this.selectProductList.length * 1.15 + 'rem';
           }
-          this.isShowCar = data;
+          this.isShowCar = data; 
           $('.carMain').css({'background': 'rgba(0,0,0,.5)'});
           $('.carContent').animate({bottom: '0%'}, "fast", () => {
 
