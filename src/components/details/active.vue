@@ -83,6 +83,9 @@ export default {
             boxContent:""
         }
     },
+    computed:mapGetters({
+        token:"token"
+    }),
     mounted(){
         document.setTitle('抢优惠');
         this.getActive();
@@ -91,6 +94,7 @@ export default {
         getActive(p){
             api.ProductListYes({
                "app_key": "app_id_1", 
+               "token"  :this.token
             }).then(res =>{
                 this.productlist=res.data;
             })
