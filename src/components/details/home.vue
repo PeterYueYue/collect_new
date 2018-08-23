@@ -119,7 +119,7 @@
       <router-link to="/classIfy">
         <div class="footer_circle">上门<br/>回收</div>
       </router-link>
-      <router-link to="/integralshoping">
+      <router-link to="/integralshoping/dic">
         <div class="footer_left"><img src="@/assets/icon_foot.png" alt="" class="icon"><span>环保能量</span></div>
       </router-link>
       <router-link to="/orders">
@@ -193,16 +193,6 @@
       onRefresh(loaded) {
         //获取数据
         this.getData(loaded)
-      },
-
-      pullStart(ev){
-
-        console.log(ev)
-
-        for(var i= 0; i<ev.path.length;i++){
-
-          console.log(ev.path[i].className)
-        }
       },
       memberAddress() {
         //默认地址

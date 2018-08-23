@@ -101,13 +101,26 @@
     },
     mounted() {
 
+
+       
+
+      
+
       //获取经纬度
       AlipayJSBridge.call('getCurrentLocation', { bizType: 'didi',requestType:0 },  (result) => {
         if (result.error) {
-          alert(result.errorMessage);
+
+          alert("请您开启定位功能");
+
+
+
           return;
         }
         this.location = result
+
+        alert(JSON.stringify(result))
+
+        
       });
       this.getAreaList();
     },

@@ -12,7 +12,7 @@
             <div     
                 @touchstart = toDteailsStart
                 @touchmove  = toDteailsMove
-                @touchend = toDteails    
+                @touchend = firm    
                 class="changeButton">{{item.bindingPoint}}kg环保能量</div>
         </header>
         <!-- 主体 -->
@@ -74,9 +74,10 @@
     </div>
 
 </template>
+
 <script>
 import './ticketdetails.css';
-import api from '../../api/api.js';
+import api from '../../../../api/api.js';
 import { mapGetters } from 'vuex';
 import $ from 'jquery';
 export default {
@@ -154,6 +155,13 @@ export default {
                 });
                 
             }
+        },
+        firm() {  
+            //利用对话框返回的值 （true 或者 false）  
+            if (confirm("你确定兑换吗？")) {  
+                this.toDteails();
+            }  
+    
         }
     }
    

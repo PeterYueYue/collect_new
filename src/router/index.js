@@ -1,16 +1,15 @@
-import  Vue               from 'vue'
-import  Router            from 'vue-router'
-import  HelloWorld        from '@/components/HelloWorld'
-import  ClassIfy          from '@/components/create/classify.vue'
+import  Vue               from 'vue';
+import  Router            from 'vue-router';
+import  ClassIfy          from '@/components/create/classify.vue';
 // 地址选择
-import  AddressOption     from '@/components/create/addressoption.vue'
+import  AddressOption     from '@/components/create/addressoption.vue';
 // 地址选择  区域选择
-import  addressel         from '@/components/create/common/addressel.vue'
-import  Areaelecte        from '@/components/create/common/areaelecte.vue'
-import  TownSelect        from '@/components/create/common/townselect.vue'
-import  Cellseletion      from '@/components/create/common/cellseletion.vue'
+import  addressel         from '@/components/create/common/addressel.vue';
+import  Areaelecte        from '@/components/create/common/areaelecte.vue';
+import  TownSelect        from '@/components/create/common/townselect.vue';
+import  Cellseletion      from '@/components/create/common/cellseletion.vue';
 // 类型选择
-import  TypeSelect        from '@/components/create/typeselect.vue'
+import  TypeSelect        from '@/components/create/typeselect.vue';
 // 类型选择    类型选择
 import  TypeClass         from '@/components/create/common/typeclass.vue'
 // 类型选择   年限选择
@@ -18,19 +17,23 @@ import  TypeYear          from '@/components/create/common/typeyear.vue'
 // 类型选择   功能状况
 import  Typestate         from '@/components/create/common/typestate.vue'
 // 上传图片
-import  UploadImage       from '@/components/create/uploadimage.vue'
-import  UploadImage1      from '@/components/create/uploadimage1.vue'
+import  UploadImage       from '@/components/create/uploadimage.vue';
+import  UploadImage1      from '@/components/create/uploadimage1.vue';
 // 马上询价
-import  Estimate          from '@/components/create/estimate.vue'
-import  OrderInfo         from '@/components/create/orderInfo.vue'
+import  Estimate          from '@/components/create/estimate.vue';
+import  OrderInfo         from '@/components/create/orderInfo.vue';
 //验证
-import  Verifiaction      from '@/components/verification'
+import  Verifiaction      from '@/components/verification';
 //login
-import  Login             from '@/components/login.vue'
+import  Login             from '@/components/login.vue';
 // 积分商城
-import  IntegralShoping   from '@/components/integralShopping/shopping.vue'
+import  IntegralShoping   from '@/components/integralShopping/indexShop/shopping.vue';
 // 积分商城 券详情
-import  Ticketdetails     from '@/components/integralShopping/ticketdetails'
+import  Ticketdetails     from '@/components/integralShopping/details/discount/ticketdetails';
+// 实物兑换  详情
+import GoodsTicket        from '@/components/integralShopping/details/goods/goodsTicket';
+
+
 
 /****************************wang***********************************/
 import  home              from '@/components/details/home.vue'
@@ -170,14 +173,22 @@ const router =  new Router({
       component:Verifiaction
     },
     {
-      path:'/integralshoping',
+      path:'/integralshoping/:id',
       name:'IntegralShoping',
-      component:IntegralShoping
+      component:IntegralShoping,
+      meta:{
+        keepAlive:true
+      }
     },
     {
       path:'/ticketdetails',
       name:'ticketdetails',
       component:Ticketdetails
+    },
+    {
+      path:'/goodsTicket',
+      name:'goodsTicket',
+      component:GoodsTicket
     }
   ]
 

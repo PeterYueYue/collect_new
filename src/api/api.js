@@ -299,7 +299,7 @@ var configSendVoucher = { /*给用户发券*/
 	"sign": "6054CC1246723770F13844BED9C1A4F1",
 	"version": "1.0",
 	"nonce": "46ee1781-77ec-4099-b61a-d5a5be413cb7",
-	"timestamp": 1533792761228,
+	"timestamp": 1533792761228
 }
 
 var configProductListNo = {//消耗0积分的列表
@@ -309,6 +309,23 @@ var configProductListNo = {//消耗0积分的列表
 	"version": "1.0",
 	"nonce": "d5cf7661-8075-48e0-8639-73d8de6c72e8",
 	"timestamp": 1533792336965
+}
+
+let configGetGoodsList = { //实物兑换列表
+  "app_key": "app_id_1",
+	"name": "product.getProductGoodsList",
+	"format": "json",
+	"version": "1.0",
+	"nonce": "9692baa0-7e2e-43ea-878d-1bfba8aea664",
+	"timestamp": 1534927281787,
+}
+let configGoodsOrder = {
+  "app_key": "app_id_1",
+	"name": "product.sendGoodsProduct",
+	"format": "json",
+	"version": "1.0",
+	"nonce": "eb8f1d08-9b5d-4a72-a498-8b378b4fd896",
+	"timestamp": 1534989627572,
 }
 
 
@@ -437,6 +454,14 @@ export default {
   },
   SendVoucher(params) { /*给用户发券*/
     let config = Object.assign(configSendVoucher, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data)
+  },
+  GetGoodsList(params){ //实物兑换列表
+    let config = Object.assign(configGetGoodsList, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data)
+  },
+  GoodsOrder(params){ //兑换下单
+    let config = Object.assign(configGoodsOrder, params);
     return axios.post(`${base}/ali/api`, config).then(res => res.data)
   }
 

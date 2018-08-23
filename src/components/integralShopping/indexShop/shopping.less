@@ -55,7 +55,7 @@
                     display: inline-block;
                     width: 23/@rem;
                     height: 23/@rem;
-                    background: url('./img/icon_mark.png') no-repeat;
+                    background: url('../img/icon_mark.png') no-repeat;
                     background-size: 100% 100%;
                     vertical-align: top;
                     margin-top: 10/@rem;
@@ -76,6 +76,7 @@
                 font-family: PingFang-SC-Medium;
                 left: 20/@rem;
                 top: 0;
+                
             }
             .digit{
                 position:absolute;
@@ -89,8 +90,36 @@
         }
 
     }
-    .content{
+    .nav{
+        display: flex;
         margin-top: 20/@rem;
+        font-size: 34/@rem;
+        word-spacing: -1/@rem;
+        background-color: #fff;
+        height: 88/@rem;
+        line-height: 88/@rem;
+        vertical-align: top;
+        justify-content: space-around;
+        div{
+            width: 49%;
+            text-align: center;
+            color: rgb(51,51,51);
+            font-weight: bold;
+        }
+        .active{
+            color: rgb(0,160,233);
+        }
+        
+        .line{
+            margin-top: 24/@rem;
+            width: 4/@rem;
+            height: 40/@rem;
+            background-color: rgb(198,198,198);
+        }
+
+    }
+    .content{
+        margin-top: 10/@rem;
         .item{
             height: 224/@rem;
             padding: 32/@rem;

@@ -1,0 +1,98 @@
+.goodsTicket {
+  display: flex;
+  min-height: 100vh;
+  /*vh 屏幕高度*/
+  flex-direction: column;
+  background-color: #f5f5f9;
+  padding-bottom: 0.5rem;
+}
+.goodsTicket .head {
+  background-color: #fff;
+  padding-bottom: 0.4rem;
+}
+.goodsTicket .head .imgBox {
+  text-align: center;
+  margin-top: 0.26rem;
+  font-size: 0.28rem;
+  color: #333333;
+}
+.goodsTicket .head .imgBox img {
+  width: 1.54rem;
+  height: 2.52rem;
+}
+.goodsTicket .head .imgBox .titile {
+  margin-top: 0.35rem;
+  font-weight: bold;
+}
+.goodsTicket .head .btn {
+  width: 5.2rem;
+  height: 0.84rem;
+  background-color: #00a0e9;
+  font-size: 0.36rem;
+  line-height: 0.84rem;
+  word-spacing: 0.02rem;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 0.05rem;
+  margin: 0.25rem auto 0 auto;
+}
+.goodsTicket .content {
+  margin-top: 0.2rem;
+  padding: 0.2rem;
+  background-color: #fff;
+  padding-bottom: 0.51rem;
+}
+.goodsTicket .content .message h3 {
+  font-size: 0.3rem;
+  line-height: 0.5rem;
+}
+.goodsTicket .content .message p {
+  margin: 0;
+  font-size: 0.24rem;
+  word-spacing: 0;
+  color: #333333;
+  line-height: 0.32rem;
+  font-weight: 100;
+}
+.goodsTicket .content .userAddress {
+  font-size: 0.28rem;
+  line-height: 0.36rem;
+  font-weight: bold;
+  margin-top: 0.25rem;
+}
+.goodsTicket .content .noAddress {
+  font-size: 0.36rem;
+  color: #333333;
+  text-align: center;
+  margin-top: 1.12rem;
+  font-weight: bold;
+}
+.goodsTicket .content .goChangeAdd {
+  font-size: 0.28rem;
+  color: #00a0e9;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+.goodsTicket .foot {
+  flex: 1;
+  text-align: center;
+  font-size: 0.24rem;
+  color: #666666;
+  position: relative;
+}
+.goodsTicket .foot .telBox {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.goodsTicket .foot .icon {
+  width: 0.26rem;
+  height: 0.26rem;
+  display: inline-block;
+  vertical-align: top;
+  background: url('../../img/tel.png') no-repeat;
+  background-size: 100% 100%;
+  margin-top: 0.05rem;
+}
