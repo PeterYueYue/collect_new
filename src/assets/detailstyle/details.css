@@ -92,7 +92,7 @@
 .details_wrap_item .content .price span.money {
   font-size: 0.36rem;
 }
-.details_wrap_time {
+.details_wrap_time, .details_wrap_smtime {
   position: relative;
   line-height: 1.08rem;
   background: #fff;
