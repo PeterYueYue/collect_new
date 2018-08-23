@@ -25,10 +25,19 @@
       <!--<div class="o_price">预估价格：<span>￥<span>{{detailsList.price}}</span></span></div>-->
     </div>
 
-    <div class="details_wrap_time" v-show="detailsList.title == 'DIGITAL'">
-      <span v-show="detailsList.level=='0'">上门时间：{{detailsList.arrivalTimePage}}</span>
-      <span class="btn_cancel" @click="openOrders" v-show="detailsList.status4Page!=='COMPLETE'&&detailsList.status4Page!=='CANCEL'&&detailsList.status4Page!=='REJECTED'">取消订单</span>
+    <div v-show="detailsList.title == 'DIGITAL'">
+      <div class="details_wrap_time new"
+           v-if="detailsList.status4Page!=='COMPLETE'&&detailsList.status4Page!=='CANCEL'&&detailsList.status4Page!=='REJECTED'">
+        <span v-show="detailsList.level=='0'">上门时间：{{detailsList.arrivalTimePage}}</span>
+        <span class="btn_cancel" @click="openOrders">取消订单</span>
+      </div>
+      <div class="details_wrap_time" v-else></div>
     </div>
+
+    <!--<div class="details_wrap_time" v-show="detailsList.title == 'DIGITAL'">-->
+      <!--<span v-show="detailsList.level=='0'">上门时间：{{detailsList.arrivalTimePage}}</span>-->
+      <!--<span class="btn_cancel" @click="openOrders" v-show="detailsList.status4Page!=='COMPLETE'&&detailsList.status4Page!=='CANCEL'&&detailsList.status4Page!=='REJECTED'">取消订单</span>-->
+    <!--</div>-->
 
     <div v-show="detailsList.title == 'HOUSEHOLD'">
       <div class="details_wrap_time new"
