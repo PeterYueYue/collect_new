@@ -328,6 +328,15 @@ let configGoodsOrder = {
 	"timestamp": 1534989627572,
 }
 
+let confiGetUserToken = {
+  "app_key": "app_id_1",
+  "name": "member.getUserToken",
+	"format": "json",
+	"version": "1.0",
+	"nonce": "3a20d606-e071-4bed-a58f-75c135da6810",
+	"timestamp": 1535115102116
+}
+
 
 //回收分类
 export default {
@@ -462,6 +471,10 @@ export default {
   },
   GoodsOrder(params){ //兑换下单
     let config = Object.assign(configGoodsOrder, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data)
+  },
+  GetUserToken(params){
+    let config = Object.assign(confiGetUserToken, params);
     return axios.post(`${base}/ali/api`, config).then(res => res.data)
   }
 

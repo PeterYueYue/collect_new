@@ -162,43 +162,43 @@
           loadedStayTime: 800, // 加载完后停留的时间ms
           stayDistance: 80, // 触发刷新后停留的距离
           triggerDistance: 100 // 下拉刷新触发的距离
-        }
+        },
       }
-    },
-    beforeCreate() {
-      // 正式
-      var tk = this.$route.query.token;
-      if(tk){
-        this.$store.dispatch('getToken', tk)
-      }
-      //本地测试
-      // var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24V6BKSK7XCKURHCCOW4OQQ3AURAWCWWM3DWVZAK26YBVRDBQAHVKQTFGRL7NE5YTTEKSLRMHPXJEUXNYHTXXO74NAXV7LFWMC7YUXC3VPEAEL6PWUFQRKFWA25BQY2GM3FVNKHDFZSG6P3IS2772DYABHQ2W64HHHKSJS7QRA35L4KISEZTXJOKANNJO6BZVQ4H2PH5N637WA7QVJQIDPHINZ67WPK3U7KIVGKP3Q'
-      // this.$store.dispatch('getToken', tk)
-
     },
     computed: mapGetters({
       token: "token"
     }),
     mounted() {
-      //存储token到本地
-      var token = this.$route.query.token;
-      window.localStorage.setItem('token', token);
-      this.getData();
-      this.memberAddress();
       document.setTitle('垃圾分类回收');
+      // 本地测试打开
+      // var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24V6BKSK7XCKURHCCOW4OQQ3AURAWCWWM3DWVZAK26YBVRDBQAHVKQTFGRL7NE5YTTEKSLRMHPXJEUXNYHTXXO74NAXV7LFWMC7YUXC3VPEAEL6PWUFQRKFWA25BQY2GM3FVNKHDFZSG6P3IS2772DYABHQ2W64HHHKSJS7QRA35L4KISEZTXJOKANNJO6BZVQ4H2PH5N637WA7QVJQIDPHINZ67WPK3U7KIVGKP3Q'
+      // this.$store.dispatch('getToken', tk)
+      
+      if(!this.token){
+        // 用户进来判断是否要授权；
+        this.agreeOrNot();
+      }
+      //存储token到本地
+      // var token = this.$route.query.token;
+      if(this.token){
+        window.localStorage.setItem('token', this.token);
+        this.getData();
+        this.memberAddress();
+      }
       this.screenWidth=document.documentElement.clientWidth;
       this.screenHeight = document.documentElement.clientHeight; 
     },
+    
     methods: {
       onRefresh(loaded) {
         //获取数据
         this.getData(loaded)
       },
-      memberAddress() {
+      memberAddress(token) {
         //默认地址
         api.MemberAddress({
           "app_key": "app_id_1",
-          token: this.token
+          token: this.token?this.token:token
         }).then((res) => {
           this.$store.dispatch('getAddressInfo',res.data);
           this.adressList = res.data;
@@ -210,7 +210,7 @@
         //获取数据
         api.getHome({
           "app_key": "app_id_1",
-          token: this.token
+          token: this.token?this.token:loaded
         }).then((res) => {
           if (res.data.length === 0) {
             this.showList = false;
@@ -310,12 +310,63 @@
             } 
           }
         }
+      },
+      agreeOrNot(){
+        if (!this.$route.query.token) {
+          //本地
+          // let str = 'http://alipay.mayishoubei.com/index.htm?app_id=2017022805948218&source=alipay_wallet&scope=auth_base,auth_user,auth_ecard&state=""&auth_code=190cec6edec44d65a3fa182a80cfYF66';
+          //正式
+          let str = window.location.href;
+          str = str +'#/';
+          let str1 = str.substring((str.indexOf('?') + 1), str.indexOf('#'));
+          let ayth_code = this.qs.parse(str1).auth_code;
+          let state = this.qs.parse(str1).state;
+
+          if(state == 'product'){
+            this.goIntegral(ayth_code)
+          }else{
+            this.goHome(ayth_code);
+          }
+       
+        }
+      },
+      goHome(ayth_code){
+        api.isAuthorization({
+          "app_key": "app_id_1",
+          "data": { "authCode": ayth_code }
+        }).then(res => {
+          if(res.data == "用户授权解析失败"){
+            alert(res.data)
+            return;
+          }
+          if (res.data.mobile == '0') {
+            this.$router.push({
+              path: '/verifiaction',
+              query: { id: res.data.id }
+            })
+          }
+          if (res.data.mobile == '1') {
+            this.$store.dispatch('getToken', res.data.token)
+
+            window.localStorage.setItem('token', res.data.token);
+            this.getData(res.data.token);
+            this.memberAddress(res.data.token);
+          }
+        })
+      },
+      goIntegral(ayth_code){
+        api.GetUserToken({
+          "data": {"authCode": ayth_code}
+        }).then(res => {
+          this.$store.dispatch('getToken', res.data.token)
+          this.$router.push({ path: '/integralshoping/dic'})
+        })
       }
     },
   }
 </script>
 <style>
-    .floatbutton{
+  .floatbutton{
     position:fixed;
     bottom: 40px;
     right: 40px;
@@ -324,33 +375,27 @@
     z-index: 100000;
     transition: all 0 ;
   }
-
   .van-pull-refresh {
     width: 100%;
   }
-
   .vue-pull-to-wrapper {
     width: 100%;
   }
-
   .van-toast {
     font-size: 0.3rem;
     line-height: 0.012rem;
     border-radius: 0.1rem;
   }
-
   .van-toast--text {
     padding: 0.6rem;
     min-width: 1.6rem;
   }
-
   .van-pull-refresh__head {
     height: 0.5rem;
     top: -0.5rem;
     font-size: 0.24rem;
     line-height: 0.5rem;
   }
-
   .action-block .default-text {
     font-size: 0.24rem;
   }

@@ -24,8 +24,6 @@ import  Estimate          from '@/components/create/estimate.vue';
 import  OrderInfo         from '@/components/create/orderInfo.vue';
 //验证
 import  Verifiaction      from '@/components/verification';
-//login
-import  Login             from '@/components/login.vue';
 // 积分商城
 import  IntegralShoping   from '@/components/integralShopping/indexShop/shopping.vue';
 // 积分商城 券详情
@@ -52,8 +50,8 @@ const router =  new Router({
   routes: [
     {
       path:'/',
-      name:'login',
-      component:Login
+      name:'home',
+      component:home
     },
     {
       path: '/home',

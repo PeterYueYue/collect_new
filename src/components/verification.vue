@@ -207,12 +207,9 @@
               "mobile": this.phonenumber
             }
           }).then(res => {
-            this.$router.push({
-              path: '/home',
-              query: {
-                token: res.data.token,
-              }
-            })
+            this.$router.push({ path: '/home'});
+            this.$store.dispatch('getToken',res.data.token)
+
           })
         }
 

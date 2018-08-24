@@ -33,8 +33,8 @@
         </div>
         <!-- 底部 -->
         <footer class="foot">
-            <div class="telBox">
-                <span class="icon"></span>
+            <div  @touchend= callphone class="telBox">
+                <span  class="icon"></span>
                 <span>
                     如有疑问，请拨打服务热线：021-61420789
                 </span>
@@ -78,7 +78,9 @@ export default {
             if (confirm("你确定兑换吗？")) {  
                 this.submit();
             }  
-    
+        },
+        callphone(){    
+            window.location.href = "tel:02161420789";
         }
        
     }
