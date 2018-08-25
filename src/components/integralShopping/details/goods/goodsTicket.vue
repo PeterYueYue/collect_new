@@ -6,7 +6,7 @@
                 <img :src= item.img alt="">
                 <div class="titile">{{item.brand}}</div>
             </div>
-            <div  @touchend= firm  class="btn">{{item.bindingPoint}}kg能量兑换</div>
+            <div  @click= firm  class="btn">{{item.bindingPoint}}kg能量兑换</div>
         </header>
 
         <!-- 兑换信息确认 -->
@@ -51,7 +51,7 @@ export default {
         return{
             item:'',
             memberAddress:'',
-            show: true
+            show: true,
         }
     },
     
@@ -74,10 +74,15 @@ export default {
             })
         },
         firm() {  
+
+            
             //利用对话框返回的值 （true 或者 false）  
-            if (confirm("你确定兑换吗？")) {  
+            if (window.confirm("你确定兑换吗？") == true) {  
                 this.submit();
-            }  
+            }
+            return
+
+             
         },
         callphone(){    
             window.location.href = "tel:02161420789";

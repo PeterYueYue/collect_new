@@ -12,7 +12,7 @@
             <div     
                 @touchstart = toDteailsStart
                 @touchmove  = toDteailsMove
-                @touchend = firm    
+                @click = firm    
                 class="changeButton">{{item.bindingPoint}}kg环保能量</div>
         </header>
         <!-- 主体 -->

@@ -175,11 +175,10 @@
       // this.$store.dispatch('getToken', tk)
       
       if(!this.token){
-        // 用户进来判断是否要授权；
+      // 用户进来判断是否要授权；
         this.agreeOrNot();
       }
       //存储token到本地
-      // var token = this.$route.query.token;
       if(this.token){
         window.localStorage.setItem('token', this.token);
         this.getData();
@@ -336,7 +335,8 @@
           "data": { "authCode": ayth_code }
         }).then(res => {
           if(res.data == "用户授权解析失败"){
-            alert(res.data)
+            
+            AlipayJSBridge.call('popWindow'); 
             return;
           }
           if (res.data.mobile == '0') {

@@ -117,10 +117,6 @@
           return;
         }
         this.location = result
-
-        alert(JSON.stringify(result))
-
-        
       });
       this.getAreaList();
     },
