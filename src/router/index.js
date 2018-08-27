@@ -51,11 +51,13 @@ const router =  new Router({
     {
       path:'/',
       name:'home',
+      meta:{index:1},
       component:home
     },
     {
       path: '/home',
       name: 'home',
+      meta:{index:1},
       component: home
     },
     {
@@ -80,6 +82,7 @@ const router =  new Router({
     },
     {
       path: '/details',
+      meta:{index:3},
       name: 'details',
       component: details
     },
@@ -106,10 +109,12 @@ const router =  new Router({
     {
       path: '/orders',
       name: 'orders',
+      meta:{index:2},
       component: orders
     },
     {
       path: '/classIfy',
+      meta:{index:2},
       name: 'ClassIfy',
       component: ClassIfy,
     },
@@ -142,26 +147,31 @@ const router =  new Router({
     },
     {
       path: '/typeSelect/:index',
+      meta:{index:3},
       name: 'TypeSelect',
       component: TypeSelect,
     },
     {
       path:'/uploadimage',
       name:'UploadImage',
+      meta:{index:5},
       component:UploadImage
     },
     {
       path:'/uploadimage1',
+      meta:{index:3},
       name:'UploadImage1',
       component:UploadImage1
     },
     {
       path:'/estimate',
+      meta:{index:4},
       name:'Estimate',
       component:Estimate
     },
     {
       path:'/orderInfo',
+      meta:{index:6},
       name:'OrderInfo',
       component:OrderInfo
     },
@@ -172,20 +182,24 @@ const router =  new Router({
     },
     {
       path:'/integralshoping/:id',
+      
       name:'IntegralShoping',
       component:IntegralShoping,
       meta:{
-        keepAlive:true
+        keepAlive:true,
+        index:2
       }
     },
     {
       path:'/ticketdetails',
+      meta:{index:4},
       name:'ticketdetails',
       component:Ticketdetails
     },
     {
       path:'/goodsTicket',
       name:'goodsTicket',
+      meta:{index:4},
       component:GoodsTicket
     }
   ]

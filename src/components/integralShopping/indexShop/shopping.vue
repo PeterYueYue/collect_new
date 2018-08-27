@@ -3,7 +3,9 @@
         <!-- 头部 -->
         <div class="head">
             <div class="bacBox">
-                <img src="../img/banner2.png" alt="">
+                <div id="bannerbox">
+                    <img src="../img/banner2.png" alt="">
+                </div>
                 <strong>
                     累计回收环保能量
                 </strong>

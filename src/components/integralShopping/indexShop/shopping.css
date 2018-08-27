@@ -10,13 +10,17 @@
   width: 100%;
   position: relative;
 }
-.integralShopping .head .bacBox img {
+.integralShopping .head .bacBox #bannerbox {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 0;
+}
+.integralShopping .head .bacBox #bannerbox img {
+  width: 7.5rem;
+  height: 2.2rem;
 }
 .integralShopping .head .bacBox strong,
 .integralShopping .head .bacBox .quantity {
