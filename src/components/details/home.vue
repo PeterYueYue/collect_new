@@ -168,7 +168,7 @@
       // 本地测试打开
       // var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24U65CVPQU32QS6WCOW4OQQ3AURAT25OYS7KWASJZYQ5IPQBJGAUZRTFGRL7NE5YTTFEAYERKA4VYKTBVI6YOUHJBB3MKI3NUQ6SBCWQ2DZOS37DA2PD2UCMAINFFD7GYHH56ITBFEOMX4NET5ZWTRXGAWNDVVIJI4SBBITJN4JPMKM6VT672AGVZ27CFHSKZU3MORRA2KIA4TYUBCSEFKOYVBIRGZV6Q2VXPXQTUQ'
       // this.$store.dispatch('getToken', tk)
-      
+
       if(!this.token){
       // 用户进来判断是否要授权；
         this.agreeOrNot();
@@ -180,9 +180,9 @@
         this.memberAddress();
       }
       this.screenWidth=document.documentElement.clientWidth;
-      this.screenHeight = document.documentElement.clientHeight; 
+      this.screenHeight = document.documentElement.clientHeight;
     },
-    
+
     methods: {
       onRefresh(loaded) {
         //获取数据
@@ -237,9 +237,9 @@
           console.log(error)
         })
       },
-      startHandle(e){  
+      startHandle(e){
         this.screenWidth=document.documentElement.clientWidth;
-        this.screenHeight = document.documentElement.clientHeight; 
+        this.screenHeight = document.documentElement.clientHeight;
         this.floatbutton = $('.floatbutton')
         this.floatbutton.css('transition','all 0s')
         if(!e){ e = window.event;}
@@ -247,7 +247,7 @@
         this.posY=e.touches[0].pageY-parseInt(this.floatbutton.css('top'));
       },
       moveHandle(e){
-        if(e.targetTouches.length == 1){ 
+        if(e.targetTouches.length == 1){
           e.stopPropagation();
           e.preventDefault();
           if((e.touches[0].pageY-this.posY)<=40){
@@ -287,13 +287,13 @@
               this.floatbutton.css('top','40px');
             }else{//靠近右边
               this.floatbutton.css('left',(this.screenWidth-parseInt(this.floatbutton[0].clientWidth)-40)+"px")
-            } 
+            }
           }
         }else {//上半部分
             if((parseInt(this.floatbutton.css('left'))+parseInt(this.floatbutton[0].clientWidth)/2)<=(this.screenWidth/2)){//在左半部分
             if( (this.screenHeight-(parseInt(this.floatbutton.css('top'))+parseInt(this.floatbutton[0].clientHeight)/2))<=(parseInt(this.floatbutton.css('left'))+parseInt(this.floatbutton[0].clientWidth)/2)){//靠近下方
               this.floatbutton.css('top',(this.screenHeight-parseInt(this.floatbutton[0].clientHeight)-40)+"px");
-            }else{//靠近左边             
+            }else{//靠近左边
               this.floatbutton.css('left','40px')
             }
           }else{//在右半部分
@@ -301,7 +301,7 @@
               this.floatbutton.css('top',(this.screenHeight-parseInt(this.floatbutton[0].clientHeight)-40)+"px")
             }else{//靠近右边
               this.floatbutton.css('left',(this.screenWidth-parseInt(this.floatbutton[0].clientWidth)-40)+"px")
-            } 
+            }
           }
         }
       },
@@ -321,7 +321,7 @@
           }else{
             this.goHome(ayth_code);
           }
-       
+
         }
       },
       goHome(ayth_code){
@@ -330,8 +330,8 @@
           "data": { "authCode": ayth_code }
         }).then(res => {
           if(res.data == "用户授权解析失败"){
-            
-            AlipayJSBridge.call('popWindow'); 
+
+            AlipayJSBridge.call('popWindow');
             return;
           }
           if (res.data.mobile == '0') {
@@ -363,10 +363,11 @@
 <style>
   .floatbutton{
     position:fixed;
-    bottom: 40px;
-    right: 40px;
-    width: 1rem;
-    height:0.9rem;
+    bottom: 50%;
+    /* 临时样式 */
+    right: 10px;
+    width: 1.2rem;
+    height:1.1rem;
     z-index: 100000;
     transition: all 0 ;
   }
