@@ -50,7 +50,7 @@
 }
 .selectBox .selConentbox .selected span {
   margin-right: 0.2rem;
-  line-height: 50 / rem;
+  line-height: 0.5rem;
   font-size: 0.28rem;
 }
 .selectBox .selConentbox .selected .active {
