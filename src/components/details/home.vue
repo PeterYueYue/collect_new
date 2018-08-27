@@ -368,10 +368,10 @@
 <style>
   .floatbutton{
     position:fixed;
-    bottom: 40px;
-    right: 40px;
-    width: 1rem;
-    height:0.9rem;
+    bottom: 50%;
+    right: 10px;
+    width: 1.2rem;
+    height:1.1rem;
     z-index: 100000;
     transition: all 0 ;
   }
