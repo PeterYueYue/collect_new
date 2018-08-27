@@ -53,7 +53,6 @@
 </style>
 <template>
   <div style="height:100%;" id="app">
-
     <transition :name="transitionName" >
       <router-view />
     </transition>
@@ -65,8 +64,6 @@
     name: 'App',
     watch: {//使用watch 监听$router的变化
     $route(to, from) {
-
-      console.log(to)
       //如果to索引大于from索引,判断为前进状态,反之则为后退状态
       if(to.meta.index > from.meta.index){
         //设置动画名称
@@ -76,7 +73,6 @@
       }
     }
   },
-
   data(){
     return{
       transitionName:''

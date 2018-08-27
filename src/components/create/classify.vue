@@ -117,11 +117,11 @@
     <!-- 回收车  end -->
     <div class="classify_footer" v-show="!showUl">
       <div class="f_title">
-        <div @touchstart="closeCar('on')" class="icon"><img id="carbox" src="@/assets/class_icon.png" alt=""><i>{{numTotal}}</i>
+        <div @touchstart="closeCar('on')" class="icon"><img id="carbox" src="@/assets/class_icon.png" alt=""><i>{{selectProductList.length}}</i>
         </div>
-        <div class="name">已选类型数量：<span class="price"><span>{{numTotal}}</span></span></div>
+        <div class="name">已选类型数量：<span class="price"><span>{{selectProductList.length}}</span></span></div>
       </div>
-      <div class="r_btn" :class="{disable:numTotal <= 0}" @touchstart="openAlert">一键回收</div>
+      <div class="r_btn" :class="{disable:selectProductList.length <= 0}" @touchstart="openAlert">一键回收</div>
     </div>
 
     <div class="classify_foot" v-show="!showUl&&comIsNull==='1'">您所在小区暂未开通生活垃圾回收服务</div>
@@ -213,15 +213,23 @@
           window.sessionStorage.removeItem('productTotal');
           this.numTotal = 0;
         }
-      }
+      },
+      "$route":"changeRoute"
     },
     mounted() {
-      this.$store.dispatch('recyclingType', 'appliances');
+      this.$store.dispatch('recyclingType', this.$route.params.id);
       this.getClassFiy();
       this.total();
+      this.changeRoute()
+
       document.title = "垃圾回收分类"
     },
     methods: {
+      changeRoute(){
+        if(this.$route.params.id == "waste"){
+          this.openUl(false,'waste')
+        }
+      },
       getClassFiy(value) {
         api.getClassify({
           "app_key": "app_id_1",
@@ -320,6 +328,8 @@
           },
           token: this.token
         }).then((res) => {
+
+
           this.comIsNull = res.data.comIsNull;
           res.data.ComCatePriceList.map((items) => {
             items.pName = this.menulist[index].name;
@@ -335,7 +345,6 @@
           });
 
           let resDataList = JSON.parse(window.sessionStorage.getItem('productList'));
-
           this.subList = res.data.ComCatePriceList.map(e => {
             if (resDataList) {
               resDataList.map(k => {
@@ -388,6 +397,7 @@
         })
       },
       openUl(type, household) {
+        this.$router.replace({path:`/classIfy/${household}`})
         this.$store.dispatch('recyclingType', household);
         this.subList = '';
         this.showUl = type;
@@ -395,7 +405,7 @@
       },
       openAlert() {
 
-        if (this.numTotal <= 0) {
+        if (this.selectProductList.length <= 0) {
           return
         }
         this.total();

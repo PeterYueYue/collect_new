@@ -36,7 +36,7 @@
             <div  @touchend= callphone class="telBox">
                 <span  class="icon"></span>
                 <span>
-                    如有疑问，请拨打服务热线：021-61420789
+                    如有疑问，请拨打服务热线：021-61984970
                 </span>
             </div>
         </footer>
@@ -85,7 +85,7 @@ export default {
              
         },
         callphone(){    
-            window.location.href = "tel:02161420789";
+            window.location.href = "tel:02161984970";
         }
        
     }

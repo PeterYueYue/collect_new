@@ -113,7 +113,7 @@ const router =  new Router({
       component: orders
     },
     {
-      path: '/classIfy',
+      path: '/classIfy/:id',
       meta:{index:2},
       name: 'ClassIfy',
       component: ClassIfy,

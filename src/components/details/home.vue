@@ -8,8 +8,7 @@
         <bannebox class="home_wrap_banner"></bannebox>
         <!-- 有订单时 -->
         <div v-if="showList" style="padding-bottom: 1.7rem">
-          <div class="home_address" v-if="!adressList"><img src="@/assets/icon_add_logo.png" alt=""
-                                                            class="icon_add_logo_new">回收地址
+          <div class="home_address" v-if="!adressList"><img src="@/assets/icon_add_logo.png" alt=""                                                           class="icon_add_logo_new">回收地址
             <router-link to="addAdress"><div class="add">添加回收地址</div></router-link>
             <img src="@/assets/icon_right.png" alt="">
           </div>
@@ -57,7 +56,6 @@
                 </div>
               </div>
             </router-link>
-
             <!-- 生活垃圾 -->
             <router-link :to="{path: '/details/', query: { id: item.id }}" v-else-if="item.title == 'HOUSEHOLD'">
               <div class="time">下单时间：{{item.createDatePage}}<span :class="item.statusClass">{{item.statusPage}}</span></div>
@@ -66,7 +64,6 @@
               <!--<div class="o_price">预估价格：<span>￥{{item.price}}</span></div>-->
             </router-link>
           </div>
-
         </div>
         <!-- 无订单时 -->
         <div v-else>
@@ -108,15 +105,13 @@
           <div class="home_wrap_ordername">您还没有进行中的订单</div>
           <div class="home_wrap_btnname">点击下方上门回收按钮，为绿色生活助力吧！</div>
         </div>
-
       </div>
-
       </div>
     </pull-to>
     <!-- 底部footer -->
     <div class="home_wrap_footer">
       <img src="@/assets/icon_footer.png" alt="" class="home_wrap_footer_tbg">
-      <router-link to="/classIfy">
+      <router-link to="/classIfy/appliances">
         <div class="footer_circle">上门<br/>回收</div>
       </router-link>
       <router-link to="/integralshoping/dic">
@@ -154,14 +149,14 @@
         adressList: {},
         showList: true,
         pullRefreshConfig: {
-          pullText: '下拉刷新', // 下拉时显示的文字
-          triggerText: '释放更新', // 下拉到触发距离时显示的文字
-          loadingText: '加载中...', // 加载中的文字
-          doneText: '加载完成', // 加载完成的文字
-          failText: '加载失败', // 加载失败的文字
-          loadedStayTime: 800, // 加载完后停留的时间ms
-          stayDistance: 80, // 触发刷新后停留的距离
-          triggerDistance: 100 // 下拉刷新触发的距离
+          pullText: '下拉刷新',       // 下拉时显示的文字
+          triggerText: '释放更新',    // 下拉到触发距离时显示的文字
+          loadingText: '加载中...',   // 加载中的文字
+          doneText: '加载完成',       // 加载完成的文字
+          failText: '加载失败',       // 加载失败的文字
+          loadedStayTime: 800,        // 加载完后停留的时间ms
+          stayDistance: 80,           // 触发刷新后停留的距离
+          triggerDistance: 100        // 下拉刷新触发的距离
         },
       }
     },
@@ -171,7 +166,7 @@
     mounted() {
       document.setTitle('垃圾分类回收');
       // 本地测试打开
-      // var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24V6BKSK7XCKURHCCOW4OQQ3AURAWCWWM3DWVZAK26YBVRDBQAHVKQTFGRL7NE5YTTEKSLRMHPXJEUXNYHTXXO74NAXV7LFWMC7YUXC3VPEAEL6PWUFQRKFWA25BQY2GM3FVNKHDFZSG6P3IS2772DYABHQ2W64HHHKSJS7QRA35L4KISEZTXJOKANNJO6BZVQ4H2PH5N637WA7QVJQIDPHINZ67WPK3U7KIVGKP3Q'
+      // var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24U65CVPQU32QS6WCOW4OQQ3AURAT25OYS7KWASJZYQ5IPQBJGAUZRTFGRL7NE5YTTFEAYERKA4VYKTBVI6YOUHJBB3MKI3NUQ6SBCWQ2DZOS37DA2PD2UCMAINFFD7GYHH56ITBFEOMX4NET5ZWTRXGAWNDVVIJI4SBBITJN4JPMKM6VT672AGVZ27CFHSKZU3MORRA2KIA4TYUBCSEFKOYVBIRGZV6Q2VXPXQTUQ'
       // this.$store.dispatch('getToken', tk)
       
       if(!this.token){

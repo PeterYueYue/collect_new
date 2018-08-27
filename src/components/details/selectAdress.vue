@@ -63,7 +63,6 @@
       </div>
     </div>
     <div class="select_btn" @click="saveData">保存</div>
-
     <!-- 弹窗 -->
     <div class="add_shadow" v-if="showShadow"></div>
     <div class="add_shadow_box" v-if="showCance">
@@ -76,11 +75,9 @@
     </div>
   </div>
 </template>
-
 <script>
   import '@/assets/detailstyle/selectAdress.css'
   import api from '@/api/api.js'
-
   export default {
     data() {
       return {
@@ -114,7 +111,7 @@
         }
         this.location = result
       });
-      //存储token到本地
+      // 存储token到本地
       var token = this.$route.query.token;
       window.localStorage.setItem('token', token);
       this.selectMemberAddress();
