@@ -90,6 +90,7 @@
           this.$router.push({
             path: '/home',
           })
+          // this.$router.go(-1);
         }).catch((error) => {
           console.log(error)
         })
