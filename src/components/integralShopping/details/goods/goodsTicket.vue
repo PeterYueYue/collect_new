@@ -57,8 +57,15 @@
       token: "token"
     }),
     mounted() {
+      if(this.$route.query.item){
+        this.item = JSON.parse(this.$route.query.item);
+      }
+
       this.getAddress();
-      this.item = JSON.parse(this.$route.query.item)
+      if(!this.item){
+        this.item = JSON.parse(window.localStorage.getItem('item'))
+      }
+       
     },
     methods: {
       submit() {
@@ -92,7 +99,7 @@
           "data": {
             "id": this.$route.query.id,
           },
-          "token": this.$store.state.token,
+          "token": this.token,
         }).then((res) => {
           this.dataList = res.data;
           if (res.data.communityId == 0) {
@@ -108,6 +115,8 @@
       // 跳转的时候插入sessionStorage
       goToList() {
         window.sessionStorage.setItem('jumpUrl', this.$route.fullPath);
+        window.localStorage.setItem('item', JSON.stringify(this.item));
+        this.item ='';
         this.$router.push('/shopList')
       },
     }
