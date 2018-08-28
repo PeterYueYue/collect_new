@@ -87,10 +87,13 @@
         }).then((res) => {
           console.log(res);
           this.memberAddressList();
+
+          //这里如何判断是跳home还是goodsTicket
           this.$router.push({
             path: '/home',
           })
           // this.$router.go(-1);
+
         }).catch((error) => {
           console.log(error)
         })
