@@ -88,10 +88,20 @@
           console.log(res);
           this.memberAddressList();
 
-          //这里如何判断是跳home还是goodsTicket
-          this.$router.push({
-            path: '/home',
-          })
+          // 这里如何判断是跳home还是goodsTicket
+          // 如果session里有jumpUrl就证明是goodsTicket页面跳转过来的 没有就不是 PS.跳转时记得清理session
+          let jumpUrl = window.sessionStorage.getItem('jumpUrl')
+          if(jumpUrl){
+            this.$router.push({
+              path: jumpUrl,
+            })
+            window.sessionStorage.removeItem('jumpUrl')
+          }else{
+            this.$router.push({
+              path: '/home',
+            })
+          }
+
           // this.$router.go(-1);
 
         }).catch((error) => {

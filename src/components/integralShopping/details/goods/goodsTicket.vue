@@ -26,9 +26,10 @@
                 <div>收货地址：上海市{{memberAddress.address}} </div>
             </div>
             <div v-if="!memberAddress" class="noAddress">您暂未添加收货地址...</div>
-            <router-link  to="/adressList">
-                <div class="goChangeAdd">前往修改我的收货信息</div> 
-            </router-link>
+            <!--router-link方式无法植入js代码 所以修改为异步跳转-->
+            <!--<router-link  to="/adressList">-->
+            <div class="goChangeAdd" @click="goToList">前往修改我的收货信息</div>
+            <!--</router-link>-->
         </div>
         <!-- 底部 -->
         <footer class="foot">
@@ -71,14 +72,14 @@ export default {
                 if(res.code == 0){ alert(res.data) }
             })
         },
-        firm() {  
-            //利用对话框返回的值 （true 或者 false）  
-            if (window.confirm("你确定兑换吗？") == true) {  
+        firm() {
+            //利用对话框返回的值 （true 或者 false）
+            if (window.confirm("你确定兑换吗？") == true) {
                 this.submit();
             }
             return
         },
-        callphone(){    
+        callphone(){
             window.location.href = "tel:02161984970";
         },
         getMemberAddress(){
@@ -90,8 +91,12 @@ export default {
                     this.memberAddress = res.data;
                 }
             })
+        },
+      // 跳转的时候插入sessionStorage
+        goToList(){
+          window.sessionStorage.setItem('jumpUrl', this.$route.fullPath);
+          this.$router.push('/adressList')
         }
-       
     }
 }
 </script>
