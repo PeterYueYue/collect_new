@@ -8,7 +8,6 @@
             </div>
             <div  @click= firm  class="btn">{{item.bindingPoint}}kg能量兑换</div>
         </header>
-
         <!-- 兑换信息确认 -->
         <div class="content">
 
@@ -24,7 +23,7 @@
             <div v-if="memberAddress" class="userAddress">
                 <div>姓名：{{memberAddress.name}}</div>
                 <div>手机号码：{{memberAddress.tel}}</div>
-                <div>收货地址：上海市{{memberAddress.address}}{{memberAddress.commByUserInput}}{{memberAddress.houseNumber}}</div>
+                <div>收货地址：上海市{{memberAddress.address}} </div>
             </div>
             <div v-if="!memberAddress" class="noAddress">您暂未添加收货地址...</div>
             <router-link  to="/adressList">
@@ -54,13 +53,12 @@ export default {
             show: true,
         }
     },
-    
     computed:mapGetters({
         token:"token"
     }),
     mounted(){
+        this.getMemberAddress();
         this.item = JSON.parse(this.$route.query.item)
-        this.memberAddress = JSON.parse(this.$route.query.memberAddress)
     },
     methods:{
         submit(){
@@ -74,18 +72,24 @@ export default {
             })
         },
         firm() {  
-
-            
             //利用对话框返回的值 （true 或者 false）  
             if (window.confirm("你确定兑换吗？") == true) {  
                 this.submit();
             }
             return
-
-             
         },
         callphone(){    
             window.location.href = "tel:02161984970";
+        },
+        getMemberAddress(){
+            api.MemberAddress({token:this.token}).then(res =>{
+                if(res.data.communityId == 0){
+                    this.memberAddress='';
+                }else{
+                    this.memberAddress='';
+                    this.memberAddress = res.data;
+                }
+            })
         }
        
     }
