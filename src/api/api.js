@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 // 正式
-let base ='http://101.132.111.141:80';
+// let base ='http://101.132.111.141:80';
 
 // 测试
-// let base = 'http://180.153.19.161:9000';
+let base = 'http://180.153.19.161:9000';
 
 // 张强
 // let base ='http://192.168.1.155:9000';
@@ -236,6 +236,15 @@ var configMemberAddress = { //对外提供默认地址
   "timestamp": 1530088173679,
 }
 
+var configMAddress = { //对外提供默认地址2
+  "name": "memberAddress.getMemberAddressById",
+  "format": "json",
+  "sign": "E9A93A4B470B500879274B37482EFF04",
+  "version": "1.0",
+  "nonce": "c3c0b328-6ef0-42b8-8085-843e684b81f7",
+  "timestamp": 1530088173679,
+}
+
 var configMemberAddressList = { //用户地址的列表
   "name": "memberAddress.memberAddressList",
   "format": "json",
@@ -430,6 +439,10 @@ export default {
   },
   MemberAddress(params) { //对外提供默认地址
     let config = Object.assign(configMemberAddress, params);
+    return axios.post(`${base}/ali/api`, config).then(res => res.data);
+  },
+  MAddress(params) { //对外提供默认地址2
+    let config = Object.assign(configMAddress, params);
     return axios.post(`${base}/ali/api`, config).then(res => res.data);
   },
   MemberAddressList(params) { //用户地址的列表

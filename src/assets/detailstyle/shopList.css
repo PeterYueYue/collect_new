@@ -1,0 +1,150 @@
+.shop_wrap {
+  width: 100%;
+}
+
+.shop_item {
+  padding: 0.3rem;
+  background: #fff;
+  margin-bottom: 0.2rem;
+  position: relative;
+}
+
+/*.shop_item:active {*/
+  /*border-top: 0.01rem rgb(0, 160, 233) solid;*/
+  /*border-bottom: 0.01rem rgb(0, 160, 233) solid;*/
+/*}*/
+
+.shop_item .name {
+  font-size: 0.34rem;
+  color: rgb(51, 51, 51);
+}
+
+.shop_item .shop {
+  width: 80%;
+  font-size: 0.3rem;
+  color: rgb(102, 102, 102);
+  margin-top: 0.15rem;
+}
+
+.shop_item .btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0.3rem;
+}
+
+.shop_item .btn_edit {
+  width: 1rem;
+  height: 0.46rem;
+  line-height: 0.46rem;
+  text-align: center;
+  font-size: 0.3rem;
+  color: rgb(0, 160, 233);
+  border: 0.01rem rgb(0, 160, 233) solid;
+  border-radius: 0.06rem;
+}
+
+.shop_item .btn_del {
+  width: 1rem;
+  height: 0.46rem;
+  line-height: 0.46rem;
+  text-align: center;
+  font-size: 0.3rem;
+  color: rgb(244, 51, 60);
+  border: 0.01rem rgb(244, 51, 60) solid;
+  border-radius: 0.06rem;
+  margin-top: 0.15rem;
+}
+
+.shop_add {
+  width: 6.8rem;
+  height: 0.68rem;
+  line-height: 0.68rem;
+  border: 0.01rem #00a0e9 solid;
+  color: #00a0e9;
+  border-radius: 0.06rem;
+  text-align: center;
+  font-size: 0.32rem;
+  margin: 0.5rem auto 2rem;
+  background: #fff;
+}
+
+.shop_footer {
+  width: 7.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  color: #fff;
+  text-align: center;
+  font-size: 0.32rem;
+  background: #00a0e9;
+  position: fixed;
+  bottom: 0;
+}
+
+
+/* radio */
+.holder {
+  float: left;
+  padding-left: 0.3rem;
+  font-size: 0.3rem;
+}
+
+label {
+  display: inline;
+}
+
+.radio {
+  display: none;
+  padding-left: 0.2rem;
+}
+
+.radio + label {
+  width: 100%;
+  display: block;
+}
+
+.radio + label i {
+  background-color: rgb(204, 204, 204);
+  width: 0.34rem;
+  height: 0.34rem;
+  border-radius: 100%;
+  display: inline-block;
+  position: relative;
+  top: 0.06rem;
+  right: 0.2rem;
+}
+.radio + label i:before, .radio + label i:after{
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  color: white;
+  border: 0.01rem solid;
+  background-color: #fff;
+}
+.radio + label i:before{
+  width: 0.07rem;
+  height: 0.01rem;
+  left: 23%;
+  top: 55%;
+  transform: skew(0deg,50deg);
+}
+.radio + label i:after{
+  width: 0.1rem;
+  height: 0.01rem;
+  left: 45%;
+  top: 48%;
+  transform: skew(0deg,-50deg);
+}
+
+/* 选中后 */
+.radio:checked + label i {
+  content: ' ';
+  width: 0.34rem;
+  height: 0.34rem;
+  border-radius: 100%;
+  display: inline-block;
+  position: relative;
+  top: 0.06rem;
+  right: 0.2rem;
+  background-color: #00a0e9;
+}

@@ -1,32 +1,21 @@
 <template>
-  <div class="adress_wrap">
-    <div class="adress_item" v-for="item in addressList" :key="item.id">
+  <div class="shop_wrap">
+    <div class="shop_item" v-for="item in addressList" :key="item.id" @click="saveJump(item.id)">
       <div class="name">{{item.name}} {{item.tel}}</div>
-      <div class="adress">{{item.address}}</div>
+      <div class="shop">{{item.address}}</div>
       <div class="btn">
-        <div class="holder">
-          <input
-            type="radio"
-            :id="item.id"
-            name="radio"
-            class="radio"
-            :value="item.id"
-            v-model="radio"/>
-         <label :for="item.id"><i></i>默认地址</label>
-        </div>
-        <div class="btn_del" @click="delectMemberAddress(item.id)">删除</div>
         <div class="btn_edit" @click="selectAdress(item.id)">修改</div>
+        <div class="btn_del" @click="delectMemberAddress(item.id)">删除</div>
       </div>
     </div>
 
-    <router-link to="addAdress"><div class="adress_add">+ 新增地址</div></router-link>
+    <div class="shop_add" @click="goToList">+ 新增地址</div>
 
-    <div class="adress_footer" @click="UpdateAddress">确认选择</div>
   </div>
 </template>
 
 <script>
-  import '@/assets/detailstyle/adressList.css'
+  import '@/assets/detailstyle/shopList.css'
   import api from '@/api/api.js'
 
   export default {
@@ -76,41 +65,27 @@
           console.log(error)
         })
       },
-      //设置默认
-      UpdateAddress() {
-        api.UpdateIsSelectedAddress({
-          "app_key": "app_id_1",
-          token: this.$store.state.token,
-          "data": {
-            "id": this.radio,
-          },
-        }).then((res) => {
-          console.log(res);
-          this.memberAddressList();
-
-          let jumpUrl = window.sessionStorage.getItem('jumpUrl');
-          if(jumpUrl){
-            this.$router.push({
-              path: jumpUrl,
-            });
-            window.sessionStorage.removeItem('jumpUrl')
-          }else{
-            this.$router.push({
-              path: '/shopList',
-            })
-          }
-
-        }).catch((error) => {
-          console.log(error)
-        })
-      },
       selectAdress(id) {
+        window.sessionStorage.setItem('jumpUrl', this.$route.fullPath);
         this.$router.push({
           path: '/selectAdress',
           query: {
             id
           }
         })
+      },
+      saveJump(id){
+        this.$router.push({
+          path: '/goodsTicket',
+          query: {
+            id
+          }
+        })
+      },
+      // 跳转的时候插入sessionStorage
+      goToList() {
+        window.sessionStorage.setItem('jumpUrl', this.$route.fullPath);
+        this.$router.push('/addAdress')
       },
     }
   }

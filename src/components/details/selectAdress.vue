@@ -104,13 +104,13 @@
     mounted() {
 
       //获取经纬度
-      AlipayJSBridge.call('getCurrentLocation', { bizType: 'didi',requestType:0 },  (result) => {
-        if (result.error) {
-          alert(result.errorMessage);
-          return;
-        }
-        this.location = result
-      });
+      // AlipayJSBridge.call('getCurrentLocation', { bizType: 'didi',requestType:0 },  (result) => {
+      //   if (result.error) {
+      //     alert(result.errorMessage);
+      //     return;
+      //   }
+      //   this.location = result
+      // });
       // 存储token到本地
       var token = this.$route.query.token;
       window.localStorage.setItem('token', token);
@@ -244,9 +244,17 @@
             "commByUserInput": this.form.area,
           },
         }).then((res) => {
-          this.$router.push({
-            path: '/adressList'
-          })
+          let jumpUrl = window.sessionStorage.getItem('jumpUrl');
+          if(jumpUrl){
+            this.$router.push({
+              path: jumpUrl,
+            });
+            window.sessionStorage.removeItem('jumpUrl')
+          }else{
+            this.$router.push({
+              path: '/adressList',
+            })
+          }
         }).catch((error) => {
           console.log(error)
         })

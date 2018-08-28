@@ -37,6 +37,7 @@ import GoodsTicket        from '@/components/integralShopping/details/goods/good
 import  home              from '@/components/details/home.vue'
 import  details           from '@/components/details/details.vue'
 import  orders            from '@/components/details/orders.vue'
+import  shopList            from '@/components/details/shopList.vue'
 // import  records           from '@/components/details/records.vue'
 import  imgView           from '@/components/details/imgView.vue'
 import  qrCode            from '@/components/details/qrCode.vue'
@@ -69,6 +70,11 @@ const router =  new Router({
       path: '/adressList',
       name: 'adressList',
       component: adressList
+    },
+    {
+      path: '/shopList',
+      name: 'shopList',
+      component: shopList
     },
     {
       path: '/addAdress',
@@ -182,7 +188,7 @@ const router =  new Router({
     },
     {
       path:'/integralshoping/:id',
-      
+
       name:'IntegralShoping',
       component:IntegralShoping,
       meta:{

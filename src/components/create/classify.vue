@@ -125,12 +125,8 @@
     </div>
 
     <div class="classify_foot" v-show="!showUl&&comIsNull==='1'">您所在小区暂未开通生活垃圾回收服务</div>
-    <router-link to="/addAdress">
-      <div class="classify_foot" v-show="!showUl&&comIsNull==='0'">您暂未添加回收地址,请去添加地址</div>
-    </router-link>
-    <router-link to="/addAdress">
-      <div class="classify_foot" v-show="showUl&&comIsNull==='0'">您暂未添加回收地址,请去添加地址</div>
-    </router-link>
+    <div class="classify_foot" v-show="!showUl&&comIsNull==='0'" @click="goToList">您暂未添加回收地址,请去添加地址</div>
+    <div class="classify_foot" v-show="showUl&&comIsNull==='0'" @click="goToList">您暂未添加回收地址,请去添加地址</div>
 
     <!-- 弹窗 -->
     <div class="class_shadow" v-if="showShadow"></div>
@@ -189,6 +185,7 @@
         text: [],
         justTouch: '',
         information: {},
+        cId: '',
         selectProductList: window.sessionStorage.getItem('productList') ?
           JSON.parse(window.sessionStorage.getItem('productList')) : [],//上传成功要清掉
         priceTotal: window.sessionStorage.getItem('productTotal') ? JSON.parse(window.sessionStorage.getItem('productTotal')).priceTotal : 0,
@@ -220,11 +217,21 @@
       this.$store.dispatch('recyclingType', this.$route.params.id);
       this.getClassFiy();
       this.total();
-      this.changeRoute()
-
-      document.title = "垃圾回收分类"
+      this.changeRoute();
+      document.title = "垃圾回收分类";
+      this.memberAddress();
     },
     methods: {
+      memberAddress() {
+        //默认地址
+        api.MemberAddress({
+          "app_key": "app_id_1",
+        }).then((res) => {
+          this.cId = res.data.communityId;
+        }).catch((error) => {
+          console.log(error)
+        })
+      },
       changeRoute(){
         if(this.$route.params.id == "waste"){
           this.openUl(false,'waste')
@@ -250,7 +257,7 @@
             "app_key": "app_id_1",
             "data": {
               "id": this.isId,
-              "communityId": this.adressInfo ? this.adressInfo.communityId : '',
+              "communityId": this.cId ? this.cId : '',
               "title": value ? 'HOUSEHOLD' : 'DIGITAL'
             },
             token: this.token
@@ -277,7 +284,7 @@
               return e
             });
             this.noPriceList = res.data.ComCateNoPriceList.map(e => {
-              e.checked = false
+              e.checked = false;
               e.pName = this.menulist[0].name;
               e.pId = this.menulist[0].id;
               return e
@@ -309,7 +316,6 @@
       },
       getList(id, index, state) {
         // 恢复列表元素的滚动位置
-
         if (!state) {
           $(".linlei_list").animate({scrollTop: '0'}, 50);
           /*******************************/
@@ -328,8 +334,6 @@
           },
           token: this.token
         }).then((res) => {
-
-
           this.comIsNull = res.data.comIsNull;
           res.data.ComCatePriceList.map((items) => {
             items.pName = this.menulist[index].name;
@@ -404,7 +408,6 @@
         this.getClassFiy(!type);
       },
       openAlert() {
-
         if (this.selectProductList.length <= 0) {
           return
         }
@@ -463,7 +466,7 @@
         })
       },
       plus(item) {
-        item.name = item.name.replace("<br/>","")
+        item.name = item.name.replace("<br/>","");
         this.getAddressInfo(item);
         const haveIn = this.selectProductList.findIndex((el) => {
           return el.id === item.id
@@ -571,12 +574,11 @@
         }
       },
       addProductStart(e) {
-
         this.justTouch = 'true';
         let target = {
           startY: e.changedTouches[0].pageY,
           startX: e.changedTouches[0].pageX,
-        }
+        };
         return target;
 
       },
@@ -606,26 +608,21 @@
           this.addProduct(item, index);
         }
       },
-
-
       closeCar(data){
         if(data =='on' && this.selectProductList.length){
-
           $('linlei_list').css('overflow','hidden');
-
           if(this.selectProductList.length >=6){
             $('.carList')[0].style.height = '7.37rem';
           } else {
             $('.carList')[0].style.height = this.selectProductList.length * 1.15 + 'rem';
           }
-          this.isShowCar = data; 
+          this.isShowCar = data;
           $('.carMain').css({'background': 'rgba(0,0,0,.5)'});
           $('.carContent').animate({bottom: '0%'}, "fast", () => {
-
           })
         }else{
           $('linlei_list').css('overflow','initial');
-          $('.carMain').css({'background':'none'})
+          $('.carMain').css({'background':'none'});
           $('.carContent').animate({bottom: '-60%'}, "fast", () => {
             this.isShowCar = data;
           });
@@ -662,6 +659,11 @@
           $(".newNode").remove();
           this.plus(item)
         });
+      },
+      // 跳转的时候插入sessionStorage
+      goToList(){
+        window.sessionStorage.setItem('jumpUrl', this.$route.fullPath);
+        this.$router.push('/addAdress')
       },
     }
   }

@@ -43,7 +43,7 @@
     </ul>
     <div class="nextbutton" v-show="showBtn == 'enter' && showAddBtn == 'enter'"><router-link to="/uploadimage">下一步</router-link></div>
     <div class="nextbutton" v-show="showBtn == 'back' ||showAddBtn == 'back'"><router-link to="/home">返回首页</router-link></div>
-    <div class="nextcur" v-show="showAddBtn == 'back'"><router-link to="/addAdress">+ 新增小区地址</router-link></div>
+    <div class="nextcur" v-show="showAddBtn == 'back'" @click="goToList"> + 新增小区地址</div>
   </div>
 </template>
 <script>
@@ -104,6 +104,11 @@
             this.showAddBtn = 'back';
           }
         })
+      },
+      // 跳转的时候插入sessionStorage
+      goToList(){
+        window.sessionStorage.setItem('jumpUrl', this.$route.fullPath);
+        this.$router.push('/addAdress')
       }
     }
   }
