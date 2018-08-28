@@ -401,7 +401,7 @@
         })
       },
       openUl(type, household) {
-        this.$router.replace({path:`/classIfy/${household}`})
+        this.$router.replace({path:`/classIfy/${household}`});
         this.$store.dispatch('recyclingType', household);
         this.subList = '';
         this.showUl = type;

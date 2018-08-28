@@ -71,6 +71,8 @@
             } else {
               alert(res.msg)
             }
+          }else{
+            console.log(res);
           }
         }).catch((error) => {
           console.log(error)
@@ -87,18 +89,9 @@
         }).then((res) => {
           console.log(res);
           this.memberAddressList();
-
-          let jumpUrl = window.sessionStorage.getItem('jumpUrl');
-          if(jumpUrl){
-            this.$router.push({
-              path: jumpUrl,
-            });
-            window.sessionStorage.removeItem('jumpUrl')
-          }else{
-            this.$router.push({
-              path: '/shopList',
-            })
-          }
+          this.$router.push({
+            path: '/home',
+          })
 
         }).catch((error) => {
           console.log(error)

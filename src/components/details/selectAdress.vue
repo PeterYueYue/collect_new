@@ -98,19 +98,19 @@
         showCance2: false,
         showArea: true,
         areaValue: '',
-        location:{}
+        location: {}
       }
     },
     mounted() {
-
       //获取经纬度
-      // AlipayJSBridge.call('getCurrentLocation', { bizType: 'didi',requestType:0 },  (result) => {
-      //   if (result.error) {
-      //     alert(result.errorMessage);
-      //     return;
-      //   }
-      //   this.location = result
-      // });
+      AlipayJSBridge.call('getCurrentLocation', {bizType: 'didi', requestType: 0}, (result) => {
+        if (result.error) {
+          alert(result.errorMessage);
+          return;
+        }
+        this.location = result
+      });
+
       // 存储token到本地
       var token = this.$route.query.token;
       window.localStorage.setItem('token', token);
@@ -183,8 +183,8 @@
           "data": {
             "id": this.selectArea.id,
             "level": 1,
-            "latitude"  :this.location.latitude?this.location.latitude:'',
-            "longitude" :this.location.longitude?this.location.longitude:''
+            "latitude": this.location.latitude ? this.location.latitude : '',
+            "longitude": this.location.longitude ? this.location.longitude : ''
           },
           token: this.$store.state.token,
         }).then((res) => {
@@ -245,12 +245,12 @@
           },
         }).then((res) => {
           let jumpUrl = window.sessionStorage.getItem('jumpUrl');
-          if(jumpUrl){
+          if (jumpUrl) {
             this.$router.push({
               path: jumpUrl,
             });
             window.sessionStorage.removeItem('jumpUrl')
-          }else{
+          } else {
             this.$router.push({
               path: '/adressList',
             })

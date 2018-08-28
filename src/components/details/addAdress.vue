@@ -96,18 +96,18 @@
         showCance: false,
         showCance2: false,
         showStreet: true,
-        location:{}
+        location: {}
       }
     },
     mounted() {
       //获取经纬度
-      // AlipayJSBridge.call('getCurrentLocation', { bizType: 'didi',requestType:0 },  (result) => {
-      //   if (result.error) {
-      //     alert("请您开启定位功能");
-      //     return;
-      //   }
-      //   this.location = result
-      // });
+      AlipayJSBridge.call('getCurrentLocation', {bizType: 'didi', requestType: 0}, (result) => {
+        if (result.error) {
+          alert("请您开启定位功能");
+          return;
+        }
+        this.location = result
+      });
       this.getAreaList();
     },
     methods: {
@@ -135,7 +135,7 @@
           token: this.$store.state.token,
           "data": {
             "address": !this.selectCommunity ? (this.selectArea.name + this.selectStreet.name +
-              this.form.area + this.form.address):(this.selectCommunity === 'noVal' ? this.selectArea.name +
+            this.form.area + this.form.address) : (this.selectCommunity === 'noVal' ? this.selectArea.name +
               this.selectStreet.name +
               this.form.area + this.form.address : this.selectArea.name + this.selectStreet.name +
               this.selectCommunity.name + this.form.address),
@@ -151,12 +151,12 @@
         }).then((res) => {
           if (res.data == '保存地址成功') {
             let jumpUrl = window.sessionStorage.getItem('jumpUrl');
-            if(jumpUrl){
+            if (jumpUrl) {
               this.$router.push({
                 path: jumpUrl,
               });
               window.sessionStorage.removeItem('jumpUrl')
-            }else{
+            } else {
               this.$router.push({
                 path: '/adressList',
               })
@@ -189,10 +189,10 @@
         api.areaChildList({
           "app_key": "app_id_1",
           "data": {
-            "id"        : this.selectArea.id,
-            "level"     : 1,
-            "latitude"  :this.location.latitude?this.location.latitude:'',
-            "longitude" :this.location.longitude?this.location.longitude:''
+            "id": this.selectArea.id,
+            "level": 1,
+            "latitude": this.location.latitude ? this.location.latitude : '',
+            "longitude": this.location.longitude ? this.location.longitude : ''
 
 
           },
@@ -211,7 +211,7 @@
         this.selectCommunity = '';
         this.showStreet = true;
         this.communityList = this.streetList[this.selectStreet.index].community;
-        if(this.communityList.length === 0){
+        if (this.communityList.length === 0) {
           this.showStreet = false
         }
       },
