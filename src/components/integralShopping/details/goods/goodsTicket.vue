@@ -6,8 +6,7 @@
         <img :src=item.img alt="">
         <div class="titile">{{item.brand}}</div>
       </div>
-      <div @click=firm class="btn" v-if="dataList">{{item.bindingPoint}}kg能量兑换</div>
-      <div class="nobtn" v-if="!dataList">{{item.bindingPoint}}kg能量兑换</div>
+      <div @click=firm class="btn">{{item.bindingPoint}}kg能量兑换</div>
     </header>
     <!-- 兑换信息确认 -->
     <div class="content">
@@ -27,7 +26,8 @@
         <div>收货地址：上海市{{memberAddress.address}}</div>
       </div>
       <div v-if="!memberAddress" class="noAddress">您暂未添加收货地址...</div>
-      <div class="goChangeAdd" @click="goToList">前往修改我的收货信息</div>
+      <div class="goChangeAdd" @click="goToList" v-if="dataList">前往修改我的收货信息</div>
+      <div class="goChangeAdd" @click="goToList" v-if="!dataList">前往添加我的收货信息</div>
     </div>
     <!-- 底部 -->
     <footer class="foot">
