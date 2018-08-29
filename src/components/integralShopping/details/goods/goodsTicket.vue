@@ -80,13 +80,19 @@
           "token": this.token
         }).then(res => {
           if (res.code == 0) {
-            alert(res.data)
+            ap.hideLoading(()=>{
+              alert(res.data);
+            });
+            
           }
         })
       },
       firm() {
         //利用对话框返回的值 （true 或者 false）
         if (window.confirm("你确定兑换吗？") == true) {
+          ap.showLoading({
+            content: '请稍后',
+          });
           this.submit();
         }
         return
