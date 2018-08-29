@@ -109,3 +109,43 @@
   background-size: 100% 100%;
   margin-top: 0.05rem;
 }
+.goodsTicket .goods_info_shadow {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(51, 51, 51, 0.7);
+}
+.goodsTicket .goods_info_box {
+  width: 70%;
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 0.1rem;
+  font-size: 0.36rem;
+  text-align: center;
+}
+.goodsTicket .goods_info_box .remind {
+  width: 4.6rem;
+  margin: 0.5rem auto 0;
+  font-size: 0.32rem;
+  color: #333;
+  text-align: center;
+}
+.goodsTicket .goods_info_box .btn {
+  height: 0.9rem;
+  line-height: 0.9rem;
+  text-align: center;
+  font-size: 0.32rem;
+  color: #00a0e9;
+  border-top: 0.01rem #ddd solid;
+  margin-top: 0.3rem;
+}
+.goodsTicket .goods_info_box .btn.nocolor {
+  color: #666;
+  margin-top: 0;
+  margin-bottom: 0.1rem
+}

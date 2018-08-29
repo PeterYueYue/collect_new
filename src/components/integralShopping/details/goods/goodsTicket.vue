@@ -6,19 +6,15 @@
         <img :src=item.img alt="">
         <div class="titile">{{item.brand}}</div>
       </div>
-      <div @click=firm class="btn">{{item.bindingPoint}}kg能量兑换</div>
+      <div @click="firm" class="btn">{{item.bindingPoint}}kg能量兑换</div>
     </header>
     <!-- 兑换信息确认 -->
     <div class="content">
 
       <div class="message">
         <h3>兑换信息确认</h3>
-        <p>
-          温馨提示：兑换成功后，礼品我们会通过快递免费寄送上门哦！请您务必核实您的姓名，收货地址和联系电话。
-        </p>
-        <p>
-          若要更换收货信息，请前往我的小区地址库修改默认地址
-        </p>
+        <p>温馨提示：兑换成功后，礼品我们会通过快递免费寄送上门哦！请您务必核实您的姓名，收货地址和联系电话。</p>
+        <p>若要更换收货信息，请前往我的小区地址库修改默认地址</p>
       </div>
       <div v-if="memberAddress" class="userAddress">
         <div>姓名：{{memberAddress.name}}</div>
@@ -33,11 +29,16 @@
     <footer class="foot">
       <div @touchend=callphone class="telBox">
         <span class="icon"></span>
-        <span>
-                    如有疑问，请拨打服务热线：021-61984970
-                </span>
+        <span>如有疑问，请拨打服务热线：021-61984970</span>
       </div>
     </footer>
+    <!-- 弹窗 -->
+    <div class="goods_info_shadow" v-if="showShadow"></div>
+    <div class="goods_info_box" v-if="showInfo">
+      <div class="remind">{{dataInfo}}</div>
+      <router-link to="/shopList"><div class="btn">现在去添加</div></router-link>
+      <div class="btn nocolor" @click="closeAlert">我知道了</div>
+    </div>
   </div>
 </template>
 <script>
@@ -51,7 +52,10 @@
         item: '',
         memberAddress: '',
         show: true,
-        dataList: {}
+        dataList: {},
+        showShadow: false,
+        showInfo: false,
+        dataInfo: '',
       }
     },
     computed: mapGetters({
@@ -61,12 +65,10 @@
       if(this.$route.query.item){
         this.item = JSON.parse(this.$route.query.item);
       }
-
       this.getAddress();
       if(!this.item){
         this.item = JSON.parse(window.localStorage.getItem('item'))
       }
-       
     },
     methods: {
       submit() {
@@ -79,12 +81,17 @@
           },
           "token": this.token
         }).then(res => {
-          if (res.code == 0) {
+          if (res.data == '兑换成功') {
             ap.hideLoading(()=>{
               alert(res.data);
             });
-            
           }
+          if (res.data == '您暂未添加收货信息') {
+            this.dataInfo = res.data;
+            this.showShadow = true;
+            this.showInfo = true;
+          }
+
         })
       },
       firm() {
@@ -126,6 +133,10 @@
         this.item ='';
         this.$router.push('/shopList')
       },
+      closeAlert() {
+        this.showShadow = false;
+        this.showInfo = false;
+      }
     }
   }
 </script>
