@@ -45,25 +45,25 @@
         })
       },
       //删除
-      delectMemberAddress(id) {
-        api.DelectMemberAddress({
-          "app_key": "app_id_1",
-          token: this.$store.state.token,
-          "data": {
-            id: id,
-          },
-        }).then((res) => {
-          var r = confirm("确认删除该地址？");
-          if (r == true) {
-            if (res.status === 'sucess') {
-              this.memberAddressList();
-            } else {
-              alert(res.msg)
-            }
-          }
-        }).catch((error) => {
-          console.log(error)
-        })
+     delectMemberAddress(id) {
+        var r = confirm("确认删除该地址？");
+        if (r == true) {
+          api.DelectMemberAddress({
+            "app_key": "app_id_1",
+            token: this.$store.state.token,
+            "data": {
+              id: id,
+            },
+          }).then((res) => {
+              if (res.status === 'sucess') {
+                this.memberAddressList();
+              } else {
+                alert(res.msg)
+              }
+            }).catch((error) => {
+            console.log(error)
+          })
+        }
       },
       selectAdress(id) {
         window.sessionStorage.setItem('jumpUrl', this.$route.fullPath);

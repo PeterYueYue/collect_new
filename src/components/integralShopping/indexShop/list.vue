@@ -11,7 +11,7 @@
                 <img class="imageOfGgift fl" :src= item.img alt="">
                 <div class="giftInfo fl">
                     <h3>{{item.brand}}</h3>
-                    <div class="discountTicket"> <span>券</span>{{item.name}}</div>
+                    <div class="discountTicket"> <span v-if="$route.params.id == 'dic'">券</span>{{item.name}}</div>
                     <div class="expend">
                         <span class="number">{{item.bindingPoint}}</span>
                         <span>kg能量</span>

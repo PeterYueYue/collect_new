@@ -6,7 +6,8 @@
         <img :src=item.img alt="">
         <div class="titile">{{item.brand}}</div>
       </div>
-      <div @click=firm class="btn">{{item.bindingPoint}}kg能量兑换</div>
+      <div @click=firm class="btn" v-if="dataList">{{item.bindingPoint}}kg能量兑换</div>
+      <div class="nobtn" v-if="!dataList">{{item.bindingPoint}}kg能量兑换</div>
     </header>
     <!-- 兑换信息确认 -->
     <div class="content">

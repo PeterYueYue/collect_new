@@ -39,12 +39,13 @@
 
     <div class="nextbutton">
       <a v-if="isOk.timeIsOk == false && recyclingType == 'appliances'" class="dontEnter">提交订单</a>
-      <template v-if="isTitle === 'DIGITAL'">
+      <!-- <template v-if="isTitle === 'DIGITAL'">
         <a href="javascript:;" v-if="isOk.timeIsOk == true ||recyclingType !== 'appliances'" @click="completeAnOrder" class="yesEnter">提交订单</a>
       </template>
       <template v-if="isTitle === 'HOUSEHOLD'">
         <a href="javascript:;" v-if="isOk.timeIsOk == true ||recyclingType !== 'appliances'" @click="alertInfo" class="yesEnter">提交订单</a>
-      </template>
+      </template> -->
+      <a href="javascript:;" v-if="isOk.timeIsOk == true ||recyclingType !== 'appliances'" @click="completeAnOrder" class="yesEnter">提交订单</a>
     </div>
 
     <div class="information"><span>*</span>提交订单后将有工作人员可能和您电话沟通，请保持手机畅通</div>
@@ -76,12 +77,12 @@
       <div class="order_info_shadow_btn" @click="closeShadow">确定</div>
     </div>
 
-    <div class="order_info_box" v-if="showInfo">
+    <!-- <div class="order_info_box" v-if="showInfo">
       <div class="title">回收小贴士</div>
       <div class="remind">回收规则升级啦！您还可以将回收物送给辛苦上门的废品大叔，按回收物公斤重量换取绿色环保能量，在积分商城兑换您的权益。</div>
       <div class="btn" @click="completeAnOrder">我要卖钱</div>
       <div class="btn nocolor" @click="completeAnOrder">送给废品大叔</div>
-    </div>
+    </div> -->
 
   </div>
 </template>
@@ -256,11 +257,11 @@
           if (res.data === "SUCCESS") {
             this.showShadow = true;
             this.showSuccess = true;
-            this.showInfo = false;
+            // this.showInfo = false;
           } else {
             this.showShadow = true;
             this.showNul = true;
-            this.showInfo = false;
+            // this.showInfo = false;
           }
         }).catch((err) => {
           alert(err)

@@ -37,6 +37,19 @@
   border-radius: 0.05rem;
   margin: 0.25rem auto 0 auto;
 }
+.goodsTicket .head .nobtn {
+  width: 5.2rem;
+  height: 0.84rem;
+  background-color: #bfc5c8;
+  font-size: 0.36rem;
+  line-height: 0.84rem;
+  word-spacing: 0.02rem;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 0.05rem;
+  margin: 0.25rem auto 0 auto;
+}
 .goodsTicket .content {
   margin-top: 0.2rem;
   padding: 0.2rem;
