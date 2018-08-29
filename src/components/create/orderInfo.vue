@@ -39,13 +39,12 @@
 
     <div class="nextbutton">
       <a v-if="isOk.timeIsOk == false && recyclingType == 'appliances'" class="dontEnter">提交订单</a>
-      <!-- <template v-if="isTitle === 'DIGITAL'">
+      <template v-if="isTitle === 'DIGITAL'">
         <a href="javascript:;" v-if="isOk.timeIsOk == true ||recyclingType !== 'appliances'" @click="completeAnOrder" class="yesEnter">提交订单</a>
       </template>
       <template v-if="isTitle === 'HOUSEHOLD'">
         <a href="javascript:;" v-if="isOk.timeIsOk == true ||recyclingType !== 'appliances'" @click="alertInfo" class="yesEnter">提交订单</a>
-      </template> -->
-      <a href="javascript:;" v-if="isOk.timeIsOk == true ||recyclingType !== 'appliances'" @click="completeAnOrder" class="yesEnter">提交订单</a>
+      </template>
     </div>
 
     <div class="information"><span>*</span>提交订单后将有工作人员可能和您电话沟通，请保持手机畅通</div>
@@ -77,12 +76,12 @@
       <div class="order_info_shadow_btn" @click="closeShadow">确定</div>
     </div>
 
-    <!-- <div class="order_info_box" v-if="showInfo">
+    <div class="order_info_box" v-if="showInfo">
       <div class="title">回收小贴士</div>
       <div class="remind">回收规则升级啦！您还可以将回收物送给辛苦上门的废品大叔，按回收物公斤重量换取绿色环保能量，在积分商城兑换您的权益。</div>
-      <div class="btn" @click="completeAnOrder">我要卖钱</div>
-      <div class="btn nocolor" @click="completeAnOrder">送给废品大叔</div>
-    </div> -->
+      <div class="btn" @click="completeAnOrder('0')">我要卖钱</div>
+      <div class="btn nocolor" @click="completeAnOrder('1')">送给废品大叔</div>
+    </div>
 
   </div>
 </template>
@@ -114,6 +113,7 @@
         showSuccess: false,
         showInfo: false,
         idAndListList: [],
+        isCash: '0',
         garbagePrice: window.sessionStorage.getItem('productTotal') ? JSON.parse(window.sessionStorage.getItem('productTotal')).priceTotal : ''
       }
     },
@@ -203,7 +203,10 @@
         this.showShadow = true;
         this.showInfo = true;
       },
-      completeAnOrder() {
+      completeAnOrder(status) {
+        if (status) {
+          this.isCash = status
+        }
         this.isOk.timeIsOk = false;
         if(this.time == '请选择上门回收时间'){
           this.time = '';
@@ -247,6 +250,7 @@
             //垃圾回收新增的字段
             "idAndListList": this.idAndListList,
             "title": this.isTitle,
+            "isCash": this.isCash,
           }
         }).then((res) => {
           this.isOk.timeIsOk = true;
@@ -257,11 +261,11 @@
           if (res.data === "SUCCESS") {
             this.showShadow = true;
             this.showSuccess = true;
-            // this.showInfo = false;
+            this.showInfo = false;
           } else {
             this.showShadow = true;
             this.showNul = true;
-            // this.showInfo = false;
+            this.showInfo = false;
           }
         }).catch((err) => {
           alert(err)
