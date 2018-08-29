@@ -5,7 +5,7 @@
       <div class="shop">{{item.address}}</div>
       <div class="btn">
         <div class="btn_edit" @click.stop="selectAdress(item.id)">修改</div>
-        <div class="btn_del" @click.stop="delectMemberAddress(item.id)">删除</div>
+        <!-- <div class="btn_del" @click.stop="delectMemberAddress(item.id)">删除</div> -->
       </div>
     </div>
 
