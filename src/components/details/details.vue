@@ -81,8 +81,12 @@
           </div>
           <div class="zero">{{item.categoryName}}</div>
         </div>
-        <div class="trash_total_price" v-show="detailsList.status4Page=='COMPLETE'">成交价格<span><span style="float: left">￥</span>
+        <div class="trash_total_price" v-show="detailsList.status4Page=='COMPLETE'&&detailsList.isCash=='0'">成交价格
+          <span><span style="float: left">￥</span>
           {{listPrice.toFixed(2)}}</span></div>
+        <div class="trash_total_price" v-show="detailsList.status4Page=='COMPLETE'&&detailsList.isCash=='1'">成交价格<span
+          class="green">环保能量
+        </span></div>
         <div class="trash_total_price" v-show="detailsList.status4Page=='COMPLETE'">环保能量<span>{{listData.greenCount}}<span>kg</span></span></div>
       </div>
     </div>
