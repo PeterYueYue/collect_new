@@ -226,6 +226,7 @@
         //默认地址
         api.MemberAddress({
           "app_key": "app_id_1",
+          token: this.token
         }).then((res) => {
           this.cId = res.data.communityId;
         }).catch((error) => {
@@ -393,7 +394,7 @@
           "data": {
             "id": 1
           },
-          token: "token"
+          token: this.token
         }).then((res) => {
           this.$store.dispatch('changeAddress', res)
         }).catch((erro) => {
