@@ -99,7 +99,7 @@
   font-size: 0.3rem;
   padding: 0 0.3rem;
 }
-.details_wrap_time, .details_wrap_smtime .btn_cancel {
+.details_wrap_smtime .btn_cancel {
   position: absolute;
   top: 50%;
   right: 0.3rem;
