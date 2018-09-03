@@ -26,12 +26,10 @@
     </div>
 
     <div v-show="detailsList.title == 'DIGITAL'">
-      <div v-show="detailsList.level=='0'" class="details_wrap_smtime">上门时间：{{detailsList.arrivalTimePage}}</div>
-      <div class="details_wrap_time new"
-           v-if="detailsList.status4Page!=='COMPLETE'&&detailsList.status4Page!=='CANCEL'&&detailsList.status4Page!=='REJECTED'">
-        <span class="btn_cancel" @click="openOrders">取消订单</span>
+      <div class="details_wrap_smtime">
+        上门时间：{{detailsList.arrivalTimePage}}
+        <span class="btn_cancel" @click="openOrders" v-if="detailsList.status4Page!=='COMPLETE'&&detailsList.status4Page!=='CANCEL'&&detailsList.status4Page!=='REJECTED'">取消订单</span>
       </div>
-      <div class="details_wrap_time" v-else></div>
     </div>
 
     <div v-show="detailsList.title == 'HOUSEHOLD'">
@@ -49,7 +47,7 @@
       <div class="answer">{{detailsList.cancelReason}}</div>
     </div>
     <!-- 已完成，已派单 -->
-    <div class="details_wrap_reason" v-show="detailsList.status4Page=='COMPLETE'||detailsList.status4Page=='ALREADY'">
+    <div class="details_wrap_reason" v-show="detailsList.status4Page=='COMPLETE'||detailsList.status4Page=='ALREADY'||detailsList.status4Page=='distribute'">
       <div class="why">{{detailsList.recyclers?detailsList.recyclers.name:''}}
         <span class="btn_view" @click="openEvaluation" v-show="detailsList.status4Page=='COMPLETE'">{{detailsList.isEvaluated == '1' ? '查看评价' : '评价'}}</span>
       </div>
@@ -57,10 +55,10 @@
         .tel:''}}</a>
     </div>
     <!--  已接单 -->
-    <div class="details_wrap_reason" v-show="detailsList.status4Page=='distribute'">
-      <div class="why">派单详情</div>
-      <div class="answer">本订单已由爱回收有限公司接单，工作人员将在1-3个工作日内与您联系，请保持电话畅通</div>
-    </div>
+    <!--<div class="details_wrap_reason" v-show="detailsList.status4Page=='distribute'">-->
+      <!--<div class="why">派单详情</div>-->
+      <!--<div class="answer">本订单已由爱回收有限公司接单，工作人员将在1-3个工作日内与您联系，请保持电话畅通</div>-->
+    <!--</div>-->
     <div class="details_wrap_info">
       <div class="title">询价信息</div>
       <div class="picture">
