@@ -167,7 +167,7 @@
       document.setTitle('垃圾分类回收');
       // 本地测试打开
      // var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24U65CVPQU32QS6WCOW4OQQ3AURAT25OYS7KWASJZYQ5IPQBJGAUZRTFGRL7NE5YTTFEAYERKA4VYKTBVI6YOUHJBB3MKI3NUQ6SBCWQ2DZOS37DA2PD2UCMAINFFD7GYHH56ITBFEOMX4NET5ZWTRXGAWNDVVIJI4SBBITJN4JPMKM6VT672AGVZ27CFHSKZU3MORRA2KIA4TYUBCSEFKOYVBIRGZV6Q2VXPXQTUQ'
-     // this.$store.dispatch('getToken', tk)
+     // this.$store.dispatch('getToken', tk);
 
       if(!this.token){
       // 用户进来判断是否要授权；
@@ -274,7 +274,7 @@
       },
       endHandle(e){
         // 释放时自动贴到最近位置
-        this.floatbutton.css('transition','all 0.3s')
+        this.floatbutton.css('transition','all 0.3s');
         if((parseInt(this.floatbutton.css('top'))+parseInt(this.floatbutton[0].clientHeight)/2)<=(this.screenHeight/2)){//在上半部分
           if((parseInt(this.floatbutton.css('left'))+parseInt(this.floatbutton[0].clientWidth)/2)<=(this.screenWidth/2)){//在左半部分
             if((parseInt(this.floatbutton.css('top'))+parseInt(this.floatbutton[0].clientHeight)/2)<=(parseInt(this.floatbutton.css('left'))+parseInt(this.floatbutton[0].clientWidth)/2)){//靠近上方
