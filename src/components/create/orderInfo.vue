@@ -67,7 +67,7 @@
     <!-- 弹窗 -->
     <div class="order_info_shadow" v-if="showShadow"></div>
     <div class="order_info_shadow_box" v-if="showNul">
-      <div>你所选的小区没有企业</div>
+      <div>{{info}}</div>
       <div class="order_info_shadow_btn" @click="closeShadow">确定</div>
     </div>
 
@@ -98,6 +98,7 @@
         time:'请选择上门回收时间',
         show: false,
         infoTm: '',
+        info: '',
         infotime: '',
         isOk: {
           timeIsOk: false
@@ -253,6 +254,7 @@
             "isCash": this.isCash,
           }
         }).then((res) => {
+          this.info = res.data;
           this.isOk.timeIsOk = true;
           this.$store.dispatch('clear');
           window.sessionStorage.removeItem('productList');
