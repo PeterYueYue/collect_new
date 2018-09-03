@@ -240,8 +240,8 @@
       startHandle(e){
         this.screenWidth=document.documentElement.clientWidth;
         this.screenHeight = document.documentElement.clientHeight;
-        this.floatbutton = $('.floatbutton')
-        this.floatbutton.css('transition','all 0s')
+        this.floatbutton = $('.floatbutton');
+        this.floatbutton.css('transition','all 0s');
         if(!e){ e = window.event;}
         this.posX=e.touches[0].pageX-parseInt(this.floatbutton.css('left'));
         this.posY=e.touches[0].pageY-parseInt(this.floatbutton.css('top'));
@@ -341,7 +341,7 @@
             })
           }
           if (res.data.mobile == '1') {
-            this.$store.dispatch('getToken', res.data.token)
+            this.$store.dispatch('getToken', res.data.token);
 
             window.localStorage.setItem('token', res.data.token);
             this.getData(res.data.token);
@@ -353,7 +353,7 @@
         api.GetUserToken({
           "data": {"authCode": ayth_code}
         }).then(res => {
-          this.$store.dispatch('getToken', res.data.token)
+          this.$store.dispatch('getToken', res.data.token);
           this.$router.push({ path: '/integralshoping/dic'})
         })
       }
@@ -369,7 +369,7 @@
     width: 1.2rem;
     height:1.1rem;
     z-index: 100000;
-    transition: all 0 ;
+    transition: all 0s;
   }
   .van-pull-refresh {
     width: 100%;
