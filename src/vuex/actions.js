@@ -68,7 +68,6 @@ export var recyclingType = ({commit}, data) => {   //回收类型
 }
 
 
-
 //---------------------------------------------------------------------------------------------------------------
 
 
@@ -78,4 +77,8 @@ export var getAddressInfo = ({commit}, data) => {   //获取地址信息
 
 export var getIsTitle = ({commit}, data) => {   //获取分类title
   commit(types.GetIsTitle, data)
+}
+
+export var getCityId = ({commit}, data) => {   //获取城市ID
+  commit(types.GetCityId, data)
 }

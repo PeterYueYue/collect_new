@@ -8,7 +8,7 @@
         <bannebox class="home_wrap_banner"></bannebox>
         <!-- 有订单时 -->
         <div v-if="showList" style="padding-bottom: 1.7rem">
-          <div class="home_address" v-if="!adressList"><img src="@/assets/icon_add_logo.png" alt=""                                                           class="icon_add_logo_new">回收地址
+          <div class="home_address" v-if="!adressList"><img src="@/assets/icon_add_logo.png" alt="" class="icon_add_logo_new">回收地址
             <router-link to="addAdress"><div class="add">添加回收地址</div></router-link>
             <img src="@/assets/icon_right.png" alt="">
           </div>
@@ -161,7 +161,7 @@
       }
     },
     computed: mapGetters({
-      token: "token"
+      token: "token",
     }),
     mounted() {
       document.setTitle('垃圾分类回收');
@@ -319,18 +319,21 @@
           if(state == 'product'){
             this.goIntegral(ayth_code)
           }else{
-            this.goHome(ayth_code);
+            this.goHome(ayth_code,state);
           }
 
         }
       },
-      goHome(ayth_code){
+      goHome(ayth_code,state){
         api.isAuthorization({
           "app_key": "app_id_1",
-          "data": { "authCode": ayth_code }
+          "data": {
+            "authCode": ayth_code,
+            "state": state,
+          }
         }).then(res => {
+          this.$store.dispatch('getCityId',res.data.cityId);
           if(res.data == "用户授权解析失败"){
-
             AlipayJSBridge.call('popWindow');
             return;
           }

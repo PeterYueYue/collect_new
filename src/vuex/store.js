@@ -137,6 +137,9 @@ export default new Vuex.Store({
     RecyclingType(state,data) {
       this.state.recyclingType = data;
     },
+    GetCityId(state, data) {  // 获取城市ID
+      this.state.cityId = data
+    },
 
   },
 

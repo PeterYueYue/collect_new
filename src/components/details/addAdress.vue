@@ -75,6 +75,7 @@
 <script>
   import '@/assets/detailstyle/addAdress.css'
   import api from '@/api/api.js'
+  import {mapGetters} from 'vuex'
 
   export default {
     data() {
@@ -99,6 +100,9 @@
         location: {}
       }
     },
+    computed: mapGetters({
+      cityId: "cityId",
+    }),
     mounted() {
       //获取经纬度
       AlipayJSBridge.call('getCurrentLocation', {bizType: 'didi', requestType: 0}, (result) => {
@@ -147,6 +151,7 @@
             "communityId": this.selectCommunity.id,
             "streetId": this.selectStreet.id,
             "commByUserInput": this.form.area,
+            "cityId": this.cityId,
           },
         }).then((res) => {
           if (res.data == '保存地址成功') {
@@ -173,7 +178,8 @@
         api.getAreaList({
           "app_key": "app_id_1",
           "data": {
-            "level": 0
+            "level": 0,
+            "cityId": this.cityId,
           },
           token: this.$store.state.token,
         }).then((res) => {
