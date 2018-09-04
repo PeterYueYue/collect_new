@@ -115,7 +115,7 @@
         <div class="footer_circle">上门<br/>回收</div>
       </router-link>
       <router-link to="/integralshoping/dic">
-        <div class="footer_left"><img src="@/assets/icon_foot.png" alt="" class="icon"><span>环保能量</span></div>
+        <div class="footer_left"><img src="@/assets/icon_foot.png" alt="" class="icon"><span>环保商城</span></div>
       </router-link>
       <router-link to="/orders">
         <div class="footer_right"><img src="@/assets/icon_record.png" alt="" class="icon"><span>订单记录</span></div>

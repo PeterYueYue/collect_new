@@ -7,7 +7,7 @@
                     <img src="../img/banner2.png" alt="">
                 </div>
                 <strong>
-                    累计回收环保能量
+                    累计获得环保能量
                 </strong>
                 <div class="quantity">{{totalQuantity}}kg</div>
                 <div  @click="showShadow = true " class="strategy">
@@ -16,29 +16,29 @@
                 </div>
             </div>
             <div class="useEnvironmental">
-                <span class="enviromental">可用环保能量</span>
+                <span class="enviromental">可用于兑换的环保能量</span>
                 <span class="digit">{{availableQuantity}}kg</span>
             </div>
         </div>
         <!-- 主体 -->
         <nav class="nav">
-            <div  
-            v-bind:class="{ active: isActive == 'dic' }" 
+            <div
+            v-bind:class="{ active: isActive == 'dic' }"
             @touchend = getDisData()
             >优惠兑换</div>
-            
+
             <span class="line"></span>
-            <div 
+            <div
             v-bind:class="{ active: isActive == 'goods' }"
             @touchend = getGoodsData()
             >实物兑换</div>
         </nav>
         <!-- 列表 -->
-        <shop-list  v-bind:list="list" 
+        <shop-list  v-bind:list="list"
                     v-bind:isActive="isActive"
                     v-bind:memberAddress="memberAddress"
          ></shop-list>
-        
+
         <!-- 弹窗 -->
         <div class="records_shadow" v-if="showShadow" ></div>
         <div class="records_shadow_box"  v-if="showShadow" >
@@ -55,7 +55,7 @@
 <script>
 import './shopping.css';
 import api from '../../../api/api.js';
-import ShopList from './list'; 
+import ShopList from './list';
 import {mapGetters} from 'vuex';
 export default {
     components:{
@@ -139,7 +139,7 @@ export default {
                 this.getGoodsData('aa')
             }
         }
-       
+
     }
 
 }
