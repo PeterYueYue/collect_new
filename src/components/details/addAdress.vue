@@ -154,6 +154,7 @@
             "cityId": this.cityId,
           },
         }).then((res) => {
+          console.log(res.data)
           if (res.data == '保存地址成功') {
             let jumpUrl = window.sessionStorage.getItem('jumpUrl');
             if (jumpUrl) {
@@ -175,6 +176,7 @@
         })
       },
       getAreaList() {
+      
         api.getAreaList({
           "app_key": "app_id_1",
           "data": {

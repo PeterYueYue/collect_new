@@ -16,6 +16,7 @@
 
 <script>
   import '@/assets/detailstyle/shopList.css'
+  import {mapGetters} from 'vuex';
   import api from '@/api/api.js'
 
   export default {
@@ -25,6 +26,9 @@
         addressList: {},
       }
     },
+    computed: mapGetters({
+      cityId: "cityId",
+    }),
     mounted() {
       //存储token到本地
       var token = this.$route.query.token;
@@ -37,6 +41,9 @@
         api.MemberAddressList({
           "app_key": "app_id_1",
           token: this.$store.state.token,
+          "data":{
+            "cityId": this.cityId,
+          } 
         }).then((res) => {
           this.addressList = res.data;
           this.radio = this.addressList[0].id

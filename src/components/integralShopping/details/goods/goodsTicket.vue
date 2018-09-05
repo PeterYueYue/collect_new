@@ -19,7 +19,7 @@
       <div v-if="memberAddress" class="userAddress">
         <div>姓名：{{memberAddress.name}}</div>
         <div>手机号码：{{memberAddress.tel}}</div>
-        <div>收货地址：上海市{{memberAddress.address}}</div>
+        <div>收货地址：{{memberAddress.address}}</div>
       </div>
       <div v-if="!memberAddress" class="noAddress">您暂未添加收货地址...</div>
       <div class="goChangeAdd" @click="goToList" v-if="dataList">前往修改我的收货信息</div>
@@ -59,7 +59,8 @@
       }
     },
     computed: mapGetters({
-      token: "token"
+      token: "token",
+      cityId:'cityId'
     }),
     mounted() {
       if(this.$route.query.item){
@@ -112,8 +113,9 @@
         api.MAddress({
           "data": {
             "id": this.$route.query.id,
+            'cityId':this.cityId,
           },
-          "token": this.token,
+          "token": this.token,  
         }).then((res) => {
           this.dataList = res.data;
           if (res.data.communityId == 0) {

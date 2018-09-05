@@ -91,7 +91,7 @@
       useraddress: 'useraddress',
       addRessId: 'addRessId',
       token: 'token',
-
+      cityId:'cityId'
     }),
     created() {
       this.itemID = this.$store.state.msItemId;
@@ -99,7 +99,10 @@
       this.id = id;
       api.MemberAddress({
         "app_key": "app_id_1",
-        token: this.token
+        token: this.token,
+        "data":{
+          "cityId": this.cityId,
+        }
       }).then((res) => {
         // 判断地址栏的默认信息以及修改后的显示逻辑
         if (this.useraddress.address) {

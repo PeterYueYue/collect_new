@@ -196,7 +196,7 @@
       }
     },
     computed: {
-      ...mapGetters(['addRessId', 'adressInfo', 'token', 'recyclingType']),
+      ...mapGetters(['addRessId', 'adressInfo', 'token', 'recyclingType','cityId']),
     },
     watch: {
       recyclingType(newValue, oldValue) {
@@ -226,7 +226,10 @@
         //默认地址
         api.MemberAddress({
           "app_key": "app_id_1",
-          token: this.token
+          token: this.token,
+          "data":{
+            "cityId": this.cityId,
+          }
         }).then((res) => {
           this.cId = res.data.communityId;
         }).catch((error) => {
@@ -392,9 +395,10 @@
         api.MemberAddress({
           "app_key": "app_id_1",
           "data": {
-            "id": 1
+            "id": 1,
+            "cityId": this.cityId,
           },
-          token: this.token
+          token: this.token,
         }).then((res) => {
           this.$store.dispatch('changeAddress', res)
         }).catch((erro) => {

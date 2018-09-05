@@ -162,12 +162,13 @@
     },
     computed: mapGetters({
       token: "token",
+      cityId:"cityId"
     }),
     mounted() {
       document.setTitle('垃圾分类回收');
       // 本地测试打开
-     // var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24U65CVPQU32QS6WCOW4OQQ3AURAT25OYS7KWASJZYQ5IPQBJGAUZRTFGRL7NE5YTTFEAYERKA4VYKTBVI6YOUHJBB3MKI3NUQ6SBCWQ2DZOS37DA2PD2UCMAINFFD7GYHH56ITBFEOMX4NET5ZWTRXGAWNDVVIJI4SBBITJN4JPMKM6VT672AGVZ27CFHSKZU3MORRA2KIA4TYUBCSEFKOYVBIRGZV6Q2VXPXQTUQ'
-     // this.$store.dispatch('getToken', tk);
+    //  var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24U65CVPQU32QS6WCOW4OQQ3AURAT25OYS7KWASJZYQ5IPQBJGAUZRTFGRL7NE5YTTFEAYERKA4VYKTBVI6YOUHJBB3MKI3NUQ6SBCWQ2DZOS37DA2PD2UCMAINFFD7GYHH56ITBFEOMX4NET5ZWTRXGAWNDVVIJI4SBBITJN4JPMKM6VT672AGVZ27CFHSKZU3MORRA2KIA4TYUBCSEFKOYVBIRGZV6Q2VXPXQTUQ'
+    //  this.$store.dispatch('getToken', tk);
 
       if(!this.token){
       // 用户进来判断是否要授权；
@@ -192,7 +193,10 @@
         //默认地址
         api.MemberAddress({
           "app_key": "app_id_1",
-          token: this.token?this.token:token
+          token: this.token?this.token:token,
+          "data":{
+            "cityId": this.cityId,
+          }
         }).then((res) => {
           this.$store.dispatch('getAddressInfo',res.data);
           this.adressList = res.data;
@@ -308,7 +312,7 @@
       agreeOrNot(){
         if (!this.$route.query.token) {
           //本地
-          // let str = 'http://alipay.mayishoubei.com/index.htm?app_id=2017022805948218&source=alipay_wallet&scope=auth_base,auth_user,auth_ecard&state=""&auth_code=190cec6edec44d65a3fa182a80cfYF66';
+          // let str = 'http://alipay.mayishoubei.com/index.htm?app_id=2017022805948218&source=alipay_wallet&scope=auth_base,auth_user,auth_ecard&state=021-index&auth_code=f3e97275c7a8455ab7bb529d1f4cTX66';
           //正式
           let str = window.location.href;
           str = str +'#/';

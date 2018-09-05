@@ -224,12 +224,13 @@
             "arrivalPeriod": this.infoTm,
             "linkMan": this.adressInfo.name,
             "tel": this.adressInfo.tel,
+            "cityId":this.cityId,
             "orderItemBean": {
               "categoryAttrId": 0,
               "orderId": 0,
               "categoryAttrOppId": 0,
               "categoryAttrOppIds": this.categoryAttrOppIds,
-              "categoryId": 0
+              "categoryId": 0,             
             },
             "level": "0",
             "orderPic": {

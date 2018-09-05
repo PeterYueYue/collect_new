@@ -23,5 +23,6 @@ export var adressInfo           = state => state.adressInfo;
 export var isTitle              = state => state.isTitle;
 export var amount               = state => state.amount;
 export var recyclingType        = state => state.recyclingType;
+export var cityId               = state => state.cityId;
 
 

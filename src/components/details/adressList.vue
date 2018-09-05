@@ -27,6 +27,7 @@
 
 <script>
   import '@/assets/detailstyle/adressList.css'
+  import {mapGetters} from 'vuex';
   import api from '@/api/api.js'
 
   export default {
@@ -42,12 +43,18 @@
       window.localStorage.setItem('token', token);
       this.memberAddressList();
     },
+    computed: mapGetters({
+      cityId: "cityId",
+    }),
     methods: {
       //地址列表
       memberAddressList() {
         api.MemberAddressList({
           "app_key": "app_id_1",
           token: this.$store.state.token,
+          "data":{
+            "cityId": this.cityId,
+          }  
         }).then((res) => {
           this.addressList = res.data;
           this.radio = this.addressList[0].id
@@ -85,7 +92,6 @@
             "id": this.radio,
           },
         }).then((res) => {
-          console.log(res);
           this.memberAddressList();
           this.$router.push({
             path: '/home',

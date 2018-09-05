@@ -65,11 +65,15 @@
       token: 'token',
       classID:'classID',
       adressInfo: 'adressInfo',
+      cityId:'cityId'
     }),
     created() {
       api.MemberAddress({
           "app_key": "app_id_1",
-          token: this.token
+          token: this.token,
+          "data":{
+            "cityId": this.cityId,
+          }
         }).then((res) => {
           this.$store.dispatch('getAddressInfo',res.data);
           this.isFuturePrtices();
@@ -92,8 +96,9 @@
             "categoryAttrOptionPrices": this.statisticsPrice,
             "categoryId": this.addRessId.id,
             "communityId": this.adressInfo?this.adressInfo.communityId:'',
+            "cityId":this.cityId,
           },
-          token: this.token
+          token: this.token,
         })
         .then((res) => {
           this.$store.dispatch('changeFuturePrice', res.data);

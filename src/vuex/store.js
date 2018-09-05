@@ -139,6 +139,7 @@ export default new Vuex.Store({
     },
     GetCityId(state, data) {  // 获取城市ID
       this.state.cityId = data
+      console.log(this.state.cityId)
     },
 
   },
