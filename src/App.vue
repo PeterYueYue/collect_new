@@ -53,9 +53,7 @@
 </style>
 <template>
   <div style="height:100%;" id="app">
-    <transition :name="transitionName" >
-      <router-view />
-    </transition>
+    <router-view />
   </div>
 </template>
 
