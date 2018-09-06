@@ -110,7 +110,7 @@
 }
 .integralShopping .nav .line {
   margin-top: 0.24rem;
-  width: 0.04rem;
+  width: 0.01rem;
   height: 0.4rem;
   background-color: #c6c6c6;
 }
@@ -133,7 +133,7 @@
   width: 5.2rem;
   padding-left: 0.3rem;
 }
-.integralShopping .content .item .giftInfo h3 {
+.integralShopping .content .item .giftInfo .he3 {
   width: 100%;
   line-height: 0.56rem;
   font-size: 0.28rem;
