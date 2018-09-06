@@ -81,7 +81,8 @@ export default {
         this.routerchange();
     },
     computed:mapGetters({
-        token:"token"
+        token:"token",
+        cityId:'cityId'
     }),
     methods:{
         getRecords(){
@@ -101,7 +102,10 @@ export default {
             if(a){
                 this.list ='';
                 api.GetIntegralList({
-                    "token":this.token
+                    "token":this.token,
+                    "data":{
+                        "cityId":this.cityId
+                    }
                 }).then( res => {
                     // this.$router.push({path:'/integralshoping/dic'});
                     this.list = res.data;
@@ -116,7 +120,10 @@ export default {
             if(a){
                 this.list ='';
                 api.GetGoodsList({
-                    "token":this.token
+                    "token":this.token,
+                    "data":{
+                        "cityId":this.cityId
+                    }
                 }).then(res =>{
                     this.list = res.data.product;
                     this.isActive = "goods"

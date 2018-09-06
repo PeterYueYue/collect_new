@@ -90,6 +90,7 @@
           token: this.$store.state.token,
           "data": {
             "id": this.radio,
+            "cityId":this.cityId
           },
         }).then((res) => {
           this.memberAddressList();

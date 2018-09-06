@@ -167,8 +167,8 @@
     mounted() {
       document.setTitle('垃圾分类回收');
       // 本地测试打开
-     // var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24UOODHPI53MAWVO5DRGCMKQZUDCP2UWQABBECZJDP6SNISTCUUGCSIARFOLWPBWBEQISERTI25DIPYBVFFL5LEXHVZFYJAQCI35TECJXUNLZIX25ACREGHGTENEHYMJARM33EREZIOOXW3MVYHLLEA5Q2CWJCATPE47ETWQ65LA7JH53VT2H3RGKPSI33E4YYH4S5BXY4MQXIVLQKLDQ67GE4HAPM6TMIYKJPODIA'
-     // this.$store.dispatch('getToken', tk);
+    //  var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24U65CVPQU32QS6WCOW4OQQ3AURAT25OYS7KWASJZYQ5IPQBJGAUZRTFGRL7NE5YTTFEAYERKA4VYKTBVI6YOUHJBB3MKI3NUQ6SBCWQ2DZOS37DA2PD2UCMAINFFD7GYHH56ITBFEOMX4NET5ZWTRXGAWNDVVIJI4SBBITJN4JPMKM6VT672AGVZ27CFHSKZU3MORRA2KIA4TYUBCSEFKOYVBIRGZV6Q2VXPXQTUQ'
+    //  this.$store.dispatch('getToken', tk);
 
       if(!this.token){
       // 用户进来判断是否要授权；
@@ -319,7 +319,7 @@
           let str1 = str.substring((str.indexOf('?') + 1), str.indexOf('#'));
           let ayth_code = this.qs.parse(str1).auth_code;
           let state = this.qs.parse(str1).state;
-
+          
           if(state == 'product'){
             this.goIntegral(ayth_code)
           }else{
@@ -329,39 +329,70 @@
         }
       },
       goHome(ayth_code,state){
-        api.isAuthorization({
-          "app_key": "app_id_1",
-          "data": {
-            "authCode": ayth_code,
-            "state": state,
-          }
-        }).then(res => {
-          this.$store.dispatch('getCityId',res.data.cityId);
-          if(res.data == "用户授权解析失败"){
-            AlipayJSBridge.call('popWindow');
-            return;
-          }
-          if (res.data.mobile == '0') {
-            this.$router.push({
-              path: '/verifiaction',
-              query: { id: res.data.id }
-            })
-          }
-          if (res.data.mobile == '1') {
-            this.$store.dispatch('getToken', res.data.token);
+        var city='上海市';
+        var pro = new Promise(function(resolve, reject){
+            AlipayJSBridge.call('getCurrentLocation', {bizType: 'didi', requestType: 1}, (result) => {
+              if (result.error) {
+                alert("请您开启定位功能");
+                return;
+              }
+              city = result.city?result.city:result.province?result.province:'上海市' ;
+              resolve();
+            });
+        }).then(()=>{
+            api.isAuthorization({
+              "app_key": "app_id_1",
+              "data": {
+                "authCode": ayth_code,
+                "state": state,
+                "cityName":city
+              }
+            }).then(res => {
+              this.$store.dispatch('getCityId',res.data.cityId);
+              if(res.data == "用户授权解析失败"){
+                AlipayJSBridge.call('popWindow');
+                return;
+              }
+              if (res.data.mobile == '0') {
+                this.$router.push({
+                  path: '/verifiaction',
+                  query: { id: res.data.id }
+                })
+              }
+              if (res.data.mobile == '1') {
+                this.$store.dispatch('getToken', res.data.token);
 
-            window.localStorage.setItem('token', res.data.token);
-            this.getData(res.data.token);
-            this.memberAddress(res.data.token);
-          }
+                window.localStorage.setItem('token', res.data.token);
+                this.getData(res.data.token);
+                this.memberAddress(res.data.token);
+              }
+            })
+
         })
+        
       },
       goIntegral(ayth_code){
-        api.GetUserToken({
-          "data": {"authCode": ayth_code}
-        }).then(res => {
-          this.$store.dispatch('getToken', res.data.token);
-          this.$router.push({ path: '/integralshoping/dic'})
+        var city='上海市'
+        var pro = new Promise(function(resolve, reject){
+          AlipayJSBridge.call('getCurrentLocation', {bizType: 'didi', requestType: 1}, (result) => {
+            if (result.error) {
+              alert("请您开启定位功能");
+              return;
+            }
+            city = result.city?result.city:result.province?result.province:'上海市' ;
+            resolve();
+          });
+        }).then(() => {
+            api.GetUserToken({
+              "data": {
+                "authCode": ayth_code,
+                "cityName":city
+                }
+            }).then(res => {
+              this.$store.dispatch('getToken', res.data.token);
+               this.$store.dispatch('getCityId',res.data.cityId);
+              this.$router.push({ path: '/integralshoping/dic'})
+            })
         })
       }
     },
@@ -407,5 +438,9 @@
     height: 100%;
   }
 </style>
+
+
+
+
 
 
