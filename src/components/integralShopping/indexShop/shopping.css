@@ -102,6 +102,7 @@
   width: 49%;
   text-align: center;
   color: #333333;
+  font-size: 0.3rem;
 }
 .integralShopping .nav .active {
   color: #00a0e9;
@@ -142,12 +143,14 @@
   white-space: nowrap;
   overflow: hidden;
   margin-top: 0.08rem;
+  color: #000;
 }
 .integralShopping .content .item .giftInfo .discountTicket {
   font-size: 0.26rem;
   line-height: 0.42rem;
   text-align: left;
   overflow: hidden;
+  color: #666;
 }
 .integralShopping .content .item .giftInfo .discountTicket span {
   display: inline-block;
@@ -168,6 +171,7 @@
   line-height: 0.47rem;
   text-align: left;
   position: relative;
+  color: #666;
 }
 .integralShopping .content .item .giftInfo .expend .number {
   color: #fd4364;
