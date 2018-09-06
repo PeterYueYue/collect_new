@@ -338,7 +338,7 @@
           "app_key": "app_id_1",
           "data": {
             "id": this.isId,
-            "communityId": this.adressInfo ? this.adressInfo.communityId : '',
+            "communityId": this.cId ? this.cId : '',
           },
           token: this.token
         }).then((res) => {
