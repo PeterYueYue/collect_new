@@ -84,7 +84,7 @@
   line-height: 0.66rem;
   font-size: 0.28rem;
   font-family: PingFang-SC-Medium;
-  right: 0.2rem;
+  right: 0.34rem;
   top: 0;
 }
 .integralShopping .nav {
@@ -102,10 +102,10 @@
   width: 49%;
   text-align: center;
   color: #333333;
-  font-weight: bold;
 }
 .integralShopping .nav .active {
   color: #00a0e9;
+  font-weight: bold;
 }
 .integralShopping .nav .line {
   margin-top: 0.24rem;
@@ -130,6 +130,7 @@
 }
 .integralShopping .content .item .giftInfo {
   width: 5.2rem;
+  padding-left: 0.3rem;
 }
 .integralShopping .content .item .giftInfo h3 {
   width: 100%;
@@ -140,6 +141,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  margin-top: 0.08rem;
 }
 .integralShopping .content .item .giftInfo .discountTicket {
   font-size: 0.26rem;
@@ -165,6 +167,7 @@
   font-size: 0.22rem;
   line-height: 0.47rem;
   text-align: left;
+  position: relative;
 }
 .integralShopping .content .item .giftInfo .expend .number {
   color: #fd4364;
@@ -175,8 +178,8 @@
   color: #666666;
   font-size: 0.24rem;
   position: absolute;
-  bottom: 0.1rem;
-  right: 0.34rem;
+  bottom: 0;
+  right: 0;
 }
 .records_shadow {
   position: fixed;
