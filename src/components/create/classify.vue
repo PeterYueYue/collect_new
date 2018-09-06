@@ -215,14 +215,17 @@
     },
     mounted() {
       this.$store.dispatch('recyclingType', this.$route.params.id);
-      this.getClassFiy();
       this.total();
       this.changeRoute();
       document.title = "垃圾回收分类";
-      this.memberAddress();
+      var addRess = new Promise((resolve,reject)=>{
+        this.memberAddress(resolve);
+      }).then(() => {
+        this.getClassFiy();
+      })
     },
     methods: {
-      memberAddress() {
+      memberAddress(resolve) {
         //默认地址
         api.MemberAddress({
           "app_key": "app_id_1",
@@ -232,6 +235,7 @@
           }
         }).then((res) => {
           this.cId = res.data.communityId;
+          resolve();
         }).catch((error) => {
           console.log(error)
         })
