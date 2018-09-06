@@ -298,10 +298,9 @@
   font-size: 0.32rem;
   color: #00a0e9;
   border-top: 0.01rem #ddd solid;
-  margin-top: 0.3rem;
+  margin-top: 0;
 }
 .orderinfo .order_info_box .btn.nocolor {
   color: #666;
-  margin-top: 0;
-  margin-bottom: 0.1rem
+  margin-top: 0.3rem;
 }
