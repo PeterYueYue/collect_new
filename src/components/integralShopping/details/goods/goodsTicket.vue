@@ -94,14 +94,18 @@
             });
           }
           if (res.data == '您暂未添加收货信息') {
-            this.dataInfo = res.data;
-            this.showShadow = true;
-            this.showInfo = true;
+            ap.hideLoading(()=>{
+              this.dataInfo = res.data;
+              this.showShadow = true;
+              this.showInfo = true;
+            });
           }
           if (res.data == '您的绿色能量不足') {
-            this.dataInfo = res.data;
-            this.showShadow = true;
-            this.showInfo2 = true;
+            ap.hideLoading(()=>{
+              this.dataInfo = res.data;
+              this.showShadow = true;
+              this.showInfo2 = true;
+            });
           }
         })
       },
@@ -148,6 +152,7 @@
       closeAlert() {
         this.showShadow = false;
         this.showInfo = false;
+        this.showInfo2 = false;
       }
     }
   }
