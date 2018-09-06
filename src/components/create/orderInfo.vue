@@ -169,6 +169,7 @@
       classID: 'classID',                        //分类父级Id
       isTitle: 'isTitle',                        //分类title
       recyclingType:'recyclingType',
+      cityId:'cityId',
     }),
     created() {
       console.log(this.recyclingType);
@@ -230,7 +231,7 @@
               "orderId": 0,
               "categoryAttrOppId": 0,
               "categoryAttrOppIds": this.categoryAttrOppIds,
-              "categoryId": 0,             
+              "categoryId": 0,
             },
             "level": "0",
             "orderPic": {

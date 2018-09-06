@@ -39,6 +39,10 @@
       <router-link to="/shopList"><div class="btn">现在去添加</div></router-link>
       <div class="btn nocolor" @click="closeAlert">我知道了</div>
     </div>
+    <div class="goods_info_box" v-if="showInfo2">
+      <div class="remind2">{{dataInfo}}</div>
+      <div class="btn nocolor" @click="closeAlert">我知道了</div>
+    </div>
   </div>
 </template>
 <script>
@@ -55,6 +59,7 @@
         dataList: {},
         showShadow: false,
         showInfo: false,
+        showInfo2: false,
         dataInfo: '',
       }
     },
@@ -79,6 +84,7 @@
             "address": this.dataList ? this.dataList.address:'',
             "mobile": this.dataList ? this.dataList.tel:'',
             "userName": this.dataList ? this.dataList.name:'',
+            'cityId':this.cityId,
           },
           "token": this.token
         }).then(res => {
@@ -92,7 +98,11 @@
             this.showShadow = true;
             this.showInfo = true;
           }
-
+          if (res.data == '您的绿色能量不足') {
+            this.dataInfo = res.data;
+            this.showShadow = true;
+            this.showInfo2 = true;
+          }
         })
       },
       firm() {
@@ -115,7 +125,7 @@
             "id": this.$route.query.id,
             'cityId':this.cityId,
           },
-          "token": this.token,  
+          "token": this.token,
         }).then((res) => {
           this.dataList = res.data;
           if (res.data.communityId == 0) {
