@@ -85,7 +85,7 @@
   font-size: 0.28rem;
   color: #00a0e9;
   text-align: center;
-  margin-top: 0.5rem;
+  margin: 0.5rem auto 0.6rem;
 }
 .goodsTicket .foot {
   flex: 1;

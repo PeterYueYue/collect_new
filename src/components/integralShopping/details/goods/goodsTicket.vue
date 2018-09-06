@@ -14,16 +14,16 @@
       <div class="message">
         <h3>兑换信息确认</h3>
         <p>温馨提示：兑换成功后，礼品我们会通过快递免费寄送上门哦！请您务必核实您的姓名，收货地址和联系电话。</p>
-        <p>若要更换收货信息，请前往我的小区地址库修改默认地址</p>
+        <p>若要更换收货信息，请前往我的小区地址库修改地址</p>
       </div>
-      <div v-if="memberAddress" class="userAddress">
+      <div v-if="memberAddress.length ==0 " class="userAddress">
         <div>姓名：{{memberAddress.name}}</div>
         <div>手机号码：{{memberAddress.tel}}</div>
         <div>收货地址：{{memberAddress.address}}</div>
       </div>
-      <div v-if="!memberAddress" class="noAddress">您暂未添加收货地址...</div>
-      <div class="goChangeAdd" @click="goToList" v-if="dataList">前往修改我的收货信息</div>
-      <div class="goChangeAdd" @click="goToList" v-if="!dataList">前往添加我的收货信息</div>
+      <div v-if="memberAddress.length !==0" class="noAddress">您暂未添加收货地址...</div>
+      <div class="goChangeAdd" @click="goToList" v-if="dataList.length == 0">前往修改我的收货信息</div>
+      <div class="goChangeAdd" @click="goToList" v-if="dataList.length !== 0">前往添加我的收货信息</div>
     </div>
     <!-- 底部 -->
     <footer class="foot">
