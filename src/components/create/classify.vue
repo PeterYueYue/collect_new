@@ -65,7 +65,7 @@
               <img :src="item.icon?item.icon:''" alt="">
               <div class="name">{{item.name}}</div>
               <div class="price">
-                ¥<span>{{item.price}}/<span class="danwei">{{item.unit}}</span></span>
+                ¥<span>{{item.price.toFixed(2)}}/<span class="danwei">{{item.unit}}</span></span>
                 <!-- 有重量和价格单位的 -->
                 <!-- <div class="calculation">
                   <span class="less round" v-if="item.number" @touchstart="less(item)">-</span>
