@@ -334,7 +334,7 @@
             AlipayJSBridge.call('getCurrentLocation', {bizType: 'didi', requestType: 1}, (result) => {
               if (result.error) {
                 alert("请您开启定位功能");
-                return;
+                // return;
               }
               city = result.city?result.city:result.province?result.province:'上海市' ;
               resolve();
@@ -377,7 +377,7 @@
           AlipayJSBridge.call('getCurrentLocation', {bizType: 'didi', requestType: 1}, (result) => {
             if (result.error) {
               alert("请您开启定位功能");
-              return;
+              // return;
             }
             city = result.city?result.city:result.province?result.province:'上海市' ;
             resolve();
