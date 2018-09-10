@@ -292,10 +292,15 @@
         var antThis = this;
         var startTime1 = new Date();
         var startTime2 = new Date(startTime1);
-        startTime2.setDate(startTime1.getDate() + 1);
         var endTime1 = new Date();
         var endTime2 = new Date(endTime1);
-        endTime2.setDate(endTime1.getDate() + 8);
+        if(0<=startTime1.getHours()&&startTime1.getHours()<17){
+          startTime2.setDate(startTime1.getDate() + 1);
+          endTime2.setDate(endTime1.getDate() + 8);
+        }else{
+          startTime2.setDate(startTime1.getDate() + 2);
+          endTime2.setDate(endTime1.getDate() + 9);
+        }
         var startTime = startTime2.getFullYear() + "-" + (startTime2.getMonth() + 1) + "-" + startTime2.getDate();
         var endTime = endTime2.getFullYear() + "-" + (endTime2.getMonth() + 1) + "-" + endTime2.getDate();
         ap.datePicker({
