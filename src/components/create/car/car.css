@@ -85,7 +85,7 @@
 .carMain .carContent .carList li .icon {
   width: 0.6rem;
   height: 0.6rem;
-  background: url('../../../assets/icon/价格选中@2x.png') no-repeat center center;
+  background: url('../../../assets/icon/pricey.png') no-repeat center center;
   background-size: 80% 80%;
   position: absolute;
   right: 0;
@@ -94,7 +94,7 @@
 .carMain .carContent .carList li .icon1 {
   width: 0.6rem;
   height: 0.6rem;
-  background: url('../../../assets/icon/心选中@2x.png') no-repeat center center;
+  background: url('../../../assets/icon/harty.png') no-repeat center center;
   background-size: 80% 80%;
   position: absolute;
   right: 0;

@@ -340,7 +340,7 @@ body {
   bottom: 0.35rem;
   width: 0.5rem;
   height: 0.5rem;
-  background: url(../icon/价格未选中@2x.png) no-repeat;
+  background: url(../icon/price.png) no-repeat;
   background-size: 100% 100%;
 }
 .classify .content .linlei_list .classify_main .classify_item .optbtn .btn {
@@ -355,7 +355,7 @@ body {
   bottom: 0.35rem;
   width: 0.5rem;
   height: 0.5rem;
-  background: url(../icon/心未选中@2x.png) no-repeat;
+  background: url(../icon/hart.png) no-repeat;
   background-size: 100% 100%;
 }
 .classify .content .linlei_list .classify_main .classify_item .optbtn1 .btn {
@@ -455,10 +455,10 @@ body {
   background-color: #c1cccc !important;
 }
 .checked {
-  background: url(../icon/心选中@2x.png) no-repeat !important;
+  background: url(../icon/harty.png) no-repeat !important;
   background-size: 100% 100% !important;
 }
 .checked1 {
-  background: url(../icon/价格选中@2x.png) no-repeat !important;
+  background: url(../icon/pricey.png) no-repeat !important;
   background-size: 100% 100% !important;
 }

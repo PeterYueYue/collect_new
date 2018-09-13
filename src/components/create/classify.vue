@@ -93,7 +93,7 @@
                   {{item.price}}/{{item.unit}}
                 </span>
               </div>
-              <div class="xiaoge">麻烦回收小哥带走</div>
+              <div class="xiaoge">打包带走，获双倍能量</div>
               <div v-bind:class="{ checked: item.checked == '1' }" class="optbtn1">
                 <div
                   @touchstart=addProductStart
