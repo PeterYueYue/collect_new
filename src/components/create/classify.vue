@@ -221,7 +221,7 @@
       var addRess = new Promise((resolve,reject)=>{
         this.memberAddress(resolve);
       }).then(() => {
-        this.getClassFiy();
+        this.getClassFiy(this.recyclingType=='waste'?true:false);
       })
     },
     methods: {
