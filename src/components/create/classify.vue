@@ -475,7 +475,7 @@
         })
       },
       plus(item) {
-        item.name = item.name.replace("<br/>","");
+        // item.name = item.name.replace("<br/>","");
         this.getAddressInfo(item);
         const haveIn = this.selectProductList.findIndex((el) => {
           return el.id === item.id
