@@ -85,7 +85,7 @@ export default {
     },
     computed:mapGetters({
         token:"token",
-        cityId:"cityid"
+        cityId:"cityId"
     }),
     mounted(){
         document.setTitle('抢优惠');
@@ -94,7 +94,7 @@ export default {
     methods:{
         getActive(p){
             api.ProductListYes({
-               "app_key": "app_id_1", 
+               "app_key": "app_id_1",
                "token"  :this.token,
                "data":{
                    "cityId":this.cityId,
