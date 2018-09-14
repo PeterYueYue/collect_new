@@ -15,7 +15,7 @@
           :key="item.id"
           class="item"
           v-bind:class="{ active: isActive == index }"
-          @touchstart="getList(item.id,index)"
+          @touchstart="getList(item.id, index, false)"
         >{{item.name}}
         </li>
       </ul>
@@ -43,7 +43,7 @@
           :key="item.id"
           class="item"
           v-bind:class="{ active: isActive == index }"
-          @touchstart="getList(item.id,index)"
+          @touchstart="getList(item.id, index, true)"
         >{{item.name}}
         </li>
       </ul>
@@ -241,6 +241,7 @@
             "cityId": this.cityId,
           }
         }).then((res) => {
+          this.$store.dispatch('getAddressInfo',res.data);
           this.cId = res.data.communityId;
           resolve();
         }).catch((error) => {
@@ -277,6 +278,7 @@
             },
             token: this.token
           }).then((res) => {
+            this.$store.dispatch('getIsCash', res.data.isCash);
             this.comIsNull = res.data.comIsNull;
             res.data.ComCatePriceList.map((items) => {
               items.pName = this.menulist[0].name;
@@ -346,6 +348,7 @@
           "data": {
             "id": this.isId,
             "communityId": this.cId ? this.cId : '',
+            "title": state ? 'HOUSEHOLD' : 'DIGITAL'
           },
           token: this.token
         }).then((res) => {

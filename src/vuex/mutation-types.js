@@ -23,5 +23,6 @@ export var GetIsTitle                 = 'GetIsTitle';
 export var RecyclingType              = 'RecyclingType';
 export var AddItem                    = 'AddItem';
 export var GetCityId                  = 'GetCityId';
+export var GetIsCash                  = 'GetIsCash';
 
 

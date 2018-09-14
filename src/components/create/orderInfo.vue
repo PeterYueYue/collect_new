@@ -114,7 +114,7 @@
         showSuccess: false,
         showInfo: false,
         idAndListList: [],
-        isCash: '0',
+        IsCash: '0',
         garbagePrice: window.sessionStorage.getItem('productTotal') ? JSON.parse(window.sessionStorage.getItem('productTotal')).priceTotal : ''
       }
     },
@@ -168,8 +168,9 @@
       adressInfo: 'adressInfo',                  //新地址信息
       classID: 'classID',                        //分类父级Id
       isTitle: 'isTitle',                        //分类title
-      recyclingType:'recyclingType',
-      cityId:'cityId',
+      recyclingType: 'recyclingType',
+      cityId: 'cityId',
+      isCash: 'isCash',
     }),
     created() {
       console.log(this.recyclingType);
@@ -191,7 +192,8 @@
           "data": {
             "communityId": this.adressInfo.communityId,
             "categoryId": this.classID,
-            "isEvaluated": "0"
+            "isEvaluated": "0",
+            "cityId": this.cityId,
           },
           token: this.$store.state.token
         }).then((res) => {
@@ -202,12 +204,16 @@
         })
       },
       alertInfo() {
-        this.showShadow = true;
-        this.showInfo = true;
+        if(this.isCash=='1'){
+          this.completeAnOrder(1);
+        }else{
+          this.showShadow = true;
+          this.showInfo = true;
+        }
       },
       completeAnOrder(status) {
         if (status) {
-          this.isCash = status
+          this.IsCash = status
         }
         this.isOk.timeIsOk = false;
         if(this.time == '请选择上门回收时间'){
@@ -253,7 +259,7 @@
             //垃圾回收新增的字段
             "idAndListList": this.idAndListList,
             "title": this.isTitle,
-            "isCash": this.isCash,
+            "isCash": this.IsCash,
           }
         }).then((res) => {
           this.info = res.data;

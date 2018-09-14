@@ -6,11 +6,11 @@
         <img style="width: 7.5rem !important;" src="@/assets/banner3.png">
       </router-link>
     </van-swipe-item>
-    <van-swipe-item style="width: 7.5rem;">
-      <a href="http://106.15.157.147/green/my/goADPage.jhtml">
-        <img style="width: 7.5rem !important;" src="@/assets/banner5.png">
-      </a>
-    </van-swipe-item>
+    <!--<van-swipe-item style="width: 7.5rem;">-->
+      <!--<a href="http://106.15.157.147/green/my/goADPage.jhtml">-->
+        <!--<img style="width: 7.5rem !important;" src="@/assets/banner5.png">-->
+      <!--</a>-->
+    <!--</van-swipe-item>-->
     <van-swipe-item style="width: 7.5rem;">
       <router-link to="ad">
         <img style="width: 7.5rem!important;" src="@/assets/支付宝端-收呗画板-banner4.png">
@@ -24,7 +24,7 @@ import Vue from 'vue'
 import { Swipe, SwipeItem } from 'vant';
 Vue.use(Swipe).use(SwipeItem);
 export default {
-  
+
 }
 </script>
 
