@@ -1,11 +1,11 @@
 
 .active_wrap{
     width:100%;
+    /* background-color: red; */
 }
 
 .active_wrap_top{
     width:100%;
-    /* position: relative; */
 }
 
 .active_wrap_top .banner{
@@ -56,7 +56,6 @@
 }
 .active_wrap_content .coupon{
     width: 91%;
-    height: 2.5rem;
     padding: 0.2rem 0.15rem;
     margin:0 auto 0.3rem auto; 
     background-image: url('../coupon_background.png');
