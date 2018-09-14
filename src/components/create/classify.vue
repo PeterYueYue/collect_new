@@ -150,7 +150,7 @@
       <div @touchstart="closeOrders(true)" class="btn1">我知道了</div>
     </div>
 
-    <div class="class_alert" v-show="!showUl&&comIsNull==='0'" ></div>
+    <div class="class_alert" v-show="!showUl&&comIsNull==='0'" @touchstart="startHandle($event)"></div>
     <div class="class_shadow_box" v-show="!showUl&&comIsNull==='0'" >
       <div class="title">环保小提示</div>
       <img src="@/assets/classify_orders.png" alt="" class="shadow_box_icon">
@@ -680,6 +680,10 @@
       goToList(){
         window.sessionStorage.setItem('jumpUrl', this.$route.fullPath);
         this.$router.push('/addAdress')
+      },
+      startHandle(e){
+          e.stopPropagation();
+          e.preventDefault();
       },
     }
   }
