@@ -41,7 +41,7 @@
     </div>
     <div class="goods_info_box" v-if="showInfo2">
       <div class="remind2">{{dataInfo}}</div>
-      <div class="btn nocolor" @click="closeAlert">我知道了</div>
+      <div class="btn nocolor2" @click="closeAlert">我知道了</div>
     </div>
   </div>
 </template>
@@ -93,14 +93,19 @@
               alert(res.data);
             });
           }
-          if (res.data == '您暂未添加收货信息') {
+          else if (res.data == '您兑换超出限制，不可再兑换了') {
+            ap.hideLoading(()=>{
+              alert(res.data);
+            });
+          }
+          else if (res.data == '您暂未添加收货信息') {
             ap.hideLoading(()=>{
               this.dataInfo = res.data;
               this.showShadow = true;
               this.showInfo = true;
             });
           }
-          if (res.data == '您的绿色能量不足') {
+          else if (res.data == '您的绿色能量不足') {
             ap.hideLoading(()=>{
               this.dataInfo = res.data;
               this.showShadow = true;

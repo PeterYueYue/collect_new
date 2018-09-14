@@ -125,7 +125,6 @@
     </div>
 
     <div class="classify_foot" v-show="!showUl&&comIsNull==='1'">您所在小区暂未开通生活垃圾回收服务</div>
-    <div class="classify_foot" v-show="!showUl&&comIsNull==='0'" @click="goToList">您暂未添加回收地址,请去添加地址</div>
     <div class="classify_foot" v-show="showUl&&comIsNull==='0'" @click="goToList">您暂未添加回收地址,请去添加地址</div>
 
     <!-- 弹窗 -->
@@ -149,6 +148,14 @@
       <!--<div @click="closeOrders(false)" class="btn">我知道了</div>-->
       <!--<div @click="closeOrders(true)" class="btn nocolor">不再提醒</div>-->
       <div @touchstart="closeOrders(true)" class="btn1">我知道了</div>
+    </div>
+
+    <div class="class_alert" v-if="showAlert" v-show="!showUl&&comIsNull==='0'" ></div>
+    <div class="class_shadow_box" v-show="!showUl&&comIsNull==='0'" >
+      <div class="title">环保小提示</div>
+      <img src="@/assets/classify_orders.png" alt="" class="shadow_box_icon">
+      <div class="shadow_box_alertext">请先添加您的上门回收地址，以便我们为您提供生活垃圾上门回收服务</div>
+      <div class="shadow_box_btn" @click="goToList">添加回收地址</div>
     </div>
 
   </div>
@@ -177,6 +184,7 @@
         isActive: '0',
         showUl: true,
         showShadow: false,
+        showAlert: true,
         showAlert1: false,
         showAlert2: false,
         menuListImg: '',

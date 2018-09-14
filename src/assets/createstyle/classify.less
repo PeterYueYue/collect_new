@@ -11,7 +11,7 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  .class_shadow {
+  .class_shadow, .class_alert {
     position: fixed;
     top: 0;
     width: 100%;
@@ -29,7 +29,7 @@ body {
     border-radius: 30/@rem;
     line-height: 50/@rem;
     .title {
-      font-size: 30/@rem;
+      font-size: 34/@rem;
       text-align: center;
       margin-top: 50/@rem;
     }
@@ -73,6 +73,25 @@ body {
       color: #00a0e9;
       border-top: 1/@rem #ddd solid;
       margin-top: 30/@rem;
+    }
+    .shadow_box_icon {
+      display: block;
+      width: 240/@rem;
+      margin: 50/@rem auto 0;
+    }
+    .shadow_box_alertext {
+      width: 80%;
+      text-align: center;
+      font-size: 24/@rem;
+      color: #333;
+      margin: 30/@rem auto 50/@rem;
+    }
+    .shadow_box_btn {
+      line-height: 90/@rem;
+      font-size: 30/@rem;
+      text-align: center;
+      color: #00a0e9;
+      border-top: 1/@rem #ddd solid;
     }
   }
   .classify_foot_new {
