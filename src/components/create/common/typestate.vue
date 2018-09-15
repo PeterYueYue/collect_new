@@ -19,7 +19,8 @@
       }
     },
     computed: mapGetters({
-      token: 'token'
+      token: 'token',
+      cityId:'cityId'
     }),
     created() {
       var {index} = this.$route.params;
@@ -27,7 +28,8 @@
       api.getAllattrOption({
         "app_key": "app_id_1",
         "data": {
-          "id": 0
+          "id": 0,
+          "cityId":this.cityId
         },
         token: this.token
       }).then((res) => {

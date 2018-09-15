@@ -67,7 +67,8 @@
       isShowForState: 'isShowForState', //
       token: 'token',
       futurePrice: 'futurePrice',
-      adressInfo:'adressInfo'
+      adressInfo:'adressInfo',
+      cityId:'cityId'
     }),
 
     created() {
@@ -81,7 +82,8 @@
           "pageBean": {
             "pageNumber": 1,
             "pageSize": 20
-          }
+          },
+          "cityId":this.cityId
         },
         token: this.token
       }).then((res) => {
