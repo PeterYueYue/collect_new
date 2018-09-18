@@ -685,8 +685,8 @@
         this.$router.push('/addAdress')
       },
       startHandle(e){
-          e.stopPropagation();
-          e.preventDefault();
+        e.stopPropagation();
+        e.preventDefault();
       },
     }
   }

@@ -319,7 +319,7 @@
           let str1 = str.substring((str.indexOf('?') + 1), str.indexOf('#'));
           let ayth_code = this.qs.parse(str1).auth_code;
           let state = this.qs.parse(str1).state;
-          
+
           if(state == 'product'){
             this.goIntegral(ayth_code)
           }else{
@@ -371,10 +371,10 @@
             })
 
         })
-        
+
       },
       goIntegral(ayth_code){
-        var city='上海市'
+        var city='上海市';
         var pro = new Promise(function(resolve, reject){
           AlipayJSBridge.call('getCurrentLocation', {bizType: 'didi', requestType: 1}, (result) => {
             if (result.error) {
