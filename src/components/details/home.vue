@@ -339,6 +339,8 @@
               city = result.city?result.city:result.province?result.province:'上海市' ;
               resolve();
             });
+            //测试
+            // resolve();
         }).then(()=>{
             api.isAuthorization({
               "app_key": "app_id_1",
@@ -382,6 +384,8 @@
             city = result.city?result.city:result.province?result.province:'上海市' ;
             resolve();
           });
+          //测试
+          // resolve();
         }).then(() => {
             api.GetUserToken({
               "data": {
