@@ -77,7 +77,7 @@
             <div class="name">{{data.cateName}}<span class="number">¥{{data.price+'/'+data
               .unit}}</span><span class="amount" v-show="detailsList.status4Page=='COMPLETE'">X {{data.amount}}</span></div>
           </div>
-          <div class="zero">{{item.categoryName}}</div>
+          <div class="zero" v-html="item.categoryName"></div>
         </div>
         <div class="trash_total_price" v-show="detailsList.status4Page=='COMPLETE'&&detailsList.isCash=='0'">成交价格
           <span><span style="float: left">￥</span>
