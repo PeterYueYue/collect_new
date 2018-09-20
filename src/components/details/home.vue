@@ -19,29 +19,62 @@
             </router-link>
             <img src="@/assets/icon_right.png" alt="">
           </div>
+          <div class="home_details" v-show="adressList.isFixedPoint==='1'">
+            <div class="home_details_item">您的小区已开通生活垃圾定时定点投放服务<span class="check" @touchstart="openAlert()">查看详情</span><i
+              class="triangle"></i></div>
+          </div>
           <div class="home_call">
-            <!--<h3>分类回收 助力绿色环保</h3>-->
             <ul class="home_list">
               <li class="item">
-                <div class="home_num">1</div>
-                <span>废品选择</span>
+                <span><img src="@/assets/icon/icon_home_1.png" alt="" class="home_num">废品选择</span>
                 <div class="xuxian"></div>
               </li>
               <li class="item">
-                <div class="home_num">2</div>
-                <span>获取估价</span>
+                <span><img src="@/assets/icon/icon_home_2.png" alt="" class="home_num">获取估价</span>
                 <div class="xuxian"></div>
               </li>
               <li class="item">
-                <div class="home_num">3</div>
-                <span>上门回收</span>
+                <span><img src="@/assets/icon/icon_home_3.png" alt="" class="home_num">上门回收</span>
                 <div class="xuxian"></div>
               </li>
               <li class="item">
-                <div class="home_num">4</div>
-                <span>金额结算</span>
+                <span><img src="@/assets/icon/icon_home_4.png" alt="" class="home_num">金额结算</span>
               </li>
             </ul>
+          </div>
+          <div class="home_recycle">
+            <div class="head">家电数码回收<span><img src="@/assets/icon/icon_home_5.png" alt="">免费上门拆卸搬运
+            </span><span><img src="@/assets/icon/icon_home_6.png" alt="">回收人员安全认证</span></div>
+            <div class="main">
+              <div class="bx"><img src="@/assets/icon/home_main1.png" alt="">冰箱回收</div>
+              <div class="group">
+                <ul>
+                  <li><img src="@/assets/icon/home_main2.png" alt="">洗衣机回收</li>
+                  <li><img src="@/assets/icon/home_main3.png" alt="">电视机回收</li>
+                </ul>
+                <ul>
+                  <li><img src="@/assets/icon/home_main4.png" alt="">电脑回收</li>
+                  <li><img src="@/assets/icon/home_main5.png" alt="">空调回收</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="home_recycle">
+            <div class="head">可再生垃圾回收<span><img src="@/assets/icon/icon_home_7.png" alt="">免费上门回收
+            </span><span><img src="@/assets/icon/icon_home_8.png" alt="">当面计量称重</span></div>
+            <div class="remind"><img src="@/assets/icon/icon_home_9.png" alt="">垃圾打免费送给回收小哥，会获得双倍环保积分哦！一般人我不告诉他！</div>
+            <div class="item">
+              <ul>
+                <li><img src="@/assets/icon/home_item1.png" alt="">废纸回收</li>
+                <li><img src="@/assets/icon/home_item2.png" alt="">废塑料回收</li>
+                <li><img src="@/assets/icon/home_item3.png" alt="">废玻璃回收</li>
+              </ul>
+              <ul>
+                <li><img src="@/assets/icon/home_item4.png" alt="">废纺织衣物回收</li>
+                <li><img src="@/assets/icon/home_item5.png" alt="">废木回收</li>
+                <li><img src="@/assets/icon/home_item6.png" alt="">废金属回收</li>
+              </ul>
+            </div>
           </div>
           <div class="home_wrap_item" v-for="(item,index) in homeList" :key="index">
             <!-- 数码家电 -->
@@ -78,28 +111,63 @@
             </router-link>
             <img src="@/assets/icon_right.png" alt="">
           </div>
+          <div class="home_details" v-show="adressList.isFixedPoint==='1'">
+            <div class="home_details_item">您的小区已开通生活垃圾定时定点投放服务<span class="check" @touchstart="openAlert()">查看详情
+            </span><i
+              class="triangle"></i></div>
+          </div>
           <div class="home_call">
             <ul class="home_list">
               <li class="item">
-                <div class="home_num">1</div>
-                <span>废品选择</span>
+                <span><img src="@/assets/icon/icon_home_1.png" alt="" class="home_num">废品选择</span>
                 <div class="xuxian"></div>
               </li>
               <li class="item">
-                <div class="home_num">2</div>
-                <span>获取估价</span>
+                <span><img src="@/assets/icon/icon_home_2.png" alt="" class="home_num">获取估价</span>
                 <div class="xuxian"></div>
               </li>
               <li class="item">
-                <div class="home_num">3</div>
-                <span>上门回收</span>
+                <span><img src="@/assets/icon/icon_home_3.png" alt="" class="home_num">上门回收</span>
                 <div class="xuxian"></div>
               </li>
               <li class="item">
-                <div class="home_num">4</div>
-                <span>金额结算</span>
+                <span><img src="@/assets/icon/icon_home_4.png" alt="" class="home_num">金额结算</span>
               </li>
             </ul>
+          </div>
+          <div class="home_recycle">
+            <div class="head">家电数码回收<span><img src="@/assets/icon/icon_home_5.png" alt="">免费上门拆卸搬运
+            </span><span><img src="@/assets/icon/icon_home_6.png" alt="">回收人员安全认证</span></div>
+            <div class="main">
+              <div class="bx"><img src="@/assets/icon/home_main1.png" alt="">冰箱回收</div>
+              <div class="group">
+                <ul>
+                  <li><img src="@/assets/icon/home_main2.png" alt="">洗衣机回收</li>
+                  <li><img src="@/assets/icon/home_main3.png" alt="">电视机回收</li>
+                </ul>
+                <ul>
+                  <li><img src="@/assets/icon/home_main4.png" alt="">电脑回收</li>
+                  <li><img src="@/assets/icon/home_main5.png" alt="">空调回收</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="home_recycle">
+            <div class="head">可再生垃圾回收<span><img src="@/assets/icon/icon_home_7.png" alt="">免费上门回收
+            </span><span><img src="@/assets/icon/icon_home_8.png" alt="">当面计量称重</span></div>
+            <div class="remind"><img src="@/assets/icon/icon_home_9.png" alt="">垃圾打免费送给回收小哥，会获得双倍环保积分哦！一般人我不告诉他！</div>
+            <div class="item">
+              <ul>
+                <li><img src="@/assets/icon/home_item1.png" alt="">废纸回收</li>
+                <li><img src="@/assets/icon/home_item2.png" alt="">废塑料回收</li>
+                <li><img src="@/assets/icon/home_item3.png" alt="">废玻璃回收</li>
+              </ul>
+              <ul>
+                <li><img src="@/assets/icon/home_item4.png" alt="">废纺织衣物回收</li>
+                <li><img src="@/assets/icon/home_item5.png" alt="">废木回收</li>
+                <li><img src="@/assets/icon/home_item6.png" alt="">废金属回收</li>
+              </ul>
+            </div>
           </div>
           <img src="@/assets/recycling.png" alt="" class="home_wrap_icon">
           <div class="home_wrap_ordername">您还没有进行中的订单</div>
@@ -127,6 +195,21 @@
           <img src="@/assets/coupon_icon.png" alt="" class="coupon_icon">
       </div>
     </router-link>
+
+    <!-- 弹窗 -->
+    <div class="home_shadow" v-if="showShadow" @touchstart="prohibitAlert($event)"></div>
+    <div class="home_shadow_box" v-if="showAlert">
+      <div class="title">定点回收小贴士</div>
+      <div class="text mt20">将可回收垃圾分类打包，在回收时间段内送到您小区指定的回收点</div>
+      <div class="text">打开支付宝【卡包】-【垃圾分类回收】出示卡包内条码给回收人员扫描，回收人员对回收物进行称重，获得积分</div>
+      <div class="text">积分可在垃圾分类回收【环保商城】兑换海量权益</div>
+      <div class="text mt20">定点时间</div>
+      <div class="text">{{communityList.fixedPointTime[0]}}</div>
+      <div class="text">{{communityList.fixedPointTime[1]}}</div>
+      <div class="text mt20">定点投放地址</div>
+      <div class="text">{{communityList.fixedPointAddress}}</div>
+      <div class="btn" @touchstart="closeAlert()">我知道了</div>
+    </div>
   </div>
 
 </template>
@@ -147,7 +230,10 @@
       return {
         homeList: {},
         adressList: {},
+        communityList: {},
         showList: true,
+        showShadow: false,
+        showAlert: false,
         pullRefreshConfig: {
           pullText: '下拉刷新',       // 下拉时显示的文字
           triggerText: '释放更新',    // 下拉到触发距离时显示的文字
@@ -162,13 +248,14 @@
     },
     computed: mapGetters({
       token: "token",
-      cityId:"cityId"
+      cityId: "cityId",
+      adressInfo: 'adressInfo',
     }),
     mounted() {
       document.setTitle('垃圾分类回收');
       // 本地测试打开
-    //  var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24U65CVPQU32QS6WCOW4OQQ3AURAT25OYS7KWASJZYQ5IPQBJGAUZRTFGRL7NE5YTTFEAYERKA4VYKTBVI6YOUHJBB3MKI3NUQ6SBCWQ2DZOS37DA2PD2UCMAINFFD7GYHH56ITBFEOMX4NET5ZWTRXGAWNDVVIJI4SBBITJN4JPMKM6VT672AGVZ27CFHSKZU3MORRA2KIA4TYUBCSEFKOYVBIRGZV6Q2VXPXQTUQ'
-    //  this.$store.dispatch('getToken', tk);
+     // var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24U65CVPQU32QS6WCOW4OQQ3AURAT25OYS7KWASJZYQ5IPQBJGAUZRTFGRL7NE5YTTFEAYERKA4VYKTBVI6YOUHJBB3MKI3NUQ6SBCWQ2DZOS37DA2PD2UCMAINFFD7GYHH56ITBFEOMX4NET5ZWTRXGAWNDVVIJI4SBBITJN4JPMKM6VT672AGVZ27CFHSKZU3MORRA2KIA4TYUBCSEFKOYVBIRGZV6Q2VXPXQTUQ'
+     // this.$store.dispatch('getToken', tk);
 
       if(!this.token){
       // 用户进来判断是否要授权；
@@ -179,6 +266,7 @@
         window.localStorage.setItem('token', this.token);
         this.getData();
         this.memberAddress();
+        this.getCommunity();
       }
       this.screenWidth=document.documentElement.clientWidth;
       this.screenHeight = document.documentElement.clientHeight;
@@ -200,6 +288,19 @@
         }).then((res) => {
           this.$store.dispatch('getAddressInfo',res.data);
           this.adressList = res.data;
+        }).catch((error) => {
+          console.log(error)
+        })
+      },
+      getCommunity(token) {
+        api.GetCommunity({
+          "app_key": "app_id_1",
+          token: this.token?this.token:token,
+          "data":{
+            "communityId": this.adressInfo.communityId,
+          }
+        }).then((res) => {
+          this.communityList = res.data;
         }).catch((error) => {
           console.log(error)
         })
@@ -398,7 +499,19 @@
               this.$router.push({ path: '/integralshoping/dic'})
             })
         })
-      }
+      },
+      openAlert() {
+        this.showShadow = true;
+        this.showAlert = true;
+      },
+      closeAlert() {
+        this.showShadow = false;
+        this.showAlert = false;
+      },
+      prohibitAlert(e){
+        e.stopPropagation();
+        e.preventDefault();
+      },
     },
   }
 </script>
