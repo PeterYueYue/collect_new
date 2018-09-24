@@ -139,15 +139,15 @@
             <div class="head">家电数码回收<span><img src="@/assets/icon/icon_home_5.png" alt="">免费上门拆卸搬运
             </span><span><img src="@/assets/icon/icon_home_6.png" alt="">回收人员安全认证</span></div>
             <div class="main">
-              <div class="bx"><img src="@/assets/icon/home_main1.png" alt="">冰箱回收</div>
+              <router-link to="classify/appliances?type=0&id=19&index=3"><div class="bx"><img src="@/assets/icon/home_main1.png" alt="">冰箱回收</div></router-link>
               <div class="group">
                 <ul>
-                  <li><img src="@/assets/icon/home_main2.png" alt="">洗衣机回收</li>
-                  <li><img src="@/assets/icon/home_main3.png" alt="">电视机回收</li>
+                  <router-link to="classify/appliances?type=0&id=15&index=2"><li><img src="@/assets/icon/home_main2.png" alt="">洗衣机回收</li></router-link>
+                  <router-link to="classify/appliances?type=0&id=9&index=0"><li><img src="@/assets/icon/home_main3.png" alt="">电视机回收</li></router-link>
                 </ul>
                 <ul>
-                  <li><img src="@/assets/icon/home_main4.png" alt="">电脑回收</li>
-                  <li><img src="@/assets/icon/home_main5.png" alt="">空调回收</li>
+                  <router-link to="classify/appliances?type=0&id=22&index=4"><li><img src="@/assets/icon/home_main4.png" alt="">电脑回收</li></router-link>
+                  <router-link to="classify/appliances?type=0&id=12&index=1"><li><img src="@/assets/icon/home_main5.png" alt="">空调回收</li></router-link>
                 </ul>
               </div>
             </div>
@@ -158,14 +158,26 @@
             <div class="remind"><img src="@/assets/icon/icon_home_9.png" alt="">垃圾打免费送给回收小哥，会获得双倍环保积分哦！一般人我不告诉他！</div>
             <div class="item">
               <ul>
-                <li><img src="@/assets/icon/home_item1.png" alt="">废纸回收</li>
-                <li><img src="@/assets/icon/home_item2.png" alt="">废塑料回收</li>
-                <li><img src="@/assets/icon/home_item3.png" alt="">废玻璃回收</li>
+                <router-link to="classify/waste?type=1&id=25&index=0">
+                  <li><img src="@/assets/icon/home_item1.png" alt="">废纸回收</li>
+                </router-link>
+                <router-link to="classify/waste?type=1&id=34&index=1">
+                  <li><img src="@/assets/icon/home_item2.png" alt="">废塑料回收</li>
+                </router-link>
+                <router-link to="classify/waste?type=1&id=40&index=2">
+                  <li><img src="@/assets/icon/home_item3.png" alt="">废玻璃回收</li>
+                </router-link>
               </ul>
               <ul>
-                <li><img src="@/assets/icon/home_item4.png" alt="">废纺织衣物回收</li>
-                <li><img src="@/assets/icon/home_item5.png" alt="">废木回收</li>
-                <li><img src="@/assets/icon/home_item6.png" alt="">废金属回收</li>
+                <router-link to="classify/waste?type=1&id=45&index=3">
+                  <li><img src="@/assets/icon/home_item4.png" alt="">废纺织衣物回收</li>
+                </router-link>
+                <router-link to="classify/waste?type=1&id=56&index=4">
+                  <li><img src="@/assets/icon/home_item5.png" alt="">废木回收</li>
+                </router-link>
+                <router-link to="classify/waste?type=1&id=60&index=5">
+                  <li><img src="@/assets/icon/home_item6.png" alt="">废金属回收</li>
+                </router-link>
               </ul>
             </div>
           </div>
@@ -254,8 +266,8 @@
     mounted() {
       document.setTitle('垃圾分类回收');
       // 本地测试打开
-     // var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24U65CVPQU32QS6WCOW4OQQ3AURAT25OYS7KWASJZYQ5IPQBJGAUZRTFGRL7NE5YTTFEAYERKA4VYKTBVI6YOUHJBB3MKI3NUQ6SBCWQ2DZOS37DA2PD2UCMAINFFD7GYHH56ITBFEOMX4NET5ZWTRXGAWNDVVIJI4SBBITJN4JPMKM6VT672AGVZ27CFHSKZU3MORRA2KIA4TYUBCSEFKOYVBIRGZV6Q2VXPXQTUQ'
-     // this.$store.dispatch('getToken', tk);
+//      var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24U65CVPQU32QS6WCOW4OQQ3AURAT25OYS7KWASJZYQ5IPQBJGAUZRTFGRL7NE5YTTFEAYERKA4VYKTBVI6YOUHJBB3MKI3NUQ6SBCWQ2DZOS37DA2PD2UCMAINFFD7GYHH56ITBFEOMX4NET5ZWTRXGAWNDVVIJI4SBBITJN4JPMKM6VT672AGVZ27CFHSKZU3MORRA2KIA4TYUBCSEFKOYVBIRGZV6Q2VXPXQTUQ'
+//      this.$store.dispatch('getToken', tk);
 
       if(!this.token){
       // 用户进来判断是否要授权；
@@ -511,7 +523,7 @@
       prohibitAlert(e){
         e.stopPropagation();
         e.preventDefault();
-      },
+      }
     },
   }
 </script>

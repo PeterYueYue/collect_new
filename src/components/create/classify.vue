@@ -254,14 +254,19 @@
         }
       },
       getClassFiy(value) {
-        api.getClassify({
+      	let params = {
           "app_key": "app_id_1",
           "data": {
             "level": "0",
             "title": value ? 'HOUSEHOLD' : 'DIGITAL'
           },
           token: this.token
-        }).then((res) => {
+        }
+        if (this.$route.query.type) {
+          params.data.title = parseInt(this.$route.query.type) > 0 ? 'HOUSEHOLD' : 'DIGITAL'
+          this.showUl = parseInt(this.$route.query.type) < 1
+        }
+        api.getClassify(params).then((res) => {
           this.menulist = res.data;
           this.recTypeExp = res.data[0].recTypeExp;
           this.text = res.data[0].recNotes;
@@ -272,12 +277,13 @@
           api.getSubList({
             "app_key": "app_id_1",
             "data": {
-              "id": this.isId,
+              "id": this.$route.query.id || this.isId,
               "communityId": this.cId ? this.cId : '',
-              "title": value ? 'HOUSEHOLD' : 'DIGITAL'
+              "title": this.$route.query.type || value ? 'HOUSEHOLD' : 'DIGITAL'
             },
             token: this.token
           }).then((res) => {
+          	if(this.$route.query.index) this.isActive = this.$route.query.index;
             this.$store.dispatch('getIsCash', res.data.isCash);
             this.comIsNull = res.data.comIsNull;
             res.data.ComCatePriceList.map((items) => {
@@ -332,6 +338,9 @@
         });
       },
       getList(id, index, state) {
+        this.$router.replace({
+          path: this.$router.path
+        })
         // 恢复列表元素的滚动位置
         if (!state) {
           $(".linlei_list").animate({scrollTop: '0'}, 50);
