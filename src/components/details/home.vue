@@ -290,7 +290,6 @@
         window.localStorage.setItem('token', this.token);
         this.getData();
         this.memberAddress();
-        this.getCommunity();
       }
       this.screenWidth=document.documentElement.clientWidth;
       this.screenHeight = document.documentElement.clientHeight;
@@ -316,6 +315,7 @@
           console.log(error)
         })
       },
+      //获取弹窗信息
       getCommunity(token) {
         api.GetCommunity({
           "app_key": "app_id_1",
