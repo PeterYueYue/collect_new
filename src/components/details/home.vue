@@ -525,6 +525,7 @@
         })
       },
       openAlert() {
+        this.getCommunity();
         this.showShadow = true;
         this.showAlert = true;
       },
