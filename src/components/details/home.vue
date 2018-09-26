@@ -232,7 +232,7 @@
       <div class="text">{{communityList.fixedPointTime[1]}}</div>
       <div class="text mt20">定点投放地址</div>
       <div class="text">{{communityList.fixedPointAddress}}</div>
-      <div class="btn" @touchstart="closeAlert()">我知道了</div>
+      <div class="btn" @touchstart="closeAlert($event)">我知道了</div>
     </div>
   </div>
 
@@ -528,9 +528,11 @@
         this.showShadow = true;
         this.showAlert = true;
       },
-      closeAlert() {
+      closeAlert(e) {
         this.showShadow = false;
         this.showAlert = false;
+        e.stopPropagation();
+        e.preventDefault();
       },
       prohibitAlert(e){
         e.stopPropagation();
