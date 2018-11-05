@@ -23,6 +23,12 @@ Vue.component(SliderItem.name, SliderItem);
 Vue.config.productionTip = false;
 
 
+import ba from 'vue-ba'
+
+Vue.use(ba, "5ac5fabcc00a0221dfb455e3a76fe808");
+
+
+
 // import VConsole from 'vconsole'
 // import Vant from 'vant';
 // Vue.use(Vant);

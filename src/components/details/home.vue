@@ -167,7 +167,7 @@
           <div class="home_recycle">
             <div class="head">可再生垃圾回收<span><img src="@/assets/icon/icon_home_7.png" alt="">免费上门回收
             </span><span><img src="@/assets/icon/icon_home_8.png" alt="">当面计量称重</span></div>
-            <div class="remind"><img src="@/assets/icon/icon_home_9.png" alt="">垃圾打免费送给回收小哥，会获得双倍环保积分哦！一般人我不告诉他！</div>
+            <div class="remind"><img src="@/assets/icon/icon_home_9.png" alt="">垃圾免费送给回收小哥，会获得双倍环保积分哦！一般人我不告诉他！</div>
             <div class="item">
               <ul>
                 <router-link to="classify/appliances?type=1&id=25&index=0">
