@@ -33,6 +33,13 @@ const configCompanyByIds = {
   "version": "1.0",
 }
 
+//定点投放
+const configGetCommunity = {
+  "name": "community.getCommunity",
+  "format": "json",
+  "version": "1.0",
+}
+
 //订单记录
 const configGetOrders = {
   "name": "order.orderlist",
@@ -360,6 +367,10 @@ export default {
   },
   companyByIds(params) {  //公司地址
     let config = Object.assign(configCompanyByIds, params,{"nonce":this.Uuid()},{"timestamp":this.timestamp()});
+    return axios.post(`${base}/ali/api`, config).then(res => res.data);
+  },
+  GetCommunity(params) {  //定点投放
+    let config = Object.assign(configGetCommunity, params,{"nonce":this.Uuid()},{"timestamp":this.timestamp()});
     return axios.post(`${base}/ali/api`, config).then(res => res.data);
   },
   getverifiMessage(params) { //手机验证信息

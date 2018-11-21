@@ -71,10 +71,43 @@ a {
   left: 0.2rem;
   transform: translateY(-50%);
 }
+.home_details {
+  width: 100%;
+  height: 0.53rem;
+  position: relative;
+}
+.home_details_item {
+  width: 7rem;
+  height: 0.62rem;
+  line-height: 0.62rem;
+  border-radius: 0.06rem;
+  background: #fff2eb;
+  position: absolute;
+  top: -0.1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.24rem;
+  color: #333;
+  padding: 0 0.3rem 0 0.2rem;
+}
+.home_details_item .check {
+  float: right;
+  color: #ff5900;
+}
+.home_details_item .triangle{
+  width: 0px;
+  height: 0px;
+  border-width: 0.13rem;
+  border-style: solid;
+  border-color: transparent transparent #fff2eb transparent;
+  position: absolute;
+  top: -0.25rem;
+  left: 0.5rem;
+}
 .home_call {
   background-color: #ffffff;
   margin-top: 0.2rem;
-  padding: 0.5rem 0;
+  padding: 0.35rem 0;
 }
 .home_call h3 {
   font-size: 0.34rem;
@@ -90,32 +123,110 @@ a {
   justify-content: center;
 }
 .home_call .home_list .item {
-  width: 1.58rem;
+  width: 1.85rem;
   position: relative;
 }
 .home_call .home_list .item .home_num {
-  margin: 0 auto;
-  width: 0.48rem;
-  height: 0.48rem;
-  background-color: #00a0e9;
-  line-height: 0.48rem;
-  text-align: center;
-  color: #ffffff;
-  font-size: 0.24rem;
-  border-radius: 50%;
+  width: 0.32rem;
+  height: 0.32rem;
+  position: relative;
+  top: 0.05rem;
+  right: 0.03rem;
 }
 .home_call .home_list .item span {
   color: #666666;
-  font-size: 0.3rem;
+  font-size: 0.28rem;
   display: block;
-  margin-top: 0.2rem;
 }
 .home_call .home_list .item .xuxian {
-  border-top: 0.01rem dashed #888888;
-  width: 0.53rem;
+  border-top: 0.01rem dashed #888;
+  width: 0.24rem;
   position: absolute;
   top: 0.2rem;
-  right: -0.25rem;
+  right: -0.12rem;
+}
+.home_recycle {
+  padding: 0.2rem 0 0.4rem;
+  background: #fff;
+  margin-top: 0.2rem;
+}
+.home_recycle .head {
+  font-size: 0.3rem;
+  color: #333;
+  font-weight: bold;
+  padding-left: 0.3rem;
+}
+.home_recycle .head span {
+  font-size: 0.2rem;
+  color: #00a0e9;
+  font-weight: normal;
+  padding-left: 0.18rem;
+}
+.home_recycle .head img {
+  width: 0.32rem;
+  height: 0.32rem;
+  position: relative;
+  top: 0.09rem;
+  right: 0.02rem;
+}
+.home_recycle .remind {
+  font-size: 0.18rem;
+  color: #ff5900;
+  padding-left: 0.3rem;
+}
+.home_recycle .remind img {
+  width: 0.32rem;
+  height: 0.32rem;
+  position: relative;
+  top: 0.09rem;
+  right: 0.02rem;
+}
+.home_recycle .item ul {
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  margin-top: 0.3rem;
+}
+.home_recycle .item ul li {
+  width: 2.5rem;
+}
+.home_recycle .item ul li img {
+  display: block;
+  width: 1.8rem;
+  margin: 0 auto 0.1rem;
+}
+.home_recycle .main {
+  overflow: hidden;
+}
+.home_recycle .group {
+  float: left;
+  margin-top: 0.2rem;
+}
+.home_recycle .group ul {
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+.home_recycle .group ul li {
+  width: 2.5rem;
+}
+.home_recycle .group ul li img {
+  display: block;
+  width: 1.8rem;
+  margin: 0 auto;
+}
+.home_recycle .bx {
+  width: 2.4rem;
+  text-align: center;
+  float: left;
+  margin-top: 1rem;
+}
+.home_recycle .bx img {
+  display: block;
+  width: 2.4rem;
+  margin: 0 auto;
 }
 .swiper-container,
 .swiper-wrapper {
@@ -215,7 +326,7 @@ a {
   display: block;
   width: 1.95rem;
   height: 1.28rem;
-  margin: 0.5rem auto 0;
+  margin: 0.8rem auto 0;
 }
 .home_wrap_ordername {
   font-size: 0.36rem;
@@ -227,6 +338,7 @@ a {
   margin-top: 0.32rem;
   color: #888888;
   text-align: center;
+  padding-bottom: 1.7rem;
 }
 .home_wrap_footer {
   width: 100%;
@@ -288,4 +400,46 @@ a {
   transform: translateX(-50%);
   font-size: 0.22rem;
   color: #888;
+}
+.home_shadow {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(51, 51, 51, 0.7);
+}
+.home_shadow_box{
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 5.9rem;
+  background: rgba(247, 247, 247, 0.96);
+  border-radius: 0.3rem;
+  line-height: 0.5rem;
+}
+.home_shadow_box .title {
+  font-size: 0.34rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+.home_shadow_box .text {
+  width: 4.8rem;
+  margin: 0 auto;
+  font-size: 0.24rem;
+  color: #333;
+  line-height: 0.36rem;
+}
+.home_shadow_box .text.mt20 {
+  margin-top: 0.2rem;
+}
+.home_shadow_box .btn {
+  height: 0.9rem;
+  line-height: 0.9rem;
+  text-align: center;
+  font-size: 0.32rem;
+  color: #00a0e9;
+  border-top: 0.01rem #dddddd solid;
+  margin-top: 0.3rem;
 }
