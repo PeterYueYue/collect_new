@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // 正式
-let base ='http://101.132.111.141:80';
+let base ='http://open.mayishoubei.com';
 
 // 测试
 // let base = 'http://180.153.19.161:9000';
