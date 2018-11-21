@@ -74,7 +74,7 @@
         <div class="details_rubsh" v-for="item in rubshList" :key="item.id">
           <div class="trash_title">{{item.name}}<span>X {{item.count}}</span></div>
           <div class="trash_item" v-for="data in item.list" :key="data.id">
-            <div class="name">{{data.cateName}}<span class="number">¥{{data.price+'/'+data
+            <div class="name" >{{data.cateName}}<span class="number">¥{{data.price+'/'+data
               .unit}}</span><span class="amount" v-show="detailsList.status4Page=='COMPLETE'">X {{data.amount}}</span></div>
           </div>
           <div class="zero">{{item.categoryName}}</div>
