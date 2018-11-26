@@ -12,6 +12,19 @@
       <div class="title">
         <div class="left">所在地址</div>
         <div class="right">
+          <select name="" v-model="selectCity" @change="getAreaList()">
+            <option value="">请选择城市</option>
+            <option v-for="(items,index) in cityList"
+                    :value="{id:items.adCode,name:items.city}"
+                    :key="index">
+              {{items.city}}
+            </option>
+          </select>
+          <img src="@/assets/icon_right.png" alt=""></div>
+      </div>
+      <div class="title">
+        <div class="left"></div>
+        <div class="right">
           <select name="" v-model="selectArea" @change="getStreet(false)">
             <option value="">请选择所在行政区</option>
             <option v-for="(items,index) in areaList"
@@ -88,9 +101,11 @@
           area: '',
           address: '',
         },
+        cityList: [],
         areaList: [],
         streetList: [],
         communityList: [],
+        selectCity: '',
         selectArea: '',
         selectStreet: '',
         selectCommunity: '',
@@ -119,6 +134,7 @@
       var token = this.$route.query.token;
       window.localStorage.setItem('token', token);
       this.selectMemberAddress();
+      this.getCityList();
     },
     watch: {
       selectArea(val){
@@ -145,6 +161,10 @@
           this.form.tel = res.data.memberAddress.tel;
           this.form.area = res.data.communityName;
           this.form.address = res.data.memberAddress.houseNumber;
+          this.selectCity = {
+            id: res.data.memberAddress.cityId,
+            name: res.data.cityName
+          };
           this.selectArea = {
             id: res.data.memberAddress.areaId,
             name: res.data.areaName
@@ -168,12 +188,22 @@
           console.log(error)
         })
       },
+      getCityList() {
+        api.getCityList({
+          "app_key": "app_id_1",
+          token: this.$store.state.token,
+        }).then((res) => {
+          this.cityList = res.data;
+        }).catch((error) => {
+          console.log(error)
+        })
+      },
       getAreaList(){
         api.getAreaList({
           "app_key": "app_id_1",
           "data": {
             "level": 0,
-            "cityId": this.cityId,
+            "cityId": this.selectCity.id,
           },
           token: this.$store.state.token,
         }).then((res) => {
@@ -247,9 +277,10 @@
             "communityId": this.selectCommunity.id,
             "streetId": this.selectStreet.id,
             "commByUserInput": this.form.area,
-            "cityId": this.cityId,
+            "cityId": this.selectCity.id,
           },
         }).then((res) => {
+          this.$store.dispatch('getCityId',this.selectCity.id);
           let jumpUrl = window.sessionStorage.getItem('jumpUrl');
           if (jumpUrl) {
             this.$router.push({

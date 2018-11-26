@@ -12,6 +12,17 @@
       <div class="title">
         <div class="left">所在地址</div>
         <div class="right">
+          <select name="" v-model="selectCity" @change="getAreaList">
+            <option value="">请选择城市</option>
+            <option :value="{id:items.adCode,name:items.city}" v-for="(items,index) in cityList" :key="index">
+              {{items.city}}
+            </option>
+          </select>
+          <img src="@/assets/icon_right.png" alt=""></div>
+      </div>
+      <div class="title" v-if="selectCity">
+        <div class="left"></div>
+        <div class="right">
           <select name="" v-model="selectArea" @change="getStreet">
             <option value="">请选择所在行政区</option>
             <option :value="{id:items.id,name:items.areaName}" v-for="(items,index) in areaList" :key="index">
@@ -86,9 +97,11 @@
           area: '',
           address: '',
         },
+        cityList: [],
         areaList: [],
         streetList: [],
         communityList: [],
+        selectCity: '',
         selectArea: '',
         selectStreet: '',
         selectCommunity: '',
@@ -97,7 +110,7 @@
         showCance: false,
         showCance2: false,
         showStreet: true,
-        location: {}
+        location: {},
       }
     },
     computed: mapGetters({
@@ -112,7 +125,7 @@
         }
         this.location = result
       });
-      this.getAreaList();
+      this.getCityList();
     },
     methods: {
       saveData() {
@@ -139,9 +152,8 @@
           token: this.$store.state.token,
           "data": {
             "address": !this.selectCommunity ? (this.selectArea.name + this.selectStreet.name +
-            this.form.area + this.form.address) : (this.selectCommunity === 'noVal' ? this.selectArea.name +
-              this.selectStreet.name +
-              this.form.area + this.form.address : this.selectArea.name + this.selectStreet.name +
+            this.form.area + this.form.address) : (this.selectCommunity === 'noVal' ?
+              this.selectArea.name + this.selectStreet.name + this.form.area + this.form.address : this.selectArea.name + this.selectStreet.name +
               this.selectCommunity.name + this.form.address),
             "areaId": this.selectArea.id,
             "houseNumber": this.form.address,
@@ -151,11 +163,11 @@
             "communityId": this.selectCommunity.id,
             "streetId": this.selectStreet.id,
             "commByUserInput": this.form.area,
-            "cityId": this.cityId,
+            "cityId": this.selectCity.id,
           },
         }).then((res) => {
-          console.log(res.data)
           if (res.data == '保存地址成功') {
+            this.$store.dispatch('getCityId',this.selectCity.id);
             let jumpUrl = window.sessionStorage.getItem('jumpUrl');
             if (jumpUrl) {
               this.$router.push({
@@ -175,13 +187,22 @@
           console.log(error)
         })
       },
+      getCityList() {
+        api.getCityList({
+          "app_key": "app_id_1",
+          token: this.$store.state.token,
+        }).then((res) => {
+          this.cityList = res.data;
+        }).catch((error) => {
+          console.log(error)
+        })
+      },
       getAreaList() {
-
         api.getAreaList({
           "app_key": "app_id_1",
           "data": {
             "level": 0,
-            "cityId": this.cityId,
+            "cityId": this.selectCity.id,
           },
           token: this.$store.state.token,
         }).then((res) => {
@@ -201,8 +222,6 @@
             "level": 1,
             "latitude": this.location.latitude ? this.location.latitude : '',
             "longitude": this.location.longitude ? this.location.longitude : ''
-
-
           },
           token: this.$store.state.token,
         })
@@ -213,7 +232,6 @@
             // 关闭支付宝加载提示
             ap.hideLoading();
           })
-
       },
       getCommunity() {
         this.selectCommunity = '';

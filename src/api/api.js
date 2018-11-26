@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 // 正式
-let base ='http://open.mayishoubei.com';
+// let base ='http://open.mayishoubei.com';
 
 // 测试
-// let base = 'http://180.153.19.161:9000';
+let base = 'http://180.153.19.161:9000';
 
 // 张强
 // let base ='http://192.168.1.155:9000';
@@ -106,6 +106,13 @@ let configAddressList = {
   "name": "community.defaultAddress",
   "format": "json",
   "sign": "40AFD5662C2FFA919683D5DE60B37A7D",
+  "version": "1.0",
+}
+
+let configGetCityList = {   //选择城市
+  "name": "area.getCityList",
+  "format": "json",
+  "sign": "34F4B87E3F3ABFC8FB346F0EC663B8B4",
   "version": "1.0",
 }
 
@@ -305,6 +312,10 @@ export default {
     let config = Object.assign(configAddressList, params,{"nonce":this.Uuid()},{"timestamp":this.timestamp()});
     return axios.post(`${base}/ali/api`, config).then(res => res.data);
   },
+  getCityList(params) {  //根据城市
+  let config = Object.assign(configGetCityList, params,{"nonce":this.Uuid()},{"timestamp":this.timestamp()});
+  return axios.post(`${base}/ali/api`, config).then(res => res.data);
+},
   getAreaList(params) {  //根据层级获取所有的区
     let config = Object.assign(configGetAreaList, params,{"nonce":this.Uuid()},{"timestamp":this.timestamp()});
     return axios.post(`${base}/ali/api`, config).then(res => res.data);
