@@ -109,6 +109,13 @@ let configAddressList = {
   "version": "1.0",
 }
 
+let configGetCityList = {   //选择城市
+  "name": "area.getCityList",
+  "format": "json",
+  "sign": "34F4B87E3F3ABFC8FB346F0EC663B8B4",
+  "version": "1.0",
+}
+
 let configGetAreaList = {   //根据层级取得所有该层地区
   "name": "area.getByArea",
   "format": "json",
@@ -305,6 +312,10 @@ export default {
     let config = Object.assign(configAddressList, params,{"nonce":this.Uuid()},{"timestamp":this.timestamp()});
     return axios.post(`${base}/ali/api`, config).then(res => res.data);
   },
+  getCityList(params) {  //根据城市
+  let config = Object.assign(configGetCityList, params,{"nonce":this.Uuid()},{"timestamp":this.timestamp()});
+  return axios.post(`${base}/ali/api`, config).then(res => res.data);
+},
   getAreaList(params) {  //根据层级获取所有的区
     let config = Object.assign(configGetAreaList, params,{"nonce":this.Uuid()},{"timestamp":this.timestamp()});
     return axios.post(`${base}/ali/api`, config).then(res => res.data);
