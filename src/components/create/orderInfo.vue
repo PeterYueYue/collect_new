@@ -80,7 +80,7 @@
       <div class="title">回收小贴士</div>
       <div class="remind">回收规则升级啦！您还可以将回收物送给辛苦上门的废品大叔，按回收物公斤重量换取绿色环保能量，在积分商城兑换您的权益。</div>
       <div class="btn nocolor" @click="completeAnOrder('0')">我要卖钱</div>
-      <div class="btn" @click="completeAnOrder('1')">打包带走，获取双倍环保能量</div>
+      <div class="btn" @click="completeAnOrder('1')">一起带走，换取积分</div>
     </div>
 
   </div>
@@ -94,6 +94,7 @@
   export default {
     data() {
       return {
+        clickCount:0,
         datetime5: '2018-01-11 上午',
         time:'请选择上门回收时间',
         show: false,
@@ -212,6 +213,11 @@
         }
       },
       completeAnOrder(status) {
+        if(this.clickCount==0){
+          this.clickCount++;
+        }else{
+          return;
+        }
         if (status) {
           this.IsCash = status
         }

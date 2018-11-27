@@ -122,13 +122,13 @@
     }),
     mounted() {
       //获取经纬度
-      // AlipayJSBridge.call('getCurrentLocation', {bizType: 'didi', requestType: 0}, (result) => {
-      //   if (result.error) {
-      //     alert(result.errorMessage);
-      //     return;
-      //   }
-      //   this.location = result
-      // });
+      AlipayJSBridge.call('getCurrentLocation', {bizType: 'didi', requestType: 0}, (result) => {
+        if (result.error) {
+          alert(result.errorMessage);
+          return;
+        }
+        this.location = result
+      });
 
       // 存储token到本地
       var token = this.$route.query.token;
@@ -280,19 +280,24 @@
             "cityId": this.selectCity.id,
           },
         }).then((res) => {
-          alert('123')
-          this.$store.dispatch('getCityId',this.selectCity.id);
-          let jumpUrl = window.sessionStorage.getItem('jumpUrl');
-          if (jumpUrl) {
-            this.$router.push({
-              path: jumpUrl,
-            });
-            window.sessionStorage.removeItem('jumpUrl')
-          } else {
-            this.$router.push({
-              path: '/adressList',
-            })
-          }
+          
+          this.$store.dispatch('getCityId',{
+            "id":this.selectCity.id,
+            fun:() => {
+              let jumpUrl = window.sessionStorage.getItem('jumpUrl');
+              if (jumpUrl) {
+                this.$router.push({
+                  path: jumpUrl,
+                });
+                window.sessionStorage.removeItem('jumpUrl')
+              } else {
+                this.$router.push({
+                  path: '/adressList',
+                })
+              }
+            }
+          });
+          
         }).catch((error) => {
           console.log(error)
         })

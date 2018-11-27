@@ -51,7 +51,7 @@
             <option :value="{id:items.id,name:items.name}" v-for="(items,index) in communityList" :key="index">
               {{items.name}}
             </option>
-            <option value="noVal">找不到所在小区</option>
+            <option value="noVal">找不到所在小区，去输入</option>
           </select>
           <img src="@/assets/icon_right.png" alt=""></div>
       </div>
@@ -118,13 +118,13 @@
     }),
     mounted() {
       //获取经纬度
-      // AlipayJSBridge.call('getCurrentLocation', {bizType: 'didi', requestType: 0}, (result) => {
-      //   if (result.error) {
-      //     alert("请您开启定位功能");
-      //     return;
-      //   }
-      //   this.location = result
-      // });
+      AlipayJSBridge.call('getCurrentLocation', {bizType: 'didi', requestType: 0}, (result) => {
+        if (result.error) {
+          alert("请您开启定位功能");
+          return;
+        }
+        this.location = result
+      });
       this.getCityList();
     },
     methods: {
@@ -166,12 +166,11 @@
             "cityId": this.selectCity.id,
           },
         }).then((res) => {
-          alert("1")
           let that = this;
           if (res.data == '保存地址成功') {
             this.$store.dispatch('getCityId',{
               "id":this.selectCity.id,
-              fun: () => {
+              fun:() => {
                 let jumpUrl = window.sessionStorage.getItem('jumpUrl');
                 if (jumpUrl) {
                   this.$router.push({
@@ -179,13 +178,10 @@
                   });
                   window.sessionStorage.removeItem('jumpUrl')
                 } else {
-                  alert("我要跳转了")
                   this.$router.push({
                     path: '/adressList',
                   })
                 }
-
-
               }
             });
             

@@ -87,13 +87,13 @@
               <img id="shopImg" :src="item.icon?item.icon:''" alt="">
               <!-- <img  :src="item.icon?item.icon:''" alt=""> -->
 
-              <div class="name" v-html="item.name"></div>
+              <div class="name noPriceName" v-html="item.name"></div>
               <div v-if="item.price !== 0" class="price">
                 ¥<span>
                   {{item.price}}/{{item.unit}}
                 </span>
               </div>
-              <div class="xiaoge">打包带走，获双倍能量</div>
+              <div class="xiaoge"></div>
               <div v-bind:class="{ checked: item.checked == '1' }" class="optbtn1">
                 <div
                   @touchstart=addProductStart
@@ -150,8 +150,8 @@
       <div @touchstart="closeOrders(true)" class="btn1">我知道了</div>
     </div>
 
-    <div class="class_alert" v-show="!showUl&&comIsNull==='0'" @touchstart="startHandle($event)"></div>
-    <div class="class_shadow_box" v-show="!showUl&&comIsNull==='0'" >
+    <div class="class_alert" v-if="!showUl&&comIsNull==='0'" @touchstart="startHandle($event)"></div>
+    <div class="class_shadow_box" v-if="!showUl&&comIsNull==='0'" >
       <div class="title">环保小提示</div>
       <img src="@/assets/classify_orders.png" alt="" class="shadow_box_icon">
       <div class="shadow_box_alertext">请先添加您的上门回收地址，以便我们为您提供生活垃圾上门回收服务</div>
@@ -176,7 +176,7 @@
     data() {
       return {
         recTypeExp: '',
-        comIsNull: '',
+        comIsNull: '-1',
         menulist: '',
         isId: '1',
         subList: '',
@@ -249,6 +249,7 @@
         })
       },
       changeRoute(){
+
         if(this.$route.params.id == "waste"){
           this.openUl(false,'waste')
         }
@@ -700,4 +701,9 @@
     }
   }
 </script>
+<style>
+.noPriceName{
+  margin-top: 0.3rem;
+}
+</style>
 

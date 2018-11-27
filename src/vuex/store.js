@@ -44,6 +44,7 @@ export default new Vuex.Store({
     adressInfo: {},  //默认地址和个人信息
     isTitle: '',     //分类title
     recyclingType: 'appliances',
+    cityId:''
   },
   mutations: {
     getSubItemID(state, id) {  //获取子集ID
@@ -137,9 +138,11 @@ export default new Vuex.Store({
     RecyclingType(state,data) {
       this.state.recyclingType = data;
     },
-    GetCityId(state, data,fn) {  // 获取城市ID
-      this.state.cityId = data.id
-      data.fun()
+    GetCityId(state, data) {  // 获取城市ID
+      this.state.cityId = data.id;
+      if(data.fun){
+        data.fun();
+      }
     },
     GetIsCash(state, data) {  // 获取城市ID
       this.state.isCash = data

@@ -64,8 +64,8 @@ export default {
     data(){
         return{
             list:[],
-            availableQuantity:'',
-            totalQuantity:'',
+            availableQuantity:'0',
+            totalQuantity:'0',
             showShadow:false,
             isActive:'',
             memberAddress:'',

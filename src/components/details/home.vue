@@ -62,27 +62,27 @@
           <div class="home_recycle">
             <div class="head">可再生垃圾回收<span><img src="@/assets/icon/icon_home_7.png" alt="">免费上门回收
             </span><span><img src="@/assets/icon/icon_home_8.png" alt="">当面计量称重</span></div>
-            <div class="remind"><img src="@/assets/icon/icon_home_9.png" alt="">垃圾打免费送给回收小哥，会获得双倍环保积分哦！一般人我不告诉他！</div>
+            <!-- <div class="remind"><img src="@/assets/icon/icon_home_9.png" alt="">垃圾打免费送给回收小哥，会获得双倍环保积分哦！一般人我不告诉他！</div> -->
             <div class="item">
               <ul>
-                <router-link to="classify/appliances?type=1&id=25&index=0">
+                <router-link to="classify/waste?type=1&id=25&index=0">
                   <li><img src="@/assets/icon/home_item1.png" alt="">废纸回收</li>
                 </router-link>
-                <router-link to="classify/appliances?type=1&id=34&index=1">
+                <router-link to="classify/waste?type=1&id=34&index=1">
                   <li><img src="@/assets/icon/home_item2.png" alt="">废塑料回收</li>
                 </router-link>
-                <router-link to="classify/appliances?type=1&id=40&index=2">
+                <router-link to="classify/waste?type=1&id=40&index=2">
                   <li><img src="@/assets/icon/home_item3.png" alt="">废玻璃回收</li>
                 </router-link>
               </ul>
               <ul>
-                <router-link to="classify/appliances?type=1&id=45&index=3">
+                <router-link to="classify/waste?type=1&id=45&index=3">
                   <li><img src="@/assets/icon/home_item4.png" alt="">废纺织衣物回收</li>
                 </router-link>
-                <router-link to="classify/appliances?type=1&id=56&index=4">
+                <router-link to="classify/waste?type=1&id=56&index=4">
                   <li><img src="@/assets/icon/home_item5.png" alt="">废木回收</li>
                 </router-link>
-                <router-link to="classify/appliances?type=1&id=60&index=5">
+                <router-link to="classify/waste?type=1&id=60&index=5">
                   <li><img src="@/assets/icon/home_item6.png" alt="">废金属回收</li>
                 </router-link>
               </ul>
@@ -170,24 +170,24 @@
             <div class="remind"><img src="@/assets/icon/icon_home_9.png" alt="">垃圾免费送给回收小哥，会获得双倍环保积分哦！一般人我不告诉他！</div>
             <div class="item">
               <ul>
-                <router-link to="classify/appliances?type=1&id=25&index=0">
+                <router-link to="classify/waste?type=1&id=25&index=0">
                   <li><img src="@/assets/icon/home_item1.png" alt="">废纸回收</li>
                 </router-link>
-                <router-link to="classify/appliances?type=1&id=34&index=1">
+                <router-link to="classify/waste?type=1&id=34&index=1">
                   <li><img src="@/assets/icon/home_item2.png" alt="">废塑料回收</li>
                 </router-link>
-                <router-link to="classify/appliances?type=1&id=40&index=2">
+                <router-link to="classify/waste?type=1&id=40&index=2">
                   <li><img src="@/assets/icon/home_item3.png" alt="">废玻璃回收</li>
                 </router-link>
               </ul>
               <ul>
-                <router-link to="classify/appliances?type=1&id=45&index=3">
+                <router-link to="classify/waste?type=1&id=45&index=3">
                   <li><img src="@/assets/icon/home_item4.png" alt="">废纺织衣物回收</li>
                 </router-link>
-                <router-link to="classify/appliances?type=1&id=56&index=4">
+                <router-link to="classify/waste?type=1&id=56&index=4">
                   <li><img src="@/assets/icon/home_item5.png" alt="">废木回收</li>
                 </router-link>
-                <router-link to="classify/appliances?type=1&id=60&index=5">
+                <router-link to="classify/waste?type=1&id=60&index=5">
                   <li><img src="@/assets/icon/home_item6.png" alt="">废金属回收</li>
                 </router-link>
               </ul>
@@ -278,8 +278,8 @@
     mounted() {
       document.setTitle('垃圾分类回收');
       // 本地测试打开
-     var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24V7T3DOAA5L4UV65ITTMHZDFSIH72TFJQ4OTPFJBTG7BJX6SSQWSUUWWFHZOHI44WRHB5FJFDHS6Z73WHVXZTRPF43WDVU2OAV3XMOAG76H3ZXX3GZJD2IHYSFAECHALHL54J5P7GV32H637MC3RZMIF5ETU3XZ3MKVBR7QBOEZDAIGR5X7WP65PEWDVOE72LNFMAF4F4TUKYJDRIGVOZMEP4MMTPZ4O2ZIFJROTQ'
-     this.$store.dispatch('getToken', tk);
+    //  var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24V7T3DOAA5L4UV65ITTMHZDFSIH72TFJQ4OTPFJBTG7BJX6SSQWSUUWWFHZOHI44WRHB5FJFDHS6Z73WHVXZTRPF43WDVU2OAV3XMOAG76H3ZXX3GZJD2IHYSFAECHALHL54J5P7GV32H637MC3RZMIF5ETU3XZ3MKVBR7QBOEZDAIGR5X7WP65PEWDVOE72LNFMAF4F4TUKYJDRIGVOZMEP4MMTPZ4O2ZIFJROTQ'
+    //  this.$store.dispatch('getToken', tk);
 
       if(!this.token){
       // 用户进来判断是否要授权；
@@ -476,7 +476,7 @@
                 "cityName":city
               }
             }).then(res => {
-              this.$store.dispatch('getCityId',res.data.cityId);
+              this.$store.dispatch('getCityId',{"id":res.data.cityId});
               if(res.data == "用户授权解析失败"){
                 AlipayJSBridge.call('popWindow');
                 return;
@@ -521,7 +521,7 @@
                 }
             }).then(res => {
               this.$store.dispatch('getToken', res.data.token);
-               this.$store.dispatch('getCityId',res.data.cityId);
+               this.$store.dispatch('getCityId',{"id":res.data.cityId});
               this.$router.push({ path: '/integralshoping/dic'})
             })
         })
