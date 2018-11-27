@@ -280,18 +280,24 @@
             "cityId": this.selectCity.id,
           },
         }).then((res) => {
-          this.$store.dispatch('getCityId',this.selectCity.id);
-          let jumpUrl = window.sessionStorage.getItem('jumpUrl');
-          if (jumpUrl) {
-            this.$router.push({
-              path: jumpUrl,
-            });
-            window.sessionStorage.removeItem('jumpUrl')
-          } else {
-            this.$router.push({
-              path: '/adressList',
-            })
-          }
+          
+          this.$store.dispatch('getCityId',{
+            "id":this.selectCity.id,
+            fun:() => {
+              let jumpUrl = window.sessionStorage.getItem('jumpUrl');
+              if (jumpUrl) {
+                this.$router.push({
+                  path: jumpUrl,
+                });
+                window.sessionStorage.removeItem('jumpUrl')
+              } else {
+                this.$router.push({
+                  path: '/adressList',
+                })
+              }
+            }
+          });
+          
         }).catch((error) => {
           console.log(error)
         })

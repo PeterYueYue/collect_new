@@ -167,18 +167,23 @@
           },
         }).then((res) => {
           if (res.data == '保存地址成功') {
-            this.$store.dispatch('getCityId',this.selectCity.id);
-            let jumpUrl = window.sessionStorage.getItem('jumpUrl');
-            if (jumpUrl) {
-              this.$router.push({
-                path: jumpUrl,
-              });
-              window.sessionStorage.removeItem('jumpUrl')
-            } else {
-              this.$router.push({
-                path: '/adressList',
-              })
-            }
+            this.$store.dispatch('getCityId',{
+              "id":this.selectCity.id,
+              fun:() => {
+                let jumpUrl = window.sessionStorage.getItem('jumpUrl');
+                if (jumpUrl) {
+                  this.$router.push({
+                    path: jumpUrl,
+                  });
+                  window.sessionStorage.removeItem('jumpUrl')
+                } else {
+                  this.$router.push({
+                    path: '/adressList',
+                  })
+                }
+              }
+            });
+            
           } else {
             this.showShadow = true;
             this.showNul = true;

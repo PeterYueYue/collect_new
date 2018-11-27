@@ -278,8 +278,8 @@
     mounted() {
       document.setTitle('垃圾分类回收');
       // 本地测试打开
-     // var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24V7T3DOAA5L4UV65ITTMHZDFSIH72TFJQ4OTPFJBTG7BJX6SSQWSUUWWFHZOHI44WRHB5FJFDHS6Z73WHVXZTRPF43WDVU2OAV3XMOAG76H3ZXX3GZJD2IHYSFAECHALHL54J5P7GV32H637MC3RZMIF5ETU3XZ3MKVBR7QBOEZDAIGR5X7WP65PEWDVOE72LNFMAF4F4TUKYJDRIGVOZMEP4MMTPZ4O2ZIFJROTQ'
-     // this.$store.dispatch('getToken', tk);
+    //  var tk = '3F3TEMH74565Q5QORHNPE76UZM6VT4JPWVV4OPUNTGAXLLRLC6B5GYU3LW34YHVNOEFL2LXPVT24V7T3DOAA5L4UV65ITTMHZDFSIH72TFJQ4OTPFJBTG7BJX6SSQWSUUWWFHZOHI44WRHB5FJFDHS6Z73WHVXZTRPF43WDVU2OAV3XMOAG76H3ZXX3GZJD2IHYSFAECHALHL54J5P7GV32H637MC3RZMIF5ETU3XZ3MKVBR7QBOEZDAIGR5X7WP65PEWDVOE72LNFMAF4F4TUKYJDRIGVOZMEP4MMTPZ4O2ZIFJROTQ'
+    //  this.$store.dispatch('getToken', tk);
 
       if(!this.token){
       // 用户进来判断是否要授权；
@@ -476,7 +476,7 @@
                 "cityName":city
               }
             }).then(res => {
-              this.$store.dispatch('getCityId',res.data.cityId);
+              this.$store.dispatch('getCityId',{"id":res.data.cityId});
               if(res.data == "用户授权解析失败"){
                 AlipayJSBridge.call('popWindow');
                 return;
@@ -521,7 +521,7 @@
                 }
             }).then(res => {
               this.$store.dispatch('getToken', res.data.token);
-               this.$store.dispatch('getCityId',res.data.cityId);
+               this.$store.dispatch('getCityId',{"id":res.data.cityId});
               this.$router.push({ path: '/integralshoping/dic'})
             })
         })
