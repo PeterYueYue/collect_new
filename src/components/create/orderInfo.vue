@@ -213,8 +213,7 @@
         }
       },
       completeAnOrder(status) {
-        this.clickCount++;
-        if(this.clikCount==0){
+        if(this.clickCount==0){
           this.clickCount++;
         }else{
           return;

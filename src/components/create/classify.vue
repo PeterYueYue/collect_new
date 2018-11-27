@@ -249,6 +249,7 @@
         })
       },
       changeRoute(){
+
         if(this.$route.params.id == "waste"){
           this.openUl(false,'waste')
         }

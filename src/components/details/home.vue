@@ -65,24 +65,24 @@
             <div class="remind"><img src="@/assets/icon/icon_home_9.png" alt="">垃圾打免费送给回收小哥，会获得双倍环保积分哦！一般人我不告诉他！</div>
             <div class="item">
               <ul>
-                <router-link to="classify/appliances?type=1&id=25&index=0">
+                <router-link to="classify/waste?type=1&id=25&index=0">
                   <li><img src="@/assets/icon/home_item1.png" alt="">废纸回收</li>
                 </router-link>
-                <router-link to="classify/appliances?type=1&id=34&index=1">
+                <router-link to="classify/waste?type=1&id=34&index=1">
                   <li><img src="@/assets/icon/home_item2.png" alt="">废塑料回收</li>
                 </router-link>
-                <router-link to="classify/appliances?type=1&id=40&index=2">
+                <router-link to="classify/waste?type=1&id=40&index=2">
                   <li><img src="@/assets/icon/home_item3.png" alt="">废玻璃回收</li>
                 </router-link>
               </ul>
               <ul>
-                <router-link to="classify/appliances?type=1&id=45&index=3">
+                <router-link to="classify/waste?type=1&id=45&index=3">
                   <li><img src="@/assets/icon/home_item4.png" alt="">废纺织衣物回收</li>
                 </router-link>
-                <router-link to="classify/appliances?type=1&id=56&index=4">
+                <router-link to="classify/waste?type=1&id=56&index=4">
                   <li><img src="@/assets/icon/home_item5.png" alt="">废木回收</li>
                 </router-link>
-                <router-link to="classify/appliances?type=1&id=60&index=5">
+                <router-link to="classify/waste?type=1&id=60&index=5">
                   <li><img src="@/assets/icon/home_item6.png" alt="">废金属回收</li>
                 </router-link>
               </ul>
@@ -170,24 +170,24 @@
             <div class="remind"><img src="@/assets/icon/icon_home_9.png" alt="">垃圾免费送给回收小哥，会获得双倍环保积分哦！一般人我不告诉他！</div>
             <div class="item">
               <ul>
-                <router-link to="classify/appliances?type=1&id=25&index=0">
+                <router-link to="classify/waste?type=1&id=25&index=0">
                   <li><img src="@/assets/icon/home_item1.png" alt="">废纸回收</li>
                 </router-link>
-                <router-link to="classify/appliances?type=1&id=34&index=1">
+                <router-link to="classify/waste?type=1&id=34&index=1">
                   <li><img src="@/assets/icon/home_item2.png" alt="">废塑料回收</li>
                 </router-link>
-                <router-link to="classify/appliances?type=1&id=40&index=2">
+                <router-link to="classify/waste?type=1&id=40&index=2">
                   <li><img src="@/assets/icon/home_item3.png" alt="">废玻璃回收</li>
                 </router-link>
               </ul>
               <ul>
-                <router-link to="classify/appliances?type=1&id=45&index=3">
+                <router-link to="classify/waste?type=1&id=45&index=3">
                   <li><img src="@/assets/icon/home_item4.png" alt="">废纺织衣物回收</li>
                 </router-link>
-                <router-link to="classify/appliances?type=1&id=56&index=4">
+                <router-link to="classify/waste?type=1&id=56&index=4">
                   <li><img src="@/assets/icon/home_item5.png" alt="">废木回收</li>
                 </router-link>
-                <router-link to="classify/appliances?type=1&id=60&index=5">
+                <router-link to="classify/waste?type=1&id=60&index=5">
                   <li><img src="@/assets/icon/home_item6.png" alt="">废金属回收</li>
                 </router-link>
               </ul>

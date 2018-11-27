@@ -51,7 +51,7 @@
             <option :value="{id:items.id,name:items.name}" v-for="(items,index) in communityList" :key="index">
               {{items.name}}
             </option>
-            <option value="noVal">找不到所在小区</option>
+            <option value="noVal">找不到所在小区，去输入</option>
           </select>
           <img src="@/assets/icon_right.png" alt=""></div>
       </div>
