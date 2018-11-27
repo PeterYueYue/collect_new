@@ -1,0 +1,221 @@
+/*积分商城*/
+.integralShopping {
+  -webkit-overflow-scrolling: touch;
+}
+.integralShopping .head {
+  background-color: #ffffff;
+}
+.integralShopping .head .bacBox {
+  height: 2.2rem;
+  width: 100%;
+  position: relative;
+}
+.integralShopping .head .bacBox #bannerbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.integralShopping .head .bacBox #bannerbox img {
+  width: 7.5rem;
+  height: 2.2rem;
+}
+.integralShopping .head .bacBox strong,
+.integralShopping .head .bacBox .quantity {
+  display: block;
+  font-size: 0.3rem;
+  line-height: 0.36rem;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: 0.03rem;
+  position: relative;
+  z-index: 1;
+}
+.integralShopping .head .bacBox strong {
+  padding-top: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+.integralShopping .head .bacBox .quantity {
+  font-size: 0.36rem;
+  position: relative;
+  z-index: 1;
+}
+.integralShopping .head .bacBox .strategy {
+  width: 2.76rem;
+  height: 0.46rem;
+  border: 0.01rem solid #ffffff;
+  border-radius: 0.22rem;
+  margin: 0.2rem auto 0 auto;
+  font-size: 0.24rem;
+  text-align: center;
+  line-height: 0.46rem;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+}
+.integralShopping .head .bacBox .strategy .icon {
+  display: inline-block;
+  width: 0.23rem;
+  height: 0.23rem;
+  background: url('../img/icon_mark.png') no-repeat;
+  background-size: 100% 100%;
+  vertical-align: top;
+  margin-top: 0.1rem;
+}
+.integralShopping .head .useEnvironmental {
+  width: 100%;
+  height: 0.66rem;
+  color: #333333;
+  position: relative;
+}
+.integralShopping .head .useEnvironmental .enviromental {
+  position: absolute;
+  font-size: 0.3rem;
+  line-height: 0.66rem;
+  font-family: PingFang-SC-Medium;
+  left: 0.2rem;
+  top: 0;
+}
+.integralShopping .head .useEnvironmental .digit {
+  position: absolute;
+  line-height: 0.66rem;
+  font-size: 0.28rem;
+  font-family: PingFang-SC-Medium;
+  right: 0.34rem;
+  top: 0;
+}
+.integralShopping .nav {
+  display: flex;
+  margin-top: 0.2rem;
+  font-size: 0.34rem;
+  word-spacing: -0.01rem;
+  background-color: #fff;
+  height: 0.88rem;
+  line-height: 0.88rem;
+  vertical-align: top;
+  justify-content: space-around;
+}
+.integralShopping .nav div {
+  width: 49%;
+  text-align: center;
+  color: #333333;
+  font-size: 0.3rem;
+}
+.integralShopping .nav .active {
+  color: #00a0e9;
+  font-weight: bold;
+}
+.integralShopping .nav .line {
+  margin-top: 0.24rem;
+  width: 0.01rem;
+  height: 0.4rem;
+  background-color: #c6c6c6;
+}
+.integralShopping .content {
+  margin-top: 0.1rem;
+}
+.integralShopping .content .item {
+  height: 2.24rem;
+  padding: 0.32rem;
+  background-color: #ffffff;
+  width: 7.5rem;
+  margin-bottom: 0.02rem;
+  position: relative;
+}
+.integralShopping .content .item .imageOfGgift {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+.integralShopping .content .item .giftInfo {
+  width: 5.2rem;
+  padding-left: 0.3rem;
+}
+.integralShopping .content .item .giftInfo .he3 {
+  width: 100%;
+  line-height: 0.56rem;
+  font-size: 0.28rem;
+  font-weight: 100;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-top: 0.08rem;
+  color: #000;
+}
+.integralShopping .content .item .giftInfo .discountTicket {
+  font-size: 0.26rem;
+  line-height: 0.42rem;
+  text-align: left;
+  overflow: hidden;
+  color: #666;
+}
+.integralShopping .content .item .giftInfo .discountTicket span {
+  display: inline-block;
+  width: 0.28rem;
+  height: 0.28rem;
+  vertical-align: top;
+  color: #f39725;
+  font-size: 0.22rem;
+  border: 0.01rem solid #f39725;
+  text-align: center;
+  line-height: 0.28rem;
+  margin-right: 0.1rem;
+  border-radius: 0.05rem;
+  margin-top: 0.06rem;
+}
+.integralShopping .content .item .giftInfo .expend {
+  font-size: 0.22rem;
+  line-height: 0.47rem;
+  text-align: left;
+  position: relative;
+  color: #666;
+}
+.integralShopping .content .item .giftInfo .expend .number {
+  color: #fd4364;
+  font-size: 0.34rem;
+  font-weight: bold;
+}
+.integralShopping .content .item .statistics {
+  color: #666666;
+  font-size: 0.24rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.records_shadow {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(51, 51, 51, 0.7);
+}
+.records_shadow_box {
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 5.4rem;
+  background: #fff;
+  border-radius: 0.2rem;
+  font-size: 0.3rem;
+  color: #000;
+  text-align: justify;
+  padding: 0.5rem 0.45rem 0.6rem;
+}
+.records_shadow_box .title {
+  font-size: 0.34rem;
+  text-align: center;
+  margin-bottom: 0.3rem;
+}
+.records_shadow_box img {
+  position: absolute;
+  bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0.6rem;
+  height: 0.6rem;
+}

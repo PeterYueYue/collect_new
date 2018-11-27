@@ -1,0 +1,202 @@
+
+.active_wrap{
+    width:100%;
+    /* background-color: red; */
+}
+
+.active_wrap_top{
+    width:100%;
+}
+
+.active_wrap_top .banner{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -9999;
+}
+
+.active_wrap_title {
+    width: 91%;
+    height: 2.5rem;
+    margin:1.7rem auto 0.4rem auto; 
+    background-color: white;
+    border-radius: 0.2rem;
+    box-shadow: -0.04rem 0.1rem 0.8rem rgba(37, 37, 37, 0.1);
+}
+.active_wrap_title .title_content{
+    display: inline-block;
+    width: 72%;
+    padding:0.25rem 0 0.25rem 0.25rem ;
+    height: 2.5rem;
+    vertical-align: middle;
+}
+.active_wrap_title .title_banner{
+    display: inline-block;
+    width: 24%;
+    text-align: center;
+    vertical-align: middle;
+    height: 2.5rem;
+}
+.title_content .title_one,.title_content .title_two{
+    margin-bottom: 0.2rem;
+}
+.title_content .title_one{
+    color: #00a0e9;
+    font-size: 0.33rem;
+}
+.title_content .title_two{
+    font-size: 0.26rem;
+}
+.title_content .title-three{
+    color: #888888;
+    font-size: 0.25rem;
+}
+.title_banner .title-img{
+    height: 100%;
+}
+.active_wrap_content .coupon{
+    width: 91%;
+    padding: 0.2rem 0.15rem;
+    margin:0 auto 0.3rem auto; 
+    background-image: url('../coupon_background.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+.active_wrap_content .coupon_icon{
+    width: 30%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+}
+.active_wrap_content .coupon_content{
+    width: 60%;
+    margin-left: 0.40rem;
+    display: inline-block;
+    vertical-align: top;
+}
+.active_wrap_content .coupon_content .coupon_title{
+    font-size: 0.28rem;
+    margin-bottom: 0.16rem
+}
+.icon_img{
+    width: 100%;
+}
+.coupon_content .icon_1{
+    display: inline-block;
+    font-size: 0.2rem;
+    background-color: #014494;
+    color: white;
+    border-radius: 8px;
+    padding:0.04rem 0.18rem; 
+    margin-right: 0.05rem;
+}
+.coupon_content .icon_2,.coupon_content .icon_2{
+    vertical-align: middle;
+}
+.coupon_content .coupon_explain{
+    font-size: 0.2rem;
+    color: #888888;
+    margin-bottom: 0.2rem;
+}
+.coupon_content .coupon_button_wrap{
+    font-size: 0.23rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 0.5px dashed #cccccc;
+    padding-top: 0.2rem
+}
+.coupon_content .progress_contain{
+    width: 100%;
+    height: 0.1rem;
+    /* background: #dbdbdb; */
+    margin-bottom: 0.1rem;
+    display: flex;
+    border-radius: 10px;
+    border: 0.5px solid #cccccc;
+
+}
+.coupon_content .progress{
+    width: 50%;
+    
+}
+.coupon_button_wrap .progress_persents{
+    color: #fd4364;
+    font-size: 0.32rem;
+}
+.coupon_button_wrap .coupon_button{
+    color: #fd4364;
+    width: 1.3rem;
+    text-align: center;
+    border: 1px solid #fe3467;
+    padding: 0.05rem 0.15rem;
+    border-radius: 1rem;
+}
+
+.coupon_content .progress .progress_bar{
+    display: inline-block;
+    background-color: #fd4364;
+    border-radius: 10px;
+    height: 0.1rem;
+    width: 20%;
+}
+.active_footer{
+    text-align: center;
+    color: #666666;
+    font-size: 0.23rem;
+    padding: 0 0 0.3rem 0;
+}
+.show_mask{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(51, 51, 51, 0.7);
+}
+.shadow_box {
+    width: 70%;
+    height: 3rem;
+    padding-bottom: 0.1rem;
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 0.1rem;
+    font-size: 0.36rem;
+    text-align: center;
+    padding-top: 0.7rem;
+  }
+  
+  .shadow_btn {
+    width: 2.4rem;
+    height: 0.7rem;
+    line-height: 0.7rem;
+    text-align: center;
+    border-radius: 0.08rem;
+    background: rgb(0, 160, 233);
+    color:#fff;
+    font-size: 0.34rem;
+    margin: 0.55rem auto 0;
+  }
+  .coupon_content .progress_contain.down{
+      background-color: #dbdbdb
+  }
+  .icon_1.down{
+      background-color: #cccccc
+  }
+  .progress p.down ,.progress p.down .progress_persents{
+      color:#cccccc 
+  }
+  .coupon_button.down{
+      border: 1px solid #cccccc;
+      color: #cccccc
+  }
+  .coupon_content .progress .progress_bar.down{
+    background-color: #dbdbdb;
+  }
+  
+
+

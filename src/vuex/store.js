@@ -4,14 +4,12 @@ import * as actions from './actions'
 import * as getters from './getters'
 import createPersistedState from 'vuex-persistedstate'
 
-import router from '../router/index.js'
-
 Vue.use(Vuex);
 // 创建 store 实例
 
 export default new Vuex.Store({
-  actions,
   getters,
+  actions,
   state: {
     token: '',
     count: 0,
@@ -45,7 +43,7 @@ export default new Vuex.Store({
     classID: '',     //分类父级id
     adressInfo: {},  //默认地址和个人信息
     isTitle: '',     //分类title
-    recyclingType:'appliances',
+    recyclingType: 'appliances',
   },
   mutations: {
     getSubItemID(state, id) {  //获取子集ID
@@ -138,8 +136,15 @@ export default new Vuex.Store({
     },
     RecyclingType(state,data) {
       this.state.recyclingType = data;
-    }
+    },
+    GetCityId(state, data,fn) {  // 获取城市ID
+      this.state.cityId = data.id
+      data.fun()
+    },
+    GetIsCash(state, data) {  // 获取城市ID
+      this.state.isCash = data
+    },
   },
-  
+
   plugins: [createPersistedState({storage: window.sessionStorage})]
 })

@@ -41,9 +41,9 @@
         <span>贴心服务</span>
       </li>
     </ul>
-    <div class="nextbutton" v-show="showBtn == 'enter' && showAddBtn == 'enter' "><router-link to="/uploadimage">下一步</router-link></div>
+    <div class="nextbutton" v-show="showBtn == 'enter' && showAddBtn == 'enter'"><router-link to="/uploadimage">下一步</router-link></div>
     <div class="nextbutton" v-show="showBtn == 'back' ||showAddBtn == 'back'"><router-link to="/home">返回首页</router-link></div>
-    <div class="nextcur" ><router-link to="/addAdress">+ 新增小区地址</router-link></div>
+    <div class="nextcur" v-show="showAddBtn == 'back'" @click="goToList"> + 新增小区地址</div>
   </div>
 </template>
 <script>
@@ -65,15 +65,22 @@
       token: 'token',
       classID:'classID',
       adressInfo: 'adressInfo',
+      cityId:'cityId'
     }),
     created() {
       api.MemberAddress({
           "app_key": "app_id_1",
-          token: this.token
+          token: this.token,
+          "data":{
+            "cityId": this.cityId,
+          }
         }).then((res) => {
           this.$store.dispatch('getAddressInfo',res.data);
           this.isFuturePrtices();
         })
+    },
+    mounted(){
+      document.setTitle('回收物价格评估');
     },
     methods: {
       letAgainM() {
@@ -89,8 +96,9 @@
             "categoryAttrOptionPrices": this.statisticsPrice,
             "categoryId": this.addRessId.id,
             "communityId": this.adressInfo?this.adressInfo.communityId:'',
+            "cityId":this.cityId,
           },
-          token: this.token
+          token: this.token,
         })
         .then((res) => {
           this.$store.dispatch('changeFuturePrice', res.data);
@@ -101,6 +109,11 @@
             this.showAddBtn = 'back';
           }
         })
+      },
+      // 跳转的时候插入sessionStorage
+      goToList(){
+        window.sessionStorage.setItem('jumpUrl', this.$route.fullPath);
+        this.$router.push('/addAdress')
       }
     }
   }

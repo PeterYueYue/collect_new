@@ -19,7 +19,7 @@
         <div v-for="(item,index) in imgsAddress" :key="item.id" class="imgBox">
           <img :src="imgsAddress[index].thumbnail" alt="">
           <div class="zhezhao"></div>
-          <van-icon @click="removeImg(index)" class="closeImg" name="clear"/>
+          <img src="@/assets/icon/delete.png" alt="" @click="removeImg(index)" class="closeImg" name="clear">
         </div>
         <!-- <img src="@/assets/upimg2.png" alt=""> -->
         <div v-show="imgsAddress.length>0 && imgsAddress.length<3" class="isaddimg">
@@ -48,7 +48,7 @@
           <div class="utrash_title">{{data.pName}}<span  v-if="false">预估价格：<span>￥{{data.price.toFixed(2)}}</span></span></div>
             <div class="utrash_item" v-for="(items,index) in data.data" :key="index">
               <span  v-if="fileContentBase64" class="weight">x {{items.number+items.unit}}</span>
-              <div class="name">{{items.name}}</div>
+              <div class="name" v-html="items.name"></div>
               <div class="price"   v-if="items.price !==0" >¥<span>{{items.price}}/{{items.unit}}</span></div>
             </div>
         </div>
@@ -105,6 +105,7 @@
       token: 'token'
     }),
     mounted(){
+      document.setTitle('回收物描述');
       if (!window.sessionStorage.getItem('productList')) {
         this.productList = [];
         return

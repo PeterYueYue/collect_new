@@ -132,6 +132,7 @@
       addResstext: 'addResstext',    //用户默认地址
       adressInfo: 'adressInfo',   //新地址信息
       classID:'classID',
+      cityId:'cityId',
     }),
     created() {
       if (this.imgsAddress.length < 1) {
@@ -153,12 +154,13 @@
             "address": this.addResstext.address,
             "arrivalPeriod": this.infoTm,
             "linkMan": this.nameValue,
+            "cityId":this.cityId,
             "orderItemBean": {
               "categoryAttrId": 0,
               "orderId": 0,
               "categoryAttrOppId": 0,
               "categoryAttrOppIds": this.categoryAttrOppIds,
-              "categoryId": 0
+              "categoryId": 0, 
             },
             "level": "0",
             "orderPic": {
@@ -186,7 +188,7 @@
             //垃圾回收新增的字段
             "streetId": "123",
             "idAndListList": [{}],
-            "title": "HOUSEHOLD",
+            "title": "HOUSEHOLD",           
           }
         }).then((res) => {
           this.$store.dispatch('clear');

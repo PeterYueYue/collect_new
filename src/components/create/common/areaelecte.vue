@@ -17,7 +17,8 @@
       }
     },
     computed: mapGetters({
-      token: "token"
+      token: "token",
+      cityId: "cityId",
     }),
     created() {
       // 获取所有的区
@@ -25,7 +26,8 @@
         "app_key": "app_id_1",
         "data": {
           "id": 1,
-          "level": 0
+          "level": 0,
+          "cityId": this.cityId,
         },
         token: this.token
       }).then((res) => {

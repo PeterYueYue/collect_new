@@ -78,3 +78,11 @@ export var getAddressInfo = ({commit}, data) => {   //获取地址信息
 export var getIsTitle = ({commit}, data) => {   //获取分类title
   commit(types.GetIsTitle, data)
 }
+
+export var getCityId = ({commit}, data,fn) => {   //获取城市ID
+  commit(types.GetCityId, data,fn)
+}
+
+export var getIsCash = ({commit}, data) => {   //小区收费与否
+  commit(types.GetIsCash, data)
+}

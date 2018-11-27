@@ -267,3 +267,40 @@
   font-size: 0.34rem;
   margin: 0.55rem auto 0;
 }
+.orderinfo .order_info_box {
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 5.9rem;
+  background: rgba(247, 247, 247, 0.96);
+  border-radius: 0.3rem;
+  line-height: 0.5rem;
+}
+.orderinfo .order_info_box .title {
+  font-size: 0.32rem;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+.orderinfo .order_info_box .remind {
+  width: 4.6rem;
+  margin: 0.2rem auto 0;
+  font-size: 0.26rem;
+  color: #333;
+  text-align: justify;
+}
+.orderinfo .order_info_box .btn {
+  height: 0.9rem;
+  line-height: 0.9rem;
+  text-align: center;
+  font-size: 0.32rem;
+  color: #00a0e9;
+  border-top: 0.01rem #ddd solid;
+  margin-top: 0;
+}
+.orderinfo .order_info_box .btn.nocolor {
+  color: #666;
+  margin-top: 0.3rem;
+}

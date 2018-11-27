@@ -15,7 +15,7 @@
           :key="item.id"
           class="item"
           v-bind:class="{ active: isActive == index }"
-          @touchstart="getList(item.id,index)"
+          @touchstart="getList(item.id, index, false)"
         >{{item.name}}
         </li>
       </ul>
@@ -43,7 +43,7 @@
           :key="item.id"
           class="item"
           v-bind:class="{ active: isActive == index }"
-          @touchstart="getList(item.id,index)"
+          @touchstart="getList(item.id, index, true)"
         >{{item.name}}
         </li>
       </ul>
@@ -54,20 +54,18 @@
           <span class="right_line fl"></span>
         </div>
         <div class="linlei_list">
-          <img :src="menuListImg" alt="" class="classify_banner">
+          <img :src="menuListImg" alt="" class="classify_banner" @touchstart="showShadow = true ; showAlert1 = true">
           <div @touchstart="showShadow = true ; showAlert1 = true" class="questions">
             <span></span> 什么是{{questionTitle}}
           </div>
 
-
           <div class="classify_main">
-            <div class="classify_title"><i></i>回收类型<span>（以下单价为上海市平均回收价）</span></div>
-            <div class="classify_item" v-for="  (item,index) in subList" :key="item.id">
+            <div class="classify_title" v-show="subList.length>0"><i></i>回收类型<span>（以下单价为上海市平均回收价）</span></div>
+            <div class="classify_item" v-for="(item,index) in subList" :key="item.id">
               <img :src="item.icon?item.icon:''" alt="">
               <div class="name">{{item.name}}</div>
               <div class="price">
-                ¥<span>{{item.price}}/<span class="danwei">{{item.unit}}</span></span>
-
+                ¥<span>{{item.price.toFixed(2)}}/<span class="danwei">{{item.unit}}</span></span>
                 <!-- 有重量和价格单位的 -->
                 <!-- <div class="calculation">
                   <span class="less round" v-if="item.number" @touchstart="less(item)">-</span>
@@ -75,44 +73,65 @@
                   <span class="plus round" @touchstart="plus(item)">+</span>
                 </div> -->
               </div>
-              <div v-bind:class="{ checked1: item.checked == '1'}" class="optbtn">
-                <div @touchstart="addProduct1(item,index)" class="btn"></div>
+              <div
+                    @touchstart= addProduct1Start
+                    @touchmove = addProduct1Move
+                    @touchend  = addProduct1End(item,index)
+                    v-bind:class="{ checked1: item.checked == '1'}"
+                    class="optbtn">
+                <div  class="btn"></div>
               </div>
             </div>
             <div class="classify_title"><i></i>上门回收服务 <br/><span>（由于价值较低，暂无回收价格，请回收小哥带走，可增加绿色环保积分）</span></div>
             <div class="classify_item" v-for="  (item,index) in noPriceList" :key="item.ids">
-              <img :src="item.icon?item.icon:''" alt="">
-              <div class="name">{{item.name}}</div>
+              <img id="shopImg" :src="item.icon?item.icon:''" alt="">
+              <!-- <img  :src="item.icon?item.icon:''" alt=""> -->
+
+              <div class="name" v-html="item.name"></div>
               <div v-if="item.price !== 0" class="price">
                 ¥<span>
                   {{item.price}}/{{item.unit}}
                 </span>
               </div>
-              <div class="xiaoge">麻烦回收小哥带走</div>
+              <div class="xiaoge">打包带走，获双倍能量</div>
               <div v-bind:class="{ checked: item.checked == '1' }" class="optbtn1">
-                <div @touchstart="addProduct(item,index)" class="btn"></div>
+                <div
+                  @touchstart=addProductStart
+                  @touchmove=addProductMove
+                  @touchend=addProductEnd(item,index)
+                  class="btn"></div>
               </div>
-
             </div>
           </div>
         </div>
       </div>
     </div>
-
+    <!-- 回收车start -->
+    <car v-show="isShowCar   ==    'on'"
+         :selectProductList="selectProductList"
+         @deleItem="less"
+         @closeCar='closeCar'
+         @clearAllItem="clearAllItem"
+         class="carBox"
+    ></car>
+    <!-- 回收车  end -->
     <div class="classify_footer" v-show="!showUl">
       <div class="f_title">
-        <div class="icon"><img src="@/assets/class_icon.png" alt=""><i>{{numTotal}}</i></div>
-        <div class="name">已选类型数量：<span class="price"><span>{{numTotal}}</span></span></div>
+        <div @touchstart="closeCar('on')" class="icon"><img id="carbox" src="@/assets/class_icon.png" alt=""><i>{{selectProductList.length}}</i>
+        </div>
+        <div class="name">已选类型数量：<span class="price"><span>{{selectProductList.length}}</span></span></div>
       </div>
-      <div class="r_btn" :class="{disable:numTotal <= 0}" @touchstart="openAlert">一键回收</div>
+      <div class="r_btn" :class="{disable:selectProductList.length <= 0}" @touchstart="openAlert">一键回收</div>
     </div>
 
-    <div class="classify_foot" v-show="!showUl&&!comIsNull">您所在街道暂无回收企业</div>
+    <div class="classify_foot" v-show="!showUl&&comIsNull==='1'">您所在小区暂未开通生活垃圾回收服务</div>
+    <div class="classify_foot" v-show="showUl&&comIsNull==='0'" @click="goToList">您暂未添加回收地址,请去添加地址</div>
 
     <!-- 弹窗 -->
     <div class="class_shadow" v-if="showShadow"></div>
     <div class="class_shadow_box" v-if="showAlert1">
-      <div class="title"></div>
+      <div class="title">{{recTypeExp}}?</div>
+      <!-- <div class="remind">由于您本次下单未达到起收标准。若继续下单预约，平台工作人员可能会联系您，希望您能继续攒多一点再进行预约回收哦！感谢您对环保事业的奉献精神！</div> -->
       <!-- <div class="remind">由于您本次下单未达到起收标准。若继续下单预约，平台工作人员可能会联系您，希望您能继续攒多一点再进行预约回收哦！感谢您对环保事业的奉献精神！</div> -->
       <div class="text" v-for="item in text" :key="item.id">{{item}}</div>
 
@@ -131,6 +150,14 @@
       <div @touchstart="closeOrders(true)" class="btn1">我知道了</div>
     </div>
 
+    <div class="class_alert" v-show="!showUl&&comIsNull==='0'" @touchstart="startHandle($event)"></div>
+    <div class="class_shadow_box" v-show="!showUl&&comIsNull==='0'" >
+      <div class="title">环保小提示</div>
+      <img src="@/assets/classify_orders.png" alt="" class="shadow_box_icon">
+      <div class="shadow_box_alertext">请先添加您的上门回收地址，以便我们为您提供生活垃圾上门回收服务</div>
+      <div class="shadow_box_btn" @click="goToList">添加回收地址</div>
+    </div>
+
   </div>
 
 </template>
@@ -138,13 +165,18 @@
   import api from '@/api/api.js'
   import '@/assets/createstyle/tool.css'
   import '@/assets/createstyle/classify.css'
-  import { mapGetters } from 'vuex';
-  import $ from 'jquery'
+  import {mapGetters} from 'vuex';
+  import $ from 'jquery';
+  import Car from './car/car.vue'
 
   export default {
+    components: {
+      Car
+    },
     data() {
       return {
-        comIsNull: false,
+        recTypeExp: '',
+        comIsNull: '',
         menulist: '',
         isId: '1',
         subList: '',
@@ -156,7 +188,11 @@
         showAlert2: false,
         menuListImg: '',
         questionTitle: '',
+        isShowCar: 'off',
         text: [],
+        justTouch: '',
+        information: {},
+        cId: '',
         selectProductList: window.sessionStorage.getItem('productList') ?
           JSON.parse(window.sessionStorage.getItem('productList')) : [],//上传成功要清掉
         priceTotal: window.sessionStorage.getItem('productTotal') ? JSON.parse(window.sessionStorage.getItem('productTotal')).priceTotal : 0,
@@ -167,38 +203,72 @@
       }
     },
     computed: {
-      ...mapGetters(['addRessId', 'adressInfo', 'token', 'recyclingType']),
+      ...mapGetters(['addRessId', 'adressInfo', 'token', 'recyclingType','cityId']),
     },
     watch: {
       recyclingType(newValue, oldValue) {
-        console.log(newValue, oldValue)
         if (newValue == 'waste') {
           this.$store.dispatch('clear');
           this.isActive = '0'
         }
         if (oldValue == 'waste') {
-          this.isActive ='0'
+          this.isActive = '0';
           window.sessionStorage.removeItem('productList');
           window.sessionStorage.removeItem('productTotal');
           this.numTotal = 0;
         }
-      }
+      },
+      "$route":"changeRoute"
     },
     mounted() {
-      this.getClassFiy();
+      this.$store.dispatch('recyclingType', this.$route.params.id);
       this.total();
+      this.changeRoute();
+      document.title = "垃圾回收分类";
+      var addRess = new Promise((resolve,reject)=>{
+        this.memberAddress(resolve);
+      }).then(() => {
+        this.getClassFiy(this.recyclingType=='waste'?true:false);
+      })
     },
     methods: {
+      memberAddress(resolve) {
+        //默认地址
+        api.MemberAddress({
+          "app_key": "app_id_1",
+          token: this.token,
+          "data":{
+            "cityId": this.cityId,
+          }
+        }).then((res) => {
+          this.$store.dispatch('getAddressInfo',res.data);
+          this.cId = res.data.communityId;
+          resolve();
+        }).catch((error) => {
+          console.log(error)
+        })
+      },
+      changeRoute(){
+        if(this.$route.params.id == "waste"){
+          this.openUl(false,'waste')
+        }
+      },
       getClassFiy(value) {
-        api.getClassify({
+      	let params = {
           "app_key": "app_id_1",
           "data": {
             "level": "0",
             "title": value ? 'HOUSEHOLD' : 'DIGITAL'
           },
           token: this.token
-        }).then((res) => {
+        }
+        if (this.$route.query.type) {
+          params.data.title = parseInt(this.$route.query.type) > 0 ? 'HOUSEHOLD' : 'DIGITAL'
+          this.showUl = parseInt(this.$route.query.type) < 1
+        }
+        api.getClassify(params).then((res) => {
           this.menulist = res.data;
+          this.recTypeExp = res.data[0].recTypeExp;
           this.text = res.data[0].recNotes;
           this.menuListImg = res.data[0].icon;
           this.questionTitle = res.data[0].name;
@@ -207,12 +277,14 @@
           api.getSubList({
             "app_key": "app_id_1",
             "data": {
-              "id": this.isId,
-              "communityId": this.adressInfo ? this.adressInfo.communityId : '',
-              "title": value ? 'HOUSEHOLD' : 'DIGITAL'
+              "id": this.$route.query.id || this.isId,
+              "communityId": this.cId ? this.cId : '',
+              "title": this.$route.query.type || value ? 'HOUSEHOLD' : 'DIGITAL'
             },
             token: this.token
           }).then((res) => {
+          	if(this.$route.query.index) this.isActive = this.$route.query.index;
+            this.$store.dispatch('getIsCash', res.data.isCash);
             this.comIsNull = res.data.comIsNull;
             res.data.ComCatePriceList.map((items) => {
               items.pName = this.menulist[0].name;
@@ -227,18 +299,37 @@
               }
             });
 
+            // 默认给每一个商品增加一个点击状态
             this.subList = res.data.ComCatePriceList.map(e => {
-              e.checked = false
+              e.checked = false;
               e.pName = this.menulist[0].name;
               e.pId = this.menulist[0].id;
               return e
             });
             this.noPriceList = res.data.ComCateNoPriceList.map(e => {
-              e.checked = false
+              e.checked = false;
               e.pName = this.menulist[0].name;
               e.pId = this.menulist[0].id;
               return e
             })
+
+            // 处理刷新后的选择状态；
+            this.selectProductList.forEach(e => {
+              this.subList = this.subList.map(k => {
+                if (e.id == k.id) {
+                  k.checked = e.checked
+                }
+                return k;
+              })
+              this.noPriceList = this.noPriceList.map(k => {
+                if (e.id == k.id) {
+                  k.checked = e.checked
+                }
+                return k;
+              })
+
+            })
+
           }).catch((erro) => {
             console.log(erro)
           })
@@ -246,11 +337,17 @@
           console.log(erro)
         });
       },
-      getList(id, index) {
+      getList(id, index, state) {
+        this.$router.replace({
+          path: this.$router.path
+        })
         // 恢复列表元素的滚动位置
-        $(".classify_main").animate({scrollTop: '0'},50);
-        /*******************************/
+        if (!state) {
+          $(".linlei_list").animate({scrollTop: '0'}, 50);
+          /*******************************/
+        }
         this.isId = id;
+        this.recTypeExp = this.menulist[index].recTypeExp;
         this.text = this.menulist[index].recNotes;
         this.menuListImg = this.menulist[index].icon;
         this.questionTitle = this.menulist[index].name;
@@ -259,12 +356,11 @@
           "app_key": "app_id_1",
           "data": {
             "id": this.isId,
-            "communityId": this.adressInfo ? this.adressInfo.communityId : '',
+            "communityId": this.cId ? this.cId : '',
+            "title": state ? 'HOUSEHOLD' : 'DIGITAL'
           },
           token: this.token
         }).then((res) => {
-
-          console.log(res)
           this.comIsNull = res.data.comIsNull;
           res.data.ComCatePriceList.map((items) => {
             items.pName = this.menulist[index].name;
@@ -280,13 +376,8 @@
           });
 
           let resDataList = JSON.parse(window.sessionStorage.getItem('productList'));
-
-
-          
-
-          
           this.subList = res.data.ComCatePriceList.map(e => {
-            if(resDataList){
+            if (resDataList) {
               resDataList.map(k => {
                 if (e.name !== k.name && !e.checked) {
                   e.checked = false
@@ -299,9 +390,10 @@
             e.pId = this.menulist[index].id;
             return e
           });
-          if(res.data.ComCateNoPriceList){
+
+          if (res.data.ComCateNoPriceList) {
             this.noPriceList = res.data.ComCateNoPriceList.map(el => {
-              if(resDataList){
+              if (resDataList) {
                 resDataList.map(k => {
                   if (el.name !== k.name && !el.checked) {
                     el.checked = false
@@ -315,8 +407,6 @@
               return el
             })
           }
-
-          
         }).catch((erro) => {
           console.log(erro)
         })
@@ -328,9 +418,10 @@
         api.MemberAddress({
           "app_key": "app_id_1",
           "data": {
-            "id": 1
+            "id": 1,
+            "cityId": this.cityId,
           },
-          token: "token"
+          token: this.token,
         }).then((res) => {
           this.$store.dispatch('changeAddress', res)
         }).catch((erro) => {
@@ -338,20 +429,14 @@
         })
       },
       openUl(type, household) {
+        this.$router.replace({path:`/classIfy/${household}`});
         this.$store.dispatch('recyclingType', household);
+        this.subList = '';
         this.showUl = type;
-        // let hd = ''
-        // if(household == 'appliances'){
-        //     hd = 'HOUSEHOLD'
-        // }
-        // if(household == 'waste'){
-        //   hd = 'DIGITAL'
-        // }
         this.getClassFiy(!type);
       },
       openAlert() {
-
-        if (this.numTotal <= 0) {
+        if (this.selectProductList.length <= 0) {
           return
         }
         this.total();
@@ -409,6 +494,7 @@
         })
       },
       plus(item) {
+        // item.name = item.name.replace("<br/>","");
         this.getAddressInfo(item);
         const haveIn = this.selectProductList.findIndex((el) => {
           return el.id === item.id
@@ -422,16 +508,27 @@
         }
         this.total();
         this.openAlert1()
+
       },
       less(item) {
-        const haveIn = this.selectProductList.findIndex((el) => {
-          return el.id === item.id
-        });
-        this.selectProductList[haveIn].number -= 1;
-        item.number -= 1;
-        if (item.number === 0) {
-          this.selectProductList.splice(haveIn, 1)
+        this.selectProductList = this.selectProductList.filter(e => e.id !== item.id);
+        if (this.selectProductList.length < 6) {
+          $('.carList')[0].style.height = this.selectProductList.length * 1.15 + 'rem';
         }
+        if (this.selectProductList.length <= 0) {
+          this.closeCar('off')
+        }
+
+        this.getList(this.isId, this.isActive, 'delet');
+
+        // const haveIn = this.selectProductList.findIndex((el) => {
+        //   return el.id === item.id
+        // });
+        // this.selectProductList[haveIn].number -= 1;
+        // item.number -= 1;
+        // if (item.number === 0) {
+        //   this.selectProductList.splice(haveIn, 1)
+        // }
         this.total();
       },
       total() {
@@ -455,7 +552,7 @@
       addProduct(item, index) {
         this.noPriceList[index].checked = !item.checked;
         if (this.noPriceList[index].checked) {
-          this.plus(item)
+          this.animate(item)
         } else {
           this.less(item)
         }
@@ -463,11 +560,143 @@
       addProduct1(item, index) {
         this.subList[index].checked = !item.checked;
         if (this.subList[index].checked) {
-          this.plus(item)
+          this.animate(item)
         } else {
           this.less(item)
         }
-      }
+      },
+
+      addProduct1Start(e) {
+        this.justTouch = 'true';
+        let target = {
+          startY: e.changedTouches[0].pageY,
+          startX: e.changedTouches[0].pageX,
+        }
+        return target;
+      },
+      addProduct1Move(e) {
+        let moveEndX = e.changedTouches[0].pageX;
+        let moveEndY = e.changedTouches[0].pageY;
+        let X = moveEndX - this.addProduct1Start.startX;
+        let Y = moveEndY - this.addProduct1Start.startY;
+        if (Math.abs(X) > Math.abs(Y) && X > 0) {
+          this.justTouch = 'true';
+        }
+        else if (Math.abs(X) > Math.abs(Y) && X < 0) {
+          this.justTouch = 'true';
+        }
+        else if (Math.abs(Y) > Math.abs(X) && Y > 0) {
+          this.justTouch = 'true'
+        }
+        else if (Math.abs(Y) > Math.abs(X) && Y < 0) {
+          this.justTouch = 'true'
+        }
+        else {
+          this.justTouch = 'false'
+        }
+
+      },
+      addProduct1End(item, index) {
+        if (this.justTouch == 'true') {
+          this.addProduct1(item, index);
+        }
+      },
+      addProductStart(e) {
+        this.justTouch = 'true';
+        let target = {
+          startY: e.changedTouches[0].pageY,
+          startX: e.changedTouches[0].pageX,
+        };
+        return target;
+
+      },
+      addProductMove(e) {
+        let moveEndX = e.changedTouches[0].pageX;
+        let moveEndY = e.changedTouches[0].pageY;
+        let X = moveEndX - this.addProductStart.startX;
+        let Y = moveEndY - this.addProductStart.startY;
+        if (Math.abs(X) > Math.abs(Y) && X > 0) {
+          this.justTouch = 'true';
+        }
+        else if (Math.abs(X) > Math.abs(Y) && X < 0) {
+          this.justTouch = 'true';
+        }
+        else if (Math.abs(Y) > Math.abs(X) && Y > 0) {
+          this.justTouch = 'true'
+        }
+        else if (Math.abs(Y) > Math.abs(X) && Y < 0) {
+          this.justTouch = 'true'
+        }
+        else {
+          this.justTouch = 'false'
+        }
+      },
+      addProductEnd(item, index) {
+        if (this.justTouch == 'true') {
+          this.addProduct(item, index);
+        }
+      },
+      closeCar(data){
+        if(data =='on' && this.selectProductList.length){
+          $('linlei_list').css('overflow','hidden');
+          if(this.selectProductList.length >=6){
+            $('.carList')[0].style.height = '7.37rem';
+          } else {
+            $('.carList')[0].style.height = this.selectProductList.length * 1.15 + 'rem';
+          }
+          this.isShowCar = data;
+          $('.carMain').css({'background': 'rgba(0,0,0,.5)'});
+          $('.carContent').animate({bottom: '0%'}, "fast", () => {
+          })
+        }else{
+          $('linlei_list').css('overflow','initial');
+          $('.carMain').css({'background':'none'});
+          $('.carContent').animate({bottom: '-60%'}, "fast", () => {
+            this.isShowCar = data;
+          });
+        }
+      },
+      clearAllItem() {
+        this.selectProductList = [];
+        window.sessionStorage.setItem('productList', JSON.stringify(this.selectProductList));
+        this.getClassFiy('HOUSEHOLD');
+        this.total();
+        this.closeCar('off')
+      },
+      animate(item) {
+        /*回收箱 动画*/
+        /* YueYue  */
+        let event = window.event || arguments[0];
+        let animateTarget = event.target.parentNode.parentNode.childNodes[0];
+        let n = document.createElement("img");
+        n.src = animateTarget.src;
+        n.width = animateTarget.width;
+        n.height = animateTarget.height;
+        n.style.position = 'absolute';
+        n.className = 'newNode';
+        n.style.top = $(animateTarget).offset().top + 'px';
+        n.style.left = $(animateTarget).offset().left + 'px';
+        app.append(n);
+        let carboxOffH = $('#carbox').offset().top;
+        let moveBH = carboxOffH - $(animateTarget).offset().top;
+        let moveLW = $(animateTarget).offset().left - $('#carbox').offset().left;
+        $(".newNode").animate({
+          top: $(animateTarget).offset().top += moveBH,
+          left: $(animateTarget).offset().left - moveLW,
+        }, "200", () => {
+          $(".newNode").remove();
+          this.plus(item)
+        });
+      },
+      // 跳转的时候插入sessionStorage
+      goToList(){
+        window.sessionStorage.setItem('jumpUrl', this.$route.fullPath);
+        this.$router.push('/addAdress')
+      },
+      startHandle(e){
+        e.stopPropagation();
+        e.preventDefault();
+      },
     }
   }
 </script>

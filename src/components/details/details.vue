@@ -22,13 +22,24 @@
         :class="detailsList.statusClass">{{detailsList.statusPage}}</span></div>
       <div class="o_number">下单时间：{{detailsList.createDatePage}}</div>
       <div class="o_name">{{detailsList.cateAttName4Page}}</div>
-      <div class="o_price">预估价格：<span>￥<span>{{detailsList.price}}</span></span></div>
+      <!--<div class="o_price">预估价格：<span>￥<span>{{detailsList.price}}</span></span></div>-->
     </div>
 
-    <div class="details_wrap_time"><span v-show="detailsList.level=='0'">上门时间：{{detailsList
-      .arrivalTimePage}}</span><span class="btn_cancel" @click="openOrders"
-                                     v-show="detailsList.status4Page!=='COMPLETE'&&detailsList.status4Page!=='CANCEL'&&detailsList.status4Page!=='REJECTED'">取消订单</span>
+    <div v-show="detailsList.title == 'DIGITAL'">
+      <div class="details_wrap_smtime">
+        上门时间：{{detailsList.arrivalTimePage}}
+        <span class="btn_cancel" @click="openOrders" v-if="detailsList.status4Page!=='COMPLETE'&&detailsList.status4Page!=='CANCEL'&&detailsList.status4Page!=='REJECTED'">取消订单</span>
+      </div>
     </div>
+
+    <div v-show="detailsList.title == 'HOUSEHOLD'">
+      <div class="details_wrap_time new"
+           v-if="detailsList.status4Page!=='COMPLETE'&&detailsList.status4Page!=='CANCEL'&&detailsList.status4Page!=='REJECTED'">
+        <span class="btn_cancel" @click="openOrders">取消订单</span>
+      </div>
+      <div class="details_wrap_time" v-else></div>
+    </div>
+
     <!-- 待接单状态无此div -->
     <!-- 已取消 -->
     <div class="details_wrap_reason" v-show="detailsList.status4Page=='CANCEL'||detailsList.status4Page=='REJECTED'">
@@ -36,20 +47,18 @@
       <div class="answer">{{detailsList.cancelReason}}</div>
     </div>
     <!-- 已完成，已派单 -->
-    <div class="details_wrap_reason" v-show="detailsList.status4Page=='COMPLETE'||detailsList.status4Page=='ALREADY'">
-      <div class="why">{{detailsList.recyclers?detailsList.recyclers.name:''}}<span class="btn_view"
-                                                                                    @click="openEvaluation"
-                                                                                    v-show="detailsList.status4Page=='COMPLETE'">{{detailsList.isEvaluated == '1' ? '查看评价' : '评价'}}</span>
+    <div class="details_wrap_reason" v-show="detailsList.status4Page=='COMPLETE'||detailsList.status4Page=='ALREADY'||detailsList.status4Page=='distribute'">
+      <div class="why">{{detailsList.recyclers?detailsList.recyclers.name:''}}
+        <span class="btn_view" @click="openEvaluation" v-show="detailsList.status4Page=='COMPLETE'">{{detailsList.isEvaluated == '1' ? '查看评价' : '评价'}}</span>
       </div>
-      <a :href="tel" class="tel"><img src="@/assets/icon_tel.png" alt=""
-                                      class="icon_tel">联系电话：{{detailsList.recyclers?detailsList.recyclers
+      <a :href="tel" class="tel"><img src="@/assets/icon_tel.png" alt="" class="icon_tel">联系电话：{{detailsList.recyclers?detailsList.recyclers
         .tel:''}}</a>
     </div>
     <!--  已接单 -->
-    <div class="details_wrap_reason" v-show="detailsList.status4Page=='distribute'">
-      <div class="why">派单详情</div>
-      <div class="answer">本订单已由爱回收有限公司接单，工作人员将在1-3个工作日内与您联系，请保持电话畅通</div>
-    </div>
+    <!--<div class="details_wrap_reason" v-show="detailsList.status4Page=='distribute'">-->
+      <!--<div class="why">派单详情</div>-->
+      <!--<div class="answer">本订单已由爱回收有限公司接单，工作人员将在1-3个工作日内与您联系，请保持电话畅通</div>-->
+    <!--</div>-->
     <div class="details_wrap_info">
       <div class="title">询价信息</div>
       <div class="picture">
@@ -63,13 +72,20 @@
       <!-- 生活垃圾 -->
       <div v-show="detailsList.title == 'HOUSEHOLD'">
         <div class="details_rubsh" v-for="item in rubshList" :key="item.id">
-          <div class="trash_title">{{item.name}}<span>预估总计：<span>￥{{item.price.toFixed(2)}}</span></span></div>
+          <div class="trash_title">{{item.name}}<span>X {{item.count}}</span></div>
           <div class="trash_item" v-for="data in item.list" :key="data.id">
-            <span class="weight">{{data.amount+data.unit}}</span>
-            <div class="name">{{data.cateName}}</div>
-            <div class="price">¥{{data.price+'/'+data.unit}}</div>
+            <div class="name" >{{data.cateName}}<span class="number">¥{{data.price+'/'+data
+              .unit}}</span><span class="amount" v-show="detailsList.status4Page=='COMPLETE'">X {{data.amount}}</span></div>
           </div>
+          <div class="zero" v-html="item.categoryName"></div>
         </div>
+        <div class="trash_total_price" v-show="detailsList.status4Page=='COMPLETE'&&detailsList.isCash=='0'">成交价格
+          <span><span style="float: left">￥</span>
+          {{listPrice.toFixed(2)}}</span></div>
+        <div class="trash_total_price" v-show="detailsList.status4Page=='COMPLETE'&&detailsList.isCash=='1'">成交价格<span
+          class="green">环保能量
+        </span></div>
+        <div class="trash_total_price" v-show="detailsList.status4Page=='COMPLETE'">环保能量<span>{{listData.greenCount}}<span>kg</span></span></div>
       </div>
     </div>
     <div class="details_wrap_belongs">
@@ -154,10 +170,13 @@
         showImgView: false,
         picUrl: [],
         url: '',
-        tel: ''
+        tel: '',
+        listData: {},
+        listPrice: 0,
       }
     },
     mounted() {
+      document.setTitle('订单详情');
       //获取数据
       this.getData();
       //获取评价
@@ -196,6 +215,7 @@
           },
           token: this.$store.state.token
         }).then((res) => {
+          this.listData = res.data;
           var status = res.data.order.status4Page;
           this.picUrl = res.data.orderPicList;
           switch (status) {
@@ -232,9 +252,14 @@
           }
           this.detailsList = res.data.order;
           this.rubshList = res.data.list;
+          let listPrice = 0;
+          this.rubshList.map((items) => {
+            if (items.price) {
+              listPrice += items.price;
+            }
+          });
+          this.listPrice = listPrice;
           this.cateList = res.data.list.list;
-
-          console.log(this.rubshList,"123")
           if(res.data.order.recyclers){
             this.tel = "tel:" + res.data.order.recyclers.tel;
           }

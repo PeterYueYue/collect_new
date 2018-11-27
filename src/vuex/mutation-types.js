@@ -21,4 +21,8 @@ export var SetClassItemId             = 'SetClassItemId';
 export var GetAddressInfo             = 'GetAddressInfo';
 export var GetIsTitle                 = 'GetIsTitle';
 export var RecyclingType              = 'RecyclingType';
+export var AddItem                    = 'AddItem';
+export var GetCityId                  = 'GetCityId';
+export var GetIsCash                  = 'GetIsCash';
+
 

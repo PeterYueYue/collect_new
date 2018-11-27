@@ -11,6 +11,7 @@ a {
 
 .home_wrap {
   width: 100%;
+  height: 1000/@rem;
   //position: relative;
 }
 
@@ -20,9 +21,10 @@ a {
   line-height: 90/@rem;
   background: rgb(255, 255, 255);
   position: relative;
-  font-size: 34/@rem;
-  color: #000;
-  padding-left: 34/@rem;
+  font-size: 36/@rem;
+  color: #333;
+  padding-left: 80/@rem;
+  font-weight: bold;
 }
 
 .home_address .add {
@@ -32,10 +34,14 @@ a {
   transform: translateY(-50%);
   font-size: 30/@rem;
   color: #a4a9b0;
+  font-weight: normal;
+}
+.bestBox{
+  height: 100%
 }
 
 .home_address .add.reaonly {
-  width: 62%;
+  width: 88%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -45,7 +51,9 @@ a {
   transform: translateY(-50%);
   font-size: 34/@rem;
   color: #333;
-  text-align: right;
+  text-align: left;
+  font-weight: bold;
+  padding-left: 0.5rem;
 }
 
 .home_address img {
@@ -57,11 +65,64 @@ a {
   transform: translateY(-50%);
 }
 
+.home_address img.icon_add_logo {
+  width: 42/@rem;
+  height: 42/@rem;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.home_address img.icon_add_logo_new {
+  width: 42/@rem;
+  height: 42/@rem;
+  position: absolute;
+  top: 50%;
+  left: 20/@rem;
+  transform: translateY(-50%);
+}
+
+.home_details {
+  width: 100%;
+  height: 53/@rem;
+  position: relative;
+}
+.home_details_item {
+  width: 700/@rem;
+  height: 62/@rem;
+  line-height: 62/@rem;
+  border-radius: 6/@rem;
+  background: #fff2eb;
+  position: absolute;
+  top: -10/@rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24/@rem;
+  color: #333;
+  padding: 0 30/@rem 0 20/@rem;
+}
+.home_details_item .check {
+  float: right;
+  color: #ff5900;
+}
+.home_details_item .triangle{
+  width: 0px;
+  height: 0px;
+  border-width: 13/@rem;
+  border-style: solid;
+  border-color: transparent transparent #fff2eb transparent;
+  position: absolute;
+  top: -25/@rem;
+  left: 50/@rem;
+}
+
 .home_call {
   background-color: #ffffff;
   margin-top: 20/@rem;
-  padding: 20/@rem 0 50/@rem;
+  padding: 35/@rem 0;
 }
+
 
 .home_call h3 {
   font-size: 34/@rem;
@@ -79,35 +140,114 @@ a {
 }
 
 .home_call .home_list .item {
-  width: 158/@rem;
+  width: 185/@rem;
   position: relative;
 }
 
 .home_call .home_list .item .home_num {
-  margin: 0 auto;
-  width: 48/@rem;
-  height: 48/@rem;
-  background-color: #00a0e9;
-  line-height: 48/@rem;
-  text-align: center;
-  color: #ffffff;
-  font-size: 24/@rem;
-  border-radius: 50%;
+  width: 32/@rem;
+  height: 32/@rem;
+  position: relative;
+  top: 5/@rem;
+  right: 3/@rem;
 }
 
 .home_call .home_list .item span {
   color: #666666;
-  font-size: 30/@rem;
+  font-size: 28/@rem;
   display: block;
-  margin-top: 20/@rem;
 }
 
 .home_call .home_list .item .xuxian {
-  border-top: 1/@rem dashed #888888;
-  width: 53/@rem;
+  border-top: 1/@rem dashed #888;
+  width: 24/@rem;
   position: absolute;
   top: 20/@rem;
-  right: -25/@rem;
+  right: -12/@rem;
+}
+
+.home_recycle {
+  padding: 20/@rem 0 40/@rem;
+  background: #fff;
+  margin-top: 20/@rem;
+}
+.home_recycle .head {
+  font-size: 30/@rem;
+  color: #333;
+  font-weight: bold;
+  padding-left: 30/@rem;
+}
+.home_recycle .head span {
+  font-size: 20/@rem;
+  color: #00a0e9;
+  font-weight: normal;
+  padding-left: 18/@rem;
+}
+.home_recycle .head img {
+  width: 32/@rem;
+  height: 32/@rem;
+  position: relative;
+  top: 9/@rem;
+  right: 2/@rem;
+}
+.home_recycle .remind {
+  font-size: 18/@rem;
+  color: #ff5900;
+  padding-left: 30/@rem;
+}
+.home_recycle .remind img {
+  width: 32/@rem;
+  height: 32/@rem;
+  position: relative;
+  top: 9/@rem;
+  right: 2/@rem;
+}
+.home_recycle .item ul {
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  margin-top: 30/@rem;
+}
+.home_recycle .item ul li {
+  width: 250/@rem;
+}
+.home_recycle .item ul li img {
+  display: block;
+  width: 180/@rem;
+  margin: 0 auto 10/@rem;
+}
+.home_recycle .main {
+  overflow: hidden;
+}
+.home_recycle .group {
+  float: left;
+  margin-top: 20/@rem;
+}
+.home_recycle .group ul {
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+.home_recycle .group ul li {
+  width: 250/@rem;
+}
+.home_recycle .group ul li img {
+  display: block;
+  width: 180/@rem;
+  margin: 0 auto;
+}
+.home_recycle .bx {
+  width: 240/@rem;
+  text-align: center;
+  float: left;
+  margin-top: 100/@rem;
+}
+.home_recycle .bx img {
+  display: block;
+  width: 240/@rem;
+  margin: 0 auto;
 }
 
 .swiper-container, .swiper-wrapper {
@@ -145,7 +285,8 @@ a {
 }
 
 .home_wrap_item .time {
-  font-size: 26/@rem;
+  font-size: 30/@rem;
+  color: #333;
 }
 
 /* 待接单 */
@@ -176,9 +317,10 @@ a {
 }
 
 .home_wrap_item .o_name {
-  font-size: 34/@rem;
+  font-size: 30/@rem;
   color: #333;
-  margin-top: 40/@rem;
+  margin-top: 20/@rem;
+  font-weight: bold;
 }
 
 .home_wrap_item .o_price {
@@ -205,24 +347,30 @@ a {
 }
 
 .home_wrap_item .content .name {
-  font-size: 32/@rem;
-  margin-top: 10/@rem;
+  font-size: 30/@rem;
+  margin-top: 20/@rem;
+  color: #333;
+  font-weight: bold;
 }
 
 .home_wrap_item .content .price {
-  font-size: 26/@rem;
-  margin-top: 45/@rem;
+  font-size: 28/@rem;
+  margin-top: 35/@rem;
 }
 
 .home_wrap_item .content .price span {
   color: #f4333c;
 }
 
+.home_wrap_item .content .price span span {
+  font-size: 36/@rem;
+}
+
 .home_wrap_icon {
   display: block;
   width: 195/@rem;
   height: 128/@rem;
-  margin: 50/@rem auto 0;
+  margin: 80/@rem auto 0;
 }
 
 .home_wrap_ordername {
@@ -236,6 +384,7 @@ a {
   margin-top: 32/@rem;
   color: #888888;
   text-align: center;
+  padding-bottom: 170/@rem;
 }
 
 .home_wrap_footer {
@@ -306,4 +455,47 @@ a {
   transform: translateX(-50%);
   font-size: 22/@rem;
   color: #888;
+}
+
+.home_shadow {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(51, 51, 51, 0.7);
+}
+.home_shadow_box{
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 590/@rem;
+  background: rgba(247, 247, 247, 0.96);
+  border-radius: 30/@rem;
+  line-height: 50/@rem;
+}
+.home_shadow_box .title {
+  font-size: 34/@rem;
+  text-align: center;
+  margin-top: 50/@rem;
+}
+.home_shadow_box .text {
+  width: 480/@rem;
+  margin: 0 auto;
+  font-size: 24/@rem;
+  color: #333;
+  line-height: 36/@rem;
+}
+.home_shadow_box .text.mt20 {
+  margin-top: 20/@rem;
+}
+.home_shadow_box .btn {
+  height: 90/@rem;
+  line-height: 90/@rem;
+  text-align: center;
+  font-size: 32/@rem;
+  color: #00a0e9;
+  border-top: 1/@rem #dddddd solid;
+  margin-top: 30/@rem;
 }

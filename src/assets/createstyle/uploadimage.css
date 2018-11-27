@@ -64,10 +64,11 @@
 }
 .uploadimage .imgbtnortext .showimge .imgBox .closeImg {
   position: absolute;
-  right: -0.05rem;
-  top: -0.05rem;
-  color: red;
+  right: -0.1rem;
+  top: -0.1rem;
   z-index: 3;
+  width: 0.32rem;
+  height:0.32rem;
 }
 .uploadimage .imgbtnortext .showimge .imgBox .van-icon-clear:before {
   font-size: 0.3rem;

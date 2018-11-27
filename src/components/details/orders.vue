@@ -10,7 +10,7 @@
             <img :src="item.category.icon" alt="" class="pic">
             <div>
               <div class="name">{{item.cateAttName4Page}}</div>
-              <div class="price">预估价格：<span>￥{{item.price}}</span></div>
+              <div class="price">预估价格：<span>￥<span>{{item.price}}</span></span></div>
             </div>
           </div>
         </router-link>
@@ -20,7 +20,7 @@
           <div class="time">订单号：{{item.orderNo}}<span :class="item.statusClass">{{item.statusPage}}</span></div>
           <div class="o_number">下单时间：{{item.createDatePage}}</div>
           <div class="o_name">{{item.cateAttName4Page}}</div>
-          <div class="o_price">预估价格：<span>{{item.price}}</span></div>
+          <!--<div class="o_price">预估价格：<span>{{item.price}}</span></div>-->
         </router-link>
       </div>
 
@@ -50,6 +50,9 @@
     computed: mapGetters({
       token: "token"
     }),
+    mounted(){
+      document.setTitle('订单记录');
+    },
     methods: {
       //获取数据
       getList(done) {

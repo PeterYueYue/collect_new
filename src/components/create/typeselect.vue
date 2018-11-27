@@ -67,7 +67,8 @@
       isShowForState: 'isShowForState', //
       token: 'token',
       futurePrice: 'futurePrice',
-      adressInfo:'adressInfo'
+      adressInfo:'adressInfo',
+      cityId:'cityId'
     }),
 
     created() {
@@ -77,11 +78,12 @@
         "app_key": "app_id_1",
         "data": {
           "id": this.addRessId.id,
-          "communityId" :this.adressInfo.communityId,  
+          "communityId" :this.adressInfo.communityId,
           "pageBean": {
             "pageNumber": 1,
             "pageSize": 20
-          }
+          },
+          "cityId":this.cityId
         },
         token: this.token
       }).then((res) => {
@@ -92,6 +94,9 @@
       this.$store.dispatch("clearfuturePrice");
       this.$store.dispatch('clearPriceInfo');
       this.isActive = false;
+    },
+    mounted(){
+      document.setTitle('回收物价格评估');
     },
     methods: {
       touchStart(e, itemInfo) {

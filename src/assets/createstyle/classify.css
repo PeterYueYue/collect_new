@@ -15,7 +15,14 @@ body {
   height: 100%;
   background: rgba(51, 51, 51, 0.7);
 }
-.classify .class_shadow_box {
+.classify .class_alert {
+  position: fixed;
+  top: 1rem;
+  width: 100%;
+  height: 100%;
+  background: rgba(51, 51, 51, 0.7);
+}
+.classify .class_shadow_box{
   box-sizing: border-box;
   position: absolute;
   top: 50%;
@@ -41,7 +48,7 @@ body {
 .classify .class_shadow_box .text {
   width: 4.6rem;
   margin: 0 auto;
-  font-size: 0.26rem;
+  font-size: 0.24rem;
   color: #333;
 }
 .classify .class_shadow_box .text.cur {
@@ -52,13 +59,10 @@ body {
   height: 0.9rem;
   line-height: 0.9rem;
   text-align: center;
-  font-size: 0.34rem;
+  font-size: 0.32rem;
   color: #00a0e9;
   border-top: 0.01rem #dddddd solid;
   margin-top: 0.3rem;
-}
-.classify .class_shadow_box .btn:last-child {
-  margin-top: 0;
 }
 .classify .class_shadow_box .btn.nocolor {
   color: #888;
@@ -72,22 +76,54 @@ body {
   border-top: 0.01rem #dddddd solid;
   margin-top: 0.3rem;
 }
+.classify .class_shadow_box .shadow_box_icon {
+  display: block;
+  width: 2.4rem;
+  margin: 0.5rem auto 0;
+}
+.classify .class_shadow_box .shadow_box_alertext {
+  width: 80%;
+  text-align: center;
+  font-size: 0.24rem;
+  color: #333;
+  margin: 0.3rem auto 0.5rem;
+}
+.classify .class_shadow_box .shadow_box_btn {
+  line-height: 0.9rem;
+  font-size: 0.3rem;
+  text-align: center;
+  color: #00a0e9;
+  border-top: 0.01rem #ddd solid;
+}
+.classify .classify_foot_new {
+  width: 7.5rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  background: #00a0e9;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-size: 0.28rem;
+  color: #fff;
+}
 .classify .classify_foot {
   width: 7.5rem;
   height: 1rem;
   line-height: 1rem;
   text-align: center;
-  background: #f7f6fb;
+  background: #00a0e9;
   border-top: 0.01rem #dddddd solid;
   overflow: hidden;
   position: fixed;
   bottom: 0;
   left: 0;
   font-size: 0.28rem;
-  color: #999;
+  color: #fff;
 }
 .classify .classify_footer {
-  width: 7.5rem;
+  width: 100%;
   height: 1rem;
   background: #fff;
   border-top: 0.01rem #dddddd solid;
@@ -218,6 +254,7 @@ body {
   height: 100%;
   flex-grow: 1;
   display: flex;
+  overflow: hidden;
 }
 .classify .content .commodity {
   background-color: #ffffff;
@@ -265,6 +302,11 @@ body {
   flex-wrap: wrap;
   justify-content: left;
   position: relative;
+  height: 100%;
+  overflow: scroll;
+  padding-bottom: 2.2rem;
+  overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
 }
 .classify .content .linlei_list .questions {
   position: absolute;
@@ -273,13 +315,13 @@ body {
   font-size: 0.24rem;
 }
 .classify .content .linlei_list .questions span {
-  width: 0.23rem;
-  height: 0.23rem;
+  width: 0.28rem;
+  height: 0.28rem;
   background: url('../icon/问号\(1\)@2x.png') no-repeat;
   background-size: 100% 100%;
   display: inline-block;
   vertical-align: top;
-  margin-top: 0.05rem;
+  margin-top: 0.02rem;
 }
 .classify .content .linlei_list .classify_banner {
   display: block;
@@ -293,9 +335,6 @@ body {
   padding: 0.3rem 0 0 0;
   margin-left: 0.3rem;
   text-indent: -0.5rem;
-}
-.classify .content .linlei_list .classify_title:first-child {
-  padding: 0;
 }
 .classify .content .linlei_list .classify_title i {
   display: inline-block;
@@ -313,27 +352,21 @@ body {
 }
 .classify .content .linlei_list .classify_main {
   width: 100%;
-  height: 7rem;
-  margin-top: 0.3rem;
-  overflow: scroll;
-  padding-bottom: 2rem;
-  overflow-scrolling: touch;
-  -webkit-overflow-scrolling: touch;
 }
 .classify .content .linlei_list .classify_main .classify_item {
   overflow: hidden;
   border-bottom: 0.01rem #dddddd solid;
   margin-left: 0.3rem;
-  padding: 0.45rem 0.3rem 0.35rem 0.05rem;
+  padding: 0.45rem 0.3rem 0.45rem 0.05rem;
   position: relative;
 }
 .classify .content .linlei_list .classify_main .classify_item .optbtn {
   position: absolute;
   right: 0.3rem;
-  bottom: 0.4rem;
+  bottom: 0.35rem;
   width: 0.5rem;
   height: 0.5rem;
-  background: url(../icon/价格未选中@2x.png) no-repeat;
+  background: url(../icon/price.png) no-repeat;
   background-size: 100% 100%;
 }
 .classify .content .linlei_list .classify_main .classify_item .optbtn .btn {
@@ -345,10 +378,10 @@ body {
 .classify .content .linlei_list .classify_main .classify_item .optbtn1 {
   position: absolute;
   right: 0.3rem;
-  bottom: 0.4rem;
+  bottom: 0.35rem;
   width: 0.5rem;
   height: 0.5rem;
-  background: url(../icon/心未选中@2x.png) no-repeat;
+  background: url(../icon/hart.png) no-repeat;
   background-size: 100% 100%;
 }
 .classify .content .linlei_list .classify_main .classify_item .optbtn1 .btn {
@@ -364,8 +397,9 @@ body {
   border-bottom: none;
 }
 .classify .content .linlei_list .classify_main .classify_item img {
-  display: inline-block;
-  float: left;
+  position: absolute;
+  top: 0.4rem;
+  left: 0;
   width: 0.96rem;
   height: 0.96rem;
 }
@@ -374,16 +408,16 @@ body {
   color: #333;
   padding-left: 1.2rem;
 }
-.classify .content .linlei_list .classify_main .classify_item .price {
+.classify .content .linlei_list .classify_main .classify_item .xiaoge {
   font-size: 0.24rem;
-  color: #f4333c;
+  color: #888;
   padding-left: 1.2rem;
   margin-top: 0.15rem;
   position: relative;
 }
-.classify .content .linlei_list .classify_main .classify_item .xiaoge {
+.classify .content .linlei_list .classify_main .classify_item .price {
   font-size: 0.24rem;
-  color: #888;
+  color: #f4333c;
   padding-left: 1.2rem;
   margin-top: 0.15rem;
   position: relative;
@@ -397,7 +431,7 @@ body {
   display: inline-block;
   text-align: center;
 }
-.classify .content .linlei_list .classify_main .classify_item .price span.danwei {
+.classify .content .linlei_list .classify_main .classify_item .price span.class_number {
   font-size: 0.24rem;
 }
 .classify .content .linlei_list .classify_main .classify_item .calculation {
@@ -447,10 +481,10 @@ body {
   background-color: #c1cccc !important;
 }
 .checked {
-  background: url(../icon/心选中@2x.png) no-repeat !important;
-  background-size: 100% 100% !important;
+  background: url(../icon/harty.png) no-repeat !important;
+  background-size: 100% 100%  !important;
 }
 .checked1 {
-  background: url(../icon/价格选中@2x.png) no-repeat !important;
-  background-size: 100% 100% !important;
+  background: url(../icon/pricey.png) no-repeat !important;
+  background-size: 100% 100%  !important;
 }

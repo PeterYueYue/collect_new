@@ -1,0 +1,108 @@
+.carMain {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+.carMain .carContent {
+  width: 100%;
+  padding-bottom: 1.01rem;
+  background-color: #ffffff;
+  position: absolute;
+  bottom: -60%;
+  left: 0;
+  display: inherit;
+}
+.carMain .carContent .carTitle {
+  padding-left: 0.32rem;
+  padding-right: 0.32rem;
+  background-color: #eeeeee;
+  height: 0.84rem;
+  line-height: 0.84rem;
+  font-weight: bold;
+  width: 100%;
+  font-size: 0.3rem;
+}
+.carMain .carContent .carTitle .title {
+  color: #666666;
+}
+.carMain .carContent .carTitle .clear {
+  font-size: 0.28rem;
+  color: #666666;
+  line-height: 0.84rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 100;
+}
+.carMain .carContent .carTitle .clear::before {
+  display: inline-block;
+  content: "";
+  width: 0.26rem;
+  height: 0.26rem;
+  background-color: red;
+  vertical-align: top;
+  margin-top: 0.29rem;
+  background: url('img/clear.png') no-repeat;
+  background-size: 100% 100%;
+  margin-right: 0.1rem;
+}
+.carMain .carContent .carList {
+  width: 100%;
+  padding-left: 0.32rem;
+  padding-right: 0.32rem;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.carMain .carContent .carList li {
+  height: 1.15rem;
+  width: 100%;
+  border-bottom: 0.01rem solid #dddddd;
+  position: relative;
+}
+.carMain .carContent .carList li strong {
+  font-size: 0.3rem;
+  color: #333333;
+  line-height: 1.15rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+  margin-right: 1rem;
+  width: 3rem;
+}
+.carMain .carContent .carList li p {
+  font-size: 0.24rem;
+  color: red;
+  display: inline;
+  margin-right: 1rem;
+}
+.carMain .carContent .carList li p span {
+  line-height: 1.15rem;
+  font-size: 0.3rem;
+  color: red;
+}
+.carMain .carContent .carList li .icon {
+  width: 0.6rem;
+  height: 0.6rem;
+  background: url('../../../assets/icon/pricey.png') no-repeat center center;
+  background-size: 80% 80%;
+  position: absolute;
+  right: 0;
+  top: 0.3rem;
+}
+.carMain .carContent .carList li .icon1 {
+  width: 0.6rem;
+  height: 0.6rem;
+  background: url('../../../assets/icon/harty.png') no-repeat center center;
+  background-size: 80% 80%;
+  position: absolute;
+  right: 0;
+  top: 0.3rem;
+}
+.carMain .carContent .carList li .noPrice {
+  font-size: 0.2rem;
+  color: #888888;
+  line-height: 1.15rem;
+  margin-right: 1rem;
+}

@@ -18,7 +18,7 @@
         <div v-for="(item,index) in imgsAddress" :key="item.id" class="imgBox">
           <img :src="imgsAddress[index].thumbnail" alt="">
           <div class="zhezhao"></div>
-          <van-icon @click="removeImg(index)" class="closeImg" name="clear"/>
+          <img src="@/assets/icon/delete.png" alt="" @click="removeImg(index)" class="closeImg" name="clear">
         </div>
         <!-- <img src="@/assets/upimg2.png" alt=""> -->
         <div v-show="imgsAddress.length>0 && imgsAddress.length<3" class="isaddimg">
@@ -85,6 +85,9 @@
       imgsAddress: "imgsAddress",
       token: 'token'
     }),
+    mounted(){
+      document.setTitle('回收物描述');
+    },
     methods: {
       actionFocus() {
         var textaress = $('#textareas');

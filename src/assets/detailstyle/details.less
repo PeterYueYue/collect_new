@@ -12,6 +12,8 @@
 
 .details_wrap_item .time {
   font-size: 30/@rem;
+  color: #333;
+  font-weight: bold;
 }
 
 /* 平台已取消，已取消 */
@@ -19,6 +21,7 @@
   float: right;
   font-size: 34/@rem;
   color: #f05a49;
+  font-weight: normal;
 }
 
 /* 已完成，已接单 */
@@ -26,6 +29,7 @@
   float: right;
   font-size: 34/@rem;
   color: #00a0e9;
+  font-weight: normal;
 }
 
 /* 待接单 */
@@ -33,6 +37,7 @@
   float: right;
   font-size: 34/@rem;
   color: #29ab91;
+  font-weight: normal;
 }
 
 /* 已派单 */
@@ -40,6 +45,7 @@
   float: right;
   font-size: 34/@rem;
   color: #ffb414;
+  font-weight: normal;
 }
 
 .details_wrap_item .date {
@@ -51,13 +57,14 @@
 .details_wrap_item .o_number {
   font-size: 24/@rem;
   color: #888;
-  margin-top: 3/@rem;
+  margin-top: 5/@rem;
 }
 
 .details_wrap_item .o_name {
   font-size: 34/@rem;
   color: #333;
-  margin-top: 40/@rem;
+  margin-top: 20/@rem;
+  font-weight: bold;
 }
 
 .details_wrap_item .o_price {
@@ -88,12 +95,14 @@
 }
 
 .details_wrap_item .content .name {
-  font-size: 34/@rem;
+  font-size: 30/@rem;
+  font-weight: bold;
+  margin-top: 15/@rem;
 }
 
 .details_wrap_item .content .price {
   font-size: 28/@rem;
-  margin-top: 58/@rem;
+  margin-top: 40/@rem;
 }
 
 .details_wrap_item .content .price span {
@@ -104,13 +113,32 @@
   font-size: 36/@rem;
 }
 
-.details_wrap_time {
+.details_wrap_time, .details_wrap_smtime {
   position: relative;
-  height: 108/@rem;
   line-height: 108/@rem;
   background: #fff;
   font-size: 30/@rem;
   padding: 0 30/@rem;
+}
+
+.details_wrap_smtime .btn_cancel {
+  position: absolute;
+  top: 50%;
+  right: 30/@rem;
+  transform: translateY(-50%);
+  display: block;
+  width: 160/@rem;
+  height: 56/@rem;
+  line-height: 56/@rem;
+  text-align: center;
+  border: 1/@rem #888 solid;
+  border-radius: 6/@rem;
+  font-size: 30/@rem;
+  color: #666;
+}
+
+.details_wrap_time.new {
+  height: 108/@rem;
 }
 
 .details_wrap_time .btn_cancel {
@@ -151,10 +179,10 @@
   height: 56/@rem;
   line-height: 56/@rem;
   text-align: center;
-  border: 1/@rem #888 solid;
+  background: #0299e3;
   border-radius: 6/@rem;
   font-size: 30/@rem;
-  color: #666;
+  color: #fff;
 }
 
 .details_wrap_reason .answer {
@@ -182,7 +210,7 @@
 }
 
 .details_wrap_info {
-  padding: 0 0 10/@rem 30/@rem;
+  padding-left: 30/@rem;
   background: #fff;
   margin-top: 20/@rem;
   overflow: hidden;
@@ -227,9 +255,45 @@
   margin-right: 50/@rem;
 }
 
+.details_wrap_info .trash_total_price {
+  border-top: 1/@rem #dddddd solid;
+  font-size: 30/@rem;
+  color: #333;
+  height: 100/@rem;
+  line-height: 100/@rem;
+  font-weight: bold;
+  margin-left: -30/@rem;
+  padding-left: 30/@rem;
+}
+
+.details_wrap_info .trash_total_price span {
+  color: #f4333c;
+  float: right;
+  padding-right: 32/@rem;
+}
+
+.details_wrap_info .trash_total_price span.green {
+  color: #29aa90;
+}
+
+.details_wrap_info .trash_total_price span span {
+  font-weight: normal;
+  font-size: 24/@rem;
+  padding-right: 0;
+}
+
 .details_wrap_info .trash_title {
   border-bottom: 1/@rem #ddd solid;
-  font-size: 34/@rem;
+  font-size: 30/@rem;
+  color: #333;
+  height: 100/@rem;
+  line-height: 100/@rem;
+  font-weight: bold;
+}
+
+.details_wrap_info .trash_title {
+  border-bottom: 1/@rem #ddd solid;
+  font-size: 30/@rem;
   color: #333;
   line-height: 70/@rem;
   margin-left: -30/@rem;
@@ -248,7 +312,6 @@
 
 .details_wrap_info .trash_item {
   position: relative;
-  margin-left: 10/@rem;
   padding: 25/@rem 0 20/@rem;
 }
 
@@ -261,8 +324,26 @@
 }
 
 .details_wrap_info .trash_item .name {
-  font-size: 30/@rem;
+  font-size: 28/@rem;
   color: #333;
+}
+
+.details_wrap_info .trash_item .name .amount{
+  float: right;
+}
+.details_wrap_info .trash_item .name .number{
+  float: right;
+  padding-right: 30/@rem;
+  width: 200/@rem;
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: right;
+}
+
+.details_wrap_info .zero {
+  font-size: 28/@rem;
+  color: #333;
+  margin: 10/@rem 0 30/@rem 0;
 }
 
 .details_wrap_info .trash_item .price {

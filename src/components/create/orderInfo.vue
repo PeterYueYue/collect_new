@@ -22,7 +22,7 @@
         </li>
       </ul>
     </div>
-    <div  v-if="recyclingType == 'appliances'"  class="collectTimeAndPrice">
+    <div v-if="recyclingType == 'appliances'"  class="collectTimeAndPrice">
       <div class="pickUp">
         <strong>期望上门时间:</strong>
         <time :class="{textColor:infoTm}">{{time}}{{infotime}}</time>
@@ -30,7 +30,7 @@
           <a href="javaScript:;"></a>
         </div>
       </div>
-      <div  v-if="recyclingType == 'appliances'" class="estimatePrice clearfix">
+      <div v-if="recyclingType == 'appliances'" class="estimatePrice clearfix">
         <strong class="fl">预估回收价格:</strong>
         <span class="fr">￥{{isTitle === 'DIGITAL' ? futurePrice : garbagePrice}}</span>
       </div>
@@ -39,7 +39,12 @@
 
     <div class="nextbutton">
       <a v-if="isOk.timeIsOk == false && recyclingType == 'appliances'" class="dontEnter">提交订单</a>
-      <a href="javascript:;" v-if="isOk.timeIsOk == true ||recyclingType !== 'appliances'  " @click="completeAnOrder" class="yesEnter">提交订单</a>
+      <template v-if="isTitle === 'DIGITAL'">
+        <a href="javascript:;" v-if="isOk.timeIsOk == true ||recyclingType !== 'appliances'" @click="completeAnOrder" class="yesEnter">提交订单</a>
+      </template>
+      <template v-if="isTitle === 'HOUSEHOLD'">
+        <a href="javascript:;" v-if="isOk.timeIsOk == true ||recyclingType !== 'appliances'" @click="alertInfo" class="yesEnter">提交订单</a>
+      </template>
     </div>
 
     <div class="information"><span>*</span>提交订单后将有工作人员可能和您电话沟通，请保持手机畅通</div>
@@ -62,13 +67,20 @@
     <!-- 弹窗 -->
     <div class="order_info_shadow" v-if="showShadow"></div>
     <div class="order_info_shadow_box" v-if="showNul">
-      <div>你所选的小区没有企业</div>
+      <div>{{info}}</div>
       <div class="order_info_shadow_btn" @click="closeShadow">确定</div>
     </div>
 
     <div class="order_info_shadow_box" v-if="showSuccess">
       <div>恭喜您 下单成功</div>
       <div class="order_info_shadow_btn" @click="closeShadow">确定</div>
+    </div>
+
+    <div class="order_info_box" v-if="showInfo">
+      <div class="title">回收小贴士</div>
+      <div class="remind">回收规则升级啦！您还可以将回收物送给辛苦上门的废品大叔，按回收物公斤重量换取绿色环保能量，在积分商城兑换您的权益。</div>
+      <div class="btn nocolor" @click="completeAnOrder('0')">我要卖钱</div>
+      <div class="btn" @click="completeAnOrder('1')">打包带走，获取双倍环保能量</div>
     </div>
 
   </div>
@@ -86,6 +98,7 @@
         time:'请选择上门回收时间',
         show: false,
         infoTm: '',
+        info: '',
         infotime: '',
         isOk: {
           timeIsOk: false
@@ -99,11 +112,14 @@
         showShadow: false,
         showNul: false,
         showSuccess: false,
+        showInfo: false,
         idAndListList: [],
+        IsCash: '0',
         garbagePrice: window.sessionStorage.getItem('productTotal') ? JSON.parse(window.sessionStorage.getItem('productTotal')).priceTotal : ''
       }
     },
     mounted() {
+      document.setTitle('确认订单');
       this.getCompany();
       if (this.isTitle === 'DIGITAL') {
         return;
@@ -152,9 +168,12 @@
       adressInfo: 'adressInfo',                  //新地址信息
       classID: 'classID',                        //分类父级Id
       isTitle: 'isTitle',                        //分类title
-      recyclingType:'recyclingType',
+      recyclingType: 'recyclingType',
+      cityId: 'cityId',
+      isCash: 'isCash',
     }),
     created() {
+      console.log(this.recyclingType);
       if (this.imgsAddress.length < 1) {
         this.$router.push({path: "/home"})
       }
@@ -173,7 +192,8 @@
           "data": {
             "communityId": this.adressInfo.communityId,
             "categoryId": this.classID,
-            "isEvaluated": "0"
+            "isEvaluated": "0",
+            "cityId": this.cityId,
           },
           token: this.$store.state.token
         }).then((res) => {
@@ -183,7 +203,18 @@
           console.log(error)
         })
       },
-      completeAnOrder() {
+      alertInfo() {
+        if(this.isCash=='1'){
+          this.completeAnOrder(1);
+        }else{
+          this.showShadow = true;
+          this.showInfo = true;
+        }
+      },
+      completeAnOrder(status) {
+        if (status) {
+          this.IsCash = status
+        }
         this.isOk.timeIsOk = false;
         if(this.time == '请选择上门回收时间'){
           this.time = '';
@@ -200,12 +231,13 @@
             "arrivalPeriod": this.infoTm,
             "linkMan": this.adressInfo.name,
             "tel": this.adressInfo.tel,
+            "cityId":this.cityId,
             "orderItemBean": {
               "categoryAttrId": 0,
               "orderId": 0,
               "categoryAttrOppId": 0,
               "categoryAttrOppIds": this.categoryAttrOppIds,
-              "categoryId": 0
+              "categoryId": 0,
             },
             "level": "0",
             "orderPic": {
@@ -227,8 +259,10 @@
             //垃圾回收新增的字段
             "idAndListList": this.idAndListList,
             "title": this.isTitle,
+            "isCash": this.IsCash,
           }
         }).then((res) => {
+          this.info = res.data;
           this.isOk.timeIsOk = true;
           this.$store.dispatch('clear');
           window.sessionStorage.removeItem('productList');
@@ -237,9 +271,11 @@
           if (res.data === "SUCCESS") {
             this.showShadow = true;
             this.showSuccess = true;
+            this.showInfo = false;
           } else {
             this.showShadow = true;
             this.showNul = true;
+            this.showInfo = false;
           }
         }).catch((err) => {
           alert(err)
@@ -262,10 +298,15 @@
         var antThis = this;
         var startTime1 = new Date();
         var startTime2 = new Date(startTime1);
-        startTime2.setDate(startTime1.getDate() + 1);
         var endTime1 = new Date();
         var endTime2 = new Date(endTime1);
-        endTime2.setDate(endTime1.getDate() + 8);
+        if(0<=startTime1.getHours()&&startTime1.getHours()<17){
+          startTime2.setDate(startTime1.getDate() + 1);
+          endTime2.setDate(endTime1.getDate() + 8);
+        }else{
+          startTime2.setDate(startTime1.getDate() + 2);
+          endTime2.setDate(endTime1.getDate() + 9);
+        }
         var startTime = startTime2.getFullYear() + "-" + (startTime2.getMonth() + 1) + "-" + startTime2.getDate();
         var endTime = endTime2.getFullYear() + "-" + (endTime2.getMonth() + 1) + "-" + endTime2.getDate();
         ap.datePicker({

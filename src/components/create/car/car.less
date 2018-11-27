@@ -1,0 +1,130 @@
+@rem:100rem;
+.carMain{
+    position: absolute;
+    // bottom: 101/@rem;
+    left: 0;
+    height:100%;
+    width:100%;
+
+    background-color:rgba(0, 0, 0, .5);
+    overflow: hidden;
+    .carContent{
+        // height: 60%;
+        width: 100%;
+        padding-bottom: 101/@rem;
+        background-color: #ffffff;
+        position: absolute;
+        bottom: -60%;
+        left: 0;
+        display: inherit;
+
+        .carTitle{
+            padding-left: 32/@rem;
+            padding-right: 32/@rem;
+            background-color: rgb(238,238,238);
+            height: 84/@rem;
+            line-height: 84/@rem;
+            font-weight: bold;
+
+
+
+            width: 100%;
+            font-size: 30/@rem;
+            .title{
+                color: rgb(102,102,102);
+            }
+            .clear{
+                font-size: 28/@rem;
+                color: rgb(102,102,102);
+                line-height: 84/@rem;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: 100;
+            }
+            .clear::before{
+                display: inline-block;
+                content: "";
+                width: 26/@rem;
+                height: 26/@rem;
+                background-color: red;
+                vertical-align: top;
+                margin-top: 29/@rem;
+                background: url('./img/clear.png') no-repeat;
+                background-size:100% 100%;
+                margin-right: 10/@rem;
+            }
+
+
+
+        }
+
+        .carList{
+            width: 100%;
+            // height: 737/@rem;
+            padding-left: 32/@rem;
+            padding-right: 32/@rem;
+            overflow: scroll;
+            -webkit-overflow-scrolling: touch;
+
+            li{
+                height: 115/@rem;
+                width: 100%;
+                border-bottom: 1/@rem solid rgb(221,221,221);
+                position: relative;
+
+
+                strong{
+                    font-size: 30/@rem;
+                    color: rgb(51,51,51);
+                    line-height:115/@rem;
+                    overflow: hidden;
+                    text-overflow:ellipsis;
+                    white-space: nowrap;
+                    text-align: left;
+                    margin-right: 100/@rem;
+                    width: 300/@rem;
+                }
+                p{
+                    font-size: 24/@rem;
+                    color: red;
+                    display: inline;
+                    span{
+                        line-height: 115/@rem;
+                        font-size: 30/@rem;
+                        color: red;
+                    }
+                    margin-right: 100/@rem;
+                }
+                .icon{
+                    width: 60/@rem;
+                    height: 60/@rem;
+                    background: url('../../../assets/icon/pricey.png') no-repeat center center;
+                    background-size: 80% 80%;
+                    position: absolute;
+                    right: 0;
+                    top: 30/@rem;
+
+                }
+                .icon1{
+                    width: 60/@rem;
+                    height: 60/@rem;
+                    background: url('../../../assets/icon/harty.png') no-repeat center center;
+                    background-size: 80% 80%;
+                    position: absolute;
+                    right: 0;
+                    top: 30/@rem;
+
+                }
+                .noPrice{
+                    font-size: 20/@rem;
+                    color: rgb(136,136,136);
+                    line-height: 115/@rem;
+                    margin-right: 100/@rem;
+                }
+            }
+
+        }
+    }
+
+
+
+}

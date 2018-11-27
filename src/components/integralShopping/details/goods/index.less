@@ -1,0 +1,154 @@
+@rem: 100rem;
+
+.goodsTicket {
+  display: flex;
+  min-height: 100vh; /*vh 屏幕高度*/
+  flex-direction: column;
+  background-color: #f5f5f9;
+  padding-bottom: 50/@rem;
+  .head {
+    background-color: #fff;
+    padding-bottom: 40/@rem;
+    .imgBox {
+      text-align: center;
+      margin-top: 26/@rem;
+      font-size: 28/@rem;
+      color: rgb(51, 51, 51);
+      img {
+        width: 252/@rem;
+        height: 252/@rem;
+      }
+      .titile {
+        margin-top: 35/@rem;
+        font-weight: bold;
+      }
+
+    }
+    .btn {
+      width: 520/@rem;
+      height: 84/@rem;
+      background-color: rgb(0, 160, 233);
+      font-size: 36/@rem;
+      line-height: 84/@rem;
+      word-spacing: 2/@rem;
+      color: #fff;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 8/@rem;
+      margin: 25/@rem  auto 0 auto;
+    }
+  }
+  .content {
+    margin-top: 20/@rem;
+    padding: 20/@rem;
+    background-color: #fff;
+    padding-bottom: 51/@rem;
+    .message {
+      h3 {
+        font-size: 30/@rem;
+        line-height: 50/@rem;
+      }
+      p {
+        margin: 0;
+        font-size: 24/@rem;
+        word-spacing: 0;
+        color: rgb(51, 51, 51);
+        line-height: 32/@rem;
+        font-weight: 100;
+      }
+    }
+    .userAddress {
+      font-size: 28/@rem;
+      line-height: 36/@rem;
+      font-weight: bold;
+      margin-top: 25/@rem;
+    }
+    .noAddress {
+      font-size: 36/@rem;
+      color: rgb(51, 51, 51);
+      text-align: center;
+      margin-top: 112/@rem;
+      font-weight: bold;
+    }
+    .goChangeAdd {
+      font-size: 28/@rem;
+      color: rgb(0, 160, 233);
+      text-align: center;
+      margin: 50/@rem auto 60/@rem;
+    }
+  }
+  .foot {
+    flex: 1;
+    text-align: center;
+    font-size: 24/@rem;
+    color: rgb(102, 102, 102);
+    position: relative;
+    .telBox {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+    .icon {
+      width: 26/@rem;
+      height: 26/@rem;
+      display: inline-block;
+      vertical-align: top;
+      background: url('../../img/tel.png') no-repeat;
+      background-size: 100% 100%;
+      margin-top: 5/@rem;
+    }
+  }
+  .goods_info_shadow {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(51, 51, 51, 0.7);
+  }
+  .goods_info_box {
+    width: 70%;
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 10/@rem;
+    font-size: 36/@rem;
+    text-align: center;
+    .remind {
+      width: 460/@rem;
+      margin: 50/@rem auto 0;
+      font-size: 32/@rem;
+      color: #333;
+      text-align: center;
+    }
+    .remind2 {
+      width: 460/@rem;
+      margin: 50/@rem auto;
+      font-size: 32/@rem;
+      color: #333;
+      text-align: center;
+    }
+    .btn {
+      height: 90/@rem;
+      line-height: 90/@rem;
+      text-align: center;
+      font-size: 32/@rem;
+      color: #00a0e9;
+      border-top: 1/@rem #ddd solid;
+      margin-top: 30/@rem;
+      &.nocolor {
+        color: #666;
+        margin-top: 0;
+        margin-bottom: 10/@rem
+      }
+      &.nocolor2 {
+        color: #00a0e9;
+        margin-top: 0;
+        margin-bottom: 10/@rem
+      }
+    }
+  }
+}
