@@ -94,6 +94,7 @@
   export default {
     data() {
       return {
+        clickCount:0,
         datetime5: '2018-01-11 上午',
         time:'请选择上门回收时间',
         show: false,
@@ -212,6 +213,12 @@
         }
       },
       completeAnOrder(status) {
+        this.clickCount++;
+        if(this.clikCount==0){
+          this.clickCount++;
+        }else{
+          return;
+        }
         if (status) {
           this.IsCash = status
         }
