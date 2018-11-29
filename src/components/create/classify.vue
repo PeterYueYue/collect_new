@@ -82,7 +82,7 @@
                 <div  class="btn"></div>
               </div>
             </div>
-            <div class="classify_title"><i></i>上门回收服务 <br/><span>（由于价值较低，暂无回收价格，请回收小哥带走，可增加绿色环保积分）</span></div>
+            <div class="classify_title"><i></i>上门回收服务 <br/><span>（由于价值较低，打包给回收小哥带走，获得双倍绿色能量）</span></div>
             <div class="classify_item" v-for="  (item,index) in noPriceList" :key="item.ids">
               <img id="shopImg" :src="item.icon?item.icon:''" alt="">
               <!-- <img  :src="item.icon?item.icon:''" alt=""> -->

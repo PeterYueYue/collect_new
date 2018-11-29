@@ -12,7 +12,6 @@ import {Slider, SliderItem} from 'vue-ydui/dist/lib.rem/slider';
 
 import 'vant/lib/vant-css/index.css';
 import 'vue-ydui/dist/ydui.base.css';
-
 Vue.use(Vuex);
 Vue.use(VueScroller);
 Vue.prototype.qs = qs;

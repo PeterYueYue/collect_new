@@ -80,9 +80,8 @@
       <div class="title">回收小贴士</div>
       <div class="remind">回收规则升级啦！您还可以将回收物送给辛苦上门的废品大叔，按回收物公斤重量换取绿色环保能量，在积分商城兑换您的权益。</div>
       <div class="btn nocolor" @click="completeAnOrder('0')">我要卖钱</div>
-      <div class="btn" @click="completeAnOrder('1')">一起带走，换取积分</div>
+      <div class="btn" @click="completeAnOrder('1')">请回收小哥打包带走，获双倍能量</div>
     </div>
-
   </div>
 </template>
 <script>
